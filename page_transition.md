@@ -1,5 +1,7 @@
 ### 画面遷移図
 Figma：https://www.figma.com/design/LES6SYlGfTkxEY5R1OR3Cm/portfolio?node-id=0-1&t=eCxmWRTdZej8mujb-1
+プロトタイプ（ユーザー画面）：https://www.figma.com/proto/LES6SYlGfTkxEY5R1OR3Cm/portfolio?node-id=0-1&t=fgY8GLt5A9kYHdLg-1
+プロトタイプ（管理者画面）：https://www.figma.com/proto/LES6SYlGfTkxEY5R1OR3Cm/portfolio?node-id=152-48&t=fgY8GLt5A9kYHdLg-1
 
 ### READMEに記載した機能
 - [x] ユーザー登録機能
