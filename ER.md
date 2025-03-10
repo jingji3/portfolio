@@ -1,8 +1,8 @@
 ### ER図
 （ER図のスクリーンショットの画像）
-![](img/MVP_ER_2025-03-09.png)
+![](/img/MVP_ER_2025-03-10.png)
 
-GyazoURL: https://gyazo.com/c748c702590ed0c13047786f1c3d5a71
+GyazoURL: https://gyazo.com/7a5f9ff5b7576875ed56c5a597e15300
 
 ### 本サービスの概要（700文字以内）
 ●概要
