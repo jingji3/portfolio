@@ -15,7 +15,6 @@ gem "pg", "~> 1.5"
 gem "puma"
 
 # JavaScript関連
-gem "importmap-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
 
@@ -24,21 +23,23 @@ gem "jbuilder"
 # アセット
 gem 'jsbundling-rails'
 
+# CSS関連
+gem 'tailwindcss-rails'
+gem 'cssbundling-rails'
+
 # ファイルアップロード
 gem 'aws-sdk-s3', require: false
 
 # キャッシュストア
 gem 'redis', '~> 5.0'
 
-# CSS関連
-gem 'tailwindcss-rails'
 
 # 認証
 # gem 'devise'
 
 # configuration
 gem 'config'
-gem 'dotenv-rails', require: 'dotenv/rails-now'
+gem 'dotenv-rails', require: 'dotenv/load'
 
 
 gem "tzinfo-data", platforms: %i[ jruby ]

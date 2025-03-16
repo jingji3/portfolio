@@ -1,6 +1,7 @@
 services:
   web:
     build: .
+    command: bash -c "bin/rails db:prepare && rm -f tmp/pids/server.pid && bin/rails server -b 0.0.0.0"
     ports:
       - "3000:3000"
     volumes:
@@ -11,6 +12,14 @@ services:
     environment:
       DATABASE_URL: postgres://postgres:password@db:5432/app_development
       REDIS_URL: redis://redis:6379/1
+
+  css:
+    build: .
+    command: bash -c "yarn install && yarn run build:css"
+    volumes:
+      - .:/jingji_portfolio
+    depends_on:
+      - web
 
   db:
     image: postgres
