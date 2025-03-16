@@ -3,8 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.2.2'
 
-# Rails本体
-gem "rails", "7.1.3.4"
+# Rails
+gem "rails", "~> 7.1.2"
+gem 'logger', '~> 1.5'
 
 gem "propshaft"
 
@@ -60,8 +61,6 @@ gem 'net-imap'
 
 gem 'uri'
 gem 'digest'
-
-gem 'logger', '~> 1.5'
 
 group :development, :test do
 
