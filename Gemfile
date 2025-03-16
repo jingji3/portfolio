@@ -61,6 +61,8 @@ gem 'net-imap'
 gem 'uri'
 gem 'digest'
 
+gem 'logger', '~> 1.5'
+
 group :development, :test do
 
   # Code Analyze
