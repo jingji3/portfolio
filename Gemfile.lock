@@ -468,6 +468,7 @@ DEPENDENCIES
   jsbundling-rails
   kamal
   listen
+  logger (~> 1.5)
   net-imap
   net-pop
   net-protocol
