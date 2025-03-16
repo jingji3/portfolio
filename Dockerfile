@@ -1,4 +1,4 @@
-FROM ruby:3.3.3
+FROM ruby:3.3.0
 
 # Rails app lives here
 WORKDIR /jingji_portfolio
