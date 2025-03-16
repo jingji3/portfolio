@@ -55,6 +55,11 @@ gem "thruster", require: false
 
 gem 'net-protocol'
 gem 'net-pop'
+gem 'net-smtp'
+gem 'net-imap'
+
+gem 'uri'
+gem 'digest'
 
 group :development, :test do
 
