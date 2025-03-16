@@ -126,6 +126,7 @@ GEM
     date (3.4.1)
     deep_merge (1.2.2)
     diff-lcs (1.6.0)
+    digest (3.2.0)
     dotenv (3.1.7)
     dotenv-rails (3.1.7)
       dotenv (= 3.1.7)
@@ -421,6 +422,7 @@ GEM
     unicode-display_width (3.1.4)
       unicode-emoji (~> 4.0, >= 4.0.4)
     unicode-emoji (4.0.4)
+    uri (1.0.3)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -457,6 +459,7 @@ DEPENDENCIES
   capybara
   config
   cssbundling-rails
+  digest
   dotenv-rails
   factory_bot_rails
   faker
@@ -464,8 +467,10 @@ DEPENDENCIES
   jsbundling-rails
   kamal
   listen
+  net-imap
   net-pop
   net-protocol
+  net-smtp
   pg (~> 1.5)
   propshaft
   puma
@@ -486,6 +491,7 @@ DEPENDENCIES
   thruster
   turbo-rails
   tzinfo-data
+  uri
   web-console
   webdrivers
 
