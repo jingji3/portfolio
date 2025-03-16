@@ -53,6 +53,8 @@ gem "bootsnap", require: false
 gem "kamal", require: false
 gem "thruster", require: false
 
+gem 'net-protocol'
+gem 'net-pop'
 
 group :development, :test do
 
