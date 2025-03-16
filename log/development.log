@@ -1207,3 +1207,36 @@ Processing by TopController#index as HTML
 Completed 200 OK in 172ms (Views: 45.8ms | ActiveRecord: 0.0ms | Allocations: 16683)
 
 
+Started GET "/" for 172.18.0.1 at 2025-03-16 20:01:16 +0900
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 38)
+  Rendered layout layouts/application.html.erb (Duration: 70.8ms | Allocations: 476)
+Completed 200 OK in 159ms (Views: 88.3ms | ActiveRecord: 0.0ms | Allocations: 791)
+
+
+  [1m[35m (163.9ms)[0m  [1m[35mCREATE DATABASE "app_development" ENCODING = 'unicode' /*application:JingjiPortfolio*/[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql" /*application:JingjiPortfolio*/[0m
+  [1m[35m (10.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY) /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (0) /*application:JingjiPortfolio*/[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-03-16 11:55:26.644765', '2025-03-16 11:55:26.644810') RETURNING "key" /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'schema_sha1' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '34f0d9df3e6593e2828215d39b5de559fd82053b', '2025-03-16 11:55:26.654480', '2025-03-16 11:55:26.654483') RETURNING "key" /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Started GET "/" for 172.18.0.1 at 2025-03-16 20:55:45 +0900
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (3.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 237)
+  Rendered layout layouts/application.html.erb (Duration: 31.6ms | Allocations: 7543)
+Completed 200 OK in 177ms (Views: 57.2ms | ActiveRecord: 0.0ms | Allocations: 15246)
+
+
