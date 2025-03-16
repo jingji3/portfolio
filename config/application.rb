@@ -14,6 +14,14 @@ module JingjiPortfolio
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w[assets tasks])
 
+    # ActiveRecordの設定を追加
+    config.to_prepare do
+      ActiveRecord::Base.singleton_class.class_eval do
+        def attributes_for_inspect=(val)
+          # 空の実装
+        end
+      end
+    end
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
