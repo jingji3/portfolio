@@ -5,7 +5,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - .:/jingji_portfolio
+      - .:/app
     depends_on:
       - db
       - redis
@@ -17,7 +17,7 @@ services:
     build: .
     command: bash -c "yarn install && yarn run build:css"
     volumes:
-      - .:/jingji_portfolio
+      - .:/app
     depends_on:
       - web
 
