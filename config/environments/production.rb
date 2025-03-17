@@ -68,6 +68,9 @@ Rails.application.configure do
   #   port: 587,
   #   authentication: :plain
   # }
+  # コンパイル失敗時にエラーを発生させない
+  config.assets.compile = true
+  config.assets.debug = true
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
