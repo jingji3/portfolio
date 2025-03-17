@@ -1,10 +1,10 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.3.0'
+ruby '3.3.3'
 
 # Rails
-gem 'rails', '7.1.2'
+gem 'rails', '7.1.3.4'
 gem "logger", "~> 1.5"
 
 gem "propshaft"
@@ -61,6 +61,8 @@ gem 'net-imap'
 
 gem 'uri'
 gem 'digest'
+
+gem 'concurrent-ruby', '1.3.4'
 
 group :development, :test do
 
