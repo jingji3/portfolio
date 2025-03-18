@@ -7,8 +7,6 @@ bundle install
 # Check for yarn.lock and perform JS/CSS builds if present
 if [ -f yarn.lock ]; then
   yarn install
-  # DaisyUIを確実にインストール
-  yarn add daisyui
   # JavaScriptのビルド
   yarn build
   # CSSのビルド（watchモードなし）

@@ -15,7 +15,7 @@ services:
 
   css:
     build: .
-    command: bash -c "yarn install && yarn add daisyui && npx tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css"
+    command: bash -c "yarn install && yarn run build:css"
     volumes:
       - .:/app
     depends_on:
