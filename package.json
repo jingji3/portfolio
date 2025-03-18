@@ -14,7 +14,7 @@
   },
   "scripts": {
     "tailwindcss": "tailwindcss",
-    "build:css": "npx tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --watch",
+    "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css",
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets --external:@hotwired/stimulus-loading"
   }
 }

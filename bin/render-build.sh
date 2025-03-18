@@ -7,8 +7,12 @@ bundle install
 # Check for yarn.lock and perform JS/CSS builds if present
 if [ -f yarn.lock ]; then
   yarn install
+  # DaisyUIを確実にインストール
+  yarn add daisyui
+  # JavaScriptのビルド
   yarn build
-  yarn build:css
+  # CSSのビルド（watchモードなし）
+  npx tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css
 fi
 
 # Precompile assets
