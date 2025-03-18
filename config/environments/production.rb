@@ -68,6 +68,8 @@ Rails.application.configure do
   #   port: 587,
   #   authentication: :plain
   # }
+  # propshaftを使用していることを確認
+  config.assets.use_propshaft = true
   # コンパイル失敗時にエラーを発生させない
   config.assets.compile = true
   config.assets.debug = true
