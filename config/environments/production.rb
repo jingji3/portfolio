@@ -82,7 +82,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # アクティブストレージの設定
-  config.active_storage.service = :local
+  config.active_storage.service = :amazon
 
   # Only use :id for inspections in production.
   #config.active_record.attributes_for_inspect = [ :id ]

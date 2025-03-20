@@ -42,6 +42,9 @@ Rails.application.configure do
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 
+  # アクティブストレージの設定
+  config.active_storage.service = :test
+
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 
