@@ -213,3 +213,1857 @@ Processing by TopController#index as HTML
 Completed 200 OK in 109ms (Views: 22.8ms | ActiveRecord: 0.0ms | Allocations: 11742)
 
 
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Started GET "/" for 172.20.0.1 at 2025-03-21 07:15:42 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 225)
+  Rendered shared/_header.html.erb (Duration: 0.6ms | Allocations: 147)
+  Rendered shared/_footer.html.erb (Duration: 0.6ms | Allocations: 183)
+  Rendered layout layouts/application.html.erb (Duration: 37.9ms | Allocations: 8214)
+Completed 200 OK in 145ms (Views: 46.9ms | ActiveRecord: 0.0ms | Allocations: 12392)
+
+
+Started GET "/assets/application-2ebdebfb.css" for 172.20.0.1 at 2025-03-21 07:15:43 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Started GET "/" for 172.20.0.1 at 2025-03-21 07:19:56 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 225)
+  Rendered shared/_header.html.erb (Duration: 1.2ms | Allocations: 147)
+  Rendered shared/_footer.html.erb (Duration: 0.6ms | Allocations: 183)
+  Rendered layout layouts/application.html.erb (Duration: 22.5ms | Allocations: 8216)
+Completed 200 OK in 131ms (Views: 34.3ms | ActiveRecord: 0.0ms | Allocations: 12396)
+
+
+Started GET "/assets/application-51422095.css" for 172.20.0.1 at 2025-03-21 07:19:56 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/" for 172.20.0.1 at 2025-03-21 07:31:22 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 114)
+  Rendered shared/_header.html.erb (Duration: 0.6ms | Allocations: 125)
+  Rendered shared/_footer.html.erb (Duration: 1.0ms | Allocations: 176)
+  Rendered layout layouts/application.html.erb (Duration: 23.4ms | Allocations: 1477)
+Completed 200 OK in 76ms (Views: 30.7ms | ActiveRecord: 0.0ms | Allocations: 7656)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-21 07:31:48 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 114)
+  Rendered shared/_header.html.erb (Duration: 0.3ms | Allocations: 136)
+  Rendered shared/_footer.html.erb (Duration: 0.6ms | Allocations: 176)
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 1412)
+Completed 200 OK in 48ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 2359)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-21 07:32:07 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 114)
+  Rendered shared/_header.html.erb (Duration: 0.4ms | Allocations: 135)
+  Rendered shared/_footer.html.erb (Duration: 1.2ms | Allocations: 176)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 1411)
+Completed 200 OK in 51ms (Views: 11.8ms | ActiveRecord: 0.0ms | Allocations: 2358)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-21 07:34:34 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 118)
+  Rendered shared/_header.html.erb (Duration: 0.8ms | Allocations: 135)
+  Rendered shared/_footer.html.erb (Duration: 0.7ms | Allocations: 176)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 1417)
+Completed 200 OK in 47ms (Views: 11.6ms | ActiveRecord: 0.0ms | Allocations: 2372)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-21 07:48:54 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 109)
+  Rendered shared/_header.html.erb (Duration: 1.1ms | Allocations: 134)
+  Rendered shared/_footer.html.erb (Duration: 1.5ms | Allocations: 176)
+  Rendered layout layouts/application.html.erb (Duration: 31.7ms | Allocations: 1405)
+Completed 200 OK in 99ms (Views: 37.1ms | ActiveRecord: 0.0ms | Allocations: 2352)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Started GET "/" for 172.20.0.1 at 2025-03-21 08:25:27 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (6.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 215)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.3ms | Allocations: 135)
+  Rendered shared/_header.html.erb (Duration: 2.2ms | Allocations: 427)
+  Rendered shared/_footer.html.erb (Duration: 2.1ms | Allocations: 183)
+  Rendered layout layouts/application.html.erb (Duration: 33.8ms | Allocations: 8482)
+Completed 200 OK in 171ms (Views: 41.1ms | ActiveRecord: 0.0ms | Allocations: 12659)
+
+
+Started GET "/assets/application-5e7b0abb.css" for 172.20.0.1 at 2025-03-21 08:25:28 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/" for 172.20.0.1 at 2025-03-21 08:26:44 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 108)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.4ms | Allocations: 119)
+  Rendered shared/_header.html.erb (Duration: 1.9ms | Allocations: 394)
+  Rendered shared/_footer.html.erb (Duration: 1.2ms | Allocations: 176)
+  Rendered layout layouts/application.html.erb (Duration: 15.3ms | Allocations: 1664)
+Completed 200 OK in 59ms (Views: 18.4ms | ActiveRecord: 0.0ms | Allocations: 2617)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-21 08:26:57 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 108)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.3ms | Allocations: 120)
+  Rendered shared/_header.html.erb (Duration: 1.0ms | Allocations: 395)
+  Rendered shared/_footer.html.erb (Duration: 0.4ms | Allocations: 176)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 1665)
+Completed 200 OK in 51ms (Views: 12.0ms | ActiveRecord: 0.0ms | Allocations: 2612)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-21 08:31:16 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 108)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.6ms | Allocations: 120)
+  Rendered shared/_header.html.erb (Duration: 2.0ms | Allocations: 395)
+  Rendered layout layouts/application.html.erb (Duration: 34.1ms | Allocations: 3323)
+Completed 500 Internal Server Error in 82ms (ActiveRecord: 0.0ms | Allocations: 4282)
+
+
+  
+ActionView::Template::Error (The asset 'theme_switcher.js' was not found in the load path.):
+    24: 
+    25:   <body>
+    26:     <%= render 'shared/header' %>
+    27:     <%= javascript_include_tag "theme_switcher" %>
+    28:     <%= yield %>
+    29:     <%= render 'shared/footer' %>
+    30:   </body>
+  
+app/views/layouts/application.html.erb:27
+Started GET "/favicon.ico" for 172.20.0.1 at 2025-03-21 08:31:17 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/" for 172.20.0.1 at 2025-03-21 08:35:38 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 108)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.6ms | Allocations: 120)
+  Rendered shared/_header.html.erb (Duration: 2.6ms | Allocations: 395)
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | Allocations: 2300)
+Completed 500 Internal Server Error in 78ms (ActiveRecord: 0.0ms | Allocations: 3241)
+
+
+  
+ActionView::Template::Error (The asset 'theme_switcher.js' was not found in the load path.):
+    25:   <body>
+    26:     <%= render 'shared/header' %>
+    27:     <%= yield %>
+    28:     <%= javascript_include_tag "theme_switcher" %>
+    29:     <%= render 'shared/footer' %>
+    30:   </body>
+    31: </html>
+  
+app/views/layouts/application.html.erb:28
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Started GET "/" for 172.20.0.1 at 2025-03-21 08:36:37 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 215)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.3ms | Allocations: 135)
+  Rendered shared/_header.html.erb (Duration: 2.5ms | Allocations: 427)
+  Rendered layout layouts/application.html.erb (Duration: 23.2ms | Allocations: 9458)
+Completed 500 Internal Server Error in 133ms (ActiveRecord: 0.0ms | Allocations: 13609)
+
+
+  
+ActionView::Template::Error (The asset 'theme_switcher.js' was not found in the load path.):
+    25:   <body>
+    26:     <%= render 'shared/header' %>
+    27:     <%= yield %>
+    28:     <%= javascript_include_tag "theme_switcher" %>
+    29:     <%= render 'shared/footer' %>
+    30:   </body>
+    31: </html>
+  
+app/views/layouts/application.html.erb:28
+Started GET "/" for 172.20.0.1 at 2025-03-21 08:36:57 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 108)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.7ms | Allocations: 120)
+  Rendered shared/_header.html.erb (Duration: 2.1ms | Allocations: 395)
+  Rendered shared/_footer.html.erb (Duration: 1.7ms | Allocations: 183)
+  Rendered layout layouts/application.html.erb (Duration: 19.7ms | Allocations: 1675)
+Completed 200 OK in 65ms (Views: 22.5ms | ActiveRecord: 0.0ms | Allocations: 2662)
+
+
+Started GET "/assets/application-4a00f0cb.css" for 172.20.0.1 at 2025-03-21 08:36:58 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/" for 172.20.0.1 at 2025-03-21 08:47:27 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 108)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.3ms | Allocations: 120)
+  Rendered shared/_header.html.erb (Duration: 1.5ms | Allocations: 395)
+  Rendered layout layouts/application.html.erb (Duration: 17.3ms | Allocations: 2307)
+Completed 500 Internal Server Error in 58ms (ActiveRecord: 0.0ms | Allocations: 3249)
+
+
+  
+ActionView::Template::Error (The asset 'theme_switcher.js' was not found in the load path.):
+    25:   <body>
+    26:     <%= render 'shared/header' %>
+    27:     <%= yield %>
+    28:     <%= javascript_include_tag "theme_switcher", "data-turbo-track": "reload", type: "module" %>
+    29:     <%= render 'shared/footer' %>
+    30:   </body>
+    31: </html>
+  
+app/views/layouts/application.html.erb:28
+Started GET "/" for 172.20.0.1 at 2025-03-21 08:48:15 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 38)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.7ms | Allocations: 41)
+  Rendered shared/_header.html.erb (Duration: 2.5ms | Allocations: 141)
+  Rendered layout layouts/application.html.erb (Duration: 21.4ms | Allocations: 1630)
+Completed 500 Internal Server Error in 76ms (ActiveRecord: 0.0ms | Allocations: 1940)
+
+
+  
+ActionView::Template::Error (The asset 'theme_switcher.js' was not found in the load path.):
+    25:   <body>
+    26:     <%= render 'shared/header' %>
+    27:     <%= yield %>
+    28:     <%= javascript_include_tag "theme_switcher", "data-turbo-track": "reload", type: "module" %>
+    29:     <%= render 'shared/footer' %>
+    30:   </body>
+    31: </html>
+  
+app/views/layouts/application.html.erb:28
+Started GET "/" for 172.20.0.1 at 2025-03-21 08:52:25 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 38)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.4ms | Allocations: 41)
+  Rendered shared/_header.html.erb (Duration: 5.9ms | Allocations: 141)
+  Rendered shared/_footer.html.erb (Duration: 16.4ms | Allocations: 181)
+  Rendered layout layouts/application.html.erb (Duration: 54.3ms | Allocations: 1122)
+Completed 200 OK in 124ms (Views: 59.1ms | ActiveRecord: 0.0ms | Allocations: 6953)
+
+
+Started GET "/assets/theme_switcher-0720829e.js" for 172.20.0.1 at 2025-03-21 08:52:25 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/" for 172.20.0.1 at 2025-03-21 09:46:52 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 38)
+  Rendered shared/_theme_toggle.html.erb (Duration: 4.8ms | Allocations: 41)
+  Rendered shared/_header.html.erb (Duration: 18.7ms | Allocations: 141)
+  Rendered shared/_footer.html.erb (Duration: 2.0ms | Allocations: 43)
+  Rendered layout layouts/application.html.erb (Duration: 102.1ms | Allocations: 803)
+Completed 200 OK in 186ms (Views: 118.1ms | ActiveRecord: 0.0ms | Allocations: 1119)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-21 09:47:11 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 38)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.1ms | Allocations: 41)
+  Rendered shared/_header.html.erb (Duration: 0.7ms | Allocations: 141)
+  Rendered shared/_footer.html.erb (Duration: 0.2ms | Allocations: 43)
+  Rendered layout layouts/application.html.erb (Duration: 36.4ms | Allocations: 917)
+Completed 200 OK in 257ms (Views: 40.6ms | ActiveRecord: 0.0ms | Allocations: 6735)
+
+
+Started GET "/assets/theme_switcher-ac951536.js" for 172.20.0.1 at 2025-03-21 09:47:12 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Started GET "/" for 172.20.0.1 at 2025-03-21 09:48:32 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Processing by TopController#index as HTML
+Started GET "/" for 172.20.0.1 at 2025-03-21 09:48:32 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 214)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.4ms | Allocations: 135)
+  Rendered shared/_header.html.erb (Duration: 1.9ms | Allocations: 427)
+  Rendered shared/_footer.html.erb (Duration: 0.5ms | Allocations: 183)
+  Rendered layout layouts/application.html.erb (Duration: 23.9ms | Allocations: 8871)
+Completed 200 OK in 171ms (Views: 30.4ms | ActiveRecord: 0.0ms | Allocations: 15154)
+
+
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 38)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.0ms | Allocations: 41)
+  Rendered shared/_header.html.erb (Duration: 0.2ms | Allocations: 141)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 803)
+Completed 200 OK in 150ms (Views: 1.7ms | ActiveRecord: 0.0ms | Allocations: 14546)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-21 09:49:17 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 110)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.3ms | Allocations: 119)
+  Rendered shared/_header.html.erb (Duration: 1.1ms | Allocations: 395)
+  Rendered shared/_footer.html.erb (Duration: 0.8ms | Allocations: 176)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 1736)
+Completed 200 OK in 58ms (Views: 10.7ms | ActiveRecord: 0.0ms | Allocations: 2695)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-21 09:50:06 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 108)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.4ms | Allocations: 118)
+  Rendered shared/_header.html.erb (Duration: 1.4ms | Allocations: 394)
+  Rendered shared/_footer.html.erb (Duration: 0.9ms | Allocations: 176)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 1732)
+Completed 200 OK in 48ms (Views: 13.5ms | ActiveRecord: 0.0ms | Allocations: 2686)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-21 09:55:19 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 108)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.6ms | Allocations: 118)
+  Rendered shared/_header.html.erb (Duration: 2.0ms | Allocations: 393)
+  Rendered shared/_footer.html.erb (Duration: 1.5ms | Allocations: 153)
+  Rendered layout layouts/application.html.erb (Duration: 37.4ms | Allocations: 1708)
+Completed 200 OK in 94ms (Views: 45.8ms | ActiveRecord: 0.0ms | Allocations: 2658)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-21 10:03:51 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 108)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.4ms | Allocations: 118)
+  Rendered shared/_header.html.erb (Duration: 1.6ms | Allocations: 393)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 152)
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 1707)
+Completed 200 OK in 71ms (Views: 24.8ms | ActiveRecord: 0.0ms | Allocations: 2657)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-21 10:07:09 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 112)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.6ms | Allocations: 119)
+  Rendered shared/_header.html.erb (Duration: 2.9ms | Allocations: 397)
+  Rendered shared/_footer.html.erb (Duration: 0.8ms | Allocations: 175)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 1740)
+Completed 200 OK in 56ms (Views: 11.4ms | ActiveRecord: 0.0ms | Allocations: 2696)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-21 10:09:51 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 5.6ms | Allocations: 108)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.4ms | Allocations: 118)
+  Rendered shared/_header.html.erb (Duration: 2.4ms | Allocations: 393)
+  Rendered shared/_footer.html.erb (Duration: 1.1ms | Allocations: 173)
+  Rendered layout layouts/application.html.erb (Duration: 34.9ms | Allocations: 1728)
+Completed 200 OK in 129ms (Views: 44.6ms | ActiveRecord: 0.0ms | Allocations: 2679)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-21 10:11:02 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 108)
+  Rendered shared/_theme_toggle.html.erb (Duration: 1.2ms | Allocations: 118)
+  Rendered shared/_header.html.erb (Duration: 2.9ms | Allocations: 393)
+  Rendered shared/_footer.html.erb (Duration: 0.8ms | Allocations: 172)
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 1727)
+Completed 200 OK in 59ms (Views: 18.9ms | ActiveRecord: 0.0ms | Allocations: 2680)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-21 10:12:08 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 110)
+  Rendered shared/_theme_toggle.html.erb (Duration: 1.3ms | Allocations: 119)
+  Rendered shared/_header.html.erb (Duration: 5.4ms | Allocations: 396)
+  Rendered shared/_footer.html.erb (Duration: 1.4ms | Allocations: 174)
+  Rendered layout layouts/application.html.erb (Duration: 20.7ms | Allocations: 1735)
+Completed 200 OK in 78ms (Views: 28.4ms | ActiveRecord: 0.0ms | Allocations: 2691)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-21 10:16:59 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 108)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.3ms | Allocations: 119)
+  Rendered shared/_header.html.erb (Duration: 2.0ms | Allocations: 394)
+  Rendered shared/_footer.html.erb (Duration: 1.0ms | Allocations: 173)
+  Rendered layout layouts/application.html.erb (Duration: 14.4ms | Allocations: 1729)
+Completed 200 OK in 69ms (Views: 19.7ms | ActiveRecord: 0.0ms | Allocations: 2683)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-21 10:17:36 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 108)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.4ms | Allocations: 118)
+  Rendered shared/_header.html.erb (Duration: 2.0ms | Allocations: 393)
+  Rendered shared/_footer.html.erb (Duration: 9.7ms | Allocations: 173)
+  Rendered layout layouts/application.html.erb (Duration: 22.8ms | Allocations: 1728)
+Completed 200 OK in 72ms (Views: 25.9ms | ActiveRecord: 0.0ms | Allocations: 2679)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-21 10:26:09 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 6.3ms | Allocations: 38)
+  Rendered shared/_theme_toggle.html.erb (Duration: 2.3ms | Allocations: 41)
+  Rendered shared/_header.html.erb (Duration: 5.8ms | Allocations: 141)
+  Rendered shared/_footer.html.erb (Duration: 2.7ms | Allocations: 43)
+  Rendered layout layouts/application.html.erb (Duration: 142.1ms | Allocations: 803)
+Completed 200 OK in 288ms (Views: 192.8ms | ActiveRecord: 0.0ms | Allocations: 1118)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Started GET "/" for 172.20.0.1 at 2025-03-22 11:15:55 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 215)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.2ms | Allocations: 129)
+  Rendered shared/_header.html.erb (Duration: 1.0ms | Allocations: 420)
+  Rendered shared/_footer.html.erb (Duration: 0.4ms | Allocations: 183)
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 7844)
+Completed 200 OK in 100ms (Views: 14.8ms | ActiveRecord: 0.0ms | Allocations: 12027)
+
+
+Started GET "/assets/application-5f0e419f.css" for 172.20.0.1 at 2025-03-22 11:15:55 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/assets/theme_switcher-0720829e.js" for 172.20.0.1 at 2025-03-22 11:15:55 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/" for 172.20.0.1 at 2025-03-22 11:17:08 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 108)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.2ms | Allocations: 118)
+  Rendered shared/_header.html.erb (Duration: 1.1ms | Allocations: 393)
+  Rendered shared/_footer.html.erb (Duration: 0.5ms | Allocations: 173)
+  Rendered layout layouts/application.html.erb (Duration: 17.1ms | Allocations: 2628)
+Completed 200 OK in 59ms (Views: 19.3ms | ActiveRecord: 0.0ms | Allocations: 3584)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-22 11:17:46 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 108)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.3ms | Allocations: 118)
+  Rendered shared/_header.html.erb (Duration: 1.0ms | Allocations: 393)
+  Rendered shared/_footer.html.erb (Duration: 2.0ms | Allocations: 173)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 1728)
+Completed 200 OK in 45ms (Views: 9.6ms | ActiveRecord: 0.0ms | Allocations: 2681)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-22 11:18:12 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 108)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.3ms | Allocations: 118)
+  Rendered shared/_header.html.erb (Duration: 1.2ms | Allocations: 393)
+  Rendered shared/_footer.html.erb (Duration: 0.7ms | Allocations: 173)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 1728)
+Completed 200 OK in 57ms (Views: 9.0ms | ActiveRecord: 0.0ms | Allocations: 2678)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-22 11:19:54 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 112)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.2ms | Allocations: 118)
+  Rendered shared/_header.html.erb (Duration: 0.8ms | Allocations: 395)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 172)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 1735)
+Completed 200 OK in 40ms (Views: 6.6ms | ActiveRecord: 0.0ms | Allocations: 2691)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-22 11:26:09 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 108)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.3ms | Allocations: 118)
+  Rendered shared/_header.html.erb (Duration: 1.4ms | Allocations: 393)
+  Rendered shared/_footer.html.erb (Duration: 0.4ms | Allocations: 173)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 1728)
+Completed 200 OK in 42ms (Views: 7.9ms | ActiveRecord: 0.0ms | Allocations: 2682)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-22 11:26:21 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 108)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.3ms | Allocations: 118)
+  Rendered shared/_header.html.erb (Duration: 1.2ms | Allocations: 393)
+  Rendered shared/_footer.html.erb (Duration: 1.8ms | Allocations: 172)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 1727)
+Completed 200 OK in 45ms (Views: 8.6ms | ActiveRecord: 0.0ms | Allocations: 2678)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-22 11:27:30 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 108)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.3ms | Allocations: 118)
+  Rendered shared/_header.html.erb (Duration: 1.1ms | Allocations: 393)
+  Rendered shared/_footer.html.erb (Duration: 0.4ms | Allocations: 136)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 1691)
+Completed 200 OK in 40ms (Views: 7.8ms | ActiveRecord: 0.0ms | Allocations: 2641)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-22 11:29:12 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 112)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.3ms | Allocations: 118)
+  Rendered shared/_header.html.erb (Duration: 1.6ms | Allocations: 393)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 136)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 1695)
+Completed 200 OK in 45ms (Views: 7.7ms | ActiveRecord: 0.0ms | Allocations: 2649)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-22 11:29:35 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 108)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.3ms | Allocations: 118)
+  Rendered shared/_header.html.erb (Duration: 1.1ms | Allocations: 393)
+  Rendered shared/_footer.html.erb (Duration: 0.4ms | Allocations: 135)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 1690)
+Completed 200 OK in 40ms (Views: 7.1ms | ActiveRecord: 0.0ms | Allocations: 2640)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-22 11:29:56 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 108)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.7ms | Allocations: 118)
+  Rendered shared/_header.html.erb (Duration: 1.5ms | Allocations: 393)
+  Rendered shared/_footer.html.erb (Duration: 0.4ms | Allocations: 136)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 1691)
+Completed 200 OK in 51ms (Views: 12.1ms | ActiveRecord: 0.0ms | Allocations: 2641)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-22 11:30:09 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 110)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.3ms | Allocations: 118)
+  Rendered shared/_header.html.erb (Duration: 1.0ms | Allocations: 394)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 135)
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 1694)
+Completed 200 OK in 39ms (Views: 6.7ms | ActiveRecord: 0.0ms | Allocations: 2650)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-22 11:30:28 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 108)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.3ms | Allocations: 118)
+  Rendered shared/_header.html.erb (Duration: 1.1ms | Allocations: 394)
+  Rendered shared/_footer.html.erb (Duration: 0.5ms | Allocations: 135)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 1691)
+Completed 200 OK in 44ms (Views: 7.2ms | ActiveRecord: 0.0ms | Allocations: 2646)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-22 11:31:53 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 108)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.3ms | Allocations: 118)
+  Rendered shared/_header.html.erb (Duration: 1.0ms | Allocations: 393)
+  Rendered shared/_footer.html.erb (Duration: 0.4ms | Allocations: 136)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 1691)
+Completed 200 OK in 46ms (Views: 7.3ms | ActiveRecord: 0.0ms | Allocations: 2641)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-22 11:32:11 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 108)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.3ms | Allocations: 118)
+  Rendered shared/_header.html.erb (Duration: 1.1ms | Allocations: 393)
+  Rendered shared/_footer.html.erb (Duration: 0.4ms | Allocations: 136)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 1691)
+Completed 200 OK in 42ms (Views: 7.8ms | ActiveRecord: 0.0ms | Allocations: 2641)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-22 11:32:34 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 112)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.3ms | Allocations: 118)
+  Rendered shared/_header.html.erb (Duration: 1.0ms | Allocations: 396)
+  Rendered shared/_footer.html.erb (Duration: 1.1ms | Allocations: 135)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 1699)
+Completed 200 OK in 45ms (Views: 7.4ms | ActiveRecord: 0.0ms | Allocations: 2655)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-22 11:32:40 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 108)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.3ms | Allocations: 118)
+  Rendered shared/_header.html.erb (Duration: 1.0ms | Allocations: 393)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 136)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 1691)
+Completed 200 OK in 41ms (Views: 5.0ms | ActiveRecord: 0.0ms | Allocations: 2645)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-22 11:32:50 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 108)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.3ms | Allocations: 118)
+  Rendered shared/_header.html.erb (Duration: 1.2ms | Allocations: 393)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 136)
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | Allocations: 1691)
+Completed 200 OK in 67ms (Views: 11.1ms | ActiveRecord: 0.0ms | Allocations: 2641)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-22 11:32:58 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 108)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.3ms | Allocations: 118)
+  Rendered shared/_header.html.erb (Duration: 1.1ms | Allocations: 393)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 136)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 1691)
+Completed 200 OK in 41ms (Views: 5.9ms | ActiveRecord: 0.0ms | Allocations: 2641)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-22 11:33:07 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 112)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.3ms | Allocations: 118)
+  Rendered shared/_header.html.erb (Duration: 1.2ms | Allocations: 393)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 135)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 1694)
+Completed 200 OK in 44ms (Views: 6.8ms | ActiveRecord: 0.0ms | Allocations: 2649)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-22 11:34:51 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 108)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.3ms | Allocations: 118)
+  Rendered shared/_header.html.erb (Duration: 1.1ms | Allocations: 393)
+  Rendered shared/_footer.html.erb (Duration: 0.4ms | Allocations: 136)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | Allocations: 1691)
+Completed 200 OK in 45ms (Views: 7.7ms | ActiveRecord: 0.0ms | Allocations: 2641)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-22 11:37:30 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 108)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.3ms | Allocations: 118)
+  Rendered shared/_header.html.erb (Duration: 1.0ms | Allocations: 393)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 136)
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | Allocations: 1805)
+Completed 200 OK in 49ms (Views: 10.9ms | ActiveRecord: 0.0ms | Allocations: 8261)
+
+
+Started GET "/assets/application-ab990afe.css" for 172.20.0.1 at 2025-03-22 11:37:30 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/" for 172.20.0.1 at 2025-03-22 11:37:49 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 38)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.1ms | Allocations: 41)
+  Rendered shared/_header.html.erb (Duration: 0.3ms | Allocations: 141)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 917)
+Completed 200 OK in 80ms (Views: 10.5ms | ActiveRecord: 0.0ms | Allocations: 6736)
+
+
+Started GET "/assets/application-2ce26705.css" for 172.20.0.1 at 2025-03-22 11:37:49 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/" for 172.20.0.1 at 2025-03-22 11:41:15 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 38)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.1ms | Allocations: 41)
+  Rendered shared/_header.html.erb (Duration: 0.4ms | Allocations: 141)
+  Rendered shared/_footer.html.erb (Duration: 0.4ms | Allocations: 43)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 803)
+Completed 200 OK in 57ms (Views: 6.4ms | ActiveRecord: 0.0ms | Allocations: 1118)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-22 12:00:02 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 38)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.1ms | Allocations: 41)
+  Rendered shared/_header.html.erb (Duration: 0.3ms | Allocations: 141)
+  Rendered shared/_footer.html.erb (Duration: 1.0ms | Allocations: 43)
+  Rendered layout layouts/application.html.erb (Duration: 12.2ms | Allocations: 917)
+Completed 200 OK in 70ms (Views: 13.9ms | ActiveRecord: 0.0ms | Allocations: 6735)
+
+
+Started GET "/assets/theme_switcher-ac951536.js" for 172.20.0.1 at 2025-03-22 12:00:02 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/" for 172.20.0.1 at 2025-03-22 12:03:38 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 38)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.1ms | Allocations: 41)
+  Rendered shared/_header.html.erb (Duration: 0.3ms | Allocations: 141)
+  Rendered shared/_footer.html.erb (Duration: 0.2ms | Allocations: 43)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 803)
+Completed 200 OK in 41ms (Views: 5.9ms | ActiveRecord: 0.0ms | Allocations: 1118)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-22 12:13:49 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 38)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.1ms | Allocations: 41)
+  Rendered shared/_header.html.erb (Duration: 0.4ms | Allocations: 141)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 917)
+Completed 200 OK in 55ms (Views: 11.8ms | ActiveRecord: 0.0ms | Allocations: 6734)
+
+
+Started GET "/assets/theme_switcher-892f79a7.js" for 172.20.0.1 at 2025-03-22 12:13:49 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Started GET "/" for 172.20.0.1 at 2025-03-22 12:20:53 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 215)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.2ms | Allocations: 129)
+  Rendered shared/_header.html.erb (Duration: 1.6ms | Allocations: 420)
+  Rendered shared/_footer.html.erb (Duration: 0.5ms | Allocations: 146)
+  Rendered layout layouts/application.html.erb (Duration: 14.8ms | Allocations: 8828)
+Completed 200 OK in 100ms (Views: 19.2ms | ActiveRecord: 0.0ms | Allocations: 13011)
+
+
+Started GET "/assets/application-9636d3cf.css" for 172.20.0.1 at 2025-03-22 12:20:54 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/" for 172.20.0.1 at 2025-03-22 12:23:53 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 38)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.1ms | Allocations: 41)
+  Rendered shared/_header.html.erb (Duration: 0.3ms | Allocations: 141)
+  Rendered shared/_footer.html.erb (Duration: 0.2ms | Allocations: 43)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 917)
+Completed 200 OK in 72ms (Views: 14.2ms | ActiveRecord: 0.0ms | Allocations: 6745)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Started GET "/" for 172.20.0.1 at 2025-03-22 12:34:59 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 215)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.2ms | Allocations: 129)
+  Rendered shared/_header.html.erb (Duration: 0.9ms | Allocations: 416)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 146)
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | Allocations: 8824)
+Completed 200 OK in 100ms (Views: 17.3ms | ActiveRecord: 0.0ms | Allocations: 13007)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-22 12:41:19 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 38)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.2ms | Allocations: 41)
+  Rendered shared/_header.html.erb (Duration: 0.6ms | Allocations: 145)
+  Rendered shared/_footer.html.erb (Duration: 0.2ms | Allocations: 43)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 807)
+Completed 200 OK in 49ms (Views: 11.7ms | ActiveRecord: 0.0ms | Allocations: 1129)
+
+
+Started GET "/" for 172.20.0.1 at 2025-03-22 12:42:22 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 38)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.2ms | Allocations: 41)
+  Rendered shared/_header.html.erb (Duration: 0.5ms | Allocations: 141)
+  Rendered shared/_footer.html.erb (Duration: 0.2ms | Allocations: 43)
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 917)
+Completed 200 OK in 72ms (Views: 12.6ms | ActiveRecord: 0.0ms | Allocations: 6742)
+
+
+Started GET "/assets/theme_switcher-9078ca3e.js" for 172.20.0.1 at 2025-03-22 12:42:23 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/" for 172.20.0.1 at 2025-03-22 12:43:01 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 38)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.1ms | Allocations: 41)
+  Rendered shared/_header.html.erb (Duration: 0.6ms | Allocations: 141)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 43)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 803)
+Completed 200 OK in 79ms (Views: 7.8ms | ActiveRecord: 0.0ms | Allocations: 1118)
+
+
+Writing application-d4f4af43.js.map
+Writing theme_switcher-d37c169a.js.map
+Writing application-9636d3cf.css
+Writing theme_switcher-892f79a7.js
+Writing tailwind-f979d373.css
+Writing application-45383486.js
+Writing manifest-962c042b.js
+Writing application.tailwind-bd2bb786.css
+Writing stimulus-d59b3b7f.js
+Writing stimulus-autoloader-9d447422.js
+Writing stimulus-loading-1fc53fe7.js
+Writing stimulus.min-4b1e420e.js
+Writing stimulus-importmap-autoloader-64cc03e1.js
+Writing stimulus.min-2395e199.js.map
+Writing turbo-765c2e69.js
+Writing turbo.min-1262d735.js
+Writing turbo.min-02fd5b81.js.map
+Writing trix-80a3c05d.js
+Writing actiontext-af44e7a6.js
+Writing actiontext.esm-8fb820b7.js
+Writing trix-c4e7be2d.css
+Writing actioncable-9b4052e2.js
+Writing action_cable-9a3afeb4.js
+Writing actioncable.esm-d6375855.js
+Writing activestorage.esm-1984eb8d.js
+Writing activestorage-c540a9c5.js
+Writing rails-ujs-20eaf715.js
+Writing rails-ujs.esm-e925103b.js
+Started GET "/" for 172.20.0.1 at 2025-03-22 13:08:14 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 38)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.2ms | Allocations: 41)
+  Rendered shared/_header.html.erb (Duration: 0.5ms | Allocations: 141)
+  Rendered shared/_footer.html.erb (Duration: 0.2ms | Allocations: 43)
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 917)
+Completed 200 OK in 62ms (Views: 14.8ms | ActiveRecord: 0.0ms | Allocations: 6734)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Started GET "/" for 172.20.0.1 at 2025-03-22 13:10:01 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 215)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.3ms | Allocations: 129)
+  Rendered shared/_header.html.erb (Duration: 1.3ms | Allocations: 420)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 146)
+  Rendered layout layouts/application.html.erb (Duration: 18.0ms | Allocations: 4589)
+Completed 200 OK in 127ms (Views: 27.1ms | ActiveRecord: 0.0ms | Allocations: 12220)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Started GET "/" for 172.20.0.1 at 2025-03-22 13:10:25 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 215)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.2ms | Allocations: 129)
+  Rendered shared/_header.html.erb (Duration: 0.9ms | Allocations: 416)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 146)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 3139)
+Completed 200 OK in 90ms (Views: 11.3ms | ActiveRecord: 0.0ms | Allocations: 7323)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Started GET "/" for 172.20.0.1 at 2025-03-22 13:10:47 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 215)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.3ms | Allocations: 129)
+  Rendered shared/_header.html.erb (Duration: 1.6ms | Allocations: 420)
+  Rendered shared/_footer.html.erb (Duration: 0.6ms | Allocations: 146)
+  Rendered layout layouts/application.html.erb (Duration: 16.2ms | Allocations: 3143)
+Completed 200 OK in 111ms (Views: 22.9ms | ActiveRecord: 0.0ms | Allocations: 7325)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Started GET "/" for 172.20.0.1 at 2025-03-22 13:11:32 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 215)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.2ms | Allocations: 129)
+  Rendered shared/_header.html.erb (Duration: 2.1ms | Allocations: 420)
+  Rendered shared/_footer.html.erb (Duration: 0.6ms | Allocations: 146)
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 3143)
+Completed 200 OK in 102ms (Views: 14.7ms | ActiveRecord: 0.0ms | Allocations: 7326)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Started GET "/" for 172.20.0.1 at 2025-03-22 13:12:15 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 215)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.3ms | Allocations: 129)
+  Rendered shared/_header.html.erb (Duration: 1.2ms | Allocations: 420)
+  Rendered shared/_footer.html.erb (Duration: 0.5ms | Allocations: 146)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 3143)
+Completed 200 OK in 100ms (Views: 14.5ms | ActiveRecord: 0.0ms | Allocations: 7326)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Started GET "/" for 172.20.0.1 at 2025-03-22 13:13:20 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 215)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.3ms | Allocations: 129)
+  Rendered shared/_header.html.erb (Duration: 1.0ms | Allocations: 420)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 146)
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | Allocations: 3143)
+Completed 200 OK in 103ms (Views: 12.9ms | ActiveRecord: 0.0ms | Allocations: 7330)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Started GET "/" for 172.20.0.1 at 2025-03-22 14:05:15 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 215)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.2ms | Allocations: 129)
+  Rendered shared/_header.html.erb (Duration: 1.1ms | Allocations: 420)
+  Rendered shared/_footer.html.erb (Duration: 0.7ms | Allocations: 146)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 3311)
+Completed 200 OK in 93ms (Views: 14.1ms | ActiveRecord: 0.0ms | Allocations: 7574)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Started GET "/" for 172.20.0.1 at 2025-03-22 14:09:52 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 215)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.5ms | Allocations: 129)
+  Rendered shared/_header.html.erb (Duration: 1.1ms | Allocations: 420)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 146)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 3143)
+Completed 200 OK in 97ms (Views: 12.7ms | ActiveRecord: 0.0ms | Allocations: 7328)
+
+
+Started GET "/assets/theme_switcher-76643e6d.js.map" for 172.20.0.1 at 2025-03-22 14:12:23 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/assets/theme_switcher-76643e6d.js.map" for 172.20.0.1 at 2025-03-22 14:20:15 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/" for 172.20.0.1 at 2025-03-22 14:22:19 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 38)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.2ms | Allocations: 41)
+  Rendered shared/_header.html.erb (Duration: 0.7ms | Allocations: 141)
+  Rendered shared/_footer.html.erb (Duration: 0.2ms | Allocations: 43)
+  Rendered layout layouts/application.html.erb (Duration: 14.1ms | Allocations: 764)
+Completed 200 OK in 60ms (Views: 16.0ms | ActiveRecord: 0.0ms | Allocations: 1086)
+
+
+Started GET "/assets/theme_switcher-76643e6d.js.map" for 172.20.0.1 at 2025-03-22 14:22:20 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/favicon.ico" for 172.20.0.1 at 2025-03-22 14:24:07 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/" for 172.20.0.1 at 2025-03-22 14:32:43 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 38)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.1ms | Allocations: 41)
+  Rendered shared/_header.html.erb (Duration: 0.6ms | Allocations: 141)
+  Rendered shared/_footer.html.erb (Duration: 0.2ms | Allocations: 43)
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 764)
+Completed 200 OK in 54ms (Views: 13.9ms | ActiveRecord: 0.0ms | Allocations: 1080)
+
+
+Started GET "/assets/theme_switcher-76643e6d.js.map" for 172.20.0.1 at 2025-03-22 14:32:43 +0900
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Started GET "/" for 172.18.0.1 at 2025-03-22 15:03:17 +0900
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 215)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.2ms | Allocations: 129)
+  Rendered shared/_header.html.erb (Duration: 1.2ms | Allocations: 420)
+  Rendered shared/_footer.html.erb (Duration: 0.4ms | Allocations: 146)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 3311)
+Completed 200 OK in 105ms (Views: 19.0ms | ActiveRecord: 0.0ms | Allocations: 7574)
+
+
+Started GET "/assets/theme_switcher-76643e6d.js.map" for 172.18.0.1 at 2025-03-22 15:03:17 +0900
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/" for 172.18.0.1 at 2025-03-22 15:04:15 +0900
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 38)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.2ms | Allocations: 41)
+  Rendered shared/_header.html.erb (Duration: 0.6ms | Allocations: 141)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 764)
+Completed 200 OK in 50ms (Views: 9.4ms | ActiveRecord: 0.0ms | Allocations: 1086)
+
+
+Started GET "/assets/theme_switcher-76643e6d.js.map" for 172.18.0.1 at 2025-03-22 15:04:15 +0900
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Started GET "/" for 172.18.0.1 at 2025-03-22 15:05:26 +0900
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 215)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.2ms | Allocations: 129)
+  Rendered shared/_header.html.erb (Duration: 1.3ms | Allocations: 420)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 146)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 3143)
+Completed 200 OK in 116ms (Views: 14.3ms | ActiveRecord: 0.0ms | Allocations: 7326)
+
+
+Started GET "/assets/theme_switcher-76643e6d.js.map" for 172.18.0.1 at 2025-03-22 15:05:26 +0900
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/" for 172.18.0.1 at 2025-03-22 15:07:33 +0900
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 38)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.6ms | Allocations: 41)
+  Rendered shared/_header.html.erb (Duration: 3.2ms | Allocations: 141)
+  Rendered shared/_footer.html.erb (Duration: 0.5ms | Allocations: 43)
+  Rendered layout layouts/application.html.erb (Duration: 22.0ms | Allocations: 764)
+Completed 200 OK in 78ms (Views: 24.7ms | ActiveRecord: 0.0ms | Allocations: 1086)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Started GET "/" for 172.18.0.1 at 2025-03-22 15:11:04 +0900
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 215)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.3ms | Allocations: 129)
+  Rendered shared/_header.html.erb (Duration: 1.8ms | Allocations: 420)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 146)
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 3310)
+Completed 200 OK in 103ms (Views: 19.5ms | ActiveRecord: 0.0ms | Allocations: 7577)
+
+
+Writing application-0d3dae43.js.map
+Writing theme_switcher-e8351ddc.js.map
+Writing application-9246a5c6.css
+Writing theme_switcher-3e4b15a3.js
+Writing tailwind-f979d373.css
+Writing application-0a94a00b.js
+Writing manifest-962c042b.js
+Writing application.tailwind-bd2bb786.css
+Writing stimulus-d59b3b7f.js
+Writing stimulus-autoloader-9d447422.js
+Writing stimulus-loading-1fc53fe7.js
+Writing stimulus.min-4b1e420e.js
+Writing stimulus-importmap-autoloader-64cc03e1.js
+Writing stimulus.min-2395e199.js.map
+Writing turbo-765c2e69.js
+Writing turbo.min-1262d735.js
+Writing turbo.min-02fd5b81.js.map
+Writing trix-80a3c05d.js
+Writing actiontext-af44e7a6.js
+Writing actiontext.esm-8fb820b7.js
+Writing trix-c4e7be2d.css
+Writing actioncable-9b4052e2.js
+Writing action_cable-9a3afeb4.js
+Writing actioncable.esm-d6375855.js
+Writing activestorage.esm-1984eb8d.js
+Writing activestorage-c540a9c5.js
+Writing rails-ujs-20eaf715.js
+Writing rails-ujs.esm-e925103b.js
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Started GET "/" for 172.18.0.1 at 2025-03-22 15:14:13 +0900
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 215)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.2ms | Allocations: 129)
+  Rendered shared/_header.html.erb (Duration: 0.8ms | Allocations: 420)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 146)
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 3142)
+Completed 200 OK in 89ms (Views: 11.4ms | ActiveRecord: 0.0ms | Allocations: 7327)
+
+
+Started GET "/" for 172.18.0.1 at 2025-03-22 15:16:43 +0900
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 38)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.2ms | Allocations: 41)
+  Rendered shared/_header.html.erb (Duration: 0.6ms | Allocations: 141)
+  Rendered shared/_footer.html.erb (Duration: 0.2ms | Allocations: 43)
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 764)
+Completed 200 OK in 89ms (Views: 14.9ms | ActiveRecord: 0.0ms | Allocations: 6611)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Started GET "/" for 172.18.0.1 at 2025-03-22 15:33:31 +0900
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 215)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.2ms | Allocations: 129)
+  Rendered shared/_header.html.erb (Duration: 1.1ms | Allocations: 420)
+  Rendered shared/_footer.html.erb (Duration: 0.5ms | Allocations: 146)
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | Allocations: 3311)
+Completed 200 OK in 98ms (Views: 15.2ms | ActiveRecord: 0.0ms | Allocations: 7568)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Started GET "/" for 172.18.0.1 at 2025-03-22 15:35:54 +0900
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 215)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.2ms | Allocations: 129)
+  Rendered shared/_header.html.erb (Duration: 0.8ms | Allocations: 420)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 146)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 3143)
+Completed 200 OK in 98ms (Views: 14.1ms | ActiveRecord: 0.0ms | Allocations: 7320)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Started GET "/" for 172.18.0.1 at 2025-03-22 17:11:54 +0900
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 215)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.2ms | Allocations: 129)
+  Rendered shared/_header.html.erb (Duration: 1.2ms | Allocations: 420)
+  Rendered shared/_footer.html.erb (Duration: 1.5ms | Allocations: 146)
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 3143)
+Completed 200 OK in 101ms (Views: 17.6ms | ActiveRecord: 0.0ms | Allocations: 7320)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Started GET "/" for 172.18.0.1 at 2025-03-22 17:26:50 +0900
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 215)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.2ms | Allocations: 129)
+  Rendered shared/_header.html.erb (Duration: 1.0ms | Allocations: 420)
+  Rendered shared/_footer.html.erb (Duration: 1.2ms | Allocations: 146)
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | Allocations: 3143)
+Completed 200 OK in 103ms (Views: 15.3ms | ActiveRecord: 0.0ms | Allocations: 7320)
+
+
+Started GET "/" for 172.18.0.1 at 2025-03-22 17:34:00 +0900
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 108)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.4ms | Allocations: 119)
+  Rendered shared/_header.html.erb (Duration: 1.2ms | Allocations: 394)
+  Rendered shared/_footer.html.erb (Duration: 0.5ms | Allocations: 135)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 1651)
+Completed 200 OK in 54ms (Views: 10.4ms | ActiveRecord: 0.0ms | Allocations: 2602)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Started GET "/" for 172.18.0.1 at 2025-03-22 17:36:46 +0900
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 215)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.6ms | Allocations: 129)
+  Rendered shared/_header.html.erb (Duration: 1.4ms | Allocations: 420)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 146)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 3143)
+Completed 200 OK in 102ms (Views: 16.5ms | ActiveRecord: 0.0ms | Allocations: 7320)
+
+
+Started GET "/" for 172.18.0.1 at 2025-03-22 17:37:42 +0900
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 108)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.4ms | Allocations: 108)
+  Rendered shared/_header.html.erb (Duration: 1.7ms | Allocations: 383)
+  Rendered shared/_footer.html.erb (Duration: 0.6ms | Allocations: 135)
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 1640)
+Completed 200 OK in 53ms (Views: 16.9ms | ActiveRecord: 0.0ms | Allocations: 2591)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Started GET "/" for 172.18.0.1 at 2025-03-22 17:39:19 +0900
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (5.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 215)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.4ms | Allocations: 133)
+  Rendered shared/_header.html.erb (Duration: 3.2ms | Allocations: 425)
+  Rendered shared/_footer.html.erb (Duration: 0.4ms | Allocations: 142)
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 3143)
+Completed 200 OK in 115ms (Views: 20.2ms | ActiveRecord: 0.0ms | Allocations: 7320)
+
+
+Started GET "/" for 172.18.0.1 at 2025-03-22 17:40:10 +0900
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 38)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.1ms | Allocations: 41)
+  Rendered shared/_header.html.erb (Duration: 0.5ms | Allocations: 141)
+  Rendered shared/_footer.html.erb (Duration: 0.2ms | Allocations: 43)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 763)
+Completed 200 OK in 69ms (Views: 7.6ms | ActiveRecord: 0.0ms | Allocations: 6473)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Started GET "/" for 172.18.0.1 at 2025-03-22 17:41:02 +0900
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 215)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.2ms | Allocations: 133)
+  Rendered shared/_header.html.erb (Duration: 1.2ms | Allocations: 425)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 142)
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | Allocations: 3145)
+Completed 200 OK in 104ms (Views: 16.6ms | ActiveRecord: 0.0ms | Allocations: 7322)
+
+
+Started GET "/" for 172.18.0.1 at 2025-03-22 17:41:21 +0900
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 38)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.2ms | Allocations: 41)
+  Rendered shared/_header.html.erb (Duration: 0.8ms | Allocations: 141)
+  Rendered shared/_footer.html.erb (Duration: 0.7ms | Allocations: 43)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 763)
+Completed 200 OK in 68ms (Views: 12.4ms | ActiveRecord: 0.0ms | Allocations: 1082)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Started GET "/" for 172.18.0.1 at 2025-03-22 17:53:35 +0900
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 215)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.2ms | Allocations: 133)
+  Rendered shared/_header.html.erb (Duration: 1.3ms | Allocations: 425)
+  Rendered shared/_footer.html.erb (Duration: 0.4ms | Allocations: 142)
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 3145)
+Completed 200 OK in 113ms (Views: 19.6ms | ActiveRecord: 0.0ms | Allocations: 7322)
+
+
+Started GET "/" for 172.18.0.1 at 2025-03-22 17:58:47 +0900
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 38)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.3ms | Allocations: 41)
+  Rendered shared/_header.html.erb (Duration: 0.9ms | Allocations: 141)
+  Rendered shared/_footer.html.erb (Duration: 0.8ms | Allocations: 43)
+  Rendered layout layouts/application.html.erb (Duration: 14.0ms | Allocations: 763)
+Completed 200 OK in 62ms (Views: 17.1ms | ActiveRecord: 0.0ms | Allocations: 1082)
+
+
+Writing application-e674afbd.js.map
+Writing theme_switcher-c143ceb3.js.map
+Writing application-9246a5c6.css
+Writing theme_switcher-b59ee4e6.js
+Writing tailwind-f979d373.css
+Writing application-beb238b8.js
+Writing manifest-962c042b.js
+Writing application.tailwind-bd2bb786.css
+Writing stimulus-d59b3b7f.js
+Writing stimulus-autoloader-9d447422.js
+Writing stimulus-loading-1fc53fe7.js
+Writing stimulus.min-4b1e420e.js
+Writing stimulus-importmap-autoloader-64cc03e1.js
+Writing stimulus.min-2395e199.js.map
+Writing turbo-765c2e69.js
+Writing turbo.min-1262d735.js
+Writing turbo.min-02fd5b81.js.map
+Writing trix-80a3c05d.js
+Writing actiontext-af44e7a6.js
+Writing actiontext.esm-8fb820b7.js
+Writing trix-c4e7be2d.css
+Writing actioncable-9b4052e2.js
+Writing action_cable-9a3afeb4.js
+Writing actioncable.esm-d6375855.js
+Writing activestorage.esm-1984eb8d.js
+Writing activestorage-c540a9c5.js
+Writing rails-ujs-20eaf715.js
+Writing rails-ujs.esm-e925103b.js
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Started GET "/" for 172.18.0.1 at 2025-03-22 18:02:14 +0900
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 215)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.3ms | Allocations: 133)
+  Rendered shared/_header.html.erb (Duration: 1.6ms | Allocations: 425)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 142)
+  Rendered layout layouts/application.html.erb (Duration: 20.5ms | Allocations: 4589)
+Completed 200 OK in 138ms (Views: 30.5ms | ActiveRecord: 0.0ms | Allocations: 12220)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Started GET "/" for 172.18.0.1 at 2025-03-22 18:07:12 +0900
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 215)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.2ms | Allocations: 129)
+  Rendered shared/_header.html.erb (Duration: 0.9ms | Allocations: 421)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 142)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 3139)
+Completed 200 OK in 102ms (Views: 17.3ms | ActiveRecord: 0.0ms | Allocations: 7324)
+
+
+Started GET "/favicon.ico" for 172.18.0.1 at 2025-03-22 18:07:14 +0900
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Writing application-df0260f1.js.map
+Writing theme_switcher-6cb83950.js.map
+Writing application-9246a5c6.css
+Writing theme_switcher-3e878970.js
+Writing tailwind-f979d373.css
+Writing application-3a806c61.js
+Writing manifest-962c042b.js
+Writing application.tailwind-bd2bb786.css
+Writing stimulus-d59b3b7f.js
+Writing stimulus-autoloader-9d447422.js
+Writing stimulus-loading-1fc53fe7.js
+Writing stimulus.min-4b1e420e.js
+Writing stimulus-importmap-autoloader-64cc03e1.js
+Writing stimulus.min-2395e199.js.map
+Writing turbo-765c2e69.js
+Writing turbo.min-1262d735.js
+Writing turbo.min-02fd5b81.js.map
+Writing trix-80a3c05d.js
+Writing actiontext-af44e7a6.js
+Writing actiontext.esm-8fb820b7.js
+Writing trix-c4e7be2d.css
+Writing actioncable-9b4052e2.js
+Writing action_cable-9a3afeb4.js
+Writing actioncable.esm-d6375855.js
+Writing activestorage.esm-1984eb8d.js
+Writing activestorage-c540a9c5.js
+Writing rails-ujs-20eaf715.js
+Writing rails-ujs.esm-e925103b.js
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Started GET "/" for 172.18.0.1 at 2025-03-22 18:08:18 +0900
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 215)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.3ms | Allocations: 129)
+  Rendered shared/_header.html.erb (Duration: 1.2ms | Allocations: 421)
+  Rendered shared/_footer.html.erb (Duration: 0.4ms | Allocations: 142)
+  Rendered layout layouts/application.html.erb (Duration: 19.2ms | Allocations: 4585)
+Completed 200 OK in 131ms (Views: 30.5ms | ActiveRecord: 0.0ms | Allocations: 12216)
+
+
+Started GET "/" for 172.18.0.1 at 2025-03-22 18:12:18 +0900
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 108)
+  Rendered shared/_theme_toggle.html.erb (Duration: 1.1ms | Allocations: 118)
+  Rendered shared/_header.html.erb (Duration: 2.2ms | Allocations: 393)
+  Rendered shared/_footer.html.erb (Duration: 0.5ms | Allocations: 135)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 1650)
+Completed 200 OK in 57ms (Views: 17.7ms | ActiveRecord: 0.0ms | Allocations: 2619)
+
+
+Writing application-6bc02f32.js.map
+Writing theme_switcher-fffb7ef3.js.map
+Writing application-0245b345.css
+Writing theme_switcher-b02b1f9b.js
+Writing tailwind-55a55be7.css
+Writing application-b39332c7.js
+Writing manifest-962c042b.js
+Writing application.tailwind-bd2bb786.css
+Writing stimulus-d59b3b7f.js
+Writing stimulus-autoloader-9d447422.js
+Writing stimulus-loading-1fc53fe7.js
+Writing stimulus.min-4b1e420e.js
+Writing stimulus-importmap-autoloader-64cc03e1.js
+Writing stimulus.min-2395e199.js.map
+Writing turbo-765c2e69.js
+Writing turbo.min-1262d735.js
+Writing turbo.min-02fd5b81.js.map
+Writing trix-80a3c05d.js
+Writing actiontext-af44e7a6.js
+Writing actiontext.esm-8fb820b7.js
+Writing trix-c4e7be2d.css
+Writing actioncable-9b4052e2.js
+Writing action_cable-9a3afeb4.js
+Writing actioncable.esm-d6375855.js
+Writing activestorage.esm-1984eb8d.js
+Writing activestorage-c540a9c5.js
+Writing rails-ujs-20eaf715.js
+Writing rails-ujs.esm-e925103b.js
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Started GET "/" for 172.18.0.1 at 2025-03-22 18:17:20 +0900
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 215)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.2ms | Allocations: 123)
+  Rendered shared/_header.html.erb (Duration: 0.9ms | Allocations: 415)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 142)
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | Allocations: 3133)
+Completed 200 OK in 109ms (Views: 13.5ms | ActiveRecord: 0.0ms | Allocations: 7318)
+
+
+Writing application-b152a1e6.js.map
+Writing theme_switcher-0c9956e3.js.map
+Writing application-0245b345.css
+Writing theme_switcher-2db4c5e1.js
+Writing tailwind-55a55be7.css
+Writing application-5434da39.js
+Writing manifest-962c042b.js
+Writing application.tailwind-bd2bb786.css
+Writing stimulus-d59b3b7f.js
+Writing stimulus-autoloader-9d447422.js
+Writing stimulus-loading-1fc53fe7.js
+Writing stimulus.min-4b1e420e.js
+Writing stimulus-importmap-autoloader-64cc03e1.js
+Writing stimulus.min-2395e199.js.map
+Writing turbo-765c2e69.js
+Writing turbo.min-1262d735.js
+Writing turbo.min-02fd5b81.js.map
+Writing trix-80a3c05d.js
+Writing actiontext-af44e7a6.js
+Writing actiontext.esm-8fb820b7.js
+Writing trix-c4e7be2d.css
+Writing actioncable-9b4052e2.js
+Writing action_cable-9a3afeb4.js
+Writing actioncable.esm-d6375855.js
+Writing activestorage.esm-1984eb8d.js
+Writing activestorage-c540a9c5.js
+Writing rails-ujs-20eaf715.js
+Writing rails-ujs.esm-e925103b.js
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Started GET "/" for 172.18.0.1 at 2025-03-22 18:19:48 +0900
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 215)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.3ms | Allocations: 123)
+  Rendered shared/_header.html.erb (Duration: 2.3ms | Allocations: 415)
+  Rendered shared/_footer.html.erb (Duration: 4.1ms | Allocations: 142)
+  Rendered layout layouts/application.html.erb (Duration: 20.3ms | Allocations: 3133)
+Completed 200 OK in 119ms (Views: 27.4ms | ActiveRecord: 0.0ms | Allocations: 7317)
+
+
+Writing application-6bc02f32.js.map
+Writing theme_switcher-fffb7ef3.js.map
+Writing application-0245b345.css
+Writing theme_switcher-b02b1f9b.js
+Writing tailwind-55a55be7.css
+Writing application-b39332c7.js
+Writing manifest-962c042b.js
+Writing application.tailwind-bd2bb786.css
+Writing stimulus-d59b3b7f.js
+Writing stimulus-autoloader-9d447422.js
+Writing stimulus-loading-1fc53fe7.js
+Writing stimulus.min-4b1e420e.js
+Writing stimulus-importmap-autoloader-64cc03e1.js
+Writing stimulus.min-2395e199.js.map
+Writing turbo-765c2e69.js
+Writing turbo.min-1262d735.js
+Writing turbo.min-02fd5b81.js.map
+Writing trix-80a3c05d.js
+Writing actiontext-af44e7a6.js
+Writing actiontext.esm-8fb820b7.js
+Writing trix-c4e7be2d.css
+Writing actioncable-9b4052e2.js
+Writing action_cable-9a3afeb4.js
+Writing actioncable.esm-d6375855.js
+Writing activestorage.esm-1984eb8d.js
+Writing activestorage-c540a9c5.js
+Writing rails-ujs-20eaf715.js
+Writing rails-ujs.esm-e925103b.js
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application:JingjiPortfolio*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Started GET "/" for 172.18.0.1 at 2025-03-22 18:25:02 +0900
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:JingjiPortfolio*/[0m
+Processing by TopController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering top/index.html.erb within layouts/application
+  Rendered top/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 215)
+  Rendered shared/_theme_toggle.html.erb (Duration: 0.2ms | Allocations: 123)
+  Rendered shared/_header.html.erb (Duration: 0.9ms | Allocations: 415)
+  Rendered shared/_footer.html.erb (Duration: 0.9ms | Allocations: 142)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 3135)
+Completed 200 OK in 94ms (Views: 13.3ms | ActiveRecord: 0.0ms | Allocations: 7318)
+
+
