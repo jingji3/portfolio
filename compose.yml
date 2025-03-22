@@ -6,6 +6,7 @@ services:
       - "3000:3000"
     volumes:
       - .:/jingji_portfolio
+      - node_modules:/jingji_portfolio/node_modules
     depends_on:
       - db
       - redis
@@ -18,6 +19,7 @@ services:
     command: bash -c "yarn install && yarn run build:css"
     volumes:
       - .:/jingji_portfolio
+      - node_modules:/jingji_portfolio/node_modules
     depends_on:
       - web
 
@@ -37,3 +39,4 @@ services:
 volumes:
   postgres_data:
   redis_data:
+  node_modules:
