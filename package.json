@@ -4,18 +4,22 @@
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo-rails": "^7.3.0",
-    "tailwindcss": "^4.0.15",
-    "daisyui": "^5.0.9"
+    "daisyui": "^5.0.9",
+    "tailwindcss": "3.3.5"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.21",
+    "autoprefixer": "^10.4.14",
     "esbuild": "^0.25.1",
-    "postcss": "^8.5.3"
+    "esbuild-sass-plugin": "^3.3.1",
+    "postcss": "^8.4.23",
+    "postcss-import": "^16.1.0",
+    "postcss-nested": "^7.0.2",
+    "sass": "^1.86.0"
   },
   "scripts": {
     "tailwindcss": "tailwindcss",
-    "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css",
-    "dev:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --watch",
+    "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --config ./tailwind.config.js",
+    "dev:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --config ./tailwind.config.js --watch --poll",
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets --external:@hotwired/stimulus-loading",
     "build:js:watch": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets --external:@hotwired/stimulus-loading --watch"
   }
