@@ -34,6 +34,8 @@ gem 'aws-sdk-s3', require: false
 # キャッシュストア
 gem 'redis', '~> 5.0'
 
+# ログイン
+gem 'sorcery', '~> 0.17.0'
 
 # 認証
 # gem 'devise'
