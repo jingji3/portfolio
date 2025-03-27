@@ -1,0 +1,20 @@
+<div class="container mx-auto px-4 mt-8">
+  <div class="max-w-sm mx-auto">
+    <h1 class="text-3xl font-bold mb-6">ログイン</h1>
+    <%= form_with url: login_path do |f| %>
+      <div class="form-control w-full mb-4">
+        <%= f.label :email, class: "label" %>
+        <%= f.email_field :email, class: "input input-bordered w-full" %>
+      </div>
+      <div class="form-control w-full mb-4">
+        <%= f.label :password, class: "label" %>
+        <%= f.password_field :password, class: "input input-bordered w-full" %>
+      </div>
+      <%= f.submit "ログイン", class: "btn btn-primary w-full mt-8" %>
+    <% end %>
+    <div class="text-center mt-4 mb-8 flex flex-col">
+      <%= link_to 'ユーザー登録ページへ', new_user_path, class: "link link-hover text-primary m-1" %>
+      <%= link_to 'パスワードをお忘れの方はこちら', '#', class: "link link-hover text-primary m-1" %>
+    </div>
+  </div>
+</div>

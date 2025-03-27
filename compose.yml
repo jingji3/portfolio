@@ -7,6 +7,7 @@ services:
       - "3000:3000"
     volumes:
       - .:/jingji_portfolio
+      - bundle_cache:/usr/local/bundle #gemファイルを維持
       - node_modules:/jingji_portfolio/node_modules
       - ./app/assets/builds:/jingji_portfolio/app/assets/builds
       - ./public/assets:/jingji_portfolio/public/assets
@@ -23,6 +24,7 @@ services:
     command: bash -c "yarn install && yarn run dev:css && tail -f /dev/null"
     volumes:
       - .:/jingji_portfolio
+      - bundle_cache:/usr/local/bundle
       - node_modules:/jingji_portfolio/node_modules
       - ./app/assets/builds:/jingji_portfolio/app/assets/builds
       - ./public/assets:/jingji_portfolio/public/assets
@@ -46,3 +48,4 @@ volumes:
   postgres_data:
   redis_data:
   node_modules:
+  bundle_cache:
