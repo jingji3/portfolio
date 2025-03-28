@@ -6,14 +6,14 @@
     <ul
       tabindex="0"
       class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow text-xl">
-      <li><a><%= link_to "編成動画検索", '#' %></a></li>
-      <li><a><%= link_to "編成一覧検索", '#' %></a></li>
-      <li><a><%= link_to "おすすめ動画シェア", '#' %></a></li>
-      <li><a><%= link_to "編成評価シェア", '#' %></a></li>
+      <li><a><%= link_to t('header.video_search'), '#' %></a></li>
+      <li><a><%= link_to t('header.team_search'), '#' %></a></li>
+      <li><a><%= link_to t('header.video_share'), '#' %></a></li>
+      <li><a><%= link_to t('header.team_rating'), '#' %></a></li>
     </ul>
   </div>
   <div class="flex-1">
-    <%= link_to "GenshinTeamSearch", '/', class: 'btn btn-ghost text-xl' %>
+    <%= link_to t('header.title'), '/', class: 'btn btn-ghost text-xl' %>
   </div>
   <div class="flex gap-2">
     <%= render 'shared/theme_toggle' %>
@@ -28,8 +28,8 @@
       <ul
         tabindex="0"
         class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li><a><%= link_to "ユーザー設定", '#' %></a></li>
-        <li><a><%= link_to "ログアウト", logout_path, data: { turbo_method: :delete } %></a></li>
+        <li><a><%= link_to t('header.setting'), '#' %></a></li>
+        <li><a><%= link_to t('header.logout'), logout_path, data: { turbo_method: :delete } %></a></li>
       </ul>
     </div>
   </div>

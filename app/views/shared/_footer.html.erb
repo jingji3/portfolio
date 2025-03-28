@@ -1,8 +1,8 @@
 <footer class="footer footer-horizontal footer-center bg-base-200 text-base-content rounded p-5">
   <nav class="grid grid-flow-col gap-4">
-    <a class="link link-hover">Term of Use</a>
-    <a class="link link-hover">Privacy Policy</a>
-    <a class="link link-hover">Contact</a>
+    <a class="link link-hover"><%= link_to t('footer.term_of_use'), '#' %></a>
+    <a class="link link-hover"><%= link_to t('footer.privacy_policy'), '#' %></a>
+    <a class="link link-hover"><%= link_to t('footer.contact'), '#' %></a>
   <aside>
     <p>Copyright © <%= Date.today.year %> - Genshi Team Share/Search</p>
   </aside>

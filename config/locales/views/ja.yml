@@ -1,0 +1,39 @@
+ja:
+  helpers:
+    submit:
+      create: 登録
+      submit: 保存
+      update: 更新
+    label:
+      email: メールアドレス
+      password: パスワード
+  user_sessions:
+    new:
+      title: ログイン
+      login: ログイン
+      to_register_page: 登録ページへ
+      password_forget: パスワードをお忘れの方はこちら
+  users:
+    new:
+      title: ユーザー登録
+      to_login_page: ログインページへ
+  top:
+    index:
+      video_search: 編成動画検索
+      team_search: 編成一覧検索
+      video_share: おすすめ動画シェア
+      team_rating: 編成評価シェア
+  header:
+    title: GenshinTeamSearch / Share
+    login: Login
+    logout: Logout
+    bookmark_index: ブックマーク一覧
+    setting: ユーザー設定
+    video_search: 編成動画検索
+    team_search: 編成一覧検索
+    video_share: おすすめ動画シェア
+    team_rating: 編成評価シェア
+  footer:
+    term_of_use: Term of Use
+    privacy_policy: Privacy Policy
+    contact: Contact
