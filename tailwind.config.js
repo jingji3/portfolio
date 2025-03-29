@@ -6,6 +6,10 @@ module.exports = {
     './app/assets/stylesheets/**/*.{css,scss}',
     './app/views/**/*.{html,html.erb,erb}'
   ],
+  safelist: [
+    { pattern: /alert-.*/ },
+    { pattern: /btn-.*/ },
+  ],
   darkMode: 'class',
   theme: {
     extend: {},

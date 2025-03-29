@@ -13,9 +13,9 @@
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="apple-touch-icon" href="/icon.png">
 
-    <%# Includes all stylesheet files in app/assets/stylesheets %>
     <% if Rails.env.development? %>
-      <script src="https://cdn.tailwindcss.com?version=3.3.5"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5.0.9" rel="stylesheet" type="text/css" />
+      <script src="https://cdn.tailwindcss.com?version=3.4.16"></script>
       <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
     <% else %>
       <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
@@ -31,6 +31,7 @@
     <% else %>
       <%= render 'shared/before_login_header' %>
     <% end %>
+    <%= render 'shared/flash_message' %>
     <%= yield %>
     <%= render 'shared/footer' %>
   </body>
