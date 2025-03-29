@@ -1,6 +1,5 @@
 @tailwind base;
 @tailwind components;
-
 /* TOP用のCSS */
 @layer components {
   .top-wrapper {
