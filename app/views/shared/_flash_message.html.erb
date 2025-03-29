@@ -1,0 +1,13 @@
+<% flash.each do |message_type, message| %>
+  <% alert_type = case message_type.to_s
+       when "success", "notice" then "success"
+       when "error", "alert", "danger" then "error"
+       when "warning" then "warning"
+       else "info"
+     end %>
+  <div class="alert alert-<%= alert_type %> shadow-md mb-4">
+    <div>
+      <span><%= message %></span>
+    </div>
+  </div>
+<% end %>
