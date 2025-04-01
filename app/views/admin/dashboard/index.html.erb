@@ -1,0 +1,48 @@
+<!-- app/views/admin/dashboard/index.html.erb -->
+<% content_for(:title) { "管理者ダッシュボード" } %>
+
+<div class="container mx-auto px-4 py-8">
+  <h1 class="text-3xl font-bold mb-6">管理者ダッシュボード</h1>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+    <div class="rounded-lg shadow p-6 bg-base-200 dark:bg-base-700">
+      <h2 class="text-xl font-semibold mb-2">総ユーザー数</h2>
+      <p class="text-3xl font-bold text-blue-600"><%= @user_count %></p>
+    </div>
+
+    <div class="rounded-lg shadow p-6 bg-base-200 dark:bg-base-700">
+      <h2 class="text-xl font-semibold mb-2">管理者数</h2>
+      <p class="text-3xl font-bold text-green-600"><%= @admin_count %></p>
+    </div>
+
+    <!-- その他の統計情報 -->
+  </div>
+
+  <div class="rounded-lg shadow p-6 bg-base-200 dark:bg-base-700">
+    <h2 class="text-xl font-semibold mb-4">最近登録したユーザー</h2>
+    <table class="min-w-full divide-y">
+      <thead>
+        <tr>
+          <th class="px-6 py-3 text-left text-sm font-medium uppercase tracking-wider">ID</th>
+          <th class="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">ユーザー名</th>
+          <th class="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">メールアドレス</th>
+          <th class="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">登録日</th>
+          <th class="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">操作</th>
+        </tr>
+      </thead>
+      <tbody class=" divide-gray-200">
+        <% @recent_users.each do |user| %>
+          <tr>
+            <td class="px-6 py-4 whitespace-nowrap"><%= user.id %></td>
+            <td class="px-6 py-4 whitespace-nowrap"><%= user.user_name %></td>
+            <td class="px-6 py-4 whitespace-nowrap"><%= user.email %></td>
+            <td class="px-6 py-4 whitespace-nowrap"><%= user.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <%= link_to "詳細", admin_user_path(user), class: "text-blue-600 hover:text-blue-900" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

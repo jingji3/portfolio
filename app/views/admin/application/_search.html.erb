@@ -1,0 +1,8 @@
+<%= form_for :q, url: request.path, method: :get, html: { class: "flex space-x-2" } do |f| %>
+  <%= f.search_field :user_name_or_email_cont,
+                     placeholder: "ユーザー名またはメールで検索...",
+                     value: params.dig(:q, :user_name_or_email_cont),
+                     class: "border border-gray-300 rounded-md px-3 py-2 w-64" %>
+
+  <%= f.submit "検索", class: "bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md" %>
+<% end %>
