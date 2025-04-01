@@ -1,0 +1,102 @@
+<%#
+# Collection
+
+This partial is used on the `index` and `show` pages
+to display a collection of resources in an HTML table.
+
+## Local variables:
+
+- `collection_presenter`:
+  An instance of [Administrate::Page::Collection][1].
+  The table presenter uses `ResourceDashboard::COLLECTION_ATTRIBUTES` to determine
+  the columns displayed in the table
+- `resources`:
+  An ActiveModel::Relation collection of resources to be displayed in the table.
+  By default, the number of resources is limited by pagination
+  or by a hard limit to prevent excessive page load times
+
+[1]: http://www.rubydoc.info/gems/administrate/Administrate/Page/Collection
+%>
+
+<div class="overflow-x-auto bg-base-100 rounded-lg shadow">
+  <table class="table w-full" aria-labelledby="<%= table_title %>">
+    <thead>
+      <tr class="bg-base-200">
+        <% collection_presenter.attribute_types.each do |attr_name, attr_type| %>
+          <th class="text-left text-sm font-medium text-base-content/70 uppercase tracking-wider px-4 py-3"
+            scope="col">
+            <%= link_to(sanitized_order_params(page, collection_field_name).merge(
+              collection_presenter.order_params_for(attr_name, key: collection_field_name)
+            ), class: "flex items-center space-x-1 hover:text-primary") do %>
+              <span><%= t(
+                "helpers.label.#{collection_presenter.resource_name}.#{attr_name}",
+                default: resource_class.human_attribute_name(attr_name).titleize,
+              ) %></span>
+              <% if collection_presenter.ordered_by?(attr_name) %>
+                <span class="inline-block">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="<%= collection_presenter.ordered_html_class(attr_name) == 'asc' ? 'M5 15l7-7 7 7' : 'M19 9l-7 7-7-7' %>" />
+                  </svg>
+                </span>
+              <% end %>
+            <% end %>
+          </th>
+        <% end %>
+        <th class="text-center px-4 py-3 text-sm font-medium text-base-content/70 uppercase tracking-wider">操作</th>
+      </tr>
+    </thead>
+
+    <tbody class="divide-y divide-base-300">
+      <% resources.each do |resource| %>
+        <tr class="hover:bg-base-200 transition-colors duration-150"
+            <% if accessible_action?(resource, :show) %>
+              <%= %(tabindex=0 role=link data-url=#{polymorphic_path([namespace, resource])}) %>
+            <% end %>
+            >
+          <% collection_presenter.attributes_for(resource).each do |attribute| %>
+            <td class="px-4 py-3 text-sm text-base-content whitespace-nowrap">
+              <% if accessible_action?(resource, :show) -%>
+                <a href="<%= polymorphic_path([namespace, resource]) -%>"
+                   tabindex="-1"
+                   class="hover:text-primary">
+                  <%= render_field attribute %>
+                </a>
+              <% else %>
+                <%= render_field attribute %>
+              <% end -%>
+            </td>
+          <% end %>
+
+          <td class="px-4 py-3 text-sm text-center">
+            <div class="flex justify-center space-x-1">
+              <% if accessible_action?(resource, :edit) %>
+                <%= link_to(
+                  "編集",
+                  [:edit, namespace, resource],
+                  class: "btn btn-primary btn-xs"
+                ) %>
+              <% end %>
+
+              <% if accessible_action?(resource, :destroy) %>
+                <%= button_to(
+                  "削除",
+                  [namespace, resource],
+                  class: "btn btn-error btn-xs",
+                  method: :delete,
+                  data: { turbo_confirm: t("administrate.actions.confirm") }
+                ) %>
+              <% end %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+      <% if resources.empty? %>
+        <tr class="text-center">
+          <td colspan="<%= collection_presenter.attribute_types.length + 1 %>" class="py-8 text-base-content/60">
+            <%= t("administrate.resources.no_resources", name: collection_presenter.resource_name.pluralize) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get '/', to: 'dashboard#index'
+    resources :users do
+      member do
+        post :activate
+        post :deactivate
+      end
+    end
+
+      root to: "dashboard#index"
+  end
 
   get "up" => "rails/health#show", as: :rails_health_check
   root "top#index"

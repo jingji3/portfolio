@@ -6,5 +6,8 @@ ja:
       user:
         email: メールアドレス
         user_name: ユーザー名
+        role: 権限
         password: パスワード
         password_confirmation: パスワード確認
+        created_at: 登録日
+        updated_at: 更新日

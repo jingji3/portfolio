@@ -1,0 +1,30 @@
+<header class="bg-base-100 rounded-t-lg shadow p-6">
+  <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+    <h1 class="text-3xl font-bold text-base-content" id="page-title">
+      <%= display_resource_name(page.resource_name) %>
+    </h1>
+
+    <div class="flex flex-col md:flex-row gap-3 items-start md:items-center">
+      <% if show_search_bar %>
+        <div class="w-full md:w-auto">
+          <%= render(
+            "search",
+            search_term: search_term,
+            resource_name: display_resource_name(page.resource_name)
+          ) %>
+        </div>
+      <% end %>
+
+      <div>
+        <%= link_to(
+          t(
+            "administrate.actions.new_resource",
+            name: page.resource_name.to_s.titleize.downcase
+          ),
+          [:new, namespace, page.resource_path.to_sym],
+          class: "btn btn-primary",
+        ) if valid_action?(:new) && show_action?(:new, new_resource) %>
+      </div>
+    </div>
+  </div>
+</header>

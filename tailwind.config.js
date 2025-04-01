@@ -4,7 +4,8 @@ module.exports = {
     './app/helpers/**/*.rb',
     './app/javascript/**/*.js',
     './app/assets/stylesheets/**/*.{css,scss}',
-    './app/views/**/*.{html,html.erb,erb}'
+    './app/views/**/*.{html,html.erb,erb}',
+    './app/views/admin/**/*.erb',
   ],
   safelist: [
     { pattern: /alert-.*/ },
