@@ -8,6 +8,8 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :characters
+
       root to: "dashboard#index"
   end
 

@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      character: キャラクター
     attributes:
       user:
         email: メールアドレス
@@ -9,5 +10,21 @@ ja:
         role: 権限
         password: パスワード
         password_confirmation: パスワード確認
-        created_at: 登録日
-        updated_at: 更新日
+      character:
+        name: キャラクター名
+        name_kana: キャラクター名(かな)
+        name_eng: キャラクター名(英語)
+        element: 元素
+        star: レアリティ
+        version: バージョン
+        version_half: 前半/後半
+        character_img: 画像
+  attributes:
+    id: ID
+    created_at: 作成日時
+    updated_at: 更新日時
+  enums:
+    user:
+      role:
+        general: 一般
+        admin: 管理者

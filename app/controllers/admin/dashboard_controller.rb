@@ -11,6 +11,7 @@ module Admin
       @user_count = User.count
       @admin_count = User.where(role: 1).count
       @recent_users = User.order(created_at: :desc).limit(5)
+      @recent_characters = Character.order(created_at: :desc).limit(5)
     end
 
     private

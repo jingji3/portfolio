@@ -46,7 +46,7 @@ to display a collection of resources in an HTML table.
       </tr>
     </thead>
 
-    <tbody class="divide-y divide-base-300">
+    <tbody>
       <% resources.each do |resource| %>
         <tr class="hover:bg-base-200 transition-colors duration-150"
             <% if accessible_action?(resource, :show) %>
@@ -54,7 +54,7 @@ to display a collection of resources in an HTML table.
             <% end %>
             >
           <% collection_presenter.attributes_for(resource).each do |attribute| %>
-            <td class="px-4 py-3 text-sm text-base-content whitespace-nowrap">
+            <td class="px-4 py-3 text-sm">
               <% if accessible_action?(resource, :show) -%>
                 <a href="<%= polymorphic_path([namespace, resource]) -%>"
                    tabindex="-1"
@@ -63,17 +63,17 @@ to display a collection of resources in an HTML table.
                 </a>
               <% else %>
                 <%= render_field attribute %>
-              <% end -%>
+              <% end %>
             </td>
           <% end %>
 
           <td class="px-4 py-3 text-sm text-center">
-            <div class="flex justify-center space-x-1">
+            <div class="flex justify-center gap-4">
               <% if accessible_action?(resource, :edit) %>
                 <%= link_to(
                   "編集",
                   [:edit, namespace, resource],
-                  class: "btn btn-primary btn-xs"
+                  class: "btn btn-primary btn-sm"
                 ) %>
               <% end %>
 
@@ -81,7 +81,7 @@ to display a collection of resources in an HTML table.
                 <%= button_to(
                   "削除",
                   [namespace, resource],
-                  class: "btn btn-error btn-xs",
+                  class: "btn btn-error btn-sm",
                   method: :delete,
                   data: { turbo_confirm: t("administrate.actions.confirm") }
                 ) %>

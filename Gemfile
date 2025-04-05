@@ -31,6 +31,9 @@ gem 'cssbundling-rails'
 # ファイルアップロード
 gem 'aws-sdk-s3', require: false
 
+# 画像処理
+gem 'mini_magick'
+
 # キャッシュストア
 gem 'redis', '~> 5.0'
 
@@ -50,9 +53,7 @@ gem 'ransack'
 gem 'config'
 gem 'dotenv-rails', require: 'dotenv/load'
 
-
 gem "tzinfo-data", platforms: %i[ jruby ]
-
 
 gem "solid_cache"
 gem "solid_queue"
