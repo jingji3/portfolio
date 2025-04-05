@@ -45,17 +45,11 @@ and renders all form fields for a resource's editable attributes.
       <div class="grid grid-cols-1 gap-6 mb-6">
         <% attributes.each do |attribute| %>
           <div class="form-control w-full">
-            <label class="label">
-              <span class="label-text font-medium"><%= t(
-                "helpers.label.#{f.object_name}.#{attribute.name}",
-                default: attribute.name.to_s.titleize,
-              ) %></span>
-            </label>
 
             <div class="bg-base-100 rounded-lg p-2 border border-base-300">
               <%= render_field attribute, f: f %>
             </div>
-            
+
             <% hint_key = "administrate.field_hints.#{page.resource_name}.#{attribute.name}" %>
             <% if I18n.exists?(hint_key) -%>
               <label class="label">

@@ -45,4 +45,28 @@
       </tbody>
     </table>
   </div>
+
+  <div class="rounded-lg shadow p-6 bg-base-200 dark:bg-base-700">
+    <h2 class="text-xl font-semibold mb-4">キャラクター</h2>
+    <table class="min-w-full divide-y">
+      <thead>
+        <tr>
+          <th class="px-6 py-3 text-left text-sm font-medium uppercase tracking-wider">ID</th>
+          <th class="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">キャラクター名</th>
+          <th class="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">元素</th>
+          <th class="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">登録日</th>
+        </tr>
+      </thead>
+      <tbody class=" divide-gray-200">
+        <% @recent_characters.each do |character| %>
+          <tr>
+            <td class="px-6 py-4 whitespace-nowrap"><%= character.id %></td>
+            <td class="px-6 py-4 whitespace-nowrap"><%= character.name %></td>
+            <td class="px-6 py-4 whitespace-nowrap"><%= character.element %></td>
+            <td class="px-6 py-4 whitespace-nowrap"><%= character.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

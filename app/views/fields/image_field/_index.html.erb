@@ -1,0 +1,5 @@
+<% if field.resource.send(field.attribute).attached? %>
+  <%= image_tag field.resource.send(field.attribute), class: "w-12 h-12 object-cover rounded-lg" %>
+<% else %>
+  <span class="text-gray-400">画像なし</span>
+<% end %>
