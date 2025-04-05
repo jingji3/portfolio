@@ -16,4 +16,13 @@ class Character < ApplicationRecord
       errors.add(:image, "はJPEGまたはPNG形式である必要があります")
     end
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["element", "name", "name_eng", "name_kana", "star", "version", "version_half"]
+  end
+
+  # Ransackで検索可能な関連を定義
+  def self.ransackable_associations(auth_object = nil)
+    []
+  end
 end

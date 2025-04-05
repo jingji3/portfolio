@@ -16,8 +16,8 @@ class UserDashboard < Administrate::BaseDashboard
     user_name: Field::String,
     password: Field::Password,
     password_confirmation: Field::Password,
-    created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    created_at: Field::DateTime.with_options(format: "%Y/%m/%d %H:%M"),
+    updated_at: Field::DateTime.with_options(format: "%Y/%m/%d %H:%M"),
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -65,7 +65,22 @@ class UserDashboard < Administrate::BaseDashboard
   #   COLLECTION_FILTERS = {
   #     open: ->(resources) { resources.where(open: true) }
   #   }.freeze
-  COLLECTION_FILTERS = {}.freeze
+  COLLECTION_FILTERS = {
+    # ユーザー名またはメールアドレスで検索
+    search: ->(value) {
+      { user_name_or_email_cont: value }
+    },
+
+    # 特定の権限を持つユーザーを検索
+    role_eq: ->(value) {
+      { role_eq: value }
+    },
+
+    # 登録日で検索
+    created_after: ->(value) {
+      { created_at_gteq: value.to_date }
+    }
+  }.freeze
 
   # Overwrite this method to customize how users are displayed
   # across all pages of the admin dashboard.
