@@ -27,6 +27,7 @@ gem 'jsbundling-rails'
 # CSS関連
 gem 'tailwindcss-rails'
 gem 'cssbundling-rails'
+gem 'sassc-rails'
 
 # ファイルアップロード
 gem 'aws-sdk-s3', require: false
@@ -52,6 +53,9 @@ gem 'ransack'
 # configuration
 gem 'config'
 gem 'dotenv-rails', require: 'dotenv/load'
+
+# enum
+gem 'enum_help'
 
 gem "tzinfo-data", platforms: %i[ jruby ]
 

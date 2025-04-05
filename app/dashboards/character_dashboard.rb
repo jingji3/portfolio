@@ -76,7 +76,22 @@ class CharacterDashboard < Administrate::BaseDashboard
   #   COLLECTION_FILTERS = {
   #     open: ->(resources) { resources.where(open: true) }
   #   }.freeze
-  COLLECTION_FILTERS = {}.freeze
+  COLLECTION_FILTERS = {
+    # キャラクター名（日本語/英語/かな）で検索
+    search: ->(value) {
+      { name_or_name_kana_or_name_eng_cont: value }
+    },
+
+    # 元素で検索
+    element_eq: ->(value) {
+      { element_eq: value }
+    },
+
+    # レアリティで検索
+    star_eq: ->(value) {
+      { star_eq: value.to_i }
+    },
+  }.freeze
 
   # Overwrite this method to customize how characters are displayed
   # across all pages of the admin dashboard.
