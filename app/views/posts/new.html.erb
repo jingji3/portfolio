@@ -1,0 +1,61 @@
+<div class="flex-1 p-8">
+  <h1 class="text-3xl font-bold text-base-content">おすすめ動画シェア</h1>
+
+  <%= form_with model: @post, local: true, class: "space-y-6" do |f| %>
+    <% if @post.errors.any? %>
+    <div class="alert alert-danger mb-6">
+      <h2><%= pluralize(@post.errors.count, "error") %></h2>
+      <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="grid grid-cols-2">
+    <div class="relative ml-4 mr-4">
+      <div class="form-group">
+        <div class="font-medium text-base-content mt-2 mb-2"><%= f.label :title, 'タイトル' %></div>
+        <%= f.text_field :title, class: 'input input-bordered w-full' %>
+      </div>
+
+      <div class="form-group">
+        <div class="font-medium text-base-content mt-2 mb-2"><%= f.label :body, 'おすすめポイント' %></div>
+        <%= f.text_field :body, class: 'input input-bordered w-full h-48', rows: 8 %>
+      </div>
+    </div>
+
+    <div class="relative ml-4 mr-4">
+      <div class="form-group">
+        <div class="font-medium text-base-content mt-2 mb-2"><%= f.label :movie_url, '動画URL' %></div>
+        <%= f.text_field :video_url, class: 'input input-bordered w-full', placeholder: 'https://www.youtube.com/watch?v=...' %>
+      </div>
+
+      <% if @post.video_url.present? %>
+      <div class="aspect-w-16 aspect-h-9">
+        <iframe
+          src="https://www.youtube.com/embed/<%= @post.video_embed_code&.match(/embed\/([^"]+)/)[1] %>"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          class="w-full h-64"></iframe>
+      </div>
+    <% end %>
+    </div>
+  </div>
+
+  <div class="ml-4 mr-4">
+    <h3 class="font-medium text-base-content mt-2 mb-2">
+      キャラクター
+    </h3>
+    <%= render 'posts/form' %>
+  </div>
+
+  <div class="flex justify-center gap-4">
+    <%= f.submit 'シェア', class: 'btn btn-primary' %>
+    <%= link_to 'キャンセル', posts_path, class: 'btn btn-secondary' %>
+  </div>
+  <% end %>
+
+</div>
