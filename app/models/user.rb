@@ -9,6 +9,8 @@ class User < ApplicationRecord
 
   enum role: { general: 0, admin: 1 }
 
+  has_many :posts, dependent: :destroy
+
   # パスワードが空の場合は更新しない
   attr_accessor :skip_password_validation
 

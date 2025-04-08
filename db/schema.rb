@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_04_03_115711) do
+ActiveRecord::Schema[7.1].define(version: 2025_04_06_013334) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -55,6 +55,27 @@ ActiveRecord::Schema[7.1].define(version: 2025_04_03_115711) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "title", null: false
+    t.string "body", null: false
+    t.string "video_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["title"], name: "index_posts_on_title"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "posts_to_characters", force: :cascade do |t|
+    t.bigint "post_id", null: false
+    t.bigint "character_id", null: false
+    t.integer "constellation", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["character_id"], name: "index_posts_to_characters_on_character_id"
+    t.index ["post_id"], name: "index_posts_to_characters_on_post_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "crypted_password"
@@ -68,4 +89,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_04_03_115711) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "posts", "users"
+  add_foreign_key "posts_to_characters", "characters"
+  add_foreign_key "posts_to_characters", "posts"
 end
