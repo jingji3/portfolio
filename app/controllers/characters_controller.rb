@@ -16,7 +16,6 @@ class CharactersController < ApplicationController
         }
        }
     end
-  end
 
   rescue ActiveRecord::RecordNotFound
     respond_to do |format|

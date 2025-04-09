@@ -15,8 +15,10 @@ Rails.application.routes.draw do
 
   get "up" => "rails/health#show", as: :rails_health_check
   root "top#index"
-  # ユーザー投稿
+  # ユーザー登録
   resources :users, only: %i[new create]
+  # プロフィール編集
+  resource :profile, only: %i[show edit update]
   # 投稿機能
   resources :posts
   # キャラクター

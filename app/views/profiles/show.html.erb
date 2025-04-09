@@ -1,0 +1,45 @@
+<!-- Profile page using Tailwind CSS & DaisyUI -->
+<div class="min-h-screen bg-base-300 text-base-content">
+  <div class="max-w-4xl mx-auto p-4 pt-8">
+    <div class="bg-base-200 rounded-lg shadow-lg p-6">
+      <!-- Header with title and edit button -->
+      <div class="flex justify-between items-center mb-8">
+        <h1 class="text-2xl font-bold"><%= t('.title') %></h1>
+        <%= link_to edit_profile_path, class: 'btn btn-primary' do %>
+          <%= t('defaults.edit') %>
+        <% end %>
+      </div>
+
+      <!-- Profile information table -->
+      <div class="overflow-x-auto">
+        <table class="table w-full">
+          <tbody>
+            <!-- Email row -->
+            <tr class="hover">
+              <th class="text-left w-1/3 bg-base-300"><%= User.human_attribute_name(:email) %></th>
+              <td class="bg-base-100"><%= current_user.email %></td>
+            </tr>
+
+            <!-- ユーザー名 -->
+            <tr class="hover">
+              <th class="text-left w-1/3 bg-base-300"><%= User.human_attribute_name(:user_name) %></th>
+              <td class="bg-base-100"><%= current_user.user_name %></td>
+            </tr>
+
+            <!-- アバター -->
+            <tr class="hover">
+              <th class="text-left w-1/3 bg-base-300"><%= User.human_attribute_name(:avatar) %></th>
+              <td class="bg-base-100">
+                <% if current_user.avatar.attached? %>
+                  <%= image_tag url_for(current_user.avatar), class: "rounded-full w-20 h-20 object-cover" %>
+                <% else %>
+                  <%= image_tag "default_avatar.png", class: "rounded-full w-20 h-20 object-cover" %>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

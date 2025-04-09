@@ -1,0 +1,73 @@
+<!-- app/views/profiles/edit.html.erb -->
+<div class="min-h-screen bg-base-300 text-base-content">
+  <div class="max-w-4xl mx-auto p-4 pt-8">
+    <div class="bg-base-200 rounded-lg shadow-lg p-6">
+      <!-- ヘッダー -->
+      <div class="mb-8">
+        <h1 class="text-2xl font-bold"><%= t('.title', default: 'プロフィール編集') %></h1>
+      </div>
+
+      <!-- フォーム -->
+      <%= form_with model: current_user, url: profile_path, local: true, class: "space-y-6" do |f| %>
+        <!-- エラーメッセージ -->
+        <% if current_user.errors.any? %>
+          <div class="alert alert-error shadow-lg">
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              <div>
+                <h4><%= pluralize(current_user.errors.count, "error") %> prohibited this user from being saved:</h4>
+                <ul>
+                  <% current_user.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+        <!-- メールアドレス -->
+        <div class="form-control w-full">
+          <%= f.label :email, class: "label" do %>
+            <span class="label-text"><%= User.human_attribute_name(:email) %></span>
+          <% end %>
+          <%= f.email_field :email, class: "input input-bordered w-full" %>
+        </div>
+
+        <!-- ユーザー名 -->
+        <div class="form-control w-full">
+          <%= f.label :user_name, class: "label" do %>
+            <span class="label-text"><%= User.human_attribute_name(:user_name) %></span>
+          <% end %>
+          <%= f.text_field :user_name, class: "input input-bordered w-full" %>
+        </div>
+
+        <!-- アバター画像 -->
+        <div class="form-control w-full">
+          <%= f.label :avatar, class: "label" do %>
+            <span class="label-text"><%= User.human_attribute_name(:avatar) %></span>
+          <% end %>
+
+          <!-- 現在のアバター表示 -->
+          <% if current_user.avatar.attached? %>
+            <div class="mb-2">
+              <%= image_tag current_user.avatar, class: "rounded-full w-24 h-24 object-cover" %>
+            </div>
+          <% end %>
+
+          <!-- ファイル選択 -->
+          <div class="flex items-center space-x-4">
+            <%= f.file_field :avatar, class: "file-input file-input-bordered w-full", accept: "image/png,image/jpeg,image/gif" %>
+          </div>
+          <p class="text-sm text-gray-500 mt-1">PNG, JPG, GIF形式で5MB以内</p>
+        </div>
+
+        <!-- 送信ボタン -->
+        <div class="mt-6 flex justify-end space-x-4">
+          <%= link_to t('defaults.cancel', default: 'キャンセル'), profile_path, class: "btn btn-ghost" %>
+          <%= f.submit t('defaults.update', default: '更新する'), class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
