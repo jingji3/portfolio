@@ -15,8 +15,8 @@ if [ -f yarn.lock ]; then
 fi
 
 # アセットのPrecompile
-# bundle exec rails assets:precompile
-# bundle exec rails assets:clean
+bundle exec rails assets:precompile
+bundle exec rails assets:clean
 
 # migrations
 bundle exec rails db:migrate
