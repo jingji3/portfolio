@@ -1,5 +1,4 @@
 import * as esbuild from 'esbuild'
-import { sassPlugin } from 'esbuild-sass-plugin'
 
 let ctx = await esbuild.context({
   entryPoints: ['app/javascript/*.js'],
@@ -8,7 +7,6 @@ let ctx = await esbuild.context({
   format: 'esm',
   outdir: 'app/assets/builds',
   publicPath: '/assets',
-  plugins: [sassPlugin()],
   external: ['@hotwired/stimulus-loading'],
 })
 
