@@ -1,15 +1,21 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
 
+  has_many :posts, dependent: :destroy
+  has_one_attached :avatar
+
   validates :password, length: { minimum: 8 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
   validates :user_name, presence: true, length: { maximum: 255 }
   validates :email, presence: true, uniqueness: true
+  validates :avatar, content_type: { in: %w[image/jpeg image/gif image/png],
+                                    message: "は有効な画像形式である必要があります" },
+                    size: { less_than: 5.megabytes,
+                           message: "は5MB未満である必要があります" },
+                    allow_blank: true
 
   enum role: { general: 0, admin: 1 }
-
-  has_many :posts, dependent: :destroy
 
   # パスワードが空の場合は更新しない
   attr_accessor :skip_password_validation

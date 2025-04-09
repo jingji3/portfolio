@@ -27,13 +27,14 @@ gem 'jsbundling-rails'
 # CSS関連
 gem 'tailwindcss-rails'
 gem 'cssbundling-rails'
-gem 'sassc-rails'
+gem 'dartsass-rails'
 
 # ファイルアップロード
 gem 'aws-sdk-s3', require: false
 
 # 画像処理
 gem 'mini_magick'
+gem 'active_storage_validations'
 
 # キャッシュストア
 gem 'redis', '~> 5.0'
