@@ -45,7 +45,7 @@ gem 'sorcery', '~> 0.17.0'
 gem 'rails-i18n', '~> 7.0.10'
 
 # 管理者
-gem 'administrate'
+# gem 'administrate'
 
 # 検索機能
 gem 'ransack'
