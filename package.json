@@ -12,13 +12,19 @@
     "esbuild": "^0.25.1",
     "postcss": "^8.4.23",
     "postcss-import": "^16.1.0",
-    "postcss-nested": "^7.0.2"
+    "postcss-nested": "^7.0.2",
+    "sass": "^1.86.0"
   },
   "scripts": {
     "tailwindcss": "tailwindcss",
-    "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --config ./tailwind.config.js",
-    "dev:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --config ./tailwind.config.js --watch --poll",
-    "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets --external:@hotwired/stimulus-loading",
-    "build:js:watch": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets --external:@hotwired/stimulus-loading --watch"
+    "build:tailwind": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/tailwind.css --config ./tailwind.config.js",
+    "dev:tailwind": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/tailwind.css --config ./tailwind.config.js --watch --poll",
+    "build:sass": "sass ./app/assets/stylesheets/application.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules",
+    "dev:sass": "sass ./app/assets/stylesheets/application.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules --watch",
+    "build:css": "yarn build:tailwind && yarn build:sass",
+    "dev:css": "yarn dev:tailwind && yarn dev:sass",
+    "build:js": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets --external:@hotwired/stimulus-loading",
+    "build:js:watch": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets --external:@hotwired/stimulus-loading --watch",
+    "build": "yarn build:js && yarn build:css"
   }
 }

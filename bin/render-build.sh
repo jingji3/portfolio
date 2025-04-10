@@ -8,11 +8,9 @@ bundle install
 if [ -f yarn.lock ]; then
   # パッケージのインストール
   yarn install
-  # JavaScriptのビルド
-  yarn build
-  # CSSのビルド（watchモードなし）
-  npx tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css
-fi
+  # 各アセットを独立してビルド
+  yarn build:js
+  yarn build:css
 
 # アセットのPrecompile
 bundle exec rails assets:precompile
