@@ -88,7 +88,7 @@ Rails.application.configure do
 
   # アセットコンプレッサーを無効化
   config.assets.css_compressor = nil
-  
+
   # Only use :id for inspections in production.
   #config.active_record.attributes_for_inspect = [ :id ]
 

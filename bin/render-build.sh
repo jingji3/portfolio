@@ -14,8 +14,11 @@ if [ -f yarn.lock ]; then
 fi
 
 # アセットのPrecompile
- bundle exec rails assets:precompile
- bundle exec rails assets:clean
+bundle exec rails assets:precompile
+bundle exec rails assets:clean
 
 # migrations
-DISABLE_DATABASE_ENVIRONMENT_CHECK=1 bundle exec rake db:migrate:reset
+bundle exec rake db:migrate
+
+user = User.find_by(email: 'fsyuppoppos@gmail.com')
+user.update(role: 'admin') if user"
