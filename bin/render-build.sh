@@ -28,3 +28,4 @@ bundle exec rails runner "
   else
     puts '指定したメールアドレスのユーザーが見つかりません'
   end
+"
