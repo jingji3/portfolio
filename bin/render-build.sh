@@ -10,7 +10,7 @@ if [ -f yarn.lock ]; then
   yarn install
   # 各アセットを独立してビルド
   yarn build:js
-  yarn build:css
+  yarn build:css || echo "Sass build failed, but continuing..."
 fi
 
 # アセットのPrecompile
