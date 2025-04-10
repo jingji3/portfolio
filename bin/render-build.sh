@@ -20,5 +20,11 @@ bundle exec rails assets:clean
 # migrations
 bundle exec rake db:migrate
 
-user = User.find_by(email: 'fsyuppoppos@gmail.com')
-user.update(role: 'admin') if user"
+bundle exec rails runner "
+  user = User.find_by(email: 'fsyuppoppos@gmail.com')
+  if user
+    user.update(role: 'admin')
+    puts '管理者権限を付与しました: ' + user.email
+  else
+    puts '指定したメールアドレスのユーザーが見つかりません'
+  end
