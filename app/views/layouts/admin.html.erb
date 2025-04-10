@@ -9,10 +9,12 @@
   <% if Rails.env.development? %>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5.0.9" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com?version=3.4.16"></script>
-    <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
-  <% else %>
-    <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
-  <% end %>
+      <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
+      <%= stylesheet_link_tag "tailwind", media: "all", "data-turbo-track": "reload" %>
+    <% else %>
+      <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
+      <%= stylesheet_link_tag "tailwind", media: "all", "data-turbo-track": "reload" %>
+    <% end %>
 
   <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 </head>

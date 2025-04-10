@@ -27,7 +27,6 @@ gem 'jsbundling-rails'
 # CSS関連
 gem 'tailwindcss-rails'
 gem 'cssbundling-rails'
-gem 'dartsass-rails'
 
 # ファイルアップロード
 gem 'aws-sdk-s3', require: false
