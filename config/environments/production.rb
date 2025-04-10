@@ -85,16 +85,10 @@ Rails.application.configure do
   config.active_storage.service = :amazon
 
   # 以下試し
-  # アセットのダイジェスト（フィンガープリント）を無効化
-  config.assets.digest = false
 
   # アセットコンプレッサーを無効化
-  # config.assets.css_compressor = nil
-  config.assets.js_compressor = nil
-
-  # アセットマニフェストファイルを使用しない
-  config.assets.manifest = false
-
+  config.assets.css_compressor = nil
+  
   # Only use :id for inspections in production.
   #config.active_record.attributes_for_inspect = [ :id ]
 
