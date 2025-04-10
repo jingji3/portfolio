@@ -11,6 +11,7 @@ if [ -f yarn.lock ]; then
   # 各アセットを独立してビルド
   yarn build:js
   yarn build:css
+fi
 
 # アセットのPrecompile
 bundle exec rails assets:precompile
