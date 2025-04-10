@@ -89,7 +89,7 @@ Rails.application.configure do
   config.assets.digest = false
 
   # アセットコンプレッサーを無効化
-  config.assets.css_compressor = nil
+  # config.assets.css_compressor = nil
   config.assets.js_compressor = nil
 
   # アセットマニフェストファイルを使用しない

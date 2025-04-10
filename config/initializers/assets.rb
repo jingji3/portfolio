@@ -17,4 +17,4 @@ Rails.application.config.assets.precompile += %w( *.png *.jpg *.jpeg *.gif *.svg
 Rails.application.config.assets.manifest = Rails.root.join('public', 'assets', 'manifest.json')
 
 # Tailwind と Sass のスタイルシートを明示的に追加
-Rails.application.config.assets.precompile += %w( tailwind.css)
+Rails.application.config.assets.precompile += %w( tailwind.css )
