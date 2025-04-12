@@ -77,13 +77,14 @@ Rails.application.configure do
   config.assets.check_precompiled_asset = false
 
   # アセットのダイジェスト（フィンガープリント）を無効化
-  config.assets.digest = false
+  # config.assets.digest = false
+
+  # アセットコンプレッサーを無効化
+  config.assets.css_compressor = nil
 
   # アセットプリコンパイルをスキップ
   config.assets.prefix = "/assets"
 
-  # アセットマニフェストファイルを使用しない
-  config.assets.manifest = false
 
   # 開発環境ではapp/assets/buildsから直接アセットを提供
   config.public_file_server.enabled = true

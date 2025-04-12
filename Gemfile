@@ -57,6 +57,10 @@ gem 'dotenv-rails', require: 'dotenv/load'
 # enum
 gem 'enum_help'
 
+# js系
+gem 'jquery-rails'
+gem 'select2-rails'
+
 gem "tzinfo-data", platforms: %i[ jruby ]
 
 gem "solid_cache"
