@@ -1,0 +1,69 @@
+<div class="flex-1 p-4 mx-20">
+  <h1 class="text-3xl font-bold text-base-content">動画情報編集</h1>
+
+  <%= form_with model: @post, local: true, class: "space-y-6" do |f| %>
+    <% if @post.errors.any? %>
+    <div class="alert alert-danger mb-4">
+      <h2><%= pluralize(@post.errors.count, "error") %></h2>
+      <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="grid grid-cols-2">
+    <div class="relative mx-4">
+      <div class="form-group">
+        <div class="font-bold text-lg my-2"><%= f.label :title, 'タイトル' %></div>
+        <%= f.text_field :title, class: 'input input-bordered w-full text-lg' %>
+      </div>
+
+      <div class="form-group">
+        <div class="font-bold text-lg my-2"><%= f.label :body, 'おすすめポイント' %></div>
+        <%= f.text_area :body, class: 'input input-bordered w-full h-48 text-lg', rows: 8 %>
+      </div>
+    </div>
+
+    <div class="relative mx-4">
+      <div class="form-group">
+        <div class="font-bold text-lg my-2"><%= f.label :movie_url, '動画URL' %></div>
+        <%= f.text_field :video_url, class: 'input input-bordered w-full text-md', placeholder: 'https://www.youtube.com/watch?v=...' %>
+      </div>
+
+      <div class="p-4">
+        <% if @post.video_url.present? %>
+        <% youtube_id = @post.video_url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/)&.captures&.first %>
+          <% if youtube_id %>
+            <div class="relative w-full" style="padding-bottom: 56.25%;">
+              <iframe
+                src="https://www.youtube.com/embed/<%= youtube_id %>"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                class="absolute top-0 left-0 w-full h-full rounded-lg"></iframe>
+            </div>
+          <% else %>
+            <div class="bg-gray-200 flex items-center justify-center h-64 rounded-lg">
+              <span class="text-gray-500">Invalid YouTube URL</span>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="mx-4">
+    <h3 class="font-bold text-lg my-1">
+      キャラクター
+    </h3>
+    <%= render 'posts/form' %>
+  </div>
+
+  <div class="flex justify-center gap-4">
+    <%= f.submit '更新', class: 'btn btn-primary' %>
+    <%= link_to 'キャンセル', post_path(@post), class: 'btn btn-secondary' %>
+  </div>
+  <% end %>
+</div>

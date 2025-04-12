@@ -27,8 +27,23 @@ class PostsController < ApplicationController
   end
 
   def edit
-    authorize @post
+    @post = Post.includes(:user, posts_to_characters: :character).find(params[:id])
+    @characters = Character.all.order(:name)
+  end
 
+  def update
+    @post = Post.find(params[:id])
+
+    if @post.update(post_params)
+      # キャラクター関連を更新
+      @post.posts_to_characters.destroy_all # 既存の関連を削除
+      create_character_associations # 新しい関連を作成
+
+      redirect_to @post, notice: '投稿が更新されました'
+    else
+      @characters = Character.all.order(:name)
+      render :edit
+    end
   end
 
   def destroy
