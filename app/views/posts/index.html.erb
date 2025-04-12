@@ -1,4 +1,4 @@
-<div class="flex-1 p-8 mx-40">
+<div class="flex-1 p-4 mx-20">
   <div class="flex justify-between">
     <h1 class="text-3xl font-bold text-base-content mb-4">編成動画検索</h1>
     <div>
@@ -29,9 +29,9 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
       <% if @posts.present? %>
         <% @posts.each do |post| %>
-          <%= link_to post_path(post), class: "card bg-base-200 shadow-xl" do %>
+          <%= link_to post_path(post), class: "card bg-base-300 shadow-xl" do %>
             <!-- サムネイル部分 -->
-            <div class="relative">
+            <div class="relative rounded-t-md overflow-hidden">
               <div class="w-full h-0 pb-[56.25%] relative">
                 <% if post.video_url.present? %>
                   <% youtube_id = post.video_url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/)&.captures&.first %>
@@ -51,14 +51,38 @@
             </div>
 
             <!-- カード本文 -->
-            <div class="card-body p-4">
-              <h2 class="card-title text-base"><%= post.title %></h2>
-              <div class="text-sm overflow-hidden h-24 text-gray-700"><%= post.body %></div>
+            <div class="card-body p-2">
+              <div class="flex flex-row">
+                <div class="flex-shrink-0 mr-2">
+                  <% if post.user.respond_to?(:avatar) && post.user.avatar.attached? %>
+                    <%= image_tag url_for(post.user.avatar), class: "w-7 h-7 rounded-full object-cover", alt: post.user.user_name %>
+                  <% else %>
+                    <div class="w-7 h-7 bg-primary text-primary-content rounded-full flex items-center justify-center">
+                      <span class="text-sm font-bold"><%= post.user.user_name[0].upcase %></span>
+                    </div>
+                  <% end %>
+                </div>
+                <h2 class="card-title text-base"><%= post.title %></h2>
+              </div>
+
+              <!-- 投稿者情報と日時 -->
+              <div class="flex items-center">
+                <div class="text-xs">
+                  <span><%= post.user.user_name %></span>
+                  <span>・</span>
+                  <span><%= time_ago_in_words(post.created_at) %>前</span>
+                </div>
+              </div>
+
+              <!-- 本文抜粋 -->
+              <div class="text-sm h-10 text-gray-500">
+                <%= truncate(post.body, length: 50) %>
+              </div>
             </div>
           <% end %>
         <% end %>
       <% else %>
-        <div class="col-span-2 text-center p-8">
+        <div class="col-span-3 text-center p-8">
           投稿がまだありません。
         </div>
       <% end %>

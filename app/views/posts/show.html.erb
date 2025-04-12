@@ -1,71 +1,94 @@
-<div class="container mx-auto px-40 py-8">
-  <div class="flex justify-between mb-4">
-    <div>
-      <%= link_to posts_path, class: "text-blue-500 hover:text-blue-700" do %>
-        <i class="fas fa-arrow-left mr-1"></i> 戻る
-      <% end %>
-    </div>
-    <div>
-      <% if current_user && current_user.id == @post.user_id %>
-        <%= button_to "削除", post_path(@post), method: :delete,
-            data: { confirm: "この投稿を削除してもよろしいですか？" },
-            class: "btn btn-error" %>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden">
-    <div class="p-6 border-b border-gray-200 dark:border-gray-700">
-      <h1 class="text-2xl font-bold text-gray-900 dark:text-white"><%= @post.title %></h1>
-      <div class="flex items-center mt-2">
-        <div class="text-sm text-gray-600 dark:text-gray-400">
-          <span>投稿者: <%= @post.user.user_name %></span>
-          <span class="mx-2">•</span>
-          <span><%= @post.created_at.strftime("%Y/%m/%d %H:%M") %></span>
-        </div>
-      </div>
-    </div>
+<div class="flex-1 mx-40 p-4">
+  <div class="overflow-hidden">
 
     <% if @post.video_url.present? %>
       <% youtube_id = @post.video_url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/)&.captures&.first %>
         <% if youtube_id %>
-          <div class="relative w-full" style="padding-bottom: 56.25%;">
+          <div class="relative w-full shadow-md" style="padding-bottom: 56.25%;">
             <iframe
               src="https://www.youtube.com/embed/<%= youtube_id %>"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
-              class="absolute top-0 left-0 w-full h-full"></iframe>
+              class="absolute top-0 left-0 w-full h-full rounded-lg"></iframe>
           </div>
         <% else %>
-          <div class="bg-gray-200 flex items-center justify-center h-64">
+          <div class="bg-gray-200 flex items-center justify-center h-64 rounded-md">
             <span class="text-gray-500">Invalid YouTube URL</span>
           </div>
         <% end %>
-      <% end %>
+    <% end %>
 
-    <div class="p-6 border-b border-gray-200 dark:border-gray-700">
-      <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">おすすめポイント</h2>
-      <div class="prose prose-slate dark:prose-invert max-w-none">
+    <div class="p-4 flex flex-row justify-between">
+      <div class="flex items-center flex-row">
+        <div class="flex-shrink-0 mr-2">
+          <% if @post.user.respond_to?(:avatar) && @post.user.avatar.attached? %>
+            <%= image_tag url_for(@post.user.avatar), class: "w-12 h-12 rounded-full object-cover", alt: @post.user.user_name %>
+          <% else %>
+            <div class="w-12 h-12 bg-primary text-primary-content rounded-full flex items-center justify-center">
+              <span class="text-sm font-bold"><%= @post.user.user_name[0].upcase %></span>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="flex flex-col">
+          <h1 class="text-2xl font-bold"><%= @post.title %></h1>
+          <div class="flex items-center">
+            <div class="text-sm text-gray-500">
+              <span>おすすめ者: <%= @post.user.user_name %></span>
+              <span class="mx-1">•</span>
+              <span><%= @post.created_at.strftime("%y/%m/%d") %></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex gap-2">
+        <% if current_user && current_user.id == @post.user_id %>
+          <%= link_to edit_post_path(@post),
+              class: "btn btn-sm rounded-md bg-base-300 hover:bg-base-200 shadow-md" do %>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="16 3 21 8 8 21 3 21 3 16 16 3"></polygon>
+            </svg>
+          <% end %>
+
+          <%= button_to post_path(@post),
+              method: :delete,
+              form: { data: { turbo_confirm: "この投稿を削除してもよろしいですか？" } },
+              class: "btn btn-sm rounded-md bg-base-300 hover:bg-base-200 shadow-md" do %>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+            </svg>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="p-4">
+      <div class="p-2 bg-base-300 shadow-md rounded-lg">
+        <h2 class="text-lg font-semibold mb-2">使用キャラクター</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <% @post.posts_to_characters.includes(:character).each do |ptc| %>
+            <div class="flex flex-col items-center">
+              <% if ptc.character.respond_to?(:character_img) && ptc.character.character_img.attached? %>
+                <%= image_tag url_for(ptc.character.character_img), class: "h-24 object-contain mb-2" %>
+              <% end %>
+              <div class="text-center flex flex-row">
+                <div class="font-medium"><%= ptc.character.name %></div>
+                <div class="text-sm text-gray-500"><%= ptc.constellation || 0 %> 凸</div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-4">
+      <h2 class="text-xl font-semibold mb-2">おすすめポイント</h2>
+      <div class="text-lg">
         <%= simple_format(@post.body) %>
       </div>
     </div>
 
-    <div class="p-6">
-      <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">使用キャラクター</h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <% @post.posts_to_characters.includes(:character).each do |ptc| %>
-          <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-3 flex flex-col items-center">
-            <% if ptc.character.respond_to?(:character_img) && ptc.character.character_img.attached? %>
-              <%= image_tag url_for(ptc.character.character_img), class: "h-24 object-contain mb-2" %>
-            <% end %>
-            <div class="text-center">
-              <div class="font-medium text-gray-900 dark:text-white"><%= ptc.character.name %></div>
-              <div class="text-sm text-gray-500 dark:text-gray-400">凸数: <%= ptc.constellation || 0 %></div>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    </div>
   </div>
 </div>

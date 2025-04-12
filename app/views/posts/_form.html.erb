@@ -1,30 +1,41 @@
 <div class="grid grid-cols-4 gap-4">
-  <% 4.times do |i| %>
-  <div class="flex flex-col space-y-2" data-controller="character-selector">
-    <div class="flex space-x-2">
-      <div class="flex-1">
-        <%= select_tag "character_ids[]",
-                    options_from_collection_for_select(@characters, :id, :name),
-                    include_blank: 'キャラクター選択',
-                    class: 'select select-bordered w-full character-select',
-                    data: {
-                      character_selector_target: "select",
-                      action: "change->character-selector#change"
-                    } %>
-      </div>
-      <div>
-        <%= select_tag "constellations[]",
-                      options_for_select((0..6).map { |n| [n, n] }),
-                      class: 'select select-bordered w-16' %>
-      </div>
-    </div>
+  <%
+    # PostsToCharacterデータを取得
+    character_associations = @post.posts_to_characters.to_a
+  %>
 
-    <div data-character-selector-target="container"
-        class="character-image-container h-32 flex items-center justify-center hidden">
-      <img data-character-selector-target="image"
-          class="character-image h-full object-contain"
-          alt="キャラクター画像">
+  <% 4.times do |i| %>
+    <%
+      # 対応するPostsToCharacterを取得
+      association = character_associations[i]
+      character_id = association&.character_id
+      constellation = association&.constellation || 0
+    %>
+    <div class="flex flex-col space-y-2" data-controller="character-selector">
+      <div class="flex space-x-2">
+        <div class="flex-1">
+          <%= select_tag "character_ids[]",
+                      options_from_collection_for_select(@characters, :id, :name, character_id),
+                      include_blank: 'キャラクター選択',
+                      class: 'select select-bordered w-full character-select',
+                      data: {
+                        character_selector_target: "select",
+                        action: "change->character-selector#change"
+                      } %>
+        </div>
+        <div>
+          <%= select_tag "constellations[]",
+                        options_for_select((0..6).map { |n| [n, n] }, constellation),
+                        class: 'select select-bordered w-16' %>
+        </div>
+      </div>
+
+      <div data-character-selector-target="container"
+          class="character-image-container h-32 flex items-center justify-center hidden">
+        <img data-character-selector-target="image"
+            class="character-image h-full object-contain"
+            alt="キャラクター画像">
+      </div>
     </div>
-  </div>
   <% end %>
 </div>
