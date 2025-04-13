@@ -59,7 +59,6 @@ gem 'enum_help'
 
 # js系
 gem 'jquery-rails'
-gem 'select2-rails'
 
 gem "tzinfo-data", platforms: %i[ jruby ]
 
@@ -71,10 +70,10 @@ gem "bootsnap", require: false
 gem "kamal", require: false
 gem "thruster", require: false
 
-gem 'net-smtp', require: false
-gem 'net-imap', require: false
-gem 'net-pop', require: false
-gem 'net-protocol', require: false
+gem 'net-protocol'
+gem 'net-pop'
+gem 'net-smtp'
+gem 'net-imap'
 
 gem 'uri'
 gem 'digest'
