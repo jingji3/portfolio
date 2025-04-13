@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+gem install bundler -v 2.5.11
 set -o errexit
 
 # Install dependencies
