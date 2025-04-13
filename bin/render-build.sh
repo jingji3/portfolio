@@ -19,4 +19,3 @@ bundle exec rails assets:clean
 
 # migrations
 bundle exec rake db:migrate
-
