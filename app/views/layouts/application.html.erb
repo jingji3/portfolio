@@ -23,6 +23,9 @@
       <%= stylesheet_link_tag "tailwind", media: "all", "data-turbo-track": "reload" %>
     <% end %>
 
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.min.css" rel="stylesheet">
+    <%= stylesheet_link_tag "tom_select_custom", "data-turbo-track": "reload" %>
+
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
     <%= javascript_include_tag "theme_switcher", "data-turbo-track": "reload", defer: true %>
   </head>

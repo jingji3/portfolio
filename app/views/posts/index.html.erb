@@ -10,14 +10,14 @@
   <div class="mx-12 mb-4 p-4 bg-base-300 rounded-xl shadow-xl">
     <h2 class="text-xl font-bold mb-2">検索キャラクター</h2>
 
-    <%= form_with url: posts_path, method: :get, local: true, class: "flex flex-wrap justify-center gap-8" do |f| %>
+    <%= form_with url: posts_path, method: :get, local: true, class: "flex flex-wrap justify-center gap-4 mb-4" do |f| %>
       <% 4.times do |i| %>
         <div class="flex flex-col space-y-2" data-controller="character-selector">
-          <div class="flex-1">
+          <div class="w-full">
             <%= select_tag "character#{i+1}",
                       options_from_collection_for_select(@characters, :id, :name, params["character#{i+1}"]),
                       include_blank: 'キャラクター選択',
-                      class: 'select select-bordered w-full character-select',
+                      class: 'select-bordered w-full h-10 character-select',
                       data: {
                         character_selector_target: "select",
                         action: "change->character-selector#change"
@@ -81,7 +81,7 @@
                     <% if post.user.respond_to?(:avatar) && post.user.avatar.attached? %>
                       <%= image_tag url_for(post.user.avatar), class: "w-7 h-7 rounded-full object-cover", alt: post.user.user_name %>
                     <% else %>
-                      <div class="w-7 h-7 bg-primary text-primary-content rounded-full flex items-center justify-center">
+                      <div class="w-7 h-7 bg-gray-600 text-primary-content rounded-full flex items-center justify-center">
                         <span class="text-sm font-bold"><%= post.user.user_name[0].upcase %></span>
                       </div>
                     <% end %>
