@@ -12,12 +12,12 @@
       constellation = association&.constellation || 0
     %>
     <div class="flex flex-col space-y-2" data-controller="character-selector">
-      <div class="flex space-x-2">
-        <div class="flex-1">
+      <div class="flex justify-center items-center space-x-2">
+        <div class="flex">
           <%= select_tag "character_ids[]",
                       options_from_collection_for_select(@characters, :id, :name, character_id),
                       include_blank: 'キャラクター選択',
-                      class: 'select-bordered w-full character-select',
+                      class: 'select-bordered character-select',
                       data: {
                         character_selector_target: "select",
                         action: "change->character-selector#change"
@@ -26,7 +26,7 @@
         <div>
           <%= select_tag "constellations[]",
                         options_for_select((0..6).map { |n| [n, n] }, constellation),
-                        class: 'select select-bordered w-16' %>
+                        class: 'select w-16' %> 凸
         </div>
       </div>
 
