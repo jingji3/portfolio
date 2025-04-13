@@ -7,15 +7,33 @@
   </div>
 
   <!-- 検索フォーム部分 -->
-  <div class="mb-10">
-    <h2 class="text-xl font-bold mb-4">検索キャラクター</h2>
+  <div class="mx-12 mb-4 p-4 bg-base-300 rounded-xl shadow-xl">
+    <h2 class="text-xl font-bold mb-2">検索キャラクター</h2>
 
-    <%= form_with url: posts_path, method: :get, local: true, class: "flex justify-center space-x-2 mb-2" do |f| %>
-      <input type="text" name="character1" class="input input-bordered w-36 h-10">
-      <input type="text" name="character2" class="input input-bordered w-36 h-10">
-      <input type="text" name="character3" class="input input-bordered w-36 h-10">
-      <input type="text" name="character4" class="input input-bordered w-36 h-10">
-      <button type="submit" class="btn btn-sm btn-primary">検索</button>
+    <%= form_with url: posts_path, method: :get, local: true, class: "flex flex-wrap justify-center gap-4 mb-4" do |f| %>
+      <% 4.times do |i| %>
+        <div class="flex flex-col space-y-2" data-controller="character-selector">
+          <div class="w-full">
+            <%= select_tag "character#{i+1}",
+                      options_from_collection_for_select(@characters, :id, :name, params["character#{i+1}"]),
+                      include_blank: 'キャラクター選択',
+                      class: 'select-bordered w-full h-10 character-select',
+                      data: {
+                        character_selector_target: "select",
+                        action: "change->character-selector#change"
+                      } %>
+          </div>
+          <div data-character-selector-target="container"
+            class="character-image-container h-24 flex items-center justify-center hidden">
+            <img data-character-selector-target="image"
+                class="character-image h-full object-contain"
+                alt="キャラクター画像">
+          </div>
+        </div>
+      <% end %>
+      <div class="flex items-end">
+        <button type="submit" class="btn btn-primary">検索</button>
+      </div>
     <% end %>
   </div>
 
@@ -29,57 +47,85 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
       <% if @posts.present? %>
         <% @posts.each do |post| %>
-          <%= link_to post_path(post), class: "card bg-base-300 shadow-xl" do %>
+          <!-- card全体をリンクにしない -->
+          <div class="card bg-base-300 shadow-xl">
             <!-- サムネイル部分 -->
-            <div class="relative rounded-t-md overflow-hidden">
-              <div class="w-full h-0 pb-[56.25%] relative">
-                <% if post.video_url.present? %>
-                  <% youtube_id = post.video_url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/)&.captures&.first %>
-                  <% if youtube_id %>
-                    <img src="https://img.youtube.com/vi/<%= youtube_id %>/mqdefault.jpg" alt="<%= post.title %>" class="absolute inset-0 w-full h-full object-cover">
+            <%= link_to post_path(post) do %>
+              <div class="relative rounded-t-md overflow-hidden">
+                <div class="w-full h-0 pb-[56.25%] relative">
+                  <% if post.video_url.present? %>
+                    <% youtube_id = post.video_url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/)&.captures&.first %>
+                    <% if youtube_id %>
+                      <img src="https://img.youtube.com/vi/<%= youtube_id %>/mqdefault.jpg" alt="<%= post.title %>" class="absolute inset-0 w-full h-full object-cover">
+                    <% else %>
+                      <div class="absolute inset-0 bg-gray-200 flex items-center justify-center">
+                        <span class="text-gray-500">Invalid YouTube URL</span>
+                      </div>
+                    <% end %>
                   <% else %>
                     <div class="absolute inset-0 bg-gray-200 flex items-center justify-center">
-                      <span class="text-gray-500">Invalid YouTube URL</span>
+                      <span class="text-gray-500">No Image</span>
                     </div>
                   <% end %>
-                <% else %>
-                  <div class="absolute inset-0 bg-gray-200 flex items-center justify-center">
-                    <span class="text-gray-500">No Image</span>
-                  </div>
-                <% end %>
+                </div>
               </div>
-            </div>
+            <% end %>
 
             <!-- カード本文 -->
             <div class="card-body p-2">
-              <div class="flex flex-row">
-                <div class="flex-shrink-0 mr-2">
-                  <% if post.user.respond_to?(:avatar) && post.user.avatar.attached? %>
-                    <%= image_tag url_for(post.user.avatar), class: "w-7 h-7 rounded-full object-cover", alt: post.user.user_name %>
-                  <% else %>
-                    <div class="w-7 h-7 bg-primary text-primary-content rounded-full flex items-center justify-center">
-                      <span class="text-sm font-bold"><%= post.user.user_name[0].upcase %></span>
-                    </div>
-                  <% end %>
+              <!-- タイトルと編集・削除ボタン -->
+              <div class="flex justify-between items-start">
+                <!-- タイトルをリンクにする -->
+                <div class="flex flex-row">
+                  <div class="flex-shrink-0 mr-2">
+                    <% if post.user.respond_to?(:avatar) && post.user.avatar.attached? %>
+                      <%= image_tag url_for(post.user.avatar), class: "w-7 h-7 rounded-full object-cover", alt: post.user.user_name %>
+                    <% else %>
+                      <div class="w-7 h-7 bg-gray-600 text-primary-content rounded-full flex items-center justify-center">
+                        <span class="text-sm font-bold"><%= post.user.user_name[0].upcase %></span>
+                      </div>
+                    <% end %>
+                  </div>
+                  <h2 class="card-title text-base">
+                    <%= link_to post.title, post_path(post), class: "hover:underline" %>
+                  </h2>
                 </div>
-                <h2 class="card-title text-base"><%= post.title %></h2>
+
+                <!-- 編集・削除ボタン -->
+                <% if current_user && current_user.id == post.user_id %>
+                  <div class="flex gap-1">
+                    <%= link_to edit_post_path(post),
+                        class: "btn btn-xs p-1 h-6 min-h-0 rounded-md bg-base-300 hover:bg-base-200" do %>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="16 3 21 8 8 21 3 21 3 16 16 3"></polygon>
+                      </svg>
+                    <% end %>
+
+                    <%= button_to post_path(post),
+                        method: :delete,
+                        form: { data: { turbo_confirm: "この投稿を削除してもよろしいですか？" } },
+                        class: "btn btn-xs p-1 h-6 min-h-0 rounded-md bg-base-300 hover:bg-base-200" do %>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                      </svg>
+                    <% end %>
+                  </div>
+                <% end %>
               </div>
 
               <!-- 投稿者情報と日時 -->
-              <div class="flex items-center">
-                <div class="text-xs">
-                  <span><%= post.user.user_name %></span>
-                  <span>・</span>
-                  <span><%= time_ago_in_words(post.created_at) %>前</span>
-                </div>
+              <div class="text-xs ml-9">
+                <span><%= post.user.user_name %></span>
+                <span>・</span>
+                <span><%= time_ago_in_words(post.created_at) %>前</span>
               </div>
 
               <!-- 本文抜粋 -->
               <div class="text-sm h-10 text-gray-500">
-                <%= truncate(post.body, length: 50) %>
+                <%= truncate(post.body, length: 40) %>
               </div>
             </div>
-          <% end %>
+          </div>
         <% end %>
       <% else %>
         <div class="col-span-3 text-center p-8">

@@ -17,7 +17,7 @@
           <%= select_tag "character_ids[]",
                       options_from_collection_for_select(@characters, :id, :name, character_id),
                       include_blank: 'キャラクター選択',
-                      class: 'select select-bordered w-full character-select',
+                      class: 'select-bordered w-full character-select',
                       data: {
                         character_selector_target: "select",
                         action: "change->character-selector#change"
