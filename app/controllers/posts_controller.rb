@@ -2,7 +2,27 @@ class PostsController < ApplicationController
   skip_before_action :require_login, only: %i[new create]
 
   def index
-    @posts = Post.includes(:user, posts_to_characters: :character).order(created_at: :desc).page(params[:page]).per(10)
+    @characters = Character.all.order(:name)
+
+    # キャラクター検索用のパラメータを処理
+    character_ids = []
+    (1..4).each do |i|
+      character_id = params["character#{i}"]
+      character_ids << character_id if character_id.present?
+    end
+
+    @posts = Post.includes(:user, posts_to_characters: :character).order(created_at: :desc)
+
+    # キャラクターIDが指定されている場合は絞り込み
+    if character_ids.any?
+      # 全ての選択されたキャラクターを含む投稿のみを取得（AND検索）
+      @posts = @posts.joins(:posts_to_characters)
+                      .where(posts_to_characters: { character_id: character_ids })
+                      .group('posts.id')
+                      .having('COUNT(DISTINCT posts_to_characters.character_id) = ?', character_ids.size)
+    end
+
+    @posts = @posts.distinct.page(params[:page]).per(10)
   end
 
   def show

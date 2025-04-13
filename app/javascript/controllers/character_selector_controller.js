@@ -6,11 +6,6 @@ export default class extends Controller {
   connect() {
     console.log("Character selector connected", this.element)
 
-    // デバッグログを追加
-    console.log("Select target:", this.selectTarget)
-    console.log("Select value:", this.selectTarget.value)
-    console.log("Data attribute:", this.selectTarget.dataset.characterSelectorInitialId)
-
     // 初期値がある場合のみ処理
     if (this.selectTarget.value && this.selectTarget.value !== '') {
       console.log("Loading initial character from value:", this.selectTarget.value)

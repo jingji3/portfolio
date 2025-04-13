@@ -1,5 +1,9 @@
 class Character < ApplicationRecord
   has_one_attached :character_img
+
+  has_many :posts_to_characters
+  has_many :characters, through: :posts_to_characters
+
   validates :name, presence: true, length: { maximum: 255 }
   validates :name_kana, presence: true, length: { maximum: 255 }
   validates :name_eng, presence: true, length: { maximum: 255 }

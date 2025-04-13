@@ -18,7 +18,24 @@ class Post < ApplicationRecord
     match = regex.match(url)
     match[1] if match
   end
-  
+
   private
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["id", "title", "created_at", "updated_at"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["characters", "posts_to_characters"]
+  end
+
+  scope :with_any_characters, ->(character_ids) {
+    character_ids = Array(character_ids).compact.reject(&:blank?)
+    return all if character_ids.empty?
+
+    joins(:posts_to_characters)
+      .where(posts_to_characters: { character_id: character_ids })
+      .distinct
+  }
 
 end
