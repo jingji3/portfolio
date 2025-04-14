@@ -70,8 +70,8 @@ gem "bootsnap", require: false
 gem "kamal", require: false
 gem "thruster", require: false
 
-gem 'net-protocol'
-gem 'net-pop'
+gem 'net-protocol', '0.2.2'
+gem 'net-pop', '0.1.2'
 gem 'net-smtp'
 gem 'net-imap'
 

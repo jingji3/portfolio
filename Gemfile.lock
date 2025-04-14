@@ -572,8 +572,8 @@ DEPENDENCIES
   logger (~> 1.5)
   mini_magick
   net-imap
-  net-pop
-  net-protocol
+  net-pop (= 0.1.2)
+  net-protocol (= 0.2.2)
   net-smtp
   pg (~> 1.5)
   propshaft
