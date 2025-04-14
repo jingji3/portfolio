@@ -21,6 +21,8 @@ bundle exec rails assets:precompile
 bundle exec rails assets:clean
 
 # migrations
-bundle exec rails db:migrate
-bundle exec rails solid_queue:install:migrations
+# ナミクエーションファイルが存在するか確認
+bundle exec rails generate solid_queue:install
+
+# 通常のマイグレーションを実行
 bundle exec rails db:migrate
