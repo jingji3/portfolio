@@ -20,7 +20,7 @@ class CharactersController < ApplicationController
   rescue ActiveRecord::RecordNotFound
     respond_to do |format|
       format.html { redirect_to characters_path, alert: 'キャラクターが見つかりません' }
-      format.json { render json: { erroe: 'キャラクターが見つかりません' }, status: :not_found }
+      format.json { render json: { error: 'キャラクターが見つかりません' }, status: :not_found }
     end
   end
 end
