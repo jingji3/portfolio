@@ -1,4 +1,4 @@
-<div class="grid grid-cols-4 gap-4">
+<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-4">
   <%
     # PostsToCharacterデータを取得
     character_associations = @post.posts_to_characters.to_a
@@ -13,7 +13,7 @@
     %>
     <div class="flex flex-col space-y-2" data-controller="character-selector">
       <div class="flex justify-center items-center space-x-2">
-        <div class="flex">
+        <div>
           <%= select_tag "character_ids[]",
                       options_from_collection_for_select(@characters, :id, :name, character_id),
                       include_blank: 'キャラクター選択',
@@ -25,8 +25,8 @@
         </div>
         <div>
           <%= select_tag "constellations[]",
-                        options_for_select((0..6).map { |n| [n, n] }, constellation),
-                        class: 'select w-16' %> 凸
+              options_for_select((0..6).map { |n| [n == 0 ? "0凸" : "#{n}凸", n] }, constellation),
+              class: 'select w-18 text-xs' %>
         </div>
       </div>
 

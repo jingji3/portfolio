@@ -22,16 +22,18 @@ to do the heavy lifting.
   ) %>
 <% end %>
 
-<header class="container mx-auto px-4 py-8">
-  <h1 class="text-3xl font-bold mb-6">
-    <%= content_for(:title) %>
-  </h1>
+<header class="container mx-auto px-4 py-8 flex flex-between">
+  <div class="flex">
+    <h1 class="text-3xl font-bold mb-6">
+      <%= content_for(:title) %>
+    </h1>
+  </div>
 
-  <div>
+  <div class="flex">
     <%= link_to t("administrate.actions.back"), :back, class: "btn btn-outline" %>
   </div>
 </header>
 
-<section class="main-content__body">
+<section class="">
   <%= render "form", page: page %>
 </section>

@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
   skip_before_action :require_login, only: %i[new create]
+  before_action :set_post, only: %i[show edit update destroy]
+  before_action :authorize_user, only: %i[edit update destroy]
 
   def index
     @characters = Character.all.order(:name)
@@ -80,11 +82,17 @@ class PostsController < ApplicationController
   private
 
   def set_post
-    @post = Post.includes(:user, :characters).find(params[:id])
+    @post = Post.includes(:user, posts_to_characters: :character).find(params[:id])
   end
 
   def post_params
     params.require(:post).permit(:title, :body, :video_url)
+  end
+
+  def authorize_user
+    unless current_user&.id == @post.user_id
+      redirect_to posts_path, alert: "操作を行うアカウント権限がありません"
+    end
   end
 
   def create_character_associations

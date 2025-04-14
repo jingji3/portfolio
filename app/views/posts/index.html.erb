@@ -7,7 +7,7 @@
   </div>
 
   <!-- 検索フォーム部分 -->
-  <div class="mx-12 p-4 bg-base-300 rounded-xl shadow-xl">
+  <div class="mx-12 p-4 bg-base-300 rounded-xl shadow-xl border">
     <h2 class="text-xl font-bold mb-2">検索キャラクター</h2>
 
     <%= form_with url: posts_path, method: :get, local: true, class: "flex flex-wrap justify-center gap-4" do |f| %>
@@ -31,8 +31,8 @@
           </div>
         </div>
       <% end %>
-      <div class="flex items-end">
-        <button type="submit" class="btn btn-primary">検索</button>
+      <div class="flex">
+        <button type="submit" class="btn btn-sm btn-primary">検索</button>
       </div>
     <% end %>
   </div>
@@ -47,8 +47,7 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
       <% if @posts.present? %>
         <% @posts.each do |post| %>
-          <!-- card全体をリンクにしない -->
-          <div class="card bg-base-300 shadow-xl">
+          <div class="card bg-base-300 shadow-xl border">
             <!-- サムネイル部分 -->
             <%= link_to post_path(post) do %>
               <div class="relative rounded-t-md overflow-hidden">
@@ -72,7 +71,7 @@
             <% end %>
 
             <!-- カード本文 -->
-            <div class="card-body p-2">
+            <div class="p-2">
               <!-- タイトルと編集・削除ボタン -->
               <div class="flex justify-between items-start">
                 <!-- タイトルをリンクにする -->
@@ -121,7 +120,7 @@
               </div>
 
               <!-- 本文抜粋 -->
-              <div class="text-sm h-10 text-gray-500">
+              <div class="text-sm mt-1 h-10 text-gray-500">
                 <%= truncate(post.body, length: 40) %>
               </div>
             </div>

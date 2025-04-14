@@ -22,20 +22,58 @@
 <body class="min-h-screen">
   <div class="flex">
     <!-- サイドバー -->
-    <div class="w-64 min-h-screen p-4 bg-base-300 dark:bg-base-800">
-      <div class="flex">
-        <h1 class="text-3xl font-bold mb-6">管理パネル</h1>
+
+    <div class="bg-base-200 min-h-screen w-52 shadow-inner">
+      <div class="flex p-4 items-center">
+        <h1 class="text-2xl font-bold">管理パネル</h1>
         <%= render 'shared/theme_toggle' %>
       </div>
 
-      <nav>
-        <ul class="space-y-2">
-          <li><%= link_to "ダッシュボード", admin_path, class: "block py-2 px-4 hover:bg-gray-500 rounded" %></li>
-          <li><%= link_to "ユーザー管理", admin_users_path, class: "block py-2 px-4 hover:bg-gray-500 rounded" %></li>
-          <li><%= link_to "キャラクター管理", admin_characters_path, class: "block py-2 px-4 hover:bg-gray-500 rounded" %></li>
+      <nav class="mt-2 py-2">
+        <ul>
+          <li><%= link_to "ダッシュボード", admin_path, class: "block px-4 py-2 w-full h-full hover:bg-base-300" %></li>
+          <li><%= link_to "ユーザー管理", admin_users_path, class: "block px-4 py-2 w-full h-full hover:bg-base-300" %></li>
+          <li><%= link_to "キャラクター管理", admin_characters_path, class: "block px-4 py-2 w-full h-full hover:bg-base-300" %></li>
         </ul>
       </nav>
+
+      <div class="mt-10 py-2">
+        <h2 class="text-lg font-bold px-4 mb-2">-SEARCH-</h2>
+        <ul>
+          <li class="hover:bg-base-300">
+            <%= link_to '編成動画検索', posts_path, class: "block px-4 py-2 w-full h-full" %>
+          </li>
+          <li class="hover:bg-base-300">
+            <%= link_to '編成一覧検索', '#', class: "block px-4 py-2 w-full h-full" %>
+          </li>
+        </ul>
+      </div>
+
+      <div class="py-2">
+        <h2 class="text-lg font-bold px-4 mb-2">-SHARE-</h2>
+        <ul>
+          <li class="hover:bg-base-300">
+            <%= link_to 'おすすめ動画シェア', new_post_path, class: "block px-4 py-2 w-full h-full" %>
+          </li>
+          <li class="hover:bg-base-300">
+            <%= link_to '編成評価', '#', class: "block px-4 py-2 w-full h-full" %>
+          </li>
+        </ul>
+      </div>
+
+      <div class="py-2">
+        <h2 class="text-lg font-bold px-4 mb-2">-マイリスト-</h2>
+        <ul>
+          <li class="hover:bg-base-300">
+            <%= link_to 'マイシェアリスト', '#', class: "block px-4 py-2 w-full h-full" %>
+          </li>
+          <li class="hover:bg-base-300">
+            <%= link_to 'お気に入りリスト', '#', class: "block px-4 py-2 w-full h-full" %>
+          </li>
+        </ul>
+      </div>
     </div>
+
 
     <!-- メインコンテンツ -->
     <div class="flex-1 p-8">
