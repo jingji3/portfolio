@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-gem install bundler -v 2.5.11
 set -o errexit
 
 # Install dependencies
@@ -20,4 +19,5 @@ bundle exec rails assets:clean
 
 # migrations
 bundle exec rails db:migrate
-
+bundle exec rails solid_queue:install:migrations
+bundle exec rails db:migrate
