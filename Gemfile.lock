@@ -572,6 +572,10 @@ DEPENDENCIES
   listen
   logger (~> 1.5)
   mini_magick
+  net-imap
+  net-pop
+  net-protocol
+  net-smtp
   pg (~> 1.5)
   propshaft
   puma
