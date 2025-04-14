@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# frozen modeを解除
+bundle config set --local frozen false
+
 set -o errexit
 
 # Install dependencies
