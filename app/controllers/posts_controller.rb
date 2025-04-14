@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
-  skip_before_action :require_login, only: %i[new create]
+  before_action :require_login
+  skip_before_action :require_login, only: %i[index show]
+  before_action :set_post, only: %i[show edit update destroy]
+  before_action :authorize_user, only: %i[edit update destroy]
 
   def index
     @characters = Character.all.order(:name)
@@ -42,7 +45,7 @@ class PostsController < ApplicationController
       redirect_to @post, notice: '投稿が作成されました'
     else
       @characters = Character.all.order(:name)
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -55,14 +58,13 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
 
     if @post.update(post_params)
-      # キャラクター関連を更新
       @post.posts_to_characters.destroy_all # 既存の関連を削除
       create_character_associations # 新しい関連を作成
 
       redirect_to @post, notice: '投稿が更新されました'
     else
       @characters = Character.all.order(:name)
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -79,12 +81,25 @@ class PostsController < ApplicationController
 
   private
 
+  def require_login
+    unless current_user
+      flash[:alert] = "ログインが必要です"
+      redirect_to login_path
+    end
+  end
+
   def set_post
-    @post = Post.includes(:user, :characters).find(params[:id])
+    @post = Post.includes(:user, posts_to_characters: :character).find(params[:id])
   end
 
   def post_params
     params.require(:post).permit(:title, :body, :video_url)
+  end
+
+  def authorize_user
+    unless current_user&.id == @post.user_id
+      redirect_to posts_path, alert: "操作を行うアカウント権限がありません"
+    end
   end
 
   def create_character_associations

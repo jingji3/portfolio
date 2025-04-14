@@ -2,11 +2,11 @@
   <div class="py-4">
     <h2 class="text-lg font-bold px-4 mb-2">-SEARCH-</h2>
     <ul>
-      <li class="px-4 py-2 hover:bg-base-300">
-        <%= link_to '編成動画検索', posts_path, class: "block w-full h-full" %>
+      <li class="hover:bg-base-300">
+        <%= link_to '編成動画検索', posts_path, class: "block px-4 py-2 w-full h-full" %>
       </li>
-      <li class="px-4 py-2 hover:bg-base-300">
-        <%= link_to '編成一覧検索', '#', class: "block w-full h-full" %>
+      <li class="hover:bg-base-300">
+        <%= link_to '編成一覧検索', '#', class: "block px-4 py-2 w-full h-full" %>
       </li>
     </ul>
   </div>
@@ -14,24 +14,40 @@
   <div class="py-4">
     <h2 class="text-lg font-bold px-4 mb-2">-SHARE-</h2>
     <ul>
-      <li class="px-4 py-2 hover:bg-base-300">
-        <%= link_to 'おすすめ動画シェア', new_post_path, class: "block w-full h-full" %>
+      <li class="hover:bg-base-300">
+        <%= link_to 'おすすめ動画シェア', new_post_path, class: "block px-4 py-2 w-full h-full" %>
       </li>
-      <li class="px-4 py-2 hover:bg-base-300">
-        <%= link_to '編成評価', '#', class: "block w-full h-full" %>
+      <li class="hover:bg-base-300">
+        <%= link_to '編成評価', '#', class: "block px-4 py-2 w-full h-full" %>
       </li>
     </ul>
   </div>
 
   <div class="py-4">
-    <h2 class="text-lg font-bold px-4 mb-2">-マイリスト-</h2>
+    <h2 class="text-lg font-bold px-4 mb-2">-MY LIST-</h2>
     <ul>
-      <li class="px-4 py-2 hover:bg-base-300">
-        <%= link_to 'マイシェアリスト', '#', class: "block w-full h-full" %>
+      <li class="hover:bg-base-300">
+        <%= link_to 'マイシェアリスト', '#', class: "block px-4 py-2 w-full h-full" %>
       </li>
-      <li class="px-4 py-2 hover:bg-base-300">
-        <%= link_to 'お気に入りリスト', '#', class: "block w-full h-full" %>
+      <li class="hover:bg-base-300">
+        <%= link_to 'お気に入りリスト', '#', class: "block px-4 py-2 w-full h-full" %>
       </li>
     </ul>
+  </div>
+  <div class="py-4">
+    <% if current_user&.role == 1 || current_user&.admin? %>
+      <h2 class="text-lg font-bold px-4 mb-2">-管理者パネル-</h2>
+      <ul>
+        <li class="hover:bg-base-300">
+          <%= link_to '管理画面', admin_root_path, class: "block px-4 py-2 w-full h-full" %>
+        </li>
+        <li class="hover:bg-base-300">
+          <%= link_to 'ユーザー管理', admin_users_path, class: "block px-4 py-2 w-full h-full" %>
+        </li>
+        <li class="hover:bg-base-300">
+          <%= link_to 'キャラクター管理', admin_characters_path, class: "block px-4 py-2 w-full h-full" %>
+        </li>
+      </ul>
+    <% end %>
   </div>
 </div>
