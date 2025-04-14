@@ -23,11 +23,7 @@
           <h2 class="text-white text-2xl mb-4">-SHARE-</h2>
           <div class="flex flex-col gap-8">
             <div>
-              <% if logged_in? %>
-                <%= link_to t('.video_share'), new_post_path, class: 'bg-white bg-opacity-60 hover:bg-opacity-70 text-left p-2 rounded-sm text-black font-semibold block' %>
-              <% else %>
-                <%= link_to t('.video_share'), login_path, class: 'bg-white bg-opacity-60 hover:bg-opacity-70 text-left p-2 rounded-sm text-black font-semibold block' %>
-              <% end %>
+              <%= link_to t('.video_share'), new_post_path, class: 'bg-white bg-opacity-60 hover:bg-opacity-70 text-left p-2 rounded-sm text-black font-semibold block' %>
             </div>
             <div>
               <%= link_to t('.team_rating'), '#', class: 'bg-white bg-opacity-60 hover:bg-opacity-70 text-left p-2 rounded-sm text-black font-semibold block' %>

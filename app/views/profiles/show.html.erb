@@ -1,5 +1,4 @@
-<!-- Profile page using Tailwind CSS & DaisyUI -->
-<div class="min-h-screen bg-base-300 text-base-content">
+<div class="min-h-screen text-base-content">
   <div class="max-w-4xl mx-auto p-4 pt-8">
     <div class="bg-base-200 rounded-lg shadow-lg p-6">
       <!-- Header with title and edit button -->
@@ -10,11 +9,11 @@
         <% end %>
       </div>
 
-      <!-- Profile information table -->
+      <!-- プロフィール -->
       <div class="overflow-x-auto">
         <table class="table w-full">
           <tbody>
-            <!-- Email row -->
+            <!-- Email -->
             <tr class="hover">
               <th class="text-left w-1/3 bg-base-300"><%= User.human_attribute_name(:email) %></th>
               <td class="bg-base-100"><%= current_user.email %></td>

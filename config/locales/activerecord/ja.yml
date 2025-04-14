@@ -3,6 +3,7 @@ ja:
     models:
       user: ユーザー
       character: キャラクター
+      post: 投稿
     attributes:
       user:
         email: メールアドレス
@@ -19,6 +20,10 @@ ja:
         version: バージョン
         version_half: 前半/後半
         character_img: 画像
+      post:
+        title: タイトル
+        body: おすすめポイント
+        video_url: 動画URL
     enums:
       character:
         element:

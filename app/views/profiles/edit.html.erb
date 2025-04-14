@@ -1,5 +1,4 @@
-<!-- app/views/profiles/edit.html.erb -->
-<div class="min-h-screen bg-base-300 text-base-content">
+<div class="min-h-screen text-base-content">
   <div class="max-w-4xl mx-auto p-4 pt-8">
     <div class="bg-base-200 rounded-lg shadow-lg p-6">
       <!-- ヘッダー -->
@@ -10,21 +9,7 @@
       <!-- フォーム -->
       <%= form_with model: current_user, url: profile_path, local: true, class: "space-y-6" do |f| %>
         <!-- エラーメッセージ -->
-        <% if current_user.errors.any? %>
-          <div class="alert alert-error shadow-lg">
-            <div>
-              <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-              <div>
-                <h4><%= pluralize(current_user.errors.count, "error") %> prohibited this user from being saved:</h4>
-                <ul>
-                  <% current_user.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                  <% end %>
-                </ul>
-              </div>
-            </div>
-          </div>
-        <% end %>
+        <%= render 'shared/error_message', object: @user %>
 
         <!-- メールアドレス -->
         <div class="form-control w-full">

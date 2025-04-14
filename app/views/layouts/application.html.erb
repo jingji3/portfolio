@@ -43,18 +43,18 @@
 
       <!-- メイン部分 -->
       <div class="flex flex-grow mt-16">
-        <% if ['posts'].include?(controller_name) %>
+        <% if ['top'].include?(controller_name) %>
+          <!-- サイドバーがない場合 -->
+          <div class="flex-1 w-full">
+            <%= render 'shared/flash_message' %>
+            <%= yield %>
+          </div>
+        <% else %>
           <div id="sidebar" data-sidebar-target="sidebar" class="hidden md:block fixed top-[64px] left-0 h-screen w-52 bg-base-200 overflow-y-auto z-30">
             <%= render 'shared/sidebar' %>
           </div>
           <!-- サイドバーがある場合 -->
           <div class="flex-1 md:ml-52 p-4 w-full overflow-x-hidden">
-            <%= render 'shared/flash_message' %>
-            <%= yield %>
-          </div>
-        <% else %>
-          <!-- サイドバーがない場合 -->
-          <div class="flex-1 w-full">
             <%= render 'shared/flash_message' %>
             <%= yield %>
           </div>
