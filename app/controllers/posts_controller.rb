@@ -42,7 +42,7 @@ class PostsController < ApplicationController
 
     if @post.save
       create_character_associations
-      redirect_to @post, notice: '投稿が作成されました'
+      redirect_to @post, notice: t('defaults.flash_message.created', item: Post.model_name.human)
     else
       @characters = Character.all.order(:name)
       render :new, status: :unprocessable_entity
@@ -61,7 +61,7 @@ class PostsController < ApplicationController
       @post.posts_to_characters.destroy_all # 既存の関連を削除
       create_character_associations # 新しい関連を作成
 
-      redirect_to @post, notice: '投稿が更新されました'
+      redirect_to @post, notice: t('defaults.flash_message.updated', item: Post.model_name.human)
     else
       @characters = Character.all.order(:name)
       render :edit, status: :unprocessable_entity
@@ -73,9 +73,9 @@ class PostsController < ApplicationController
 
     if current_user.id == @post.user_id
       @post.destroy
-      redirect_to posts_path, notice: "投稿を削除しました"
+      redirect_to posts_path, notice: t('defaults.flash_message.deleted', item: Post.model_name.human)
     else
-      redirect_to post_path(@post), alert: "削除権限がありません"
+      redirect_to post_path(@post), alert: t('defaults.flash_message.not_authorized')
     end
   end
 
@@ -83,7 +83,7 @@ class PostsController < ApplicationController
 
   def require_login
     unless current_user
-      flash[:alert] = "ログインが必要です"
+      flash[:alert] = t('defaults.flash_message.require_login')
       redirect_to login_path
     end
   end
@@ -98,7 +98,7 @@ class PostsController < ApplicationController
 
   def authorize_user
     unless current_user&.id == @post.user_id
-      redirect_to posts_path, alert: "操作を行うアカウント権限がありません"
+      redirect_to posts_path, alert: t('defaults.flash_message.not_authorized')
     end
   end
 

@@ -3,7 +3,7 @@ ja:
     models:
       user: ユーザー
       character: キャラクター
-      post: 投稿
+      post: おすすめ動画シェア
     attributes:
       user:
         email: メールアドレス
