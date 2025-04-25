@@ -44,7 +44,7 @@
     </div>
 
     <!-- 投稿カードのグリッド -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
       <% if @posts.present? %>
         <% @posts.each do |post| %>
           <div class="card bg-base-300 shadow-xl border">
@@ -122,6 +122,10 @@
               <!-- 本文抜粋 -->
               <div class="text-sm mt-1 h-10 text-gray-500">
                 <%= truncate(post.body, length: 40) %>
+              </div>
+              <!-- いいねボタン -->
+              <div id="post_<%= post.id %>_like" class="flex justify-center">
+                <%= render "like_btn", post: post, variant: :small %>
               </div>
             </div>
           </div>

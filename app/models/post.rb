@@ -2,9 +2,16 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :posts_to_characters, dependent: :destroy
   has_many :characters, through: :posts_to_characters
+  has_many :likes, dependent: :destroy
+
   validates :title, presence: true, length: { maximum: 255 }
   validates :body, presence: true, length: { maximum: 65_535 }
   validates :video_url, presence: true, length: { maximum: 255 }
+
+  def liked_by?(user)
+    return false if user.nil?
+    likes.exists?(user_id: user.id)
+  end
 
   private
 
