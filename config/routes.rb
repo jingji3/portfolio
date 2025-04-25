@@ -20,7 +20,9 @@ Rails.application.routes.draw do
   # プロフィール編集
   resource :profile, only: %i[show edit update]
   # 投稿機能
-  resources :posts
+  resources :posts, only: %i[index show edit new create destroy update] do
+    resource :likes, only: %i[create destroy]
+  end
   # キャラクター
   resources :characters
 
