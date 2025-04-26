@@ -3,6 +3,7 @@ class Post < ApplicationRecord
   has_many :posts_to_characters, dependent: :destroy
   has_many :characters, through: :posts_to_characters
   has_many :likes, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   validates :title, presence: true, length: { maximum: 255 }
   validates :body, presence: true, length: { maximum: 65_535 }
@@ -11,6 +12,11 @@ class Post < ApplicationRecord
   def liked_by?(user)
     return false if user.nil?
     likes.exists?(user_id: user.id)
+  end
+
+  def favorite_by?(user)
+    return false if user.nil?
+    favorites.exists?(user_id: user.id)
   end
 
   private

@@ -1,0 +1,17 @@
+
+<%
+  variant = local_assigns[:variant] || :medium
+  styles = ComponentStyles::BUTTON[variant]
+%>
+
+<% if post.favorite_by?(current_user) %>
+  <%= button_to post_favorites_path(post, variant: variant), method: :delete, class: "flex items-center gap-1 text-yellow-500" do %>
+    <i class="fas fa-star <%= styles[:icon] %>"></i>
+    <span  class="<%= styles[:count] %>"><%= post.favorites.count %></span>
+  <% end %>
+<% else %>
+  <%= link_to post_favorites_path(post, variant: variant), data: { turbo_method: :post }, class: "flex items-center gap-1 text-gray-500 hover:text-yellow-500 transition-colors duration-200" do %>
+    <i class="fas fa-star <%= styles[:icon] %>"></i>
+    <span class="<%= styles[:count] %>"><%= post.favorites.count %></span>
+  <% end %>
+<% end %>

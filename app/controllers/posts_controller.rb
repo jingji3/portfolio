@@ -79,6 +79,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def favorites
+    @favorite_posts = current_user.favorite_posts.includes(:user, posts_to_characters: :character).order(created_at: :desc).distinct.page(params[:page]).per(10)
+  end
+
   private
 
   def require_login
