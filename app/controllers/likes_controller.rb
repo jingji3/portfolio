@@ -10,7 +10,7 @@ class LikesController < ApplicationController
           render turbo_stream: turbo_stream.update("post_#{post.id}_like", partial: 'posts/like_btn', locals:{ post: post, variant: variant })
         end
       else
-        format.html { redirect_to posts_path, alert: 'お気に入りできませんでした' }
+        format.html { redirect_to posts_path, alert: 'いいねできませんでした' }
       end
     end
   end
@@ -26,7 +26,7 @@ class LikesController < ApplicationController
           render turbo_stream: turbo_stream.update("post_#{post.id}_like", partial: 'posts/like_btn', locals:{ post: post, variant: variant })
         end
       else
-        format.html { redirect_to posts_path, alert: 'お気に入り解除できませんでした' }
+        format.html { redirect_to posts_path, alert: 'いいね解除できませんでした' }
       end
     end
   end

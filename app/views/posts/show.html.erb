@@ -21,9 +21,12 @@
     <% end %>
 
     <!-- いいねボタン -->
-    <div class="p-1 rounded-full border w-24">
+    <div class="p-1 rounded-full border w-36 flex justify-center">
       <div id="post_<%= @post.id %>_like" class="flex justify-center">
         <%= render "like_btn", post: @post, variant: :large %>
+      </div>
+      <div id="post_<%= @post.id %>_favorite" class="flex justify-center">
+        <%= render "favorite_btn", post: @post, variant: :large %>
       </div>
     </div>
 

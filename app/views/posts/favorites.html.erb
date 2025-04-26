@@ -6,47 +6,16 @@
     </div>
   </div>
 
-  <!-- 検索フォーム部分 -->
-  <div class="mx-12 p-4 bg-base-300 rounded-xl shadow-xl border">
-    <h2 class="text-xl font-bold mb-2">検索キャラクター</h2>
-
-    <%= form_with url: posts_path, method: :get, local: true, class: "flex flex-wrap justify-center gap-4" do |f| %>
-      <% 4.times do |i| %>
-        <div class="flex flex-col space-y-2" data-controller="character-selector">
-          <div class="w-full">
-            <%= select_tag "character#{i+1}",
-                      options_from_collection_for_select(@characters, :id, :name, params["character#{i+1}"]),
-                      include_blank: 'キャラクター選択',
-                      class: 'select-bordered w-full h-10 character-select',
-                      data: {
-                        character_selector_target: "select",
-                        action: "change->character-selector#change"
-                      } %>
-          </div>
-          <div data-character-selector-target="container"
-            class="character-image-container h-24 flex items-center justify-center hidden">
-            <img data-character-selector-target="image"
-                class="character-image h-full object-contain"
-                alt="キャラクター画像">
-          </div>
-        </div>
-      <% end %>
-      <div class="flex">
-        <button type="submit" class="btn btn-sm btn-primary">検索</button>
-      </div>
-    <% end %>
-  </div>
-
   <!-- 投稿一覧部分 -->
   <div>
     <div class="flex my-4">
-      <h2 class="text-xl font-bold">おすすめ動画一覧</h2>
+      <h2 class="text-xl font-bold">お気に入りリスト</h2>
     </div>
 
     <!-- 投稿カードのグリッド -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-      <% if @posts.present? %>
-        <% @posts.each do |post| %>
+      <% if @favorite_posts.present? %>
+        <% @favorite_posts.each do |post| %>
           <div class="card bg-base-300 shadow-xl border">
             <!-- サムネイル部分 -->
             <%= link_to post_path(post) do %>
@@ -140,7 +109,7 @@
         <% end %>
       <% else %>
         <div class="col-span-3 text-center p-8">
-          投稿がまだありません。
+          お気に入りがありません。
         </div>
       <% end %>
     </div>

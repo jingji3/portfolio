@@ -22,6 +22,10 @@ Rails.application.routes.draw do
   # 投稿機能
   resources :posts, only: %i[index show edit new create destroy update] do
     resource :likes, only: %i[create destroy]
+    collection do
+      get :favorites
+    end
+    resource :favorites, only: %i[create destroy]
   end
   # キャラクター
   resources :characters

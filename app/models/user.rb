@@ -3,6 +3,8 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_posts, through: :favorites, source: :post
   has_one_attached :avatar
 
   validates :password, length: { minimum: 8 }, if: -> { new_record? || changes[:crypted_password] }
