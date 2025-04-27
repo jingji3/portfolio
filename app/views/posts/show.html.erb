@@ -22,11 +22,11 @@
 
     <!-- いいねボタン -->
     <div class="rounded-full border w-auto flex justify-center">
-      <div id="post_<%= @post.id %>_like" class="mx-2">
+      <div class="mx-2">
         <%= render "like_btn", post: @post, variant: :medium %>
       </div>
       <div class="border"></div>
-      <div id="post_<%= @post.id %>_favorite" class="mx-2">
+      <div class="mx-2">
         <%= render "favorite_btn", post: @post, variant: :medium %>
       </div>
     </div>

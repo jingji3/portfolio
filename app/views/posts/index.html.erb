@@ -127,10 +127,10 @@
 
               <!-- いいねボタン・お気に入りボタン -->
               <div class="flex justify-between">
-                <div id="post_<%= post.id %>_like">
+                <div>
                   <%= render "like_btn", post: post, variant: :small %>
                 </div>
-                <div id="post_<%= post.id %>_favorite">
+                <div>
                   <%= render "favorite_btn", post: post, variant: :small %>
                 </div>
               </div>
