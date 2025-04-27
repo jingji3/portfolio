@@ -21,11 +21,12 @@ Rails.application.routes.draw do
   resource :profile, only: %i[show edit update]
   # 投稿機能
   resources :posts, only: %i[index show edit new create destroy update] do
+    resources :comments, only: %i[create edit destroy], shallow: true
     resource :likes, only: %i[create destroy]
+    resource :favorites, only: %i[create destroy]
     collection do
       get :favorites
     end
-    resource :favorites, only: %i[create destroy]
   end
   # キャラクター
   resources :characters

@@ -1,0 +1,42 @@
+<div id="comment-<%= comment.id %>">
+  <div class="py-1 border-y">
+    <div class="flex space-x-3 items-start">
+      <!-- アバター表示 -->
+      <div class="flex-shrink-0">
+        <% if comment.user.avatar.attached? %>
+          <%= image_tag comment.user.avatar,class: "w-8 h-8 rounded-full", alt: comment.user.user_name %>
+        <% else %>
+          <div class="w-8 h-8 bg-primary text-primary-content rounded-full flex items-center justify-center">
+            <span class="text-sm font-bold"><%= comment.user.user_name[0].upcase %></span>
+          </div>
+        <% end %>
+      </div>
+      <!-- コメント者情報表示 -->
+      <div class="flex-grow overflow-hidden">
+        <div class="flex items-center space-x-3">
+          <span class="text-sm"><%= comment.user.user_name %></span>
+          <span class="text-gray-500 text-sm"><%= time_ago_in_words(comment.created_at) %></span>
+          <!-- 編集、削除ボタン表示 -->
+            <% if current_user.own?(comment) %>
+            <div class="flex space-x-3">
+              <div class="list-inline-item">
+                <%= link_to "#", class: "edit-comment-link" do %>
+                  <i class="fas fa-edit"></i>
+                <% end %>
+              </div>
+              <div class="list-inline-item">
+                <%= link_to comment_path(comment), class: "delete-comment-link", data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') } do %>
+                  <i class="fas fa-trash-alt"></i>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="text-base" style="word-wrap: break-word; overflow-wrap: break-word;">
+          <%= simple_format(comment.comment) %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

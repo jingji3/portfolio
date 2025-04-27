@@ -30,6 +30,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.includes(:user, posts_to_characters: :character).find(params[:id])
+    @comment = Comment.new
+    @comments = @post.comments.includes(:user).order(created_at: :desc)
   end
 
   def new

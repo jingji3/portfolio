@@ -5,6 +5,8 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :favorite_posts, through: :favorites, source: :post
+  has_many :comments, dependent: :destroy
+
   has_one_attached :avatar
 
   validates :password, length: { minimum: 8 }, if: -> { new_record? || changes[:crypted_password] }
@@ -26,6 +28,10 @@ class User < ApplicationRecord
   # admin判断のため
   def admin?
     role == "admin"
+  end
+
+  def own?(object)
+    id == object&.user_id
   end
 
   # Ransackで検索可能な属性を定義
