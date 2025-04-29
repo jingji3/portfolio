@@ -1,0 +1,12 @@
+<%= turbo_stream.replace "comment-#{@comment.id}" do %>
+  <div id="comment-<%= @comment.id %>" class="comment <%= 'reply' if @comment.parent_id.present? %>">
+    <%= form_with model: @comment, data: { turbo: true } do |f| %>
+      <div class="field flex gap-2 items-end">
+        <%= f.text_area :comment, class: "form-control border rounded-sm text-sm w-full p-1" %>
+        <%= f.submit "更新", class: "btn btn-xs btn-primary" %>
+        <%= link_to "キャンセル", cancel_comment_path(@comment), class: "btn btn-xs btn-secondary", 
+            data: { turbo_stream: true } %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

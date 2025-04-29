@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorite_posts, through: :favorites, source: :post
   has_many :comments, dependent: :destroy
+  has_many :comment_likes, dependent: :destroy
 
   has_one_attached :avatar
 
@@ -15,10 +16,10 @@ class User < ApplicationRecord
   validates :user_name, presence: true, length: { maximum: 255 }
   validates :email, presence: true, uniqueness: true
   validates :avatar, content_type: { in: %w[image/jpeg image/gif image/png],
-                                    message: "は有効な画像形式である必要があります" },
-                    size: { less_than: 5.megabytes,
-                           message: "は5MB未満である必要があります" },
-                    allow_blank: true
+                                     message: 'は有効な画像形式である必要があります' },
+                     size: { less_than: 5.megabytes,
+                             message: 'は5MB未満である必要があります' },
+                     allow_blank: true
 
   enum role: { general: 0, admin: 1 }
 
@@ -27,7 +28,7 @@ class User < ApplicationRecord
 
   # admin判断のため
   def admin?
-    role == "admin"
+    role == 'admin'
   end
 
   def own?(object)
@@ -35,14 +36,14 @@ class User < ApplicationRecord
   end
 
   # Ransackで検索可能な属性を定義
-  def self.ransackable_attributes(auth_object = nil)
+  def self.ransackable_attributes(_auth_object = nil)
     # 安全に検索できると判断した属性のみリストに含める
     # パスワード関連は除外することをお勧めします
-    ["id", "user_name", "email", "role", "created_at", "updated_at"]
+    %w[id user_name email role created_at updated_at]
   end
 
   # Ransackで検索可能な関連を定義
-  def self.ransackable_associations(auth_object = nil)
+  def self.ransackable_associations(_auth_object = nil)
     []
   end
 end

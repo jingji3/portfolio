@@ -1,12 +1,13 @@
-<div class="row mb-3" id="comment-form">
-  <div class="col-lg-8 offset-lg-2">
-    <%= form_with model: comment, url: post_comments_path(post) do |f| %>
-      <%= render 'shared/error_message', object: f.object %>
-      <%= f.label :コメント %>
-      <div class="flex justify-between">
-        <%= f.text_area :comment, class: "border w-full m-1",rows: "2" %>
-        <%= f.submit t('defaults.create'), class: "btn btn-primary m-1" %>
-      </div>
-    <% end %>
-  </div>
+<div class="mb-3" id="comment-form">
+  <%= form_with model: comment, url: post_comments_path(post), local: false do |f| %>
+    <%= render 'shared/error_message', object: f.object %>
+    <div class="flex items-end">
+      <%= f.label :コメント, class: "text-lg" %>
+      <div class="ml-3 text-gray-500 text-sm">(<%= post.comments.count %>件)</div>
+    </div>
+    <div class="flex gap-2 items-end">
+      <%= f.text_area :comment, class: "border rounded-sm w-full p-1 text-sm",rows: "2", placeholder:"コメントを投稿..." %>
+      <%= f.submit t('defaults.create'), class: "btn btn-sm btn-primary" %>
+    </div>
+  <% end %>
 </div>

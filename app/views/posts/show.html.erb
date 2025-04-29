@@ -104,12 +104,15 @@
       </div>
     </div>
 
+    <!-- コメント機能 -->
     <div class="p-4">
       <div>
         <%= render 'comments/form', comment: @comment, post: @post %>
       </div>
       <div id="table-comment">
-        <%= render @comments %>
+        <% @comments.where(parent_id: nil).each do |comment| %>
+          <%= render 'comments/comment', comment: comment %>
+        <% end %>
       </div>
     </div>
 

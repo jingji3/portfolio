@@ -10,18 +10,26 @@ Rails.application.routes.draw do
 
     resources :characters
 
-      root to: "dashboard#index"
+    root to: 'dashboard#index'
   end
 
-  get "up" => "rails/health#show", as: :rails_health_check
-  root "top#index"
+  get 'up' => 'rails/health#show', as: :rails_health_check
+  root 'top#index'
+
   # ユーザー登録
   resources :users, only: %i[new create]
+
   # プロフィール編集
   resource :profile, only: %i[show edit update]
+
   # 投稿機能
   resources :posts, only: %i[index show edit new create destroy update] do
-    resources :comments, only: %i[create edit destroy], shallow: true
+    resources :comments, only: %i[create edit update destroy], shallow: true do
+      resource :comment_likes, only: %i[create destroy]
+      member do
+        get :cancel
+      end
+    end
     resource :likes, only: %i[create destroy]
     resource :favorites, only: %i[create destroy]
     collection do
