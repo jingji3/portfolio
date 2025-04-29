@@ -1,0 +1,4 @@
+<%= turbo_stream.replace "comment_#{@comment.id}_like" do %>
+  <%= render 'comments/comment_like_btn', comment: @comment, variant: @variant %>
+<% end %>
+

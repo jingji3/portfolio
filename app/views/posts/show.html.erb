@@ -21,12 +21,13 @@
     <% end %>
 
     <!-- いいねボタン -->
-    <div class="p-1 rounded-full border w-36 flex justify-center">
-      <div id="post_<%= @post.id %>_like" class="flex justify-center">
-        <%= render "like_btn", post: @post, variant: :large %>
+    <div class="rounded-full border w-auto flex justify-center">
+      <div class="mx-2">
+        <%= render "like_btn", post: @post, variant: :medium %>
       </div>
-      <div id="post_<%= @post.id %>_favorite" class="flex justify-center">
-        <%= render "favorite_btn", post: @post, variant: :large %>
+      <div class="border"></div>
+      <div class="mx-2">
+        <%= render "favorite_btn", post: @post, variant: :medium %>
       </div>
     </div>
 
@@ -57,19 +58,15 @@
       <div class="flex gap-2">
         <% if current_user && current_user.id == @post.user_id %>
           <%= link_to edit_post_path(@post),
-              class: "btn btn-sm rounded-md bg-base-300 hover:bg-base-200 shadow-md" do %>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="16 3 21 8 8 21 3 21 3 16 16 3"></polygon>
-            </svg>
+              class: "btn rounded-md bg-base-300 hover:bg-base-200 shadow-md" do %>
+            <i class="fas fa-edit text-xl"></i>
           <% end %>
 
           <%= button_to post_path(@post),
               method: :delete,
               form: { data: { turbo_confirm: "この投稿を削除してもよろしいですか？" } },
-              class: "btn btn-sm rounded-md bg-base-300 hover:bg-base-200 shadow-md" do %>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-            </svg>
+              class: "btn rounded-md bg-base-300 hover:bg-base-200 shadow-md" do %>
+            <i class="fas fa-trash-alt text-xl"></i>
           <% end %>
         <% end %>
       </div>
@@ -104,6 +101,18 @@
       <h2 class="text-xl font-semibold mb-2">おすすめポイント</h2>
       <div class="text-lg">
         <%= simple_format(@post.body) %>
+      </div>
+    </div>
+
+    <!-- コメント機能 -->
+    <div class="p-4">
+      <div>
+        <%= render 'comments/form', comment: @comment, post: @post %>
+      </div>
+      <div id="table-comment">
+        <% @comments.where(parent_id: nil).each do |comment| %>
+          <%= render 'comments/comment', comment: comment %>
+        <% end %>
       </div>
     </div>
 

@@ -17,6 +17,7 @@
       <% if @favorite_posts.present? %>
         <% @favorite_posts.each do |post| %>
           <div class="card bg-base-300 shadow-xl border">
+            
             <!-- サムネイル部分 -->
             <%= link_to post_path(post) do %>
               <div class="relative rounded-t-md overflow-hidden">
@@ -103,7 +104,6 @@
                 </div>
               </div>
 
-              </div>
             </div>
           </div>
         <% end %>

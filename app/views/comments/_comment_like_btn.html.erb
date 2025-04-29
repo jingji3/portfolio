@@ -1,0 +1,18 @@
+<%
+  variant = local_assigns[:variant] || :medium
+  styles = ComponentStyles::BUTTON[variant]
+%>
+
+<div id="comment_<%= comment.id %>_like">
+  <% if comment.liked_by?(current_user) %>
+    <%= button_to comment_comment_likes_path(comment, variant: variant), method: :delete, class: "flex items-center gap-1 text-red-300" do %>
+      <i class="fas fa-thumbs-up <%= styles[:icon] %>"></i>
+      <span class="<%= styles[:count] %>"><%= comment.comment_likes.count %></span>
+    <% end %>
+  <% else %>
+    <%= button_to comment_comment_likes_path(comment, variant: variant), class: "flex items-center gap-1 text-gray-500 hover:text-red-300 transition-colors duration-200" do %>
+      <i class="fas fa-thumbs-up <%= styles[:icon] %>"></i>
+      <span class="<%= styles[:count] %>"><%= comment.comment_likes.count %></span>
+    <% end %>
+  <% end %>
+</div>

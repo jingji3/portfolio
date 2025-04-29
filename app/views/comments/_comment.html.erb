@@ -1,0 +1,72 @@
+<div id="comment-<%= comment.id %>">
+  <div class="py-1 border-t border-base-300">
+    <div class="flex space-x-3 items-start">
+      <!-- アバター表示 -->
+      <div class="flex-shrink-0">
+        <% if comment.user.avatar.attached? %>
+          <%= image_tag comment.user.avatar, class: "w-8 h-8 rounded-full", alt: comment.user.user_name %>
+        <% else %>
+          <div class="w-8 h-8 bg-primary text-primary-content rounded-full flex items-center justify-center">
+            <span class="text-sm font-bold"><%= comment.user.user_name[0].upcase %></span>
+          </div>
+        <% end %>
+      </div>
+      <!-- コメント者情報表示 -->
+      <div class="flex-grow overflow-hidden">
+        <div class="flex justify-between">
+          <div class="flex items-center space-x-3">
+            <span class="text-sm"><%= comment.user.user_name %></span>
+            <span class="text-gray-500 text-sm"><%= time_ago_in_words(comment.created_at) %></span>
+            <% if comment.edited? %>
+              <a class="text-xs text-gray-500 italic">
+                (<%= time_ago_in_words(comment.updated_at) %>前に編集)
+              </a>
+            <% end %>
+          </div> 
+          <!-- 編集、削除ボタン表示 -->
+          <div>
+            <% if current_user.own?(comment) %>
+              <div class="flex space-x-3">
+                <div class="list-inline-item">
+                  <%= link_to edit_comment_path(comment), class: "edit-comment-link", data:{ turbo_stream: true } do %>
+                    <i class="fas fa-edit text-gray-500"></i>
+                  <% end %>
+                </div>
+                <div class="list-inline-item">
+                  <%= link_to comment_path(comment), class: "delete-comment-link", data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') } do %>
+                    <i class="fas fa-trash-alt text-gray-500"></i>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="text-sm">
+          <%= simple_format(comment.comment) %>
+        </div>
+        <div class="flex items-center space-x-3">
+          <div>
+            <%= render "comments/comment_like_btn", comment: comment, variant: :small %>
+          </div>
+          <button class="text-xs text-gray-500 reply-button" data-comment-id="<%= comment.id %>">
+            <i class="fas fa-reply"></i>返信
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- 返信フォーム -->
+    <div class="reply-form ml-8 mt-1" id="reply-form-<%= comment.id %>" style="display: none;">
+      <%= form_with model: [comment.post, Comment.new], url: post_comments_path(comment.post), local: false do |f| %>
+        <%= f.hidden_field :parent_id, value: comment.id %>
+        <div class="flex gap-2 items-end">
+          <%= f.text_area :comment, class: "border rounded-sm text-sm w-full p-1", rows: 2, placeholder: "返信を入力…" %>
+          <%= f.submit "返信", class: "btn btn-sm btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+    <!-- 返信一覧 -->
+    <div class="replies ml-8 mt-1" id="replies-<%= comment.id %>">
+      <%= render partial: 'comments/replies', locals: { comment: comment } %>
+    </div>
+  </div>
+</div>

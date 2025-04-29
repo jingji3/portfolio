@@ -1,0 +1,19 @@
+<% if @comment.errors.present? %>
+  <%= turbo_stream.replace "comment-form" do %>
+    <%= render 'comments/form', comment: @comment, post: @comment.post %>
+  <% end %>
+<% else %>
+  <% if @comment.parent_id.present? %>
+    <%= turbo_stream.append "replies-#{@comment.parent_id}" do %>
+      <%= render 'comments/comment', comment: @comment %>
+    <% end %>
+  <% else %>
+    <%= turbo_stream.prepend "table-comment" do %>
+      <%= render 'comments/comment', comment: @comment %>
+    <% end %>
+  <% end %>
+  
+  <%= turbo_stream.replace "comment-form" do %>
+    <%= render 'comments/form', comment: Comment.new, post: @comment.post %>
+  <% end %>
+<% end %>
