@@ -569,6 +569,7 @@ DEPENDENCIES
   jquery-rails
   jsbundling-rails
   kamal
+  kaminari
   listen
   logger (~> 1.5)
   mini_magick
