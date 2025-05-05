@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  before_action :require_login
   skip_before_action :require_login, only: %i[index show]
   before_action :set_post, only: %i[show edit update destroy]
   before_action :authorize_user, only: %i[edit update destroy]
@@ -20,18 +19,12 @@ class PostsController < ApplicationController
     if character_ids.any?
       # 全ての選択されたキャラクターを含む投稿のみを取得（AND検索）
       @posts = @posts.joins(:posts_to_characters)
-                      .where(posts_to_characters: { character_id: character_ids })
-                      .group('posts.id')
-                      .having('COUNT(DISTINCT posts_to_characters.character_id) = ?', character_ids.size)
+                     .where(posts_to_characters: { character_id: character_ids })
+                     .group('posts.id')
+                     .having('COUNT(DISTINCT posts_to_characters.character_id) = ?', character_ids.size)
     end
 
     @posts = @posts.distinct.page(params[:page]).per(10)
-  end
-
-  def show
-    @post = Post.includes(:user, posts_to_characters: :character).find(params[:id])
-    @comment = Comment.new
-    @comments = @post.comments.includes(:user).order(created_at: :desc)
   end
 
   def new
@@ -51,14 +44,16 @@ class PostsController < ApplicationController
     end
   end
 
+  def show
+    @comment = Comment.new
+    @comments = @post.comments.includes(:user).order(created_at: :desc)
+  end
+
   def edit
-    @post = Post.includes(:user, posts_to_characters: :character).find(params[:id])
     @characters = Character.all.order(:name)
   end
 
   def update
-    @post = Post.find(params[:id])
-
     if @post.update(post_params)
       @post.posts_to_characters.destroy_all # 既存の関連を削除
       create_character_associations # 新しい関連を作成
@@ -71,28 +66,16 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
-
-    if current_user.id == @post.user_id
-      @post.destroy
-      redirect_to posts_path, notice: t('defaults.flash_message.deleted', item: Post.model_name.human)
-    else
-      redirect_to post_path(@post), alert: t('defaults.flash_message.not_authorized')
-    end
+    @post.destroy
+    redirect_to posts_path, notice: t('defaults.flash_message.deleted', item: Post.model_name.human)
   end
 
   def favorites
-    @favorite_posts = current_user.favorite_posts.includes(:user, posts_to_characters: :character).order(created_at: :desc).distinct.page(params[:page]).per(10)
+    @favorite_posts = current_user.favorite_posts.includes(:user,
+                                                           posts_to_characters: :character).order(created_at: :desc).distinct.page(params[:page]).per(10)
   end
 
   private
-
-  def require_login
-    unless current_user
-      flash[:alert] = t('defaults.flash_message.require_login')
-      redirect_to login_path
-    end
-  end
 
   def set_post
     @post = Post.includes(:user, posts_to_characters: :character).find(params[:id])
@@ -103,9 +86,9 @@ class PostsController < ApplicationController
   end
 
   def authorize_user
-    unless current_user&.id == @post.user_id
-      redirect_to posts_path, alert: t('defaults.flash_message.not_authorized')
-    end
+    return if current_user&.id == @post.user_id
+
+    redirect_to posts_path, alert: t('defaults.flash_message.not_authorized')
   end
 
   def create_character_associations

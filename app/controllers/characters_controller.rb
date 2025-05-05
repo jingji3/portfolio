@@ -1,22 +1,25 @@
 class CharactersController < ApplicationController
+  skip_before_action :require_login, only: %i[show]
+
   def show
     @character = Character.find(params[:id])
 
     respond_to do |format|
       format.html
-      format.json {
+      format.json do
         render json: {
           id: @character.id,
           name: @character.name,
           element: @character.element,
           star: @character.star,
-          character_img: @character.character_img.attached? ?
-                        url_for(@character.character_img) :
-                        "/images/characters/default.png"
+          character_img: if @character.character_img.attached?
+                           url_for(@character.character_img)
+                         else
+                           '/images/characters/default.png'
+                         end
         }
-       }
+      end
     end
-
   rescue ActiveRecord::RecordNotFound
     respond_to do |format|
       format.html { redirect_to characters_path, alert: 'キャラクターが見つかりません' }

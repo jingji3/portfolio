@@ -3,6 +3,8 @@ class Character < ApplicationRecord
 
   has_many :posts_to_characters
   has_many :characters, through: :posts_to_characters
+  has_many :team_to_characters
+  has_many :team, through: :team_to_characters
 
   validates :name, presence: true, length: { maximum: 255 }
   validates :name_kana, presence: true, length: { maximum: 255 }
@@ -16,17 +18,17 @@ class Character < ApplicationRecord
   private
 
   def image_type
-    if character_img.attached? && !character_img.content_type.in?(%w(image/jpeg image/png))
-      errors.add(:image, "はJPEGまたはPNG形式である必要があります")
-    end
-  end
+    return unless character_img.attached? && !character_img.content_type.in?(%w[image/jpeg image/png])
 
-  def self.ransackable_attributes(auth_object = nil)
-    ["element", "name", "name_eng", "name_kana", "star", "version", "version_half"]
+    errors.add(:image, 'はJPEGまたはPNG形式である必要があります')
   end
 
   # Ransackで検索可能な関連を定義
-  def self.ransackable_associations(auth_object = nil)
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[element name name_eng name_kana star version version_half]
+  end
+
+  def self.ransackable_associations(_auth_object = nil)
     []
   end
 end

@@ -1,0 +1,156 @@
+<div class="flex-1 p-4 mx-40">
+  <%= link_to "戻る", teams_path, class: "btn btn-xs btn-outline" %>
+  
+  <div class="overflow-hidden">
+    <div class="p-4">
+      <h1 class="text-3xl font-bold">編成評価詳細</h1>
+    </div>
+
+    <%# 編成の詳細 %>
+    <div class="p-4">
+      <div class="">
+        <div>
+          <h2 class="text-xl font-bold mb-3">メンバー</h2>
+          <div class="grid grid-cols-4 gap-2">
+            <% @characters.each do |character| %>
+              <div class="relative">
+                <%= image_tag character.character_img, class: "w-full shadow-lg"%>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        
+        <div>
+          <h2 class="text-xl font-bold my-3">平均評価</h2>
+          <div class="flex items-end mb-3">
+            <span class="text-3xl text-yellow-400 mx-1">★</span>
+            <span class="text-3xl font-bold mx-1"><%= @average %></span>
+            <span class="text-lg text-gray-500 mx-1">/ 5.0</span>
+            <div class="text-lg text-gray-500 ml-3">
+              <p>(評価: <%= @ratings.count %>件)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%# 編成評価一覧 %>
+  <div class="p-4">
+    <h2 class="text-xl font-bold mb-4">評価一覧 (<%= @ratings.count %>件)</h2>
+
+    <%# 編成評価一覧を表示 %>
+    <% if @ratings.empty? %>
+      <div class="bg-base-200 bg-opacity-20 p-4 rounded-lg text-center">
+        <p>まだ評価がありません。</p>
+      </div>
+    <% else %>
+
+      <%# 編成の評価をしていない場合は評価欄を出現 %> 
+      <% if user_signed_in? && @user_rating.nil? && @new_rating %>
+        <div class="flex justify-between bg-base-200 rounded-lg shadow-lg overflow-hidden mb-6 p-2">
+          <div class="flex items-center gap-2">
+            <span class="font-bold"><%= current_user.user_name %></span>
+            <span class="text-sm"> さんはまだ評価してません</span>
+          </div>
+          <div>
+            <%= link_to "評価する", new_team_rating_path(team_id: @team.id), class: "btn btn-primary" %>
+          </div>
+        </div>
+
+      <%# 編成評価済みの場合 %>
+      <% elsif user_signed_in? && @user_rating %>
+        <div class="bg-base-200 rounded-lg shadow-lg overflow-hidden mb-4">
+          <div class="p-4">
+            <div class="flex justify-between items-start">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 mr-3"> 
+                  <% if current_user.respond_to?(:avatar) && current_user.avatar.attached? %>
+                    <%= image_tag url_for(current_user.avatar), class: "w-8 h-8 rounded-full object-cover", alt: current_user.user_name %>
+                  <% else %>
+                    <div class="w-8 h-8 bg-gray-600 text-primary-content rounded-full flex items-center justify-center">
+                      <span class="text-sm font-bold"><%= current_user.user_name[0].upcase %></span>
+                    </div>
+                  <% end %>
+                </div>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="font-bold"><%= current_user.user_name %></span>
+                    <span class="text-sm text-gray-500"> さんの評価</span>
+                    <div class="flex gap-2">
+                      <%= link_to edit_team_rating_path(@user_rating),
+                            data: { turbo_stream: true },
+                            class: "text-gray-500 hover:text-gray-300" do %>
+                        <i class="fas fa-edit"></i>
+                      <% end %>
+                      <%= button_to team_rating_path(@user_rating),
+                          method: :delete,
+                          class: "bg-transparent border-0 text-gray-500 hover:text-red-500 p-0",
+                          form: { data: { turbo_confirm: "本当に削除しますか？", turbo_stream: true } } do %>
+                        <i class="fas fa-trash-alt"></i>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="flex items-center">
+                <span class="text-xl text-yellow-400 mr-1">★</span>
+                <span class="text-xl font-bold"><%= @user_rating.rating %></span>
+                <span class="text-sm text-gray-500 ml-1">/5.0</span>
+              </div>
+            </div>
+            
+            <div class="mt-3">
+              <div id="user_rating_<%= @user_rating.id %>" class="p-2 bg-base-300 bg-opacity-40 rounded">
+                <%= simple_format @user_rating.body %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>          
+          
+      <div class="p-2 flex-grow overflow-hidden">
+        <% @ratings.each do |rating| %>
+          <% next if rating == @user_rating %>
+          <div class="flex mb-2">
+            <div class="flex-shrink-0"> <!-- アバター部分の幅を固定 -->
+              <% if rating.user.respond_to?(:avatar) && rating.user.avatar.attached? %>
+                <%= image_tag url_for(rating.user.avatar), class: "w-8 h-8 rounded-full object-cover", alt: rating.user.user_name %>
+              <% else %>
+                <div class="w-8 h-8 bg-gray-600 text-primary-content rounded-full flex items-center justify-center">
+                  <span class="text-sm font-bold"><%= rating.user.user_name[0].upcase %></span>
+                </div>
+              <% end %>
+            </div>
+            
+            <div class="ml-3 flex-grow">
+              <div class="flex justify-between items-start w-full">
+                <div class="flex items-end gap-3">
+                  <div class="font-medium"><%= rating.user.user_name %></div>
+                  <div class="text-sm text-gray-500">
+                    <%= date_with_version(rating.created_at) %>
+                  </div>
+                </div>
+                
+                <div class="flex items-center"> <!-- 星評価部分 -->
+                  <span class="text-xl text-yellow-400 mr-1">★</span>
+                  <span class="text-xl font-bold"><%= rating.rating %></span>
+                  <span class="text-sm text-gray-400 ml-1">/5.0</span>
+                </div>
+              </div>
+              
+              <div class="mt-1"> <!-- コメント本文 -->
+                <%= simple_format(rating.body) %>
+              </div>
+            </div>
+          </div>
+          
+          <% unless rating == @ratings.where.not(id: @user_rating&.id).last %>
+            <hr class="border-gray-500 my-2">
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

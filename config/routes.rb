@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'teams/index'
+  get 'teams/show'
+
   namespace :admin do
     get '/', to: 'dashboard#index'
     resources :users do
@@ -36,6 +39,12 @@ Rails.application.routes.draw do
       get :favorites
     end
   end
+  # 編成評価機能
+  resources :team_ratings, only: %i[index show edit new create destroy update]
+
+  # 編成一覧機能
+  resources :teams, only: %i[index show]
+
   # キャラクター
   resources :characters
 
