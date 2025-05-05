@@ -24,7 +24,7 @@ class PostsController < ApplicationController
                      .having('COUNT(DISTINCT posts_to_characters.character_id) = ?', character_ids.size)
     end
 
-    @posts = @posts.distinct.page(params[:page]).per(10)
+    @posts = @posts.distinct.page(params[:page]).per(9)
   end
 
   def new

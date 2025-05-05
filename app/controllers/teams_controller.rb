@@ -27,7 +27,7 @@ class TeamsController < ApplicationController
                      .having('COUNT(DISTINCT team_to_characters.character_id) = ?', character_ids.size)
     end
 
-    @teams = @teams.distinct.page(params[:page]).per(10)
+    @teams = @teams.distinct.page(params[:page]).per(5)
   end
 
   def show
