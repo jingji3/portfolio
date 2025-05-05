@@ -3,8 +3,8 @@ class Character < ApplicationRecord
 
   has_many :posts_to_characters
   has_many :characters, through: :posts_to_characters
-  has_many :team_rating_to_characters
-  has_many :team_rating, through: :team_rating_to_characters
+  has_many :team_to_characters
+  has_many :team, through: :team_to_characters
 
   validates :name, presence: true, length: { maximum: 255 }
   validates :name_kana, presence: true, length: { maximum: 255 }

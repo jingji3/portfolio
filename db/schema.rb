@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_04_29_134248) do
+ActiveRecord::Schema[7.1].define(version: 2025_05_02_080901) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -108,12 +108,32 @@ ActiveRecord::Schema[7.1].define(version: 2025_04_29_134248) do
   end
 
   create_table "team_ratings", force: :cascade do |t|
+    t.bigint "team_id", null: false
     t.bigint "user_id", null: false
     t.string "body"
     t.decimal "rating", precision: 3, scale: 1, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["team_id", "user_id"], name: "index_team_ratings_on_team_id_and_user_id", unique: true
+    t.index ["team_id"], name: "index_team_ratings_on_team_id"
     t.index ["user_id"], name: "index_team_ratings_on_user_id"
+  end
+
+  create_table "team_to_characters", force: :cascade do |t|
+    t.bigint "team_id", null: false
+    t.bigint "character_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["character_id"], name: "index_team_to_characters_on_character_id"
+    t.index ["team_id", "character_id"], name: "index_team_to_characters_on_team_id_and_character_id", unique: true
+    t.index ["team_id"], name: "index_team_to_characters_on_team_id"
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string "name"
+    t.string "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -132,5 +152,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_04_29_134248) do
   add_foreign_key "posts", "users"
   add_foreign_key "posts_to_characters", "characters"
   add_foreign_key "posts_to_characters", "posts"
+  add_foreign_key "team_ratings", "teams"
   add_foreign_key "team_ratings", "users"
+  add_foreign_key "team_to_characters", "characters"
+  add_foreign_key "team_to_characters", "teams"
 end

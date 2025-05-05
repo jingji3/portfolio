@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  before_action :require_login
   skip_before_action :require_login, only: %i[index show]
   before_action :set_post, only: %i[show edit update destroy]
   before_action :authorize_user, only: %i[edit update destroy]
@@ -77,13 +76,6 @@ class PostsController < ApplicationController
   end
 
   private
-
-  def require_login
-    return if current_user
-
-    flash[:alert] = t('defaults.flash_message.require_login')
-    redirect_to login_path
-  end
 
   def set_post
     @post = Post.includes(:user, posts_to_characters: :character).find(params[:id])

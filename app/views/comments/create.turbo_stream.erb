@@ -6,7 +6,7 @@
   <% if @comment.parent_id.present? %>
     <%= turbo_stream.append "replies-#{@comment.parent_id}" do %>
       <%= render 'comments/comment', comment: @comment %>
-    <% end %>
+   <% end %>
   <% else %>
     <%= turbo_stream.prepend "table-comment" do %>
       <%= render 'comments/comment', comment: @comment %>

@@ -1,4 +1,61 @@
-<div>
-  <h1 class="font-bold text-4xl">TeamRatings#new</h1>
-  <p>Find me in app/views/team_ratings/new.html.erb</p>
+<div class="flex-1 mx-20 p-4">
+  <h1 class="text-3xl font-bold mb-4">チーム評価を投稿</h1>
+  
+  <%= form_with model: @team_rating, local: true, class: "space-y-6" do |f| %>
+    <%= render 'shared/error_message', object: @team_rating %>
+    
+    <!-- キャラクター選択画面 -->
+    <div class="card mb-4">
+      <div class="card-header text-white">
+        <h2 class="text-xl font-bold p-2">キャラクター選択</h2>
+      </div>
+      <div class="card-body">
+        <%= render 'team_ratings/character_form' %>
+      </div>
+    </div>
+
+    <!-- 評価画面 -->
+    <div class="card">
+      <div class="card-header">
+        <h2 class="text-xl font-bold">評価情報</h2>
+      </div>
+      <div class="card-body">
+        <div data-controller="star-rating" class="mb-2">
+          <div class="flex items-center justify-center">
+            <!-- 星をクリックするための入力エリア -->
+            <div class="star-input ml-2">
+              <% (1..5).each do |i| %>
+                <div class="star-input-item" data-value="<%= i %>" data-action="click->star-rating#selectRating">
+                  <div class="half-star" data-action="click->star-rating#selectHalfRating"></div>
+                  ★
+                </div>
+              <% end %>
+            </div>
+            
+            <!-- 数値表示 -->
+            <span class="rating-value" data-star-rating-target="display">
+              <%= @team_rating.rating ? @team_rating.rating.to_f : '0.0' %>
+            </span>
+          </div>
+          
+          <%= f.hidden_field :rating, data: { star_rating_target: "input" } %>
+          
+          <div class="flex justify-center text-xs text-gray-500 mt-1">
+            星の左側をクリックすると0.5刻みの評価ができます
+          </div>
+        </div> 
+        <!-- コメント欄 -->
+        <div class="mb-2">
+          <div class="font-bold text-lg my-2"><%= f.label :body, 'コメント' %></div>
+          <%= f.text_area :body, class: 'input input-bordered w-full h-auto text-lg', rows: 4, placeholder: 'コメントを記載してください' %>
+        </div>
+      </div>
+    </div>
+
+    <!-- ボタン管理 -->
+    <div class="flex justify-center gap-4">
+      <%= f.submit '評価を投稿', class: 'btn btn-primary' %>
+      <%= link_to 'キャンセル', teams_path, class: 'btn btn-secondary' %>
+    </div>
+  <% end %>
 </div>

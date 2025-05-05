@@ -9,3 +9,7 @@ application.register("character-selector", CharacterSelectorController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+// コントローラーをインポートして登録
+import StarRatingController from "./star_rating_controller"
+application.register("star-rating", StarRatingController)

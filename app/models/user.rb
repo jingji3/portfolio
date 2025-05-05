@@ -7,7 +7,8 @@ class User < ApplicationRecord
   has_many :favorite_posts, through: :favorites, source: :post
   has_many :comments, dependent: :destroy
   has_many :comment_likes, dependent: :destroy
-  has_many :team_rating, dependent: :destroy
+  has_many :team_ratings, dependent: :destroy
+  has_many :rated_teams, through: :team_ratings, source: :team
 
   has_one_attached :avatar
 

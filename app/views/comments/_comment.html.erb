@@ -1,6 +1,6 @@
 <div id="comment-<%= comment.id %>">
-  <div class="py-1 border-t border-base-300">
-    <div class="flex space-x-3 items-start">
+  <div class="py-1 border-t border-gray-500">
+    <div class="flex gap-3 items-start">
       <!-- アバター表示 -->
       <div class="flex-shrink-0">
         <% if comment.user.avatar.attached? %>
@@ -11,10 +11,11 @@
           </div>
         <% end %>
       </div>
+
       <!-- コメント者情報表示 -->
       <div class="flex-grow overflow-hidden">
         <div class="flex justify-between">
-          <div class="flex items-center space-x-3">
+          <div class="flex items-center gap-3">
             <span class="text-sm"><%= comment.user.user_name %></span>
             <span class="text-gray-500 text-sm"><%= time_ago_in_words(comment.created_at) %></span>
             <% if comment.edited? %>
@@ -54,6 +55,7 @@
         </div>
       </div>
     </div>
+
     <!-- 返信フォーム -->
     <div class="reply-form ml-8 mt-1" id="reply-form-<%= comment.id %>" style="display: none;">
       <%= form_with model: [comment.post, Comment.new], url: post_comments_path(comment.post), local: false do |f| %>
