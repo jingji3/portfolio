@@ -9,12 +9,24 @@ class User < ApplicationRecord
   has_many :comment_likes, dependent: :destroy
   has_many :team_ratings, dependent: :destroy
   has_many :rated_teams, through: :team_ratings, source: :team
+  has_many :authentications, dependent: :destroy # 複数の認証方法(Google, Xなど)を持たせるため
 
   has_one_attached :avatar
 
-  validates :password, length: { minimum: 8 }, if: -> { new_record? || changes[:crypted_password] }
-  validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
-  validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
+  # OAuthログイン用フラグ
+  attr_accessor :oauth_login
+
+  validates :password, length: { minimum: 8 },
+                       if: -> { (new_record? || changes[:crypted_password]) && !oauth_login }
+  validates :password, format: {
+                         with: /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>\-+_=;:'"])[A-Za-z\d!@#$%^&*(),.?":{}|<>\-+_=;:'"]{8,}\z/,
+                         message: 'は8文字以上で、英小文字・英大文字・数字・記号をそれぞれ1つ以上含む必要があります'
+                       },
+                       if: -> { (new_record? || changes[:crypted_password]) && !oauth_login }
+  validates :password, confirmation: true,
+                       if: -> { (new_record? || changes[:crypted_password]) && !oauth_login }
+  validates :password_confirmation, presence: true,
+                                    if: -> { (new_record? || changes[:crypted_password]) && !oauth_login }
   validates :user_name, presence: true, length: { maximum: 255 }
   validates :email, presence: true, uniqueness: true
   validates :avatar, content_type: { in: %w[image/jpeg image/gif image/png],
@@ -27,6 +39,9 @@ class User < ApplicationRecord
 
   # パスワードが空の場合は更新しない
   attr_accessor :skip_password_validation
+
+  # ユーザー作成時に認証情報も同時に保存できるようにする
+  accepts_nested_attributes_for :authentications
 
   # admin判断のため
   def admin?

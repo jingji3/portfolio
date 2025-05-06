@@ -39,7 +39,8 @@ gem 'mini_magick'
 gem 'redis', '~> 5.0'
 
 # ログイン
-gem 'sorcery', '~> 0.17.0'
+gem 'omniauth-google-oauth2'
+gem 'sorcery'
 
 # 言語対応
 gem 'rails-i18n', '~> 7.0.10'

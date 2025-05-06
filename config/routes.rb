@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'teams/index'
-  get 'teams/show'
-
   namespace :admin do
     get '/', to: 'dashboard#index'
     resources :users do
@@ -21,6 +18,10 @@ Rails.application.routes.draw do
 
   # ユーザー登録
   resources :users, only: %i[new create]
+
+  # OAuthログインのプロセル
+  post 'oauth/:provider', to: 'oauths#oauth', as: :auth_at_provider
+  get 'oauth/callback/:provider', to: 'oauths#callback', as: :oauth_callback
 
   # プロフィール編集
   resource :profile, only: %i[show edit update]

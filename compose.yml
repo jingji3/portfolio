@@ -17,6 +17,8 @@ services:
     environment:
       DATABASE_URL: postgres://postgres:password@db:5432/app_development
       REDIS_URL: redis://redis:6379/1
+    env_file:
+      - .env
 
   css:
     build:
