@@ -28,6 +28,10 @@ jobs:
         ports:
           - 6379:6379
 
+    env: 
+      RAILS_ENV: test
+      GOOGLE_CALLBACK_URL: http://localhost:3000/oauth/callback/google
+
     steps:
     - uses: actions/checkout@v3
 
@@ -55,13 +59,17 @@ jobs:
     - name: Setup database
       env:
         RAILS_ENV: test
+        GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+        GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
         DATABASE_URL: postgres://postgres:password@localhost:5432/app_test
       run: |
         bundle exec rails db:create
         bundle exec rails db:schema:load
 
     # - name: Run tests
-    #  env:
+    #   env:
+    #     GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+    #     GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
     #    RAILS_ENV: test
     #    DATABASE_URL: postgres://postgres:password@localhost:5432/app_test
     #  run: bundle exec rspec
