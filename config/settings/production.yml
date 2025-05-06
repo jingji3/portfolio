@@ -1,3 +1,3 @@
 sorcery:
-    google_callback_url: 'https://your_app_url/oauth/callback?provider=google'
+    google_callback_url: 'https://jingji-portfolio.onrender.com/oauth/callback/google'
 
