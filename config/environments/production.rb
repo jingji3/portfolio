@@ -72,7 +72,7 @@ Rails.application.configure do
   }
   # propshaftを使用していることを確認
   config.assets.use_propshaft = true
-  # コンパイル失敗時にエラーを発生させない
+
   config.assets.compile = false
   config.assets.debug = false
 

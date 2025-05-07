@@ -5,6 +5,6 @@ mailer:
   sender_email: <%= ENV['MAIL_FROM'] %>
   delivery_method: :smtp
 
-defauot_url_options:
+default_url_options:
   protcol: 'https'
   host: 'jingji-portfolio.onrender.com'
