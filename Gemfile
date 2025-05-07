@@ -90,6 +90,8 @@ group :development, :test do
   gem 'rubocop-rails-omakase', require: false
   gem 'scss_lint', require: false
   gem 'slim_lint'
+  # メール設定
+  gem 'letter_opener_web'
 
   # test
   gem 'factory_bot_rails'

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  # letter_openerのセットアップ用
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
+
+  # admin用
   namespace :admin do
     get '/', to: 'dashboard#index'
     resources :users do
@@ -25,6 +29,9 @@ Rails.application.routes.draw do
 
   # プロフィール編集
   resource :profile, only: %i[show edit update]
+
+  # パスワードリセット機能
+  resources :password_resets, only: %i[new create edit update]
 
   # 投稿機能
   resources :posts, only: %i[index show edit new create destroy update] do

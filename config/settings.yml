@@ -1,0 +1,4 @@
+sorcery:
+  reset_password:
+    expiration_period: 15.minutes
+    time_between_emails: 5.minutes

@@ -34,6 +34,7 @@ class User < ApplicationRecord
                      size: { less_than: 5.megabytes,
                              message: 'は5MB未満である必要があります' },
                      allow_blank: true
+  validates :reset_password_token, uniqueness: true, allow_nil: true
 
   enum role: { general: 0, admin: 1 }
 

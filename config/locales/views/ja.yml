@@ -63,6 +63,16 @@ ja:
       title: プロフィール
     edit:
       title: プロフィール編集
+  password_resets:
+    new:
+      title: パスワードリセット申請
+      submit: 送信
+    edit:
+      title: パスワードリセットのご案内
+    create:
+      success: パスワードリセット手順を送信しました
+    update:
+      success: パスワードを変更しました
   header:
     title: GenshinTeamSearch / Share
     login: Login
