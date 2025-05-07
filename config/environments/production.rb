@@ -73,7 +73,7 @@ Rails.application.configure do
   # propshaftを使用していることを確認
   config.assets.use_propshaft = true
 
-  config.assets.compile = false
+  config.assets.compile = true
   config.assets.debug = false
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
