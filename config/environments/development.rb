@@ -32,7 +32,7 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # メール配信方法をletter_openerに設定
-  config.action_mailer.delivery_method = Settings.mailser.delivery_method
+  config.action_mailer.delivery_method = Settings.mailer.delivery_method
 
   # メール送信を非同期にしない
   config.action_mailer.perform_deliveries = true

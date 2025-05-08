@@ -24,10 +24,6 @@ gem 'jbuilder'
 # アセット
 gem 'jsbundling-rails'
 
-# CSS関連
-gem 'cssbundling-rails'
-gem 'tailwindcss-rails'
-
 # ファイルアップロード
 gem 'aws-sdk-s3', require: false
 
