@@ -36,16 +36,16 @@ gem 'redis', '~> 5.0'
 
 # ログイン
 gem 'omniauth-google-oauth2'
-gem 'sorcery'
+gem 'sorcery', '~>0.17.0'
 
 # 言語対応
 gem 'rails-i18n', '~> 7.0.10'
 
 # 管理者
-gem 'administrate'
+gem 'administrate', '0.20.1'
 
 # 検索機能
-gem 'ransack'
+gem 'ransack', '~>4.3.0'
 
 # ページネーション
 gem 'kaminari'
