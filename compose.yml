@@ -23,7 +23,7 @@ services:
   css:
     build:
       context: .
-    command: bash -c "yarn install && yarn tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/tailwind.css --config ./tailwind.config.js --watch"
+    command: bash -c "yarn install && yarn tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --config ./tailwind.config.js --watch"
     volumes:
       - .:/jingji_portfolio
       - bundle_cache:/usr/local/bundle
