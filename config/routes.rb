@@ -56,6 +56,10 @@ Rails.application.routes.draw do
   # キャラクター
   resources :characters
 
+  # プライバシポリシー、利用規約
+  get 'privacy', to: 'static_pages#privacy_policy', as: :privacy_policy
+  get 'terms', to: 'static_pages#terms_of_use', as: :terms_of_use
+
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
