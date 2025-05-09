@@ -24,10 +24,6 @@ gem 'jbuilder'
 # アセット
 gem 'jsbundling-rails'
 
-# CSS関連
-gem 'cssbundling-rails'
-gem 'tailwindcss-rails'
-
 # ファイルアップロード
 gem 'aws-sdk-s3', require: false
 
@@ -40,16 +36,16 @@ gem 'redis', '~> 5.0'
 
 # ログイン
 gem 'omniauth-google-oauth2'
-gem 'sorcery'
+gem 'sorcery', '~>0.17.0'
 
 # 言語対応
 gem 'rails-i18n', '~> 7.0.10'
 
 # 管理者
-gem 'administrate'
+gem 'administrate', '0.20.1'
 
 # 検索機能
-gem 'ransack'
+gem 'ransack', '~>4.3.0'
 
 # ページネーション
 gem 'kaminari'
@@ -90,6 +86,8 @@ group :development, :test do
   gem 'rubocop-rails-omakase', require: false
   gem 'scss_lint', require: false
   gem 'slim_lint'
+  # メール設定
+  gem 'letter_opener_web'
 
   # test
   gem 'factory_bot_rails'
