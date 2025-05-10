@@ -1,5 +1,5 @@
 sorcery:
-  google_callback_url: "http;//jingji-portfolio.onrender.com/oauth/callback/google"
+  google_callback_url: "https://jingji-portfolio.onrender.com/oauth/callback/google"
 
 mailer:
   sender_email: <%= ENV['MAIL_FROM'] %>
