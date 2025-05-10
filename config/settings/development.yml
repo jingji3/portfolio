@@ -1,5 +1,5 @@
 sorcery:
-  google_callback_url: "http;//localhost:3000/oauth/callback/google"
+  google_callback_url: "http://localhost:3000/oauth/callback/google"
 
 mailer:
   sender_email: <%= ENV['MAIL_FROM'] %>
