@@ -29,7 +29,7 @@ gem 'aws-sdk-s3', require: false
 
 # 画像処理
 gem 'active_storage_validations'
-gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
 
 # キャッシュストア
 gem 'redis', '~> 5.0'

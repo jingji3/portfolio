@@ -5,7 +5,7 @@
   </div>
 
   <%# 検索フォーム部分 %>
-  <div class="mx-12 p-4 bg-base-300 rounded-xl shadow-xl border">
+  <div class="mx-12 p-4 rounded-xl shadow-xl">
     <h2 class="text-xl font-bold mb-2">検索キャラクター</h2>
 
     <%= form_with url: teams_path, method: :get, local: true, class: "flex flex-wrap justify-center gap-4" do |f| %>
@@ -44,7 +44,7 @@
 
     <div class="px-20">
       <% @teams.each do |team| %>
-          <div class="grid lg:grid-cols-2 bg-base-300 rounded-lg overflow-hidden shadow-lg hover:translate-y-[-4px] transition-transform duration-300 m-4 border">
+          <div class="grid lg:grid-cols-2 bg-base-200 rounded-lg overflow-hidden shadow-lg hover:translate-y-[-4px] transition-transform duration-300 m-4">
             <div class="p-4 flex flex-col justify-center">
               <div class="flex items-center mb-2">
                 <span class="text-2xl text-yellow-400 mr-2">★</span>
@@ -69,7 +69,7 @@
               <div class="p-4 grid grid-cols-4 gap-2 items-center">
                 <% team.characters.each do |character| %>
                   <div class="relative">
-                    <%= image_tag character.character_img, class: "w-full h-auto object-contain max-h-24" %>
+                    <%= image_tag character.display_image, class: "w-full h-auto object-contain max-h-24" %>
                   </div>
                 <% end %>
               </div>

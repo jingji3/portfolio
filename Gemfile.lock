@@ -184,6 +184,9 @@ GEM
     hashie (5.0.0)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
+    image_processing (1.14.0)
+      mini_magick (>= 4.9.5, < 6)
+      ruby-vips (>= 2.0.17, < 3)
     io-console (0.8.0)
     irb (1.15.2)
       pp (>= 0.6.0)
@@ -453,6 +456,9 @@ GEM
       rubocop-performance (>= 1.24)
       rubocop-rails (>= 2.30)
     ruby-progressbar (1.13.0)
+    ruby-vips (2.2.3)
+      ffi (~> 1.12)
+      logger
     rubyzip (2.4.1)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
@@ -581,6 +587,7 @@ DEPENDENCIES
   enum_help
   factory_bot_rails
   faker
+  image_processing (~> 1.2)
   jbuilder
   jquery-rails
   jsbundling-rails
@@ -589,7 +596,6 @@ DEPENDENCIES
   letter_opener_web
   listen
   logger (~> 1.5)
-  mini_magick
   net-imap
   net-pop
   net-protocol

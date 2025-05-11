@@ -1,4 +1,4 @@
-require "administrate/base_dashboard"
+require 'administrate/base_dashboard'
 require Rails.root.join('app/fields/image_field')
 
 class CharacterDashboard < Administrate::BaseDashboard
@@ -11,15 +11,19 @@ class CharacterDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     character_img: ImageField,
-    element: Field::Select.with_options(searchable: false, collection: ->(field) { field.resource.class.send(field.attribute.to_s.pluralize).keys }),
+    element: Field::Select.with_options(searchable: false, collection: lambda { |field|
+      field.resource.class.send(field.attribute.to_s.pluralize).keys
+    }),
     name: Field::String,
     name_eng: Field::String,
     name_kana: Field::String,
     star: Field::Number,
     version: Field::String,
-    version_half: Field::Select.with_options(searchable: false, collection: ->(field) { field.resource.class.send(field.attribute.to_s.pluralize).keys }),
+    version_half: Field::Select.with_options(searchable: false, collection: lambda { |field|
+      field.resource.class.send(field.attribute.to_s.pluralize).keys
+    }),
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -78,19 +82,19 @@ class CharacterDashboard < Administrate::BaseDashboard
   #   }.freeze
   COLLECTION_FILTERS = {
     # キャラクター名（日本語/英語/かな）で検索
-    search: ->(value) {
+    search: lambda { |value|
       { name_or_name_kana_or_name_eng_cont: value }
     },
 
     # 元素で検索
-    element_eq: ->(value) {
+    element_eq: lambda { |value|
       { element_eq: value }
     },
 
     # レアリティで検索
-    star_eq: ->(value) {
+    star_eq: lambda { |value|
       { star_eq: value.to_i }
-    },
+    }
   }.freeze
 
   # Overwrite this method to customize how characters are displayed

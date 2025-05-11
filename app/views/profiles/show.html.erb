@@ -1,6 +1,6 @@
 <div class="min-h-screen text-base-content">
-  <div class="max-w-4xl mx-auto p-4 pt-8">
-    <div class="bg-base-200 rounded-lg shadow-lg p-6">
+  <div class="max-w-sm mx-auto">
+    <div class="p-6">
       <!-- Header with title and edit button -->
       <div class="flex justify-between items-center mb-8">
         <h1 class="text-2xl font-bold"><%= t('.title') %></h1>
@@ -11,33 +11,32 @@
 
       <!-- プロフィール -->
       <div class="overflow-x-auto">
-        <table class="table w-full">
-          <tbody>
+        <div class="w-full">
+          <div class="space-y-6">
             <!-- Email -->
-            <tr class="hover">
-              <th class="text-left w-1/3 bg-base-300"><%= User.human_attribute_name(:email) %></th>
-              <td class="bg-base-100"><%= current_user.email %></td>
-            </tr>
+            <div class="form-control w-full">
+              <div class="label mb-2"><%= User.human_attribute_name(:email) %></div>
+              <div class="text-lg"><%= current_user.email %></div>
+            </div>
 
             <!-- ユーザー名 -->
-            <tr class="hover">
-              <th class="text-left w-1/3 bg-base-300"><%= User.human_attribute_name(:user_name) %></th>
-              <td class="bg-base-100"><%= current_user.user_name %></td>
-            </tr>
-
+            <div class="form-control w-full">
+              <div class="label mb-2"><%= User.human_attribute_name(:user_name) %></div>
+              <div class="text-lg"><%= current_user.user_name %></div>
+            </div>
             <!-- アバター -->
-            <tr class="hover">
-              <th class="text-left w-1/3 bg-base-300"><%= User.human_attribute_name(:avatar) %></th>
-              <td class="bg-base-100">
-                <% if current_user.avatar.attached? %>
-                  <%= image_tag url_for(current_user.avatar), class: "rounded-full w-20 h-20 object-cover" %>
-                <% else %>
-                  <%= image_tag "default_avatar.png", class: "rounded-full w-20 h-20 object-cover" %>
-                <% end %>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+            <div class="form-control w-full">
+              <div class="label mb-2"><%= User.human_attribute_name(:avatar) %></div>
+              <% if current_user.avatar.attached? %>
+                <%= image_tag current_user.avatar, class: "rounded-full w-24 h-24 object-cover" %>
+              <% else %>
+                <div class="w-20 h-20 bg-gray-600 text-primary-content rounded-full flex items-center justify-center">
+                  <span class="text-4xl font-bold"><%= current_user.user_name[0].upcase %></span>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
