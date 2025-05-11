@@ -11,6 +11,7 @@ ja:
         role: 権限
         password: パスワード
         password_confirmation: パスワード確認
+        avatar: アバター
       character:
         name: キャラクター名
         name_kana: キャラクター名(かな)

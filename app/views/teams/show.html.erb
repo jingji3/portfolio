@@ -14,7 +14,7 @@
           <div class="grid grid-cols-4 gap-2">
             <% @characters.each do |character| %>
               <div class="relative">
-                <%= image_tag character.character_img, class: "w-full shadow-lg"%>
+                <%= image_tag character.display_image(:large), class: "w-full shadow-lg"%>
               </div>
             <% end %>
           </div>

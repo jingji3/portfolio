@@ -12,7 +12,11 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :characters
+    resources :characters do
+      member do
+        post :compress
+      end
+    end
 
     root to: 'dashboard#index'
   end

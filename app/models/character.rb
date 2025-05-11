@@ -15,6 +15,19 @@ class Character < ApplicationRecord
 
   validate :image_type
 
+  def display_image(size = :normal)
+    return nil unless character_img.attached?
+
+    case size
+    when :small
+      character_img.variant(resize_to_limit: [70, 80], format: :webp)
+    when :normal
+      character_img.variant(resize_to_limit: [140, 160], format: :webp)
+    when :large
+      character_img.variant(resize_to_limit: [350, 400], format: :webp)
+    end
+  end
+
   private
 
   def image_type

@@ -8,9 +8,11 @@
       <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
         <div class="w-10 rounded-full">
           <% if current_user&.avatar&.attached? %>
-            <%= image_tag url_for(current_user.avatar), alt: "User avatar" %>
+            <%= image_tag current_user.avatar, alt: "User avatar" %>
           <% else %>
-            <%= image_tag "default_avatar.png", class: "rounded-full w-20 h-20 object-cover" %>
+            <div class="w-10 h-10 bg-gray-600 text-primary-content rounded-full flex items-center justify-center">
+              <span class="text-lg font-bold"><%= current_user.user_name[0].upcase %></span>
+            </div>
           <% end %>
         </div>
       </div>
