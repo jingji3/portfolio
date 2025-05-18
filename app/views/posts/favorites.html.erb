@@ -17,13 +17,13 @@
       <% if @favorite_posts.present? %>
         <% @favorite_posts.each do |post| %>
           <div class="card bg-base-300 shadow-xl border">
-            
+
             <!-- サムネイル部分 -->
             <%= link_to post_path(post) do %>
               <div class="relative rounded-t-md overflow-hidden">
                 <div class="w-full h-0 pb-[56.25%] relative">
                   <% if post.video_url.present? %>
-                    <% youtube_id = post.video_url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/)&.captures&.first %>
+                    <% youtube_id = extract_youtube_id(post.video_url) %>
                     <% if youtube_id %>
                       <img src="https://img.youtube.com/vi/<%= youtube_id %>/mqdefault.jpg" alt="<%= post.title %>" class="absolute inset-0 w-full h-full object-cover">
                     <% else %>
@@ -95,7 +95,7 @@
               <div class="flex space-x-5 justify-center">
                 <div>
                   <%= render "like_btn", post: post, variant: :small %>
-                </div> 
+                </div>
                 <div>
                   <%= render "favorite_btn", post: post, variant: :small %>
                 </div>
@@ -111,7 +111,7 @@
                   </div>
                 <% end %>
               </div>
-              
+
             </div>
           </div>
         <% end %>
