@@ -25,7 +25,7 @@
 
       <div class="p-4">
         <% if @post.video_url.present? %>
-        <% youtube_id = @post.video_url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/)&.captures&.first %>
+        <% youtube_id = extract_youtube_id(@post.video_url) %>
           <% if youtube_id %>
             <div class="relative w-full" style="padding-bottom: 56.25%;">
               <iframe

@@ -60,6 +60,9 @@ gem 'enum_help'
 # js系
 gem 'jquery-rails'
 
+# YoutubeDataAPI用
+gem 'google-apis-youtube_v3', '~> 0.55.0'
+
 gem 'tzinfo-data', platforms: %i[jruby]
 
 gem 'solid_cable'

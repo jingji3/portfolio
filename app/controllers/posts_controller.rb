@@ -3,6 +3,8 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
   before_action :authorize_user, only: %i[edit update destroy]
 
+  include YoutubeHelper
+
   def index
     @characters = Character.all.order(:name)
 
@@ -25,6 +27,28 @@ class PostsController < ApplicationController
     end
 
     @posts = @posts.distinct.page(params[:page]).per(9)
+
+    @youtube_info = {}
+    youtube_service = YoutubeService.new
+
+    # 動画情報の取得
+    @posts.each do |post|
+      video_id = extract_youtube_id(post.video_url)
+
+      if video_id
+        video_data = youtube_service.get_video_info(video_id)
+
+        if video_data&.items.any?
+          channel_id = video_data.items.first.snippet.channel_id
+          channel_data = youtube_service.get_channel_info(channel_id)
+
+          @youtube_info[post.id] = {
+            video_data: video_data,
+            channel_data: channel_data
+          }
+        end
+      end
+    end
   end
 
   def new
@@ -47,6 +71,19 @@ class PostsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @post.comments.includes(:user).order(created_at: :desc)
+
+    # 動画情報の取得
+    video_id = extract_youtube_id(@post.video_url)
+
+    if video_id
+      youtube_service = YoutubeService.new
+      @video_data = youtube_service.get_video_info(video_id)
+
+      if @video_data&.items.any?
+        channel_id = @video_data.items.first.snippet.channel_id
+        @channel_data = youtube_service.get_channel_info(channel_id)
+      end
+    end
   end
 
   def edit
