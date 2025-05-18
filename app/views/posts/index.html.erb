@@ -44,13 +44,14 @@
     </div>
 
     <!-- 投稿カードのグリッド -->
+    <%= turbo_frame_tag "posts-page-#{@posts.current_page}" do %>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
       <% if @posts.present? %>
         <% @posts.each do |post| %>
           <div class="card shadow-xl">
 
             <!-- サムネイル部分（チャンネル情報をオーバーレイ表示） -->
-            <%= link_to post_path(post) do %>
+            <%= link_to post_path(post), data: { turbo_frame: "_top" } do %>
               <div class="relative rounded-t-md overflow-hidden">
                 <div class="w-full h-0 pb-[56.25%] relative">
                   <% if post.video_url.present? %>
@@ -114,7 +115,7 @@
                   </div>
                   <div class="flex flex-col">
                     <h2 class="card-title text-base">
-                      <%= link_to post.title, post_path(post), class: "hover:underline" %>
+                      <%= link_to post.title, post_path(post), class: "hover:underline", data: { turbo_frame: "_top" } %>
                     </h2>
                     <!-- 投稿者情報と日時 -->
                     <div class="text-xs">
@@ -178,6 +179,7 @@
         </div>
       <% end %>
     </div>
-    <%= paginate @posts %>
+    <%= turbo_frame_tag "posts-page-#{@posts.next_page}", loading: :lazy, src: path_to_next_page(@posts) %>
+    <% end %>
   </div>
 </div>
