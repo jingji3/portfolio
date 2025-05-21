@@ -59,6 +59,8 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
 
+    process_time_params # YouTubeの開始時間を処理
+
     if @post.save
       create_character_associations
       redirect_to @post, notice: t('defaults.flash_message.created', item: Post.model_name.human)
@@ -91,6 +93,8 @@ class PostsController < ApplicationController
   end
 
   def update
+    process_time_params # YouTubeの開始時間を処理
+
     if @post.update(post_params)
       @post.posts_to_characters.destroy_all # 既存の関連を削除
       create_character_associations # 新しい関連を作成
@@ -119,7 +123,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :body, :video_url)
+    params.require(:post).permit(:title, :body, :video_url, :youtube_start_time)
   end
 
   def authorize_user
@@ -128,6 +132,7 @@ class PostsController < ApplicationController
     redirect_to posts_path, alert: t('defaults.flash_message.not_authorized')
   end
 
+  # キャラクターの関連付けを作成するメソッド
   def create_character_associations
     return unless params[:character_ids].present?
 
@@ -140,5 +145,17 @@ class PostsController < ApplicationController
         constellation: constellation
       )
     end
+  end
+
+  # YouTubeの開始時間を処理するメソッド
+  def process_time_params
+    return unless params[:time].present?
+
+    hours = params[:time][:hours].to_i
+    minutes = params[:time][:minutes].to_i
+    seconds = params[:time][:seconds].to_i
+
+    total_seconds = (hours * 3600) + (minutes * 60) + seconds
+    params[:post][:youtube_start_time] = total_seconds > 0 ? total_seconds : nil
   end
 end

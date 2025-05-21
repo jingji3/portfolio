@@ -10,6 +10,11 @@ application.register("character-selector", CharacterSelectorController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-// コントローラーをインポートして登録
+import Select2Controller from "./select2_controller"
+application.register("select2", Select2Controller)
+
 import StarRatingController from "./star_rating_controller"
 application.register("star-rating", StarRatingController)
+
+import YoutubeStartController from "./youtube_start_controller"
+application.register("youtube-start", YoutubeStartController)

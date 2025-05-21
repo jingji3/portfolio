@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_05_06_063518) do
+ActiveRecord::Schema[7.1].define(version: 2025_05_19_121642) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -88,11 +88,28 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_06_063518) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_genres_on_name", unique: true
+  end
+
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
     t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "post_to_genres", force: :cascade do |t|
+    t.bigint "post_id", null: false
+    t.bigint "genre_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["genre_id"], name: "index_post_to_genres_on_genre_id"
+    t.index ["post_id", "genre_id"], name: "index_post_to_genres_on_post_id_and_genre_id", unique: true
+    t.index ["post_id"], name: "index_post_to_genres_on_post_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -102,6 +119,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_06_063518) do
     t.string "video_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "youtube_start_time"
     t.index ["title"], name: "index_posts_on_title"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
@@ -163,6 +181,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_06_063518) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "post_to_genres", "genres"
+  add_foreign_key "post_to_genres", "posts"
   add_foreign_key "posts", "users"
   add_foreign_key "posts_to_characters", "characters"
   add_foreign_key "posts_to_characters", "posts"
