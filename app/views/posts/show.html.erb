@@ -160,9 +160,22 @@
             </div>
           </div>
         <% end %>
+
           <div class="text-md bg-base-300 p-2 rounded-xl mt-2">
             <%= simple_format(@post.body) %>
           </div>
+          <% if @post.tags.any? %>
+            <div class="post-tags mb-4">
+              <div class="flex flex-wrap gap-2">
+                <% @post.tags.each do |tag| %>
+                  <%= link_to posts_path(tag: tag.name),
+                      class: "inline-block bg-gray-500 text-md text-white px-2 py-0.5 rounded-full hover:bg-gray-600 transition-colors" do %>
+                    #<%= tag.name %>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>

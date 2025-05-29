@@ -13,7 +13,10 @@
 
       <div class="form-group">
         <div class="font-bold text-lg my-2"><%= f.label :body, 'おすすめポイント' %></div>
-        <%= f.text_area :body, class: 'input input-bordered w-full h-48 text-lg', rows: 8 %>
+        <%= f.text_area :body,
+            placeholder: "おすすめポイントを教えてください！",
+            class: 'input input-bordered w-full h-auto text-lg',
+            rows: 6 %>
       </div>
     </div>
 
@@ -43,6 +46,10 @@
         <% end %>
       </div>
       <%= render 'posts/form_start_time' %>
+      <div class="font-bold text-lg my-2"><%= f.label :tag, 'ジャンルタグ' %></div>
+        <%= f.text_field :tag_input,
+            placeholder: "#アクション #解説 などでタグ登録できます。",
+            class: 'input input-bordered w-full text-lg' %>
     </div>
   </div>
 

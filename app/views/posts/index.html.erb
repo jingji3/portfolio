@@ -130,6 +130,7 @@
                 <% if current_user && current_user.id == post.user_id %>
                   <div class="flex gap-1">
                     <%= link_to edit_post_path(post),
+                        data: { turbo_frame: "_top" },
                         class: "p-1 h-6 min-h-0 hover:text-base-content" do %>
                       <i class="fas fa-edit text-sm text-gray-500"></i>
                     <% end %>
@@ -149,8 +150,18 @@
                 <%= truncate(post.body, length: 40) %>
               </div>
 
+              <!-- タグ表示を追加 -->
+              <% if post.tags.any? %>
+                <div class="flex flex-wrap gap-1 mt-2">
+                  <% post.tags.each do |tag| %>
+                    <%= link_to "##{tag.name}", posts_path(tag: tag.name),
+                        class: "inline-block bg-gray-500 text-xs text-white px-1 py-0.5 rounded-full hover:bg-gray-600 transition-colors" %>
+                  <% end %>
+                </div>
+              <% end %>
+
               <!-- いいねボタン・お気に入りボタン -->
-             <div class="flex space-x-5 justify-center">
+              <div class="flex space-x-5 justify-center">
                 <div>
                   <%= render "like_btn", post: post, variant: :small %>
                 </div>
