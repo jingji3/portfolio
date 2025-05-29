@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_05_06_063518) do
+ActiveRecord::Schema[7.1].define(version: 2025_05_19_121642) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -95,6 +95,16 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_06_063518) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "post_to_tags", force: :cascade do |t|
+    t.bigint "post_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id", "tag_id"], name: "index_post_to_tags_on_post_id_and_tag_id", unique: true
+    t.index ["post_id"], name: "index_post_to_tags_on_post_id"
+    t.index ["tag_id"], name: "index_post_to_tags_on_tag_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "title", null: false
@@ -102,6 +112,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_06_063518) do
     t.string "video_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "youtube_start_time"
     t.index ["title"], name: "index_posts_on_title"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
@@ -114,6 +125,13 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_06_063518) do
     t.datetime "updated_at", null: false
     t.index ["character_id"], name: "index_posts_to_characters_on_character_id"
     t.index ["post_id"], name: "index_posts_to_characters_on_post_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
   create_table "team_ratings", force: :cascade do |t|
@@ -163,6 +181,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_06_063518) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "post_to_tags", "posts"
+  add_foreign_key "post_to_tags", "tags"
   add_foreign_key "posts", "users"
   add_foreign_key "posts_to_characters", "characters"
   add_foreign_key "posts_to_characters", "posts"

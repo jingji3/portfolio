@@ -5,23 +5,26 @@
 
     <div class="grid grid-cols-3 gap-4">
       <div class="col-span-2">
+
         <%# 動画表示 %>
         <% if @post.video_url.present? %>
           <% youtube_id = extract_youtube_id(@post.video_url) %>
-            <% if youtube_id %>
-              <div class="relative w-full shadow-md" style="padding-bottom: 56.25%;">
-                <iframe
-                  src="https://www.youtube.com/embed/<%= youtube_id %>"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                  class="absolute top-0 left-0 w-full h-full rounded-lg"></iframe>
-              </div>
-            <% else %>
-              <div class="bg-gray-200 flex items-center justify-center h-64 rounded-md">
-                <span class="text-gray-500">Invalid YouTube URL</span>
-              </div>
-            <% end %>
+          <% if youtube_id %>
+            <div class="relative w-full shadow-md" style="padding-bottom: 56.25%;">
+              <iframe
+                id="youtube-player"
+                class="absolute top-0 left-0 w-full h-full rounded-lg"
+                src="https://www.youtube.com/embed/<%= youtube_id %>"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+              </iframe>
+            </div>
+          <% else %>
+            <div class="bg-gray-200 flex items-center justify-center h-64 rounded-md">
+              <span class="text-gray-500">YouTube URLがありません</span>
+            </div>
+          <% end %>
         <% end %>
 
         <%# 投稿者チャンネル情報 %>
@@ -147,9 +150,32 @@
             <div class="text-lg font-semibold"><%= @post.user.user_name %></div>
             <div class="text-md">さんのおすすめポイント</div>
           </div>
+          <% if @post.youtube_start_time.present? %>
+          <div class="mt-2">
+            <div class="flex gap-1 text-md mx-1 text-gray-500">
+              <p>おすすめ時間:</p>
+              <a href="#" onclick="updateVideoTime('<%= youtube_id %>', <%= @post.youtube_start_time %>); return false;" class="text-indigo-600 hover:text-indigo-800">
+                <%= format_time(@post.youtube_start_time) %>
+              </a>
+            </div>
+          </div>
+        <% end %>
+
           <div class="text-md bg-base-300 p-2 rounded-xl mt-2">
             <%= simple_format(@post.body) %>
           </div>
+          <% if @post.tags.any? %>
+            <div class="post-tags mb-4">
+              <div class="flex flex-wrap gap-2">
+                <% @post.tags.each do |tag| %>
+                  <%= link_to posts_path(tag: tag.name),
+                      class: "inline-block bg-gray-500 text-md text-white px-2 py-0.5 rounded-full hover:bg-gray-600 transition-colors" do %>
+                    #<%= tag.name %>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>

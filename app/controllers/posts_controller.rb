@@ -26,8 +26,14 @@ class PostsController < ApplicationController
                      .having('COUNT(DISTINCT posts_to_characters.character_id) = ?', character_ids.size)
     end
 
+    # タグでの絞り込み
+    if params[:tag].present?
+      @posts = @posts.joins(:tags).where(tags: { name: params[:tag].downcase })
+    end
+
     @posts = @posts.distinct.page(params[:page]).per(9)
 
+    # YouTube情報の取得
     @youtube_info = {}
     youtube_service = YoutubeService.new
 
@@ -58,6 +64,9 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
+    @post.tag_input = params[:post][:tag_input] # 仮フィールドにタグ文字列を渡す
+
+    process_time_params # YouTubeの開始時間を処理
 
     if @post.save
       create_character_associations
@@ -88,9 +97,13 @@ class PostsController < ApplicationController
 
   def edit
     @characters = Character.all.order(:name)
+    @post.tag_input = @post.tags.map { |t| "##{t.name}"}.join(' ')
   end
 
   def update
+    process_time_params # YouTubeの開始時間を処理
+    @post.tag_input = params[:post][:tag_input]
+
     if @post.update(post_params)
       @post.posts_to_characters.destroy_all # 既存の関連を削除
       create_character_associations # 新しい関連を作成
@@ -115,11 +128,11 @@ class PostsController < ApplicationController
   private
 
   def set_post
-    @post = Post.includes(:user, posts_to_characters: :character).find(params[:id])
+    @post = Post.includes(:user, :tags, posts_to_characters: :character).find(params[:id])
   end
 
   def post_params
-    params.require(:post).permit(:title, :body, :video_url)
+    params.require(:post).permit(:title, :body, :video_url, :youtube_start_time, :tag_input)
   end
 
   def authorize_user
@@ -128,6 +141,7 @@ class PostsController < ApplicationController
     redirect_to posts_path, alert: t('defaults.flash_message.not_authorized')
   end
 
+  # キャラクターの関連付けを作成するメソッド
   def create_character_associations
     return unless params[:character_ids].present?
 
@@ -140,5 +154,17 @@ class PostsController < ApplicationController
         constellation: constellation
       )
     end
+  end
+
+  # YouTubeの開始時間を処理するメソッド
+  def process_time_params
+    return unless params[:time].present?
+
+    hours = params[:time][:hours].to_i
+    minutes = params[:time][:minutes].to_i
+    seconds = params[:time][:seconds].to_i
+
+    total_seconds = (hours * 3600) + (minutes * 60) + seconds
+    params[:post][:youtube_start_time] = total_seconds > 0 ? total_seconds : nil
   end
 end

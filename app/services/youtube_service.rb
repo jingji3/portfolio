@@ -7,7 +7,7 @@ class YoutubeService
 
     # 参照先を明記
     if Rails.env.production?
-      @service.request_options.header = { 'Referer' => 'https://yourdomain.com' }
+      @service.request_options.header = { 'Referer' => 'https://jingji-portfolio.onrender.com' }
     else
       @service.request_options.header = { 'Referer' => 'http://localhost:3000' }
     end

@@ -1,41 +1,60 @@
-<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-4">
-  <%
-    # PostsToCharacterデータを取得
-    character_associations = @post.posts_to_characters.to_a
-  %>
+<%= form_with model: @post, local: true, class: "space-y-6" do |f| %>
+    <%= render 'shared/error_message', object: @post %>
 
-  <% 4.times do |i| %>
-    <%
-      # 対応するPostsToCharacterを取得
-      association = character_associations[i]
-      character_id = association&.character_id
-      constellation = association&.constellation || 0
-    %>
-    <div class="flex flex-col space-y-2" data-controller="character-selector">
-      <div class="flex justify-center items-center space-x-2">
-        <div>
-          <%= select_tag "character_ids[]",
-                      options_from_collection_for_select(@characters, :id, :name, character_id),
-                      include_blank: 'キャラクター選択',
-                      class: 'select-bordered character-select',
-                      data: {
-                        character_selector_target: "select",
-                        action: "change->character-selector#change"
-                      } %>
-        </div>
-        <div>
-          <%= select_tag "constellations[]",
-              options_for_select((0..6).map { |n| [n == 0 ? "0凸" : "#{n}凸", n] }, constellation),
-              class: 'select w-18 text-xs' %>
-        </div>
+  <div class="grid grid-cols-1 lg:grid-cols-2">
+    <div class="relative mx-4">
+      <div class="form-group">
+        <div class="font-bold text-lg my-2"><%= f.label :title, 'タイトル' %></div>
+        <%= f.text_field :title, class: 'input input-bordered w-full text-lg' %>
       </div>
 
-      <div data-character-selector-target="container"
-          class="character-image-container h-32 flex items-center justify-center hidden">
-        <img data-character-selector-target="image"
-            class="character-image h-full object-contain"
-            alt="キャラクター画像">
+      <div class="form-group">
+        <div class="font-bold text-lg my-2"><%= f.label :body, 'おすすめポイント' %></div>
+        <%= f.text_area :body,
+            placeholder: "おすすめポイントを教えてください！",
+            class: 'input input-bordered w-full h-48 text-lg',
+            rows: 6 %>
       </div>
     </div>
-  <% end %>
-</div>
+
+    <div class="relative mx-4">
+      <div class="form-group">
+        <div class="font-bold text-lg my-2"><%= f.label :movie_url, '動画URL' %></div>
+        <%= f.text_field :video_url, class: 'input input-bordered w-full text-md', placeholder: 'https://www.youtube.com/watch?v=...' %>
+      </div>
+
+      <div class="p-4">
+        <% if @post.video_url.present? %>
+        <% youtube_id = extract_youtube_id(@post.video_url) %>
+          <% if youtube_id %>
+            <div class="relative w-full" style="padding-bottom: 56.25%;">
+              <iframe
+                src="https://www.youtube.com/embed/<%= youtube_id %>"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                class="absolute top-0 left-0 w-full h-full rounded-lg"></iframe>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <%= render 'posts/form_start_time' %>
+      <div class="font-bold text-lg my-2"><%= f.label :tag, 'ジャンルタグ' %></div>
+        <%= f.text_field :tag_input,
+            placeholder: "#アクション #解説 などでタグ登録できます。",
+            class: 'input input-bordered w-full text-lg' %>
+    </div>
+  </div>
+
+  <div class="ml-4 mr-4">
+    <h3 class="font-medium text-base-content mt-2 mb-2">
+      キャラクター
+    </h3>
+    <%= render 'posts/form_character' %>
+  </div>
+
+  <div class="flex justify-center gap-4">
+    <%= f.submit 'シェア', class: 'btn btn-primary' %>
+    <%= link_to 'キャンセル', posts_path, class: 'btn btn-secondary' %>
+  </div>
+<% end %>
