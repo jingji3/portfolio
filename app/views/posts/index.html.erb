@@ -48,7 +48,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
       <% if @posts.present? %>
         <% @posts.each do |post| %>
-          <div class="card shadow-xl">
+          <div class="card shadow-xl flex flex-col justify-between min-h-100">
 
             <!-- サムネイル部分（チャンネル情報をオーバーレイ表示） -->
             <%= link_to post_path(post), data: { turbo_frame: "_top" } do %>
@@ -114,11 +114,11 @@
                     <% end %>
                   </div>
                   <div class="flex flex-col">
-                    <h2 class="card-title text-base">
+                    <h2 class="card-title text-base line-clamp-1">
                       <%= link_to post.title, post_path(post), class: "hover:underline", data: { turbo_frame: "_top" } %>
                     </h2>
                     <!-- 投稿者情報と日時 -->
-                    <div class="text-xs">
+                    <div class="text-xs line-clamp-1">
                       <span><%= post.user.user_name %></span>
                       <span>・</span>
                       <span><%= time_ago_in_words(post.created_at) %>前</span>
@@ -146,19 +146,19 @@
               </div>
 
               <!-- 本文抜粋 -->
-              <div class="text-sm mt-1 h-auto text-gray-500">
-                <%= truncate(post.body, length: 40) %>
+              <div class="text-sm mt-1 text-gray-500 line-clamp-2 min-h-10">
+                <%= post.body %>
               </div>
 
               <!-- タグ表示を追加 -->
-              <% if post.tags.any? %>
-                <div class="flex flex-wrap gap-1 mt-2">
+              <div class="flex flex-wrap gap-1 mt-2 min-h-4 line-clamp-1">
+                <% if post.tags.any? %>
                   <% post.tags.each do |tag| %>
                     <%= link_to "##{tag.name}", posts_path(tag: tag.name),
                         class: "inline-block bg-gray-500 text-xs text-white px-1 py-0.5 rounded-full hover:bg-gray-600 transition-colors" %>
                   <% end %>
-                </div>
-              <% end %>
+                <% end %>
+              </div>
 
               <!-- いいねボタン・お気に入りボタン -->
               <div class="flex space-x-5 justify-center">
