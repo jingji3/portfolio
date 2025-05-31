@@ -31,6 +31,9 @@ Rails.application.routes.draw do
   post 'oauth/:provider', to: 'oauths#oauth', as: :auth_at_provider
   get 'oauth/callback/:provider', to: 'oauths#callback', as: :oauth_callback
 
+  # マイページ
+  get 'mypage', to: 'mypage#index', as: :mypage
+
   # プロフィール編集
   resource :profile, only: %i[show edit update]
 
@@ -51,6 +54,7 @@ Rails.application.routes.draw do
       get :favorites
     end
   end
+
   # 編成評価機能
   resources :team_ratings, only: %i[index show edit new create destroy update]
 
@@ -64,6 +68,7 @@ Rails.application.routes.draw do
   get 'privacy', to: 'static_pages#privacy_policy', as: :privacy_policy
   get 'terms', to: 'static_pages#terms_of_use', as: :terms_of_use
 
+  # ログイン、ログアウト
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
