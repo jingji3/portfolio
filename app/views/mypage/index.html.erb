@@ -1,0 +1,49 @@
+<div class="container mx-auto p-4 max-w-6xl">
+  <!-- ページヘッダー -->
+  <div class="m-2">
+    <h1 class="text-3xl font-bold">マイページ</h1>
+  </div>
+
+  <!-- タブコンテナ -->
+  <div class="card">
+    <div class="card-body p-0">
+      <!-- タブナビゲーション -->
+      <div class="tabs tabs-lifted tabs-lg w-full">
+        <%= link_to mypage_path(tab: 'posts'),
+            class: "tab #{'tab-active bg-base-300 rounded-full' if @active_tab == 'posts'}
+            #{'hover:bg-base-200 text-gray-500 rounded-full' unless @active_tab == 'posts'}" do %>
+            <i class="fab fa-youtube"></i>
+            <div class="ml-1">おすすめ動画</div>
+        <% end %>
+
+        <%= link_to mypage_path(tab: 'team_ratings'),
+            class: "tab #{'tab-active bg-base-300 rounded-full' if @active_tab == 'team_ratings'}
+             #{'hover:bg-base-200 text-gray-500 rounded-full' unless @active_tab == 'team_ratings'}" do %>
+            <i class="fas fa-users"></i>
+            <div class="ml-1">編成評価</div>
+        <% end %>
+
+        <%= link_to mypage_path(tab: 'favorites'),
+            class: "tab #{'tab-active bg-base-300 rounded-full' if @active_tab == 'favorites'}
+             #{'hover:bg-base-200 text-gray-500 rounded-full' unless @active_tab == 'favorites'}" do %>
+            <i class="fas fa-star"></i>
+            <div class="ml-1">お気に入り</div>
+        <% end %>
+      </div>
+
+      <!-- タブコンテンツエリア -->
+      <div class="p-2">
+        <% case @active_tab %>
+        <% when 'posts' %>
+          <%= render 'tab_posts' %>
+        <% when 'favorites' %>
+          <%= render 'tab_favorites' %>
+        <% when 'team_ratings' %>
+          <%= render 'tab_team_ratings' %>
+        <% else %>
+          <%= render 'tab_posts' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

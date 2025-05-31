@@ -1,6 +1,6 @@
 <%= turbo_frame_tag dom_id(rating) do %>
   <div class="mb-6">
-    <div class="flex"> 
+    <div class="flex">
       <div class="flex-shrink-0">
         <% if rating.user.respond_to?(:avatar) && rating.user.avatar.attached? %>
           <%= image_tag url_for(rating.user.avatar), class: "w-10 h-10 rounded-full object-cover", alt: rating.user.user_name %>
@@ -10,7 +10,7 @@
           </div>
         <% end %>
       </div>
-      
+
       <div class="ml-3 flex-grow">
         <div class="flex justify-between items-start w-full">
           <div>
@@ -19,26 +19,26 @@
               <%= date_with_version(rating.created_at) %>
             </div>
           </div>
-          
+
           <div class="flex items-center">
             <span class="text-xl text-yellow-400 mr-1">★</span>
             <span class="text-xl font-bold"><%= rating.rating %></span>
             <span class="text-sm text-gray-400 ml-1">/5.0</span>
           </div>
         </div>
-        
+
         <div class="mt-2">
           <%= simple_format(rating.body, class: "text-sm") %>
         </div>
-        
+
         <% if current_user && current_user.id == rating.user_id %>
           <div class="flex justify-end mt-2 space-x-2">
-            <%= link_to "編集", edit_team_rating_path(rating), 
+            <%= link_to "編集", edit_team_rating_path(rating),
                   class: "btn btn-xs btn-outline",
                   data: { turbo_frame: dom_id(rating) } %>
-            <%= button_to "削除", team_rating_path(rating), 
-                  method: :delete, 
-                  class: "btn btn-xs btn-outline-error", 
+            <%= button_to "削除", team_rating_path(rating),
+                  method: :delete,
+                  class: "btn btn-xs btn-outline-error",
                   form: { data: { turbo_frame: dom_id(rating) } } %>
           </div>
         <% end %>
