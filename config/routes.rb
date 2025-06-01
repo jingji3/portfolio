@@ -64,6 +64,9 @@ Rails.application.routes.draw do
   # キャラクター
   resources :characters
 
+  # リクエスト
+  resources :requests, only: %i[new create]
+
   # プライバシポリシー、利用規約
   get 'privacy', to: 'static_pages#privacy_policy', as: :privacy_policy
   get 'terms', to: 'static_pages#terms_of_use', as: :terms_of_use

@@ -1,0 +1,56 @@
+<div class="container mx-auto px-4 py-8">
+  <div class="max-w-2xl mx-auto">
+    <h1 class="text-2xl font-bold mb-6">動画リクエスト送信</h1>
+
+    <!-- 選択されたキャラクター表示 -->
+    <% if params[:character1].present? || params[:character2].present? || params[:character3].present? || params[:character4].present? %>
+      <div class="bg-base-300 rounded-lg p-4 mb-6">
+        <h3 class="text-lg font-semibold mb-2">メンバー</h3>
+        <div class="flex justify-center flex-wrap gap-4">
+          <% [params[:character1], params[:character2], params[:character3], params[:character4]].each do |character_id| %>
+            <% if character_id.present? %>
+              <% character = Character.find(character_id) %>
+              <div class="flex flex-col items-center">
+                <% if character.character_img.attached? %>
+                  <%= image_tag character.display_image(:large),
+                               alt: character.name,
+                               class: "w-20 h-auto object-cover" %>
+                <% end %>
+                <span class="text-sm font-medium mt-1"><%= character.name %></span>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+    <%= form_with model: @request, local: true do |f| %>
+      <%= render 'shared/error_message', object: @request %>
+
+      <!-- キャラクターIDをhidden_fieldで送信 -->
+      <% [params[:character1], params[:character2], params[:character3], params[:character4]].each do |character_id| %>
+        <% if character_id.present? %>
+          <%= hidden_field_tag "character_ids[]", character_id %>
+        <% end %>
+      <% end %>
+
+      <div class="mb-6">
+        <%= f.label :message, "リクエスト内容", class: "block text-lg font-semibold mb-2" %>
+        <%= f.text_area :message,
+                        placeholder: "どのような動画をリクエストしますか？\n（例：螺旋12層攻略動画、立ち回り解説、ビルド参考など）",
+                        rows: 4,
+                        class: "textarea border w-full" %>
+      </div>
+
+      <div class="flex gap-4">
+        <%= f.submit "リクエストを送信", class: "btn btn-primary" %>
+        <%= link_to "キャンセル", posts_path(
+                      character1: params[:character1],
+                      character2: params[:character2],
+                      character3: params[:character3],
+                      character4: params[:character4]
+                    ), class: "btn btn-outline" %>
+      </div>
+    <% end %>
+  </div>
+</div>

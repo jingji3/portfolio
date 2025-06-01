@@ -5,6 +5,8 @@ class Character < ApplicationRecord
   has_many :characters, through: :posts_to_characters
   has_many :team_to_characters
   has_many :team, through: :team_to_characters
+  has_many :request_to_characters, dependent: :destroy
+  has_many :requests, through: :request_to_characters
 
   validates :name, presence: true, length: { maximum: 255 }
   validates :name_kana, presence: true, length: { maximum: 255 }
