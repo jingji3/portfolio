@@ -50,8 +50,24 @@
         <% @posts.each do |post| %>
           <%= render 'shared/posts', post: post %>
         <% end %>
+      <% elsif @posts.empty? && params[:character1].present? || params[:character2].present? || params[:character3].present? || params[:character4].present? %>
+        <div class="flex justify-center text-center p-8">
+          <% if user_signed_in? %>
+            <%= link_to "動画リクエストを送信",
+                        new_request_path(
+                          character1: params[:character1],
+                          character2: params[:character2],
+                          character3: params[:character3],
+                          character4: params[:character4]
+                        ),
+                        class: "btn btn-primary",
+                        data: { turbo_frame: "_top" } %>
+          <% else %>
+            <%= link_to "ログインしてリクエスト送信", login_path, class: "btn btn-primary", data: { turbo_frame: "_top" } %>
+          <% end %>
+        </div>
       <% else %>
-        <div class="col-span-3 text-center p-8">
+        <div class="flex justify-center text-center p-8">
           投稿がまだありません。
         </div>
       <% end %>

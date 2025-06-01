@@ -10,8 +10,12 @@ class User < ApplicationRecord
   has_many :team_ratings, dependent: :destroy
   has_many :rated_teams, through: :team_ratings, source: :team
   has_many :authentications, dependent: :destroy # 複数の認証方法(Google, Xなど)を持たせるため
+  has_many :requests, dependent: :destroy
 
   has_one_attached :avatar
+
+  # リクエスト投稿時に自動で完了にする
+  after_create :complete_matching_requests
 
   # OAuthログイン用フラグ
   attr_accessor :oauth_login
@@ -53,15 +57,43 @@ class User < ApplicationRecord
     id == object&.user_id
   end
 
+  # 通知設定のメソッド
+  def request_notifications_enabled?
+    receive_request_notifications
+  end
+
+  def enable_request_notifications!
+    update!(receive_request_notifications: true)
+  end
+
+  def disable_request_notifications!
+    update!(receive_request_notifications: false)
+  end
+
   # Ransackで検索可能な属性を定義
   def self.ransackable_attributes(_auth_object = nil)
-    # 安全に検索できると判断した属性のみリストに含める
-    # パスワード関連は除外することをお勧めします
     %w[id user_name email role created_at updated_at]
   end
 
   # Ransackで検索可能な関連を定義
   def self.ransackable_associations(_auth_object = nil)
     []
+  end
+
+  private
+
+  def complete_matching_requests
+    character_ids = posts_to_characters.pluck(:character_id)
+    return if character_ids.empty?
+
+    # 一致する全ての未完了リクエストを取得
+    matching_requests = Request.find_matching_pending_requests(character_ids)
+
+    # 複数のリクエストがあれば、それぞれを完了状態にして通知
+    matching_requests.each do |request|
+      request.update!(status: :completed)
+      # 完了通知を送信
+      Rails.logger.info("リクエスト完了通知: #{request.id}")
+    end
   end
 end

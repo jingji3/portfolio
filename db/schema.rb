@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_05_19_121642) do
+ActiveRecord::Schema[7.1].define(version: 2025_06_01_072730) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -127,6 +127,25 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_19_121642) do
     t.index ["post_id"], name: "index_posts_to_characters_on_post_id"
   end
 
+  create_table "request_to_characters", force: :cascade do |t|
+    t.bigint "request_id", null: false
+    t.bigint "character_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["character_id"], name: "index_request_to_characters_on_character_id"
+    t.index ["request_id", "character_id"], name: "index_request_to_characters_on_request_id_and_character_id", unique: true
+    t.index ["request_id"], name: "index_request_to_characters_on_request_id"
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.text "message", null: false
+    t.integer "status", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_requests_on_user_id"
+  end
+
   create_table "tags", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -186,6 +205,9 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_19_121642) do
   add_foreign_key "posts", "users"
   add_foreign_key "posts_to_characters", "characters"
   add_foreign_key "posts_to_characters", "posts"
+  add_foreign_key "request_to_characters", "characters"
+  add_foreign_key "request_to_characters", "requests"
+  add_foreign_key "requests", "users"
   add_foreign_key "team_ratings", "teams"
   add_foreign_key "team_ratings", "users"
   add_foreign_key "team_to_characters", "characters"
