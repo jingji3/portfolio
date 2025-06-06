@@ -11,7 +11,7 @@ class RequestsController < ApplicationController
 
     if @request.save
       create_character_associations
-      notify_users_about_request(@request)
+      send_request_created_notification(@request) # 通知送信を追加
       redirect_to posts_path, notice: 'リクエストが正常に送信されました。'
     else
       @characters = Character.all.order(:name)
@@ -34,6 +34,22 @@ class RequestsController < ApplicationController
     end
   end
 
-  def notify_users_about_request(request)
+  # 新しいリクエスト作成通知を送信
+  def send_request_created_notification(request)
+    # 通知を受け取る設定をしているユーザーを取得
+    notification_recipients = User.receives_request_notifications
+
+    # キャラクター情報を取得
+    character_names = request.characters.pluck(:name)
+    character_ids = request.characters.pluck(:id)
+
+    # 通知を送信（最新のnoticed）
+    RequestCreatedNotifier.with(
+      record: request,                    # これはrecordとして渡される
+      character_names: character_names,
+      character_ids: character_ids,
+    ).deliver(notification_recipients)
+
+    Rails.logger.info "新規リクエスト通知を#{notification_recipients.count}人のユーザーに送信しました"
   end
 end

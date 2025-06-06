@@ -29,6 +29,20 @@
             <i class="fas fa-star"></i>
             <div class="ml-1">お気に入り</div>
         <% end %>
+
+        <%= link_to mypage_path(tab: 'notifications'),
+            class: "tab #{'tab-active bg-base-300 rounded-full' if @active_tab == 'notifications'}
+            #{'hover:bg-base-200 text-gray-500 rounded-full' unless @active_tab == 'notifications'}" do %>
+            <i class="fas fa-bell"></i>
+            <div class="ml-1">リクエスト通知</div>
+            <%
+              # まだ通知タブを開いていない場合のみ未読数を表示
+              unread_count = @active_tab == 'notifications' ? 0 : current_user.notifications.unread.count
+            %>
+            <% if unread_count > 0 %>
+              <div class="badge badge-primary badge-sm ml-1"><%= unread_count %></div>
+            <% end %>
+        <% end %>
       </div>
 
       <!-- タブコンテンツエリア -->
@@ -40,6 +54,8 @@
           <%= render 'tab_favorites' %>
         <% when 'team_ratings' %>
           <%= render 'tab_team_ratings' %>
+        <% when 'notifications' %>
+          <%= render 'tab_notifications' %>
         <% else %>
           <%= render 'tab_posts' %>
         <% end %>

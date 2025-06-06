@@ -60,6 +60,9 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @characters = Character.all.order(:name)
+
+    # 通知画面からの遷移時に自動でキャラクターパラメータの作成したURLで開く
+    handle_preselected_characters
   end
 
   def create
@@ -70,6 +73,7 @@ class PostsController < ApplicationController
 
     if @post.save
       create_character_associations
+      check_and_complete_matching_requests(@post) # もしリクエストがあるキャラクターの編成だった場合にstatusをcompleteにする
       redirect_to @post, notice: t('defaults.flash_message.created', item: Post.model_name.human)
     else
       @characters = Character.all.order(:name)
@@ -162,5 +166,73 @@ class PostsController < ApplicationController
 
     total_seconds = (hours * 3600) + (minutes * 60) + seconds
     params[:post][:youtube_start_time] = total_seconds > 0 ? total_seconds : nil
+  end
+
+  # リクエストの自動完了
+  def check_and_complete_matching_requests(post)
+    # 投稿のキャラクターIDを取得（constellation順でソート）
+    post_character_ids = post.posts_to_characters
+                            .order(:id)
+                            .pluck(:character_id)
+
+    return if post_character_ids.empty?
+
+    # 同じキャラクター構成のpendingリクエストを検索
+    matching_requests = find_matching_requests(post_character_ids)
+
+    # マッチしたリクエストを完了にして通知送信
+    matching_requests.each do |request|
+      request.update!(status: :completed)
+      send_request_completed_notification(request, post_character_ids)
+    end
+
+    Rails.logger.info "#{matching_requests.count}件のリクエストが自動完了しました" if matching_requests.any?
+  end
+
+  # 同じキャラクター構成のpendingリクエストを検索
+  def find_matching_requests(post_character_ids)
+    # pendingステータスのリクエストを取得
+    pending_requests = Request.pending.includes(:request_to_characters)
+
+    # 各リクエストのキャラクター構成と完全一致するものを抽出
+    pending_requests.select do |request|
+      request_character_ids = request.request_to_characters
+                                    .order(:id)
+                                    .pluck(:character_id)
+
+      # 配列の要素と順序が完全一致するかチェック
+      post_character_ids.sort == request_character_ids.sort
+    end
+  end
+
+  # リクエスト完了通知を送信
+  def send_request_completed_notification(request, character_ids)
+    # キャラクター名を取得
+    character_names = Character.where(id: character_ids).pluck(:name)
+
+    # リクエスト作成者に完了通知を送信
+    RequestCompletedNotifier.with(
+      record: request,
+      character_names: character_names,
+      character_ids: character_ids
+    ).deliver(request.user)
+  end
+
+  # 通知一覧から事前選択されたキャラクターでPostsToCharacterを作成
+  def handle_preselected_characters
+    if params[:character_ids].present?
+      character_ids = params[:character_ids].map(&:to_i)
+
+      # 事前選択されたキャラクターでPostsToCharacterを作成（メモリ上のみ）
+      character_ids.each_with_index do |character_id, index|
+        character = Character.find_by(id: character_id)
+        if character
+          @post.posts_to_characters.build(
+            character_id: character_id,
+            constellation: 0 # デフォルト値
+          )
+        end
+      end
+    end
   end
 end

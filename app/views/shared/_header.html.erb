@@ -3,7 +3,25 @@
     <%= link_to t('header.title'), '/', class: 'btn btn-ghost text-xl' %>
   </div>
   <div class="flex gap-2">
+    <%# テーマ切り替え %>
     <%= render 'shared/theme_toggle' %>
+
+    <%# 通知アイコン %>
+    <div class="relative">
+      <%= link_to mypage_path(tab: 'notifications'), class: 'btn btn-ghost btn-circle' do %>
+        <div class="relative">
+          <i class="fas fa-bell text-lg"></i>
+          <% unread_count = current_user.notifications.unread.count %>
+          <% if unread_count > 0 %>
+            <div class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+              <%= unread_count > 99 ? '99+' : unread_count %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <%# ユーザー情報 %>
     <div class="dropdown dropdown-end">
       <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
         <div class="w-10 rounded-full">

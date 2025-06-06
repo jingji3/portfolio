@@ -67,6 +67,13 @@ Rails.application.routes.draw do
   # リクエスト
   resources :requests, only: %i[new create]
 
+  # 通知関連
+  resources :notifications, only: [] do
+    member do
+      patch :mark_as_read
+    end
+  end
+
   # プライバシポリシー、利用規約
   get 'privacy', to: 'static_pages#privacy_policy', as: :privacy_policy
   get 'terms', to: 'static_pages#terms_of_use', as: :terms_of_use

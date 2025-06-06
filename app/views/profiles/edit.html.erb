@@ -47,6 +47,23 @@
           <p class="text-sm text-gray-500 mt-1">PNG, JPG, GIF形式で5MB以内</p>
         </div>
 
+        <!-- 通知設定 -->
+        <div class="form-control w-full">
+          <%= f.label :receive_request_notifications, class: "label" do %>
+            <span class="label-text">通知設定</span>
+          <% end %>
+          <label class="label cursor-pointer justify-start">
+            <%= f.check_box :receive_request_notifications,
+                            class: "checkbox border border-rounded checkbox-accent mx-2" %>
+            <span class="label-text">動画リクエストの通知を受け取る</span>
+          </label>
+          <div class="label">
+            <span class="text-sm text-gray-500">
+              動画リクエストが作成された際に通知を受け取ります
+            </span>
+          </div>
+        </div>
+
         <!-- 送信ボタン -->
         <div class="mt-6 flex justify-end space-x-4">
           <%= link_to t('defaults.cancel', default: 'キャンセル'), profile_path, class: "btn btn-ghost" %>
