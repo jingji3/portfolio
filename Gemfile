@@ -63,6 +63,9 @@ gem 'jquery-rails'
 # YoutubeDataAPI用
 gem 'google-apis-youtube_v3', '~> 0.55.0'
 
+# 通知機能
+gem 'noticed'
+
 gem 'tzinfo-data', platforms: %i[jruby]
 
 gem 'solid_cable'

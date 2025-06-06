@@ -75,8 +75,8 @@ ja:
       success: パスワードを変更しました
   header:
     title: GenshinTeamSearch / Share
-    login: Login
-    logout: Logout
+    login: login
+    logout: logout
     bookmark_index: ブックマーク一覧
     setting: ユーザー設定
     video_search: 編成動画検索

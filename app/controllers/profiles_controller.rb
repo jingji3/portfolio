@@ -22,7 +22,7 @@ class ProfilesController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:email, :user_name, :avatar)
+    params.require(:user).permit(:email, :user_name, :avatar, :receive_request_notifications)
   end
 
   # アバター画像の圧縮処理

@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :rated_teams, through: :team_ratings, source: :team
   has_many :authentications, dependent: :destroy # 複数の認証方法(Google, Xなど)を持たせるため
   has_many :requests, dependent: :destroy
+  has_many :notifications, as: :recipient, dependent: :destroy, class_name: "Noticed::Notification" # 通知関連（gem noticed）
 
   has_one_attached :avatar
 
@@ -41,6 +42,9 @@ class User < ApplicationRecord
   validates :reset_password_token, uniqueness: true, allow_nil: true
 
   enum role: { general: 0, admin: 1 }
+
+  # 通知設定のスコープ
+  scope :receives_request_notifications, -> { where(receive_request_notifications: true) }
 
   # パスワードが空の場合は更新しない
   attr_accessor :skip_password_validation
