@@ -74,7 +74,8 @@ Rails.application.configure do
   # アクティブストレージの設定
   config.active_storage.service = :local
 
-  config.assets.debug = true
+  # アセットのデバッグを無効化
+  config.assets.debug = false
   config.assets.compile = true
 
   # アセットの変更を検知する

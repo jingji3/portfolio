@@ -1,5 +1,31 @@
+<div style="height: 400px; padding: 20px; margin-bottom: 50px; background: linear-gradient(45deg, #667eea, #764ba2);">
+  <h2 data-aos="fade-down"
+      style="background: #ff6b6b; color: white; padding: 20px; border-radius: 10px; text-align: center; margin-bottom: 20px;">
+    🎬 AOSテスト: これがアニメーションしたら成功！
+  </h2>
+
+  <div data-aos="fade-up"
+       data-aos-delay="300"
+       style="background: #4ecdc4; color: white; padding: 15px; border-radius: 10px; margin-bottom: 15px;">
+    ⬆️ 下からフェードアップ（300ms遅延）
+  </div>
+
+  <div data-aos="zoom-in"
+       data-aos-delay="600"
+       style="background: #45b7d1; color: white; padding: 15px; border-radius: 10px; margin-bottom: 15px;">
+    🔍 ズームイン（600ms遅延）
+  </div>
+
+  <div data-aos="slide-left"
+       data-aos-delay="900"
+       style="background: #f9ca24; color: black; padding: 15px; border-radius: 10px;">
+    ⬅️ 左からスライド（900ms遅延）
+  </div>
+</div>
+
+
 <div class="flex-1 p-4 mx-20">
-  <div class="flex justify-between">
+  <div class="flex justify-between" data-aos="fade-down">
     <h1 class="text-3xl font-bold text-base-content mb-4">編成動画検索</h1>
     <div>
       <%= link_to 'シェアする', new_post_path, class: "btn btn-primary" %>
@@ -7,12 +33,15 @@
   </div>
 
   <!-- 検索フォーム部分 -->
-  <div class="mx-12 p-4 rounded-xl shadow-xl">
+  <div class="mx-12 p-4 rounded-xl shadow-xl" data-aos="fade-up" data-aos-delay="200">
     <h2 class="text-xl font-bold mb-2">検索キャラクター</h2>
 
     <%= form_with url: posts_path, method: :get, local: true, class: "flex flex-wrap justify-center gap-4" do |f| %>
       <% 4.times do |i| %>
-        <div class="flex flex-col space-y-2" data-controller="character-selector">
+        <div class="flex flex-col space-y-2"
+             data-controller="character-selector"
+             data-aos="zoom-in"
+             data-aos-delay="<%= 400 + (i * 100) %>">
           <div class="w-full">
             <%= select_tag "character#{i+1}",
                       options_from_collection_for_select(@characters, :id, :name, params["character#{i+1}"]),
@@ -31,7 +60,7 @@
           </div>
         </div>
       <% end %>
-      <div class="flex">
+      <div class="flex" data-aos="fade-up" data-aos-delay="800">
         <button type="submit" class="btn btn-sm btn-primary">検索</button>
       </div>
     <% end %>
@@ -39,7 +68,7 @@
 
   <!-- 投稿一覧部分 -->
   <div>
-    <div class="flex my-4">
+    <div class="flex my-4" data-aos="fade-right" data-aos-delay="300">
       <h2 class="text-xl font-bold">おすすめ動画一覧</h2>
     </div>
 
@@ -47,11 +76,11 @@
     <%= turbo_frame_tag "posts-page-#{@posts.current_page}" do %>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
       <% if @posts.present? %>
-        <% @posts.each do |post| %>
-          <%= render 'shared/posts', post: post %>
+        <% @posts.each_with_index do |post, index| %>
+          <%= render 'shared/posts', post: post, index: index %>
         <% end %>
       <% elsif @posts.empty? && params[:character1].present? || params[:character2].present? || params[:character3].present? || params[:character4].present? %>
-        <div class="flex justify-center text-center p-8">
+        <div class="flex justify-center text-center p-8" data-aos="fade-in" data-aos-delay="500">
           <% if user_signed_in? %>
             <%= link_to "動画リクエストを送信",
                         new_request_path(
@@ -67,7 +96,7 @@
           <% end %>
         </div>
       <% else %>
-        <div class="flex justify-center text-center p-8">
+        <div class="flex justify-center text-center p-8" data-aos="fade-in" data-aos-delay="500">
           投稿がまだありません。
         </div>
       <% end %>
