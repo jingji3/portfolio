@@ -23,7 +23,7 @@ services:
   css:
     build:
       context: .
-    command: bash -c "yarn install && yarn tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --config ./tailwind.config.js --watch"
+    command: bash -c "yarn install && yarn dev:css"
     volumes:
       - .:/jingji_portfolio
       - bundle_cache:/usr/local/bundle
@@ -36,7 +36,7 @@ services:
   js:
     build:
       context: .
-    command: bash -c "yarn install && yarn esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets --external:@hotwired/stimulus-loading --watch"
+    command: bash -c "yarn install && yarn dev:js"
     volumes:
       - .:/jingji_portfolio
       - bundle_cache:/usr/local/bundle

@@ -2,9 +2,9 @@
   <div class="flex justify-end mb-2">
     <%= link_to "新規編成評価", new_team_rating_path, class: "btn btn-primary btn-sm" %>
   </div>
-  <% @team_ratings.each do |team_rating| %>
+  <% @team_ratings.each_with_index do |team_rating, index| %>
     <%= link_to team_path(team_rating.team), data: { turbo_frame: "_top" } do %>
-      <div class="grid lg:grid-cols-2 bg-base-200 rounded-lg overflow-hidden shadow-lg hover:translate-y-[-4px] transition-transform duration-300 m-4">
+      <div class="grid lg:grid-cols-2 bg-base-200 rounded-lg overflow-hidden shadow-lg hover:translate-y-[-4px] transition-transform duration-300 m-4" data-aos="fade-up" data-aos-delay="<%= index * 100 %>">
         <div class="p-4 flex flex-col justify-center">
           <div class="flex items-center mb-2">
             <span class="text-2xl text-yellow-400 mr-2">★</span>
@@ -16,8 +16,8 @@
         </div>
 
         <div class="p-4 grid grid-cols-4 gap-2 items-center">
-          <% team_rating.team.characters.each do |character| %>
-            <div class="relative">
+          <% team_rating.team.characters.each_with_index do |character, index| %>
+            <div class="relative" data-aos="fade" data-aos-delay="<%= 1000 + index * 100 %>">
               <%= image_tag character.display_image, class: "w-full h-auto object-contain max-h-24" %>
             </div>
           <% end %>

@@ -18,30 +18,26 @@ import "./controllers/youtube_start_controller.js"
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
-// DOMContentLoaded時の初期化
-document.addEventListener('DOMContentLoaded', function() {
-  console.log('DOMContentLoaded: AOSを初期化中...')
-
+// AOS初期化関数
+function initAOS() {
   AOS.init({
     duration: 600,
     once: true,
     offset: 50,
     easing: 'ease-out'
   })
+}
 
-  console.log('AOS初期化完了')
+// 初回ページ読み込み時
+document.addEventListener('DOMContentLoaded', function() {
+  initAOS()
 })
 
-// Turbo対応（ページ遷移時）
+// Turbo遷移時（重要！）
 document.addEventListener('turbo:load', function() {
-  console.log('turbo:load: AOSをリフレッシュ中...')
+  AOS.refresh()
 
-  // AOSをリフレッシュ
-  if (typeof AOS !== 'undefined') {
-    AOS.refresh()
-    console.log('AOSリフレッシュ完了')
-  }
+  setTimeout(() => {
+    initAOS()
+  }, 100)
 })
-
-// デバッグ用：AOSが読み込まれているか確認
-console.log('AOS library loaded:', typeof AOS !== 'undefined')
