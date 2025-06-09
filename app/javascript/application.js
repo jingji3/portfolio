@@ -1,5 +1,9 @@
+// turbo-railsのインポート
 import "@hotwired/turbo-rails"
 import "./controllers"
+
+// FontAwesomeのインポート
+import '@fortawesome/fontawesome-free/js/all'
 
 // テーマ切り替え機能をインポート
 import "./theme_switcher"
@@ -11,33 +15,5 @@ import "./reply_comment"
 import TomSelect from "tom-select"
 window.TomSelect = TomSelect
 
-// YouTube動画プレーヤーの時間を更新する関数
-import "./controllers/youtube_start_controller.js"
-
 // AOSライブラリのインポート
-import AOS from 'aos'
-import 'aos/dist/aos.css'
-
-// AOS初期化関数
-function initAOS() {
-  AOS.init({
-    duration: 600,
-    once: true,
-    offset: 50,
-    easing: 'ease-out'
-  })
-}
-
-// 初回ページ読み込み時
-document.addEventListener('DOMContentLoaded', function() {
-  initAOS()
-})
-
-// Turbo遷移時（重要！）
-document.addEventListener('turbo:load', function() {
-  AOS.refresh()
-
-  setTimeout(() => {
-    initAOS()
-  }, 100)
-})
+import "./aos"

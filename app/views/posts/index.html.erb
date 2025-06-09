@@ -45,35 +45,37 @@
     </div>
 
     <!-- 投稿カードのグリッド -->
-    <%= turbo_frame_tag "posts-page-#{@posts.current_page}" do %>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-      <% if @posts.present? %>
-        <% @posts.each_with_index do |post, index| %>
-          <%= render 'shared/posts', post: post, index: index %>
-        <% end %>
-      <% elsif @posts.empty? && params[:character1].present? || params[:character2].present? || params[:character3].present? || params[:character4].present? %>
-        <div class="flex justify-center text-center p-8" data-aos="fade-in" data-aos-delay="500">
-          <% if user_signed_in? %>
-            <%= link_to "動画リクエストを送信",
-                        new_request_path(
-                          character1: params[:character1],
-                          character2: params[:character2],
-                          character3: params[:character3],
-                          character4: params[:character4]
-                        ),
-                        class: "btn btn-primary",
-                        data: { turbo_frame: "_top" } %>
-          <% else %>
-            <%= link_to "ログインしてリクエスト送信", login_path, class: "btn btn-primary", data: { turbo_frame: "_top" } %>
+    <div data-controller="aos-frame">
+      <%= turbo_frame_tag "posts-page-#{@posts.current_page}" do %>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <% if @posts.present? %>
+          <% @posts.each_with_index do |post, index| %>
+            <%= render 'shared/posts', post: post, index: index %>
           <% end %>
-        </div>
-      <% else %>
-        <div class="flex justify-center text-center p-8">
-          投稿がまだありません。
-        </div>
+        <% elsif @posts.empty? && params[:character1].present? || params[:character2].present? || params[:character3].present? || params[:character4].present? %>
+          <div class="flex justify-center text-center p-8" data-aos="fade-in" data-aos-delay="500">
+            <% if user_signed_in? %>
+              <%= link_to "動画リクエストを送信",
+                          new_request_path(
+                            character1: params[:character1],
+                            character2: params[:character2],
+                            character3: params[:character3],
+                            character4: params[:character4]
+                          ),
+                          class: "btn btn-primary",
+                          data: { turbo_frame: "_top" } %>
+            <% else %>
+              <%= link_to "ログインしてリクエスト送信", login_path, class: "btn btn-primary", data: { turbo_frame: "_top" } %>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="flex justify-center text-center p-8">
+            投稿がまだありません。
+          </div>
+        <% end %>
+      </div>
+      <%= turbo_frame_tag "posts-page-#{@posts.next_page}", loading: :lazy, src: path_to_next_page(@posts) %>
       <% end %>
     </div>
-    <%= turbo_frame_tag "posts-page-#{@posts.next_page}", loading: :lazy, src: path_to_next_page(@posts) %>
-    <% end %>
   </div>
 </div>

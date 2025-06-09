@@ -23,7 +23,7 @@ export default class extends Controller {
     this.inputTarget.value = value
     this.updateDisplay(value)
   }
-  
+
   // 星の半分をクリックした時の処理
   selectHalfRating(event) {
     event.stopPropagation() //親要素へのイベントを防止
@@ -44,42 +44,42 @@ export default class extends Controller {
   // 表示の更新
   updateDisplay(value) {
     console.log("updateDisplay called with value:", value);
-    
+
     // 数値表示の更新
     if (this.hasDisplayTarget) {
       this.displayTarget.textContent = parseFloat(value).toFixed(1);
     }
-    
+
     // 入力用星の更新
     const starItems = this.element.querySelectorAll('.star-input-item');
-    
+
     // すべての星をリセット（重要：既存の状態をクリア）
     starItems.forEach(item => {
       item.classList.remove('active', 'half-active');
     });
-    
+
     // 現在の値に基づいて星を塗りつぶす
     starItems.forEach((item, index) => {
       const itemValue = parseFloat(item.dataset.value);
       const fullStarValue = Math.floor(value);
       const hasHalfStar = (value % 1) >= 0.5;
-      
+
       // 整数部分までの星を完全に塗りつぶす
       if (itemValue <= fullStarValue) {
         item.classList.add('active');
-      } 
+      }
       // 半端な部分（0.5）があれば、次の星を半分だけ塗りつぶす
       else if (hasHalfStar && itemValue === fullStarValue + 1) {
         item.classList.add('half-active');
       }
     });
-    
+
     // 評価表示用星の更新（星のクラスを設定）
     if (this.hasRatingTarget) {
       // すべてのstar-*クラスを削除
       const classNames = this.ratingTarget.className.split(' ').filter(c => !c.startsWith('star-'));
       this.ratingTarget.className = classNames.join(' ');
-      
+
       // 現在の評価値に応じたクラスを追加
       const ratingClass = `star-${value.toString().replace('.', '-')}`;
       this.ratingTarget.classList.add(ratingClass);

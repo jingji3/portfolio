@@ -1,6 +1,8 @@
-/* AOSライブラリのCSS */
+@import "@fortawesome/fontawesome-free/css/fontawesome";
 @import "aos/dist/aos.css";
+@import "tom-select/dist/css/tom-select.css";
 @import "./tom_select_custom.css";
+@import "./loading.css";
 @import "./star_rating.css";
 @import "./top.css";
 
