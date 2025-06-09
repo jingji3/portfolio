@@ -1,4 +1,6 @@
-<div class="card shadow-xl flex flex-col justify-between min-h-100">
+<div class="card shadow-xl flex flex-col justify-between min-h-100"
+     data-aos="fade-up"
+     data-aos-delay="<%= defined?(index) ? index * 100 + 500 : 0 %>">
 
   <!-- サムネイル部分（チャンネル情報をオーバーレイ表示） -->
   <%= link_to post_path(post), data: { turbo_frame: "_top" } do %>

@@ -13,26 +13,20 @@
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="apple-touch-icon" href="/icon.png">
 
-    <% if Rails.env.development? %>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-      <link href="https://cdn.jsdelivr.net/npm/daisyui@5.0.9" rel="stylesheet" type="text/css" />
-      <script src="https://cdn.tailwindcss.com?version=3.4.16"></script>
-      <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
-    <% else %>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-      <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
-    <% end %>
-
-    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.min.css" rel="stylesheet">
-    <%= stylesheet_link_tag "tom_select_custom", "data-turbo-track": "reload" %>
-
+    <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
-    <%= javascript_include_tag "theme_switcher", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
-    <div class="flex flex-col min-h-screen">
-      <!-- ヘッダー -->
+    <%# loadingアニメーション %>
+    <div class="flex flex-col min-h-screen" data-controller="loading">
+      <div data-loading-target="spinner" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40 hidden">
+        <div class="h-[50px] w-[50px] flex items-center justify-center">
+          <span class="loading loading-spinner text-default w-full h-full"></span>
+        </div>
+      </div>
+
+      <%# ヘッダー %>
       <div class="fixed top-0 left-0 w-full z-40">
         <% if logged_in? %>
           <%= render 'shared/header' %>

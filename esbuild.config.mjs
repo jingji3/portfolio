@@ -8,6 +8,10 @@ let ctx = await esbuild.context({
   outdir: 'app/assets/builds',
   publicPath: '/assets',
   external: ['@hotwired/stimulus-loading'],
+  // CSSを処理するための設定を追加
+  loader: {
+    '.css': 'css'
+  }
 })
 
 if (process.argv.includes('--watch')) {

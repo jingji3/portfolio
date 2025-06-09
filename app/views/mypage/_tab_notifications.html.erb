@@ -4,10 +4,10 @@
   </div>
 
   <% if @notifications.any? %>
-    <div class="divide-y divide-gray-200">
-      <% @notifications.each do |notification| %>
+    <div>
+      <% @notifications.each_with_index do |notification, index| %>
         <%= link_to notification.event.url, class: "block no-underline hover:no-underline" do %>
-          <div class="p-2 hover:bg-base-200 transition-colors cursor-pointer">
+          <div class="p-2 hover:bg-base-200 transition-colors cursor-pointer border-b border-gray-500" data-aos="fade-up" data-aos-delay="<%= index * 100 %>">
             <div class="flex justify-between items-start">
               <div class="flex-1">
                 <div class="flex gap-2 items-center">
@@ -24,12 +24,13 @@
                     <% character_ids = notification.event.params[:character_ids] %>
                     <% characters = Character.where(id: character_ids).select(:id, :name, :character_img) %>
                     <div class="flex space-x-1">
-                      <% characters.each do |character| %>
+                      <% characters.each_with_index do |character, index| %>
                         <% if character.character_img.present? %>
                           <%= image_tag character.character_img,
                                       alt: character.name,
                                       class: "w-8 h-auto object-cover",
-                                      title: character.name %>
+                                      title: character.name,
+                                      data: { aos: "fade", aos_delay: 1000 + index * 100 } %>
                         <% end %>
                       <% end %>
                     </div>

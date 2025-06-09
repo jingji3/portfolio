@@ -1,5 +1,9 @@
+// turbo-railsのインポート
 import "@hotwired/turbo-rails"
 import "./controllers"
+
+// FontAwesomeのインポート
+import '@fortawesome/fontawesome-free/js/all'
 
 // テーマ切り替え機能をインポート
 import "./theme_switcher"
@@ -11,5 +15,5 @@ import "./reply_comment"
 import TomSelect from "tom-select"
 window.TomSelect = TomSelect
 
-// YouTube動画プレーヤーの時間を更新する関数
-import "./controllers/youtube_start_controller.js"
+// AOSライブラリのインポート
+import "./aos"

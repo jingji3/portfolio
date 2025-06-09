@@ -16,8 +16,10 @@
   <% else %>
 
     <div class="px-20">
-      <% @teams.each do |team| %>
-          <div class="grid lg:grid-cols-2 bg-base-200 rounded-lg overflow-hidden shadow-lg hover:translate-y-[-4px] transition-transform duration-300 m-4">
+      <% @teams.each_with_index do |team, index| %>
+          <div class="grid lg:grid-cols-2 bg-base-200 rounded-lg overflow-hidden shadow-lg hover:translate-y-[-4px] transition-transform duration-300 m-4"
+               data-aos="fade-up"
+               data-aos-delay="<%= 500 + index * 100 %>">
             <div class="p-4 flex flex-col justify-center">
               <div class="flex items-center mb-2">
                 <span class="text-2xl text-yellow-400 mr-2">★</span>
@@ -40,8 +42,8 @@
 
             <%= link_to team_path(team), class: "block", data: { turbo_frame: "_top" } do %>
               <div class="p-4 grid grid-cols-4 gap-2 items-center">
-                <% team.characters.each do |character| %>
-                  <div class="relative">
+                <% team.characters.each_with_index do |character, index| %>
+                  <div class="relative" data-aos="fade" data-aos-delay="<%= 1000 + index * 100 %>">
                     <%= image_tag character.display_image, class: "w-full h-auto object-contain max-h-24" %>
                   </div>
                 <% end %>

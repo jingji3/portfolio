@@ -1,4 +1,4 @@
-document.addEventListener("turbo:load", function() { 
+document.addEventListener("turbo:load", function() {
   // 返信ボタンの非表示
   // .reply-buttonのクラスがあるすべての要素を取得し、clickイベントを付与
   document.querySelectorAll('.reply-button').forEach(button => {

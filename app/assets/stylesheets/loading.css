@@ -1,0 +1,35 @@
+/* Turbo遷移時のAOS要素を最初から隠す */
+[data-aos] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.0s ease, transform 1.0s ease;
+}
+
+/* AOSが初期化されたら表示 */
+[data-aos].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ローディングアニメ */
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 120px;
+  height: 22px;
+  border-radius: 20px;
+  color: #aeaeae;
+  border: 2px solid;
+  position: relative;
+}
+.loader::before {
+  content: "";
+  position: absolute;
+  margin: 2px;
+  inset: 0 100% 0 0;
+  border-radius: inherit;
+  background: currentColor;
+  animation: l6 2s infinite;
+}
+@keyframes l6 {
+    100% {inset:0}
+}
