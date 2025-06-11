@@ -35,22 +35,41 @@
         <% end %>
       </div>
 
-      <!-- メイン部分 -->
+      <%# メイン部分 %>
       <div class="flex flex-grow mt-16">
         <% if ['top'].include?(controller_name) %>
-          <!-- サイドバーがない場合 -->
+          <!-- トップページ：サイドバーなし -->
           <div class="flex-1 w-full">
             <%= render 'shared/flash_message' %>
             <%= yield %>
           </div>
         <% else %>
-          <div id="sidebar" data-sidebar-target="sidebar" class="hidden md:block fixed top-[64px] left-0 h-screen w-52 bg-base-200 overflow-y-auto z-30">
-            <%= render 'shared/sidebar' %>
-          </div>
-          <!-- サイドバーがある場合 -->
-          <div class="flex-1 md:ml-52 p-4 w-full overflow-x-hidden">
-            <%= render 'shared/flash_message' %>
-            <%= yield %>
+          <!-- 通常のレイアウト -->
+          <div class="flex w-full">
+            <!-- サイドバー -->
+            <aside class="hidden lg:block <%= sidebar_width_class %> min-h-screen bg-base-200 transition-all duration-300 fixed top-16 left-0 z-30">
+              <div data-sidebar-target="sidebar">
+                <% if sidebar_collapsed? %>
+                  <%= render 'shared/sidebar_mini' %>
+                <% else %>
+                  <%= render 'shared/sidebar' %>
+                <% end %>
+              </div>
+            </aside>
+
+            <!-- メインコンテンツエリア -->
+            <div class="flex-1 <%= main_content_margin_class %> w-full">
+              <%# メインコンテンツ %>
+              <main class="p-4 lg:p-6 overflow-x-hidden">
+                <%= render 'shared/flash_message' %>
+                <%= yield %>
+              </main>
+
+              <%# スマホ用固定ボトムナビゲーション %>
+              <div class="lg:hidden">
+                <%= render 'shared/bottom_navigation' %>
+              </div>
+            </div>
           </div>
         <% end %>
       </div>

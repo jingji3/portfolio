@@ -1,0 +1,25 @@
+/* YouTube風サイドバー縮小時のスタイル */
+.drawer-side aside[data-collapsed="true"] .sidebar-text {
+  display: none;
+}
+
+.drawer-side aside[data-collapsed="true"] .sidebar-title {
+  display: none;
+}
+
+.drawer-side aside[data-collapsed="true"] .sidebar-border {
+  border: none;
+  padding: 0.5rem 0;
+}
+
+.drawer-side aside[data-collapsed="true"] .sidebar-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 0.5rem;
+}
+
+.drawer-side aside[data-collapsed="true"] .sidebar-link i {
+  font-size: 1.25rem;
+}

@@ -5,6 +5,7 @@
 @import "./loading.css";
 @import "./star_rating.css";
 @import "./top.css";
+@import "./sidebar.css";
 
 @tailwind base;
 @tailwind components;

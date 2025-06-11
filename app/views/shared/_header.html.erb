@@ -1,7 +1,17 @@
-<div class="navbar bg-base-300 shadow-sm">
-  <div class="flex-1">
-    <%= link_to t('header.title'), '/', class: 'btn btn-ghost text-xl' %>
+<div class="navbar bg-base-300 shadow-sm" data-controller="sidebar">
+  <div class="flex-1 flex">
+    <%# サイドバーページでのみハンバーガーメニューを表示（デスクトップのみ） %>
+    <% unless ['top'].include?(controller_name) %>
+      <%# デスクトップ用：サイドバー縮小/展開 %>
+      <button class="btn btn-ghost btn-circle hidden lg:flex"
+              data-action="click->sidebar#toggle">
+        <i class="fas fa-bars text-lg"></i>
+      </button>
+    <% end %>
+
+    <%= link_to t('header.title'), '/', class: 'btn btn-ghost text-xl ml-2' %>
   </div>
+
   <div class="flex gap-2">
     <%# テーマ切り替え %>
     <%= render 'shared/theme_toggle' %>

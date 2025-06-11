@@ -1,0 +1,81 @@
+<div class="fixed bottom-0 left-0 right-0 bg-base-300 border-t border-base-content/10 z-40">
+  <div class="flex justify-between h-16 mx-8">
+
+    <%# おすすめ動画 %>
+    <%= link_to posts_path,
+        class: "flex flex-col items-center justify-center space-y-1 hover:bg-base-content/10 transition-colors #{request.path == posts_path ? 'text-primary' : 'text-base-content/70'}",
+        data: { action: "click->loading#show" } do %>
+      <i class="fab fa-youtube text-lg"></i>
+      <span class="text-xs">動画</span>
+    <% end %>
+
+    <%# 編成評価 %>
+    <%= link_to teams_path,
+        class: "flex flex-col items-center justify-center space-y-1 hover:bg-base-content/10 transition-colors #{request.path == teams_path ? 'text-primary' : 'text-base-content/70'}",
+        data: { action: "click->loading#show" } do %>
+      <i class="fas fa-users text-lg"></i>
+      <span class="text-xs">編成</span>
+    <% end %>
+
+    <%# シェア %>
+    <div class="dropdown dropdown-top dropdown-end">
+      <div tabindex="0" role="button" class="flex flex-col items-center justify-center space-y-1 hover:bg-base-content/10 transition-colors text-base-content/70 w-full h-full">
+        <i class="fas fa-plus-circle text-lg"></i>
+        <span class="text-xs">シェア</span>
+      </div>
+      <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-48 mb-2">
+        <li>
+          <%= link_to new_post_path, data: { action: "click->loading#show" } do %>
+            <i class="fas fa-external-link-alt"></i>
+            動画シェア
+          <% end %>
+        </li>
+        <li>
+          <%= link_to new_team_rating_path, data: { action: "click->loading#show" } do %>
+            <i class="fas fa-star"></i>
+            編成評価
+          <% end %>
+        </li>
+      </ul>
+    </div>
+
+    <%# マイページ %>
+    <%= link_to mypage_path(tab: 'posts'),
+        class: "flex flex-col items-center justify-center space-y-1 hover:bg-base-content/10 transition-colors #{request.path == mypage_path(tab: 'posts') ? 'text-primary' : 'text-base-content/70'}",
+        data: { action: "click->loading#show" } do %>
+      <i class="fas fa-home text-lg"></i>
+      <span class="text-xs">マイページ</span>
+    <% end %>
+
+    <%# 管理者 %>
+    <% if current_user&.role == 1 || current_user&.admin? %>
+      <div class="dropdown dropdown-top dropdown-end">
+        <div tabindex="0" role="button" class="flex flex-col items-center justify-center space-y-1 hover:bg-base-content/10 transition-colors text-base-content/70 w-full h-full">
+          <i class="fas fa-user-lock text-lg"></i>
+          <span class="text-xs">管理者</span>
+        </div>
+        <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-48 mb-2">
+          <li>
+            <%= link_to admin_root_path, data: { action: "click->loading#show" } do %>
+              <i class="fas fa-cog"></i>
+              管理者画面
+            <% end %>
+          </li>
+          <li>
+            <%= link_to admin_users_path, data: { action: "click->loading#show" } do %>
+              <i class="fas fa-users-cog"></i>
+              ユーザー管理
+            <% end %>
+          </li>
+          <li>
+            <%= link_to admin_characters_path, data: { action: "click->loading#show" } do %>
+              <i class="fas fa-user-friends"></i>
+              キャラクター管理
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    <% end %>
+
+  </div>
+</div>

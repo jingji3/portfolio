@@ -6,91 +6,43 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
-  <% if Rails.env.development? %>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5.0.9" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com?version=3.4.16"></script>
-      <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
-      <%= stylesheet_link_tag "tailwind", media: "all", "data-turbo-track": "reload" %>
-    <% else %>
-      <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
-      <%= stylesheet_link_tag "tailwind", media: "all", "data-turbo-track": "reload" %>
-    <% end %>
-
-  <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
 </head>
 
-<body class="min-h-screen">
-  <div class="flex">
-    <!-- サイドバー -->
-
-    <div class="bg-base-200 min-h-screen w-52 shadow-inner">
-      <div class="flex p-4 items-center">
-        <h1 class="text-2xl font-bold">管理パネル</h1>
-        <%= render 'shared/theme_toggle' %>
+  <body>
+    <%# loadingアニメーション %>
+    <div class="flex flex-col min-h-screen" data-controller="loading">
+      <div data-loading-target="spinner" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40 hidden">
+        <div class="h-[50px] w-[50px] flex items-center justify-center">
+          <span class="loading loading-spinner text-default w-full h-full"></span>
+        </div>
       </div>
 
-      <nav class="mt-2 py-2">
-        <ul>
-          <li><%= link_to "ダッシュボード", admin_path, class: "block px-4 py-2 w-full h-full hover:bg-base-300" %></li>
-          <li><%= link_to "ユーザー管理", admin_users_path, class: "block px-4 py-2 w-full h-full hover:bg-base-300" %></li>
-          <li><%= link_to "キャラクター管理", admin_characters_path, class: "block px-4 py-2 w-full h-full hover:bg-base-300" %></li>
-        </ul>
-      </nav>
+      <%# メイン部分 %>
+      <div class="flex flex-grow">
+        <!-- 通常のレイアウト -->
+        <div class="flex w-full">
+          <!-- サイドバー -->
+          <aside class="hidden lg:block w-52 min-h-screen bg-base-200 transition-all duration-300 fixed left-0 z-30">
+            <%= render 'shared/sidebar' %>
+          </aside>
 
-      <div class="mt-10 py-2">
-        <h2 class="text-lg font-bold px-4 mb-2">-SEARCH-</h2>
-        <ul>
-          <li class="hover:bg-base-300">
-            <%= link_to '編成動画検索', posts_path, class: "block px-4 py-2 w-full h-full" %>
-          </li>
-          <li class="hover:bg-base-300">
-            <%= link_to '編成一覧検索', '#', class: "block px-4 py-2 w-full h-full" %>
-          </li>
-        </ul>
-      </div>
+          <!-- メインコンテンツエリア -->
+          <div class="flex-1 lg:ml-52 w-full">
+            <%# メインコンテンツ %>
+            <main class="p-4 lg:p-6 overflow-x-hidden">
+              <%= render 'shared/flash_message' %>
+              <%= yield %>
+            </main>
 
-      <div class="py-2">
-        <h2 class="text-lg font-bold px-4 mb-2">-SHARE-</h2>
-        <ul>
-          <li class="hover:bg-base-300">
-            <%= link_to 'おすすめ動画シェア', new_post_path, class: "block px-4 py-2 w-full h-full" %>
-          </li>
-          <li class="hover:bg-base-300">
-            <%= link_to '編成評価', '#', class: "block px-4 py-2 w-full h-full" %>
-          </li>
-        </ul>
-      </div>
-
-      <div class="py-2">
-        <h2 class="text-lg font-bold px-4 mb-2">-マイリスト-</h2>
-        <ul>
-          <li class="hover:bg-base-300">
-            <%= link_to 'マイシェアリスト', '#', class: "block px-4 py-2 w-full h-full" %>
-          </li>
-          <li class="hover:bg-base-300">
-            <%= link_to 'お気に入りリスト', '#', class: "block px-4 py-2 w-full h-full" %>
-          </li>
-        </ul>
+            <%# スマホ用固定ボトムナビゲーション %>
+            <div class="lg:hidden">
+              <%= render 'shared/bottom_navigation' %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-
-
-    <!-- メインコンテンツ -->
-    <div class="flex-1 p-8">
-      <% if notice.present? %>
-        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
-          <%= notice %>
-        </div>
-      <% end %>
-
-      <% if alert.present? %>
-        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
-          <%= alert %>
-        </div>
-      <% end %>
-
-      <%= yield %>
-    </div>
-  </div>
-</body>
+  </body>
 </html>

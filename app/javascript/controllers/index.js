@@ -21,3 +21,6 @@ application.register("loading", LoadingController)
 
 import aos_frame_controller from "./aos_frame_controller"
 application.register("aos-frame", aos_frame_controller)
+
+import sidebar_controller from "./sidebar_controller"
+application.register("sidebar", sidebar_controller)
