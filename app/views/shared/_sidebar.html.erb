@@ -1,40 +1,70 @@
-<div class="bg-base-200 min-h-screen w-52 shadow-inner">
-  <div class="py-4">
-    <h2 class="text-lg font-bold px-4 mb-2">-検索-</h2>
+<div class="bg-base-200 min-h-screen w-full shadow-inner">
+  <div class="py-4 sidebar-border border-b border-gray-500">
+    <h2 class="sidebar-title text-lg font-bold px-4 mb-2">-検索-</h2>
     <ul>
       <li class="hover:bg-base-300">
-        <%= link_to 'おすすめ動画', posts_path, class: "block px-4 py-2 w-full h-full", data: { action: "click->loading#show" } %>
+        <%= link_to posts_path, class: "sidebar-link block px-4 py-2 w-full h-full", data: { action: "click->loading#show" } do %>
+          <i class="fab fa-youtube"></i>
+          <span class="sidebar-text ml-2">おすすめ動画</span>
+        <% end %>
       </li>
       <li class="hover:bg-base-300">
-        <%= link_to '編成評価', teams_path, class: "block px-4 py-2 w-full h-full", data: { action: "click->loading#show" } %>
+        <%= link_to teams_path, class: "sidebar-link block px-4 py-2 w-full h-full", data: { action: "click->loading#show" } do %>
+         <i class="fas fa-users"></i>
+         <span class="sidebar-text ml-2">編成評価</span>
+        <% end %>
       </li>
     </ul>
   </div>
 
-  <div class="py-4">
-    <h2 class="text-lg font-bold px-4 mb-2">-シェア-</h2>
+  <div class="py-4 sidebar-border border-b border-gray-500">
+    <h2 class="sidebar-title text-lg font-bold px-4 mb-2">-シェア-</h2>
     <ul>
       <li class="hover:bg-base-300">
-        <%= link_to 'おすすめ動画', new_post_path, class: "block px-4 py-2 w-full h-full", data: { action: "click->loading#show" } %>
+        <%= link_to new_post_path, class: "sidebar-link block px-4 py-2 w-full h-full", data: { action: "click->loading#show" } do %>
+        <i class="fas fa-external-link-alt"></i>
+        <span class="sidebar-text ml-2">おすすめ動画シェア</span>
+        <% end %>
       </li>
       <li class="hover:bg-base-300">
-        <%= link_to '編成評価', new_team_rating_path, class: "block px-4 py-2 w-full h-full", data: { action: "click->loading#show" } %>
+        <%= link_to new_team_rating_path, class: "sidebar-link block px-4 py-2 w-full h-full", data: { action: "click->loading#show" } do %>
+        <i class="fas fa-star"></i>
+        <span class="sidebar-text ml-2">編成評価</span>
+        <% end %>
       </li>
     </ul>
+  </div>
+
+  <div class="py-4 sidebar-border border-b border-gray-500">
+      <div class="hover:bg-base-300">
+        <%= link_to mypage_path(tab: 'posts'), class: "sidebar-link block px-4 py-2 w-full h-full", data: { action: "click->loading#show" } do %>
+          <i class="fas fa-home"></i>
+          <span class="sidebar-text ml-2">マイページ</span>
+        <% end %>
+      </div>
   </div>
 
   <div class="py-4">
     <% if current_user&.role == 1 || current_user&.admin? %>
-      <h2 class="text-lg font-bold px-4 mb-2">-管理者パネル-</h2>
+      <h2 class="sidebar-title text-lg font-bold px-4 mb-2">-管理者パネル-</h2>
       <ul>
         <li class="hover:bg-base-300">
-          <%= link_to '管理画面', admin_root_path, class: "block px-4 py-2 w-full h-full" %>
+          <%= link_to admin_root_path, class: "sidebar-link block px-4 py-2 w-full h-full", data: { action: "click->loading#show" } do %>
+            <i class="fas fa-cog"></i>
+            <span class="sidebar-text ml-2">管理画面</span>
+          <% end %>
         </li>
         <li class="hover:bg-base-300">
-          <%= link_to 'ユーザー管理', admin_users_path, class: "block px-4 py-2 w-full h-full" %>
+          <%= link_to admin_users_path, class: "sidebar-link block px-4 py-2 w-full h-full", data: { action: "click->loading#show" } do %>
+            <i class="fas fa-users-cog"></i>
+            <span class="sidebar-text ml-2">ユーザー管理</span>
+          <% end %>
         </li>
         <li class="hover:bg-base-300">
-          <%= link_to 'キャラクター管理', admin_characters_path, class: "block px-4 py-2 w-full h-full" %>
+          <%= link_to admin_characters_path, class: "sidebar-link block px-4 py-2 w-full h-full", data: { action: "click->loading#show" } do %>
+            <i class="fas fa-user-friends"></i>
+            <span class="sidebar-text ml-2">キャラクター管理</span>
+          <% end %>
         </li>
       </ul>
     <% end %>

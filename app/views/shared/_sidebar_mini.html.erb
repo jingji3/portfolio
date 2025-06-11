@@ -1,0 +1,85 @@
+<div class="bg-base-200 min-h-screen w-full shadow-inner">
+  <div class="flex flex-col items-center py-4 space-y-2">
+
+    <%# おすすめ動画 %>
+    <%= link_to posts_path,
+        class: "flex flex-col items-center justify-center p-3 rounded-lg hover:bg-base-content/10 transition-colors #{request.path == posts_path ? 'text-primary bg-base-content/5' : 'text-base-content/70'}",
+        data: { action: "click->loading#show" } do %>
+      <i class="fab fa-youtube text-xl"></i>
+    <% end %>
+
+    <%# 編成評価 %>
+    <%= link_to teams_path,
+        class: "flex flex-col items-center justify-center p-3 rounded-lg hover:bg-base-content/10 transition-colors #{request.path == teams_path ? 'text-primary bg-base-content/5' : 'text-base-content/70'}",
+        data: { action: "click->loading#show" } do %>
+      <i class="fas fa-users text-xl"></i>
+    <% end %>
+
+    <%# 区切り線 %>
+    <div class="w-8 h-px bg-base-content/20 my-2"></div>
+
+    <%# シェア %>
+    <div class="dropdown dropdown-right dropdown-middle">
+      <div tabindex="0" role="button" class="flex flex-col items-center justify-center p-3 rounded-lg hover:bg-base-content/10 transition-colors text-base-content/70">
+        <i class="fas fa-plus-circle text-xl"></i>
+      </div>
+      <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-48 ml-2">
+        <li>
+          <%= link_to new_post_path, data: { action: "click->loading#show" } do %>
+            <i class="fas fa-external-link-alt"></i>
+            動画シェア
+          <% end %>
+        </li>
+        <li>
+          <%= link_to new_team_rating_path, data: { action: "click->loading#show" } do %>
+            <i class="fas fa-star"></i>
+            編成評価
+          <% end %>
+        </li>
+      </ul>
+    </div>
+
+    <%# 区切り線 %>
+    <div class="w-8 h-px bg-base-content/20 my-2"></div>
+
+    <%# マイページ %>
+    <%= link_to mypage_path(tab: 'posts'),
+        class: "flex flex-col items-center justify-center p-3 rounded-lg hover:bg-base-content/10 transition-colors #{request.path == mypage_path(tab: 'posts') ? 'text-primary bg-base-content/5' : 'text-base-content/70'}",
+        data: { action: "click->loading#show" } do %>
+      <i class="fas fa-home text-xl"></i>
+    <% end %>
+
+    <%# 管理者 %>
+    <% if current_user&.role == 1 || current_user&.admin? %>
+      <%# 区切り線 %>
+      <div class="w-8 h-px bg-base-content/20 my-2"></div>
+
+      <div class="dropdown dropdown-right dropdown-middle">
+        <div tabindex="0" role="button" class="flex flex-col items-center justify-center p-3 rounded-lg hover:bg-base-content/10 transition-colors text-base-content/70">
+          <i class="fas fa-user-lock text-xl"></i>
+        </div>
+        <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-48 ml-2">
+          <li>
+            <%= link_to admin_root_path, data: { action: "click->loading#show" } do %>
+              <i class="fas fa-cog"></i>
+              管理者画面
+            <% end %>
+          </li>
+          <li>
+            <%= link_to admin_users_path, data: { action: "click->loading#show" } do %>
+              <i class="fas fa-users-cog"></i>
+              ユーザー管理
+            <% end %>
+          </li>
+          <li>
+            <%= link_to admin_characters_path, data: { action: "click->loading#show" } do %>
+              <i class="fas fa-user-friends"></i>
+              キャラクター管理
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    <% end %>
+
+  </div>
+</div>

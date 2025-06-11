@@ -74,6 +74,10 @@ Rails.application.routes.draw do
     end
   end
 
+  # サイドバー切り替え用
+  get 'sidebar_mini', to: 'application#sidebar_mini'
+  get 'sidebar_full', to: 'application#sidebar_full'
+
   # プライバシポリシー、利用規約
   get 'privacy', to: 'static_pages#privacy_policy', as: :privacy_policy
   get 'terms', to: 'static_pages#terms_of_use', as: :terms_of_use
