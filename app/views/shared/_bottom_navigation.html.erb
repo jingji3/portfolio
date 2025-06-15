@@ -1,9 +1,9 @@
-<div class="fixed bottom-0 left-0 right-0 bg-base-300 border-t border-base-content/10 z-40">
-  <div class="flex justify-between h-16 mx-8">
+<div class="fixed bottom-0 left-0 right-0 bg-base-300 z-40">
+  <div class="flex gap-2 justify-between w-full h-16">
 
     <%# おすすめ動画 %>
     <%= link_to posts_path,
-        class: "flex flex-col items-center justify-center space-y-1 hover:bg-base-content/10 transition-colors #{request.path == posts_path ? 'text-primary' : 'text-base-content/70'}",
+        class: "flex flex-col items-center justify-center space-y-1 hover:bg-base-content/10 w-1/5",
         data: { action: "click->loading#show" } do %>
       <i class="fab fa-youtube text-lg"></i>
       <span class="text-xs">動画</span>
@@ -11,15 +11,15 @@
 
     <%# 編成評価 %>
     <%= link_to teams_path,
-        class: "flex flex-col items-center justify-center space-y-1 hover:bg-base-content/10 transition-colors #{request.path == teams_path ? 'text-primary' : 'text-base-content/70'}",
+        class: "flex flex-col items-center justify-center space-y-1 hover:bg-base-content/10 w-1/5",
         data: { action: "click->loading#show" } do %>
       <i class="fas fa-users text-lg"></i>
       <span class="text-xs">編成</span>
     <% end %>
 
     <%# シェア %>
-    <div class="dropdown dropdown-top dropdown-end">
-      <div tabindex="0" role="button" class="flex flex-col items-center justify-center space-y-1 hover:bg-base-content/10 transition-colors text-base-content/70 w-full h-full">
+    <div class="dropdown dropdown-top dropdown-end w-1/5">
+      <div tabindex="0" role="button" class="flex flex-col items-center justify-center space-y-1 hover:bg-base-content/10 w-full h-full">
         <i class="fas fa-plus-circle text-lg"></i>
         <span class="text-xs">シェア</span>
       </div>
@@ -41,16 +41,16 @@
 
     <%# マイページ %>
     <%= link_to mypage_path(tab: 'posts'),
-        class: "flex flex-col items-center justify-center space-y-1 hover:bg-base-content/10 transition-colors #{request.path == mypage_path(tab: 'posts') ? 'text-primary' : 'text-base-content/70'}",
+        class: "flex flex-col items-center justify-center space-y-1 hover:bg-base-content/10 w-1/5",
         data: { action: "click->loading#show" } do %>
       <i class="fas fa-home text-lg"></i>
-      <span class="text-xs">マイページ</span>
+      <span class="text-xs">MyPage</span>
     <% end %>
 
     <%# 管理者 %>
     <% if current_user&.role == 1 || current_user&.admin? %>
-      <div class="dropdown dropdown-top dropdown-end">
-        <div tabindex="0" role="button" class="flex flex-col items-center justify-center space-y-1 hover:bg-base-content/10 transition-colors text-base-content/70 w-full h-full">
+      <div class="dropdown dropdown-top dropdown-end w-1/5">
+        <div tabindex="0" role="button" class="flex flex-col items-center justify-center space-y-1 hover:bg-base-content/10 w-full h-full">
           <i class="fas fa-user-lock text-lg"></i>
           <span class="text-xs">管理者</span>
         </div>

@@ -74,7 +74,7 @@ ja:
     update:
       success: パスワードを変更しました
   header:
-    title: GenshinTeamSearch / Share
+    title: GTS
     login: login
     logout: logout
     bookmark_index: ブックマーク一覧
@@ -84,6 +84,6 @@ ja:
     video_share: おすすめ動画シェア
     team_rating: 編成評価シェア
   footer:
-    term_of_use: Term of Use
-    privacy_policy: Privacy Policy
-    contact: Contact
+    term_of_use: 利用規約
+    privacy_policy: プライバシーポリシー
+    contact: お問い合わせ

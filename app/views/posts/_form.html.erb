@@ -1,26 +1,26 @@
 <%= form_with model: @post, local: true, class: "space-y-6" do |f| %>
     <%= render 'shared/error_message', object: @post %>
 
-  <div class="grid grid-cols-1 lg:grid-cols-2">
-    <div class="relative mx-4">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:mx-4">
+    <div class="relative">
       <div class="form-group">
         <div class="font-bold text-lg my-2"><%= f.label :title, 'タイトル' %></div>
-        <%= f.text_field :title, class: 'input input-bordered w-full text-lg' %>
+        <%= f.text_field :title, class: 'input input-bordered w-full md:text-lg' %>
       </div>
 
       <div class="form-group">
         <div class="font-bold text-lg my-2"><%= f.label :body, 'おすすめポイント' %></div>
         <%= f.text_area :body,
             placeholder: "おすすめポイントを教えてください！",
-            class: 'input input-bordered w-full h-48 text-lg',
+            class: 'input input-bordered w-full h-24 md:h-48 md:text-lg',
             rows: 6 %>
       </div>
     </div>
 
-    <div class="relative mx-4">
+    <div class="relative">
       <div class="form-group">
         <div class="font-bold text-lg my-2"><%= f.label :movie_url, '動画URL' %></div>
-        <%= f.text_field :video_url, class: 'input input-bordered w-full text-md', placeholder: 'https://www.youtube.com/watch?v=...' %>
+        <%= f.text_field :video_url, class: 'input input-bordered w-full', placeholder: 'https://www.youtube.com/watch?v=...' %>
       </div>
 
       <div class="p-4">
@@ -39,10 +39,10 @@
         <% end %>
       </div>
       <%= render 'posts/form_start_time' %>
-      <div class="font-bold text-lg my-2"><%= f.label :tag, 'ジャンルタグ' %></div>
+      <div class="font-bold text-lg my-2"><%= f.label :tag, 'タグ登録' %></div>
         <%= f.text_field :tag_input,
             placeholder: "#アクション #解説 などでタグ登録できます。",
-            class: 'input input-bordered w-full text-lg' %>
+            class: 'input input-bordered w-full' %>
     </div>
   </div>
 
@@ -54,7 +54,7 @@
   </div>
 
   <div class="flex justify-center gap-4">
-    <%= f.submit 'シェア', class: 'btn btn-primary' %>
-    <%= link_to 'キャンセル', posts_path, class: 'btn btn-secondary' %>
+    <%= f.submit 'シェア', class: 'btn w-32 bg-gray-500 text-white hover:opacity-80' %>
+    <%= link_to 'キャンセル', posts_path, class: 'btn btn-soft w-32 hover:opacity-80' %>
   </div>
 <% end %>

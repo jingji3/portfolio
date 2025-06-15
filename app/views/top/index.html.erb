@@ -1,53 +1,305 @@
-<div class="top-wrapper relative overflow-hidden h-screen">
-  <!-- 画面を左右に分割するグリッドレイアウト -->
-  <div class="grid grid-cols-2 h-full">
+<!-- YouTube背景動画セクション（固定） -->
+<div class="fixed top-0 left-0 w-full h-screen z-0">
 
-    <!-- 左側 - メニューとボタン -->
-    <div class="relative z-10 flex items-center p-4">
-      <div>
-        <!-- 検索セクション -->
-        <div class="mb-10">
-          <h2 class="text-white text-2xl mb-4">-SEARCH-</h2>
-          <div class="flex flex-col gap-8">
-            <div>
-              <%= link_to t('.video_search'), posts_path, class: 'bg-white bg-opacity-60 hover:bg-opacity-70 text-left p-2 rounded-sm text-black font-semibold block' %>
+  <%# YouTube背景動画 - 直接iframe %>
+  <div class="absolute inset-0 overflow-hidden">
+    <iframe
+      id="youtube-top-player"
+      class="absolute top-0 left-0"
+      src="https://www.youtube.com/embed/s37_kNf79q0?start=210&autoplay=1&mute=1&loop=1&playlist=s37_kNf79q0&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <%# 半透明オーバーレイ %>
+  <div class="absolute inset-0 bg-black bg-opacity-70 z-10"></div>
+
+  <%# オーバーレイ %>
+  <div class="relative flex flex-col justify-center items-center h-full z-20">
+
+    <%# タイトル %>
+    <div class="flex justify-center p-4">
+      <div class="font-bold tracking-wider text-left text-shadow-glow m-4">
+        <div class="flex gap-2 items-end text-white text-6xl md:text-8xl">
+          <p class="w-12 md:w-20">G</p>ENSHIN
+        </div>
+        <div class="flex gap-2 items-end text-white text-6xl md:text-8xl">
+          <p class="w-12 md:w-20">T</p>EAM
+        </div>
+        <div class="flex gap-2 items-end text-white">
+          <p class="w-12 md:w-20 text-6xl md:text-8xl">S</p>
+          <div>
+            <p class="text-2xl md:text-4xl">EARCH</p>
+            <p class="text-2xl md:text-4xl">HARE</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%# リンクセクション %>
+    <div class="mt-20 w-full px-6">
+      <div class="flex gap-8">
+        <div class="w-1/5 md:text-xl flex justify-center">
+          <%= link_to "Video Search", posts_path, class: 'hover:underline text-white font-semibold text-shadow-glow', data: { action: "click->loading#show" } %>
+        </div>
+        <div class="w-1/5 md:text-xl flex justify-center">
+          <%= link_to "Rating Search", teams_path, class: 'hover:underline text-white font-semibold text-shadow-glow', data: { action: "click->loading#show" } %>
+        </div>
+        <div class="w-1/5 md:text-xl flex justify-center"></div>
+        <div class="w-1/5 md:text-xl flex justify-center">
+          <%= link_to "Video Share", new_post_path, class: 'hover:underline text-white font-semibold text-shadow-glow', data: { action: "click->loading#show" } %>
+        </div>
+        <div class="w-1/5 md:text-xl flex justify-center">
+          <%= link_to "Rating Share", new_team_rating_path, class: 'hover:underline text-white font-semibold text-shadow-glow', data: { action: "click->loading#show" } %>
+        </div>
+      </div>
+    </div>
+    <%# スクロール %>
+    <div class="scroll_down" id="type07">
+      <a href="#">
+        <div class="arrow"></div>
+        <div class="arrow"></div>
+        <div class="arrow"></div>
+        <span class="text text-shadow-glow">Scroll</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- スペーサー（画面1つ分の高さ） -->
+<div class="h-screen"></div>
+
+<!-- About セクション -->
+<section class="py-20 relative z-10 bg-base-100">
+  <div class="max-w-5xl mx-auto px-6">
+
+    <!-- About -->
+    <div class="mb-20" data-aos="fade-up">
+      <h2 class="text-3xl md:text-4xl font-semibold mb-2">About - サイトについて</h2>
+      <div class="w-1/5 h-px bg-gray-500 mb-10"></div>
+      <p class="text-base md:text-lg leading-relaxed">
+        原神プレイヤーのための<strong>効率的な情報検索</strong>と<strong>活発なコミュニケーション</strong>を実現するプラットフォームです。<br class="hidden md:block">
+        「知りたい編成情報がすぐ見つかる」「みんなで情報を共有し合える」そんな場所を目指しています。
+      </p>
+    </div>
+
+    <!-- Search -->
+    <div class="mb-20" data-aos="fade-up" data-aos-delay="100">
+      <div class="grid md:grid-cols-2 font-semibold gap-8 mb-8">
+        <div class="">
+          <h2 class="text-2xl md:text-3xl mb-2">Search - 編成を検索する</h2>
+          <div class="w-1/5 h-px bg-gray-500 mb-4"></div>
+          <p class="text-lg font-medium mb-6">キャラクターを選択して、最適な編成情報を見つけてみましょう</p>
+          <div class="space-y-4 mb-8">
+            <div class="flex items-start">
+              <div class="w-1 h-1 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+              <div class="text-sm leading-relaxed">
+                <strong>1〜4体の柔軟な検索:</strong>
+                <p> ピンポイントで4体編成を検索したり、2〜3体で代替編成を探すことも可能</p>
+              </div>
             </div>
-            <div>
-              <%= link_to t('.team_search'), '#', class: 'bg-white bg-opacity-60 hover:bg-opacity-70 text-left p-2 rounded-sm text-black font-semibold block' %>
+            <div class="flex items-start">
+              <div class="w-1 h-1 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+              <div class="text-sm leading-relaxed">
+                <strong>おすすめ動画:</strong>
+                <p> みんながおすすめする実践的な編成動画を検索</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <div class="w-1 h-1 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+              <div class="text-sm leading-relaxed">
+                <strong>編成評価:</strong>
+                <p> みんなの編成の評価とコメントを確認</p>
+              </div>
             </div>
           </div>
         </div>
-
-        <!-- シェアセクション -->
         <div>
-          <h2 class="text-white text-2xl mb-4">-SHARE-</h2>
-          <div class="flex flex-col gap-8">
-            <div>
-              <%= link_to t('.video_share'), new_post_path, class: 'bg-white bg-opacity-60 hover:bg-opacity-70 text-left p-2 rounded-sm text-black font-semibold block' %>
+
+        </div>
+      </div>
+
+      <div class="border rounded-lg p-8 mb-8">
+        <h2 class="text-2xl md:text-3xl mb-4">NEW</h2>
+
+        <!-- 最新投稿表示 -->
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- 最新動画投稿 1件 -->
+          <div class="">
+            <h4 class="text-base font-medium mb-4 flex items-center">
+              <i class="fas fa-video mr-2"></i>最新のおすすめ動画
+            </h4>
+            <div class="md:mx-8">
+              <% @posts.limit(1).each_with_index do |post, index| %>
+                <%= render 'shared/posts', post: post, index: index %>
+              <% end %>
+              <% if @posts.blank? %>
+                <div class="text-center opacity-60 py-8">
+                  <i class="fas fa-inbox text-2xl mb-3"></i>
+                  <p class="text-sm">まだ投稿がありません</p>
+                </div>
+              <% end %>
             </div>
-            <div>
-              <%= link_to t('.team_rating'), '#', class: 'bg-white bg-opacity-60 hover:bg-opacity-70 text-left p-2 rounded-sm text-black font-semibold block' %>
+          </div>
+
+          <!-- 最新チーム更新 3件 -->
+          <div>
+            <h4 class="text-base font-medium mb-4 flex items-center">
+              <i class="fas fa-users mr-2"></i>最新のチーム評価
+            </h4>
+            <div class="space-y-3">
+              <% @teams.limit(3).each_with_index do |team, index| %>
+                <%= render 'shared/teams', team: team, index: index %>
+              <% end %>
+              <% if @teams.blank? %>
+                <div class="text-center opacity-60 py-8">
+                  <i class="fas fa-inbox text-2xl mb-3"></i>
+                  <p class="text-sm">まだチームがありません</p>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- 右側 - タイトルとロゴ -->
-    <div class="relative z-10 flex items-center p-4"> <!-- items-centerで縦方向中央揃え -->
-      <h1 class="text-8xl font-bold tracking-wider text-left m-4">
-        <span class="block text-white text-shadow-glow">GENSHIN</span>
-        <span class="block text-white text-shadow-glow">TEAM</span>
-        <div class="grid grid-cols-6 text-left text-shadow-glow">
-          <div class="col-span-1">
-            <span class="text-8xl text-white tracking-wider">S</span>
+    <!-- Share -->
+    <div class="mb-20" data-aos="fade-up" data-aos-delay="200">
+      <div class="grid md:grid-cols-2 font-semibold gap-8">
+        <div>
+        </div>
+        <div class="">
+          <h2 class="text-2xl md:text-3xl mb-2">Share - あなたの発見を共有する</h2>
+          <div class="w-1/5 h-px bg-gray-500 mb-4"></div>
+          <p class="text-lg font-medium mb-8">役立つ動画や編成評価をコミュニティと共有しよう</p>
+
+          <!-- 動画共有 -->
+          <div class="mb-8">
+            <h3 class="text-lg font-medium mb-4">動画共有</h3>
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <div class="w-1 h-1 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                <span class="text-sm">参考になった動画をおすすめポイントと一緒に投稿</span>
+              </div>
+              <div class="flex items-start">
+                <div class="w-1 h-1 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                <span class="text-sm"><strong>再生時間指定機能</strong>: 「ここを見て！」というポイントを正確に伝えられます</span>
+              </div>
+            </div>
           </div>
-          <div class="col-span-5 flex flex-col m-1">
-            <span class="text-4xl text-white tracking-wider">EARCH</span>
-            <span class="text-4xl text-white tracking-wider">HARE</span>
+
+          <!-- 編成評価 -->
+          <div class="mb-8">
+            <h3 class="text-lg font-medium mb-4">編成評価</h3>
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <div class="w-1 h-1 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                <span class="text-sm">実際に使った編成の感想や評価を投稿</span>
+              </div>
+              <div class="flex items-start">
+                <div class="w-1 h-1 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                <span class="text-sm">ただし、甘い評価ばかりでは参考にならないのでご注意を...😅</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ログインボタン -->
+          <div class="pt-6 border-t border-gray-200">
+            <% if user_signed_in? %>
+              <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                <%= link_to new_post_path, class: "btn bg-gray-500 text-white hover:opacity-80" do %>
+                  <i class="fas fa-video mr-2"></i>動画を共有
+                <% end %>
+                <%= link_to new_team_rating_path, class: "btn btn-soft hover:opacity-80" do %>
+                  <i class="fas fa-star mr-2"></i>評価を投稿
+                <% end %>
+              </div>
+            <% else %>
+              <%= link_to new_user_path, class: "btn bg-gray-500 text-white hover:opacity-80" do %>
+                <i class="fas fa-user-plus mr-2"></i>ユーザー登録ページへ
+              <% end %>
+            <% end %>
           </div>
         </div>
-      </h1>
+      </div>
+    </div>
+
+    <!-- Request -->
+    <div class="mb-20" data-aos="fade-up" data-aos-delay="300">
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="">
+          <h2 class="text-2xl md:text-3xl font-semibold mb-2">Request - 欲しい情報をリクエスト</h2>
+          <div class="w-1/5 h-px bg-gray-500 mb-4"></div>
+          <p class="text-lg font-medium mb-6">探している編成動画が見つからない時は</p>
+          <p class="text-sm leading-relaxed">編成を検索して目当ての動画が見つからない場合、コミュニティにリクエストを送信できます。通知設定をオンにしているユーザーがリクエストを受け取り、情報提供してくれるかもしれません。</p>
+        </div>
+        <div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature -->
+    <div class="mb-20" data-aos="fade-up" data-aos-delay="400">
+      <h2 class="text-2xl md:text-3xl font-semibold mb-2">Feature - このサイトを作った理由</h2>
+      <div class="w-1/5 h-px bg-gray-500 mb-8"></div>
+
+      <div class="grid md:grid-cols-3 gap-4">
+        <!-- 開発者の体験 -->
+        <div class="p-4 bg-base-300 rounded-lg">
+          <h3 class="text-lg font-medium mb-4">体験から生まれたソリューション</h3>
+          <p class="text-sm mb-4 leading-relaxed">
+            「ふくしゅぽ」という名前で原神の編成動画を投稿の経験を通して、
+          </p>
+          <div class="space-y-2 mb-4">
+            <div class="flex items-start">
+              <div class="w-1 h-1 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+              <p class="text-sm">「代用編成はありませんか？」</p>
+            </div>
+            <div class="flex items-start">
+              <div class="w-1 h-1 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+              <p class="text-sm">「こういう編成はどうでしょうか？」</p>
+            </div>
+          </div>
+          <p class="text-sm leading-relaxed">
+            といったご質問を視聴者の方々からいただくことが多くあり、<strong>もっと効率的に情報をお届けできないか</strong>と考えていたことがこのサイトを作るきっかけとなりました。
+          </p>
+        </div>
+
+        <!-- 双方向コミュニケーション -->
+        <div class="p-4 bg-base-300 rounded-lg">
+          <h3 class="text-lg font-medium mb-4">一方通行から双方向のコミュニケーションへ</h3>
+          <p class="text-sm leading-relaxed">
+            最初は自分の動画のみの共有サービスとして構想していましたが、<strong>一方的な情報発信者と受信者の関係ではなく、みんなで意見交換できるツール</strong>があったらもっと良いもになるのではと考え、おすすめ動画の共有・編成の評価・コメントなどの機能を実装しました。
+          </p>
+        </div>
+
+        <!-- 推しクリエイター応援 -->
+        <div class="p-4 bg-base-300 rounded-lg">
+          <h3 class="text-lg font-medium mb-4">推しクリエイターを応援したい</h3>
+          <p class="text-sm leading-relaxed">
+            私自身「この人の解説がすごい！」「見たことないアクションだ」などと思う動画投稿者の方々が多く、皆さんもそういった"推し"のクリエイターがいるのではないかと思い、おすすめ動画機能で<strong>もっと知られるべき名動画</strong>を発掘・共有できる仕組みも作ってみました。
+          </p>
+        </div>
+      </div>
+      <div class="flex flex-col justify-center my-6">
+        <h2 class="text-2xl md:text-3xl mx-auto mb-4">目指すもの</h2>
+        <p class="text-xl font-medium mx-auto mb-4">"役立つ & 楽しめる"</p>
+        <p class="text-base opacity-80 mb-6 mx-auto leading-relaxed">
+          プラットフォームとして、原神プレイヤーの皆さんの冒険がより充実したものになることを願っています。
+        </p>
+        <% if user_signed_in? %>
+          <%= link_to mypage_path, class: "btn bg-gray-500 text-white hover:opacity-80" do %>
+            <i class="fas fa-user mr-2"></i>マイページへ
+          <% end %>
+        <% else %>
+          <%= link_to login_path, class: "btn bg-gray-500 text-white hover:opacity-80" do %>
+            <i class="fas fa-login mr-2"></i>ログインページへ
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
+</section>

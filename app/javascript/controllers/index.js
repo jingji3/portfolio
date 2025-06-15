@@ -4,23 +4,26 @@
 
 import { application } from "./application"
 
+import AosFrameController from "./aos_frame_controller"
+application.register("aos-frame", AosFrameController)
+
 import CharacterSelectorController from "./character_selector_controller"
 application.register("character-selector", CharacterSelectorController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-import StarRatingController from "./star_rating_controller"
-application.register("star-rating", StarRatingController)
-
-import YoutubeStartController from "./youtube_start_controller"
-application.register("youtube-start", YoutubeStartController)
-
 import LoadingController from "./loading_controller"
 application.register("loading", LoadingController)
 
-import aos_frame_controller from "./aos_frame_controller"
-application.register("aos-frame", aos_frame_controller)
+import SidebarController from "./sidebar_controller"
+application.register("sidebar", SidebarController)
 
-import sidebar_controller from "./sidebar_controller"
-application.register("sidebar", sidebar_controller)
+import StarRatingController from "./star_rating_controller"
+application.register("star-rating", StarRatingController)
+
+import YoutubeBackgroundController from "./youtube_background_controller"
+application.register("youtube-background", YoutubeBackgroundController)
+
+import YoutubeStartController from "./youtube_start_controller"
+application.register("youtube-start", YoutubeStartController)

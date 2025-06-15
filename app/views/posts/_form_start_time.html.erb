@@ -3,15 +3,15 @@
   <div class="flex items-center">
     <%= number_field_tag 'time[hours]', @post.youtube_start_time.present? ? @post.youtube_start_time / 3600 : nil,
         min: 0, max: 23, placeholder: '時間',
-        class: 'w-16 px-2 py-1 text-center border border-gray-300 rounded mx-1 focus:ring-indigo-500 focus:border-indigo-500' %>
+        class: 'w-16 px-2 py-1 input input-bordered mx-1 focus:ring-indigo-500 focus:border-indigo-500' %>
     <span class="text-lg font-bold">:</span>
     <%= number_field_tag 'time[minutes]', @post.youtube_start_time.present? ? (@post.youtube_start_time % 3600) / 60 : nil,
         min: 0, max: 59, placeholder: '分',
-        class: 'w-16 px-2 py-1 text-center border border-gray-300 rounded mx-1 focus:ring-indigo-500 focus:border-indigo-500' %>
+        class: 'w-16 px-2 py-1 input input-bordered mx-1 focus:ring-indigo-500 focus:border-indigo-500' %>
     <span class="text-lg font-bold">:</span>
     <%= number_field_tag 'time[seconds]', @post.youtube_start_time.present? ? @post.youtube_start_time % 60 : nil,
         min: 0, max: 59, placeholder: '秒',
-        class: 'w-16 px-2 py-1 text-center border border-gray-300 rounded mx-1 focus:ring-indigo-500 focus:border-indigo-500' %>
+        class: 'w-16 px-2 py-1 input input-bordered mx-1 focus:ring-indigo-500 focus:border-indigo-500' %>
   </div>
   <p class="text-sm text-gray-500 mt-1">おすすめの再生開始時間があればこちらで設定できます</p>
 </div>

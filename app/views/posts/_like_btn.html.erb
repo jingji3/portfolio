@@ -5,7 +5,7 @@
 
 <div id="post_<%= post.id %>_like">
   <% if post.liked_by?(current_user) %>
-    <%= button_to post_likes_path(post, variant: variant), method: :delete, class: "flex items-center gap-1 text-red-300" do %>
+    <%= button_to post_likes_path(post, variant: variant), method: :delete, class: "flex items-center gap-1" do %>
       <i class="fas fa-thumbs-up <%= styles[:icon] %>"></i>
       <span  class="<%= styles[:count] %>"><%= post.likes.count %></span>
     <% end %>

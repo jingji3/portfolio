@@ -12,7 +12,7 @@ export default class extends Controller {
 
     // 1. 必要な要素を取得
     const sidebar = document.querySelector('aside')
-    const mainContent = document.querySelector('.lg\\:ml-52, .lg\\:ml-16')
+    const mainContent = document.querySelector('.md\\:ml-52, .md\\:ml-16')
 
     // 2. 要素が見つからない場合は処理を中止
     if (!sidebar || !mainContent) return
@@ -38,8 +38,8 @@ export default class extends Controller {
     sidebar.classList.add('w-16')
 
     // メインコンテンツのマージンを調整
-    mainContent.classList.remove('lg:ml-52')
-    mainContent.classList.add('lg:ml-16')
+    mainContent.classList.remove('md:ml-52')
+    mainContent.classList.add('md:ml-16')
 
     // 縮小版のHTMLを読み込み
     this.loadSidebarContent('mini')
@@ -52,8 +52,8 @@ export default class extends Controller {
     sidebar.classList.add('w-52')
 
     // メインコンテンツのマージンを調整
-    mainContent.classList.remove('lg:ml-16')
-    mainContent.classList.add('lg:ml-52')
+    mainContent.classList.remove('md:ml-16')
+    mainContent.classList.add('md:ml-52')
 
     // 通常版のHTMLを読み込み
     this.loadSidebarContent('full')
@@ -104,7 +104,7 @@ export default class extends Controller {
     // 縮小状態で保存されていた場合のみ復元
     if (savedState === 'collapsed') {
       const sidebar = document.querySelector('aside')
-      const mainContent = document.querySelector('.lg\\:ml-52, .lg\\:ml-16')
+      const mainContent = document.querySelector('.md\\:ml-52, .md\\:ml-16')
 
       if (sidebar && mainContent) {
         this.collapseSidebar(sidebar, mainContent)

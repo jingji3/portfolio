@@ -1,4 +1,4 @@
-<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-4">
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
   <% 4.times do |i| %>
     <div class="flex flex-col space-y-2" data-controller="character-selector">
       <div class="flex justify-center items-center space-x-2">
@@ -14,7 +14,7 @@
         </div>
       </div>
       <div data-character-selector-target="container"
-          class="character-image-container h-32 flex items-center justify-center hidden">
+          class="character-image-container h-28 flex items-center justify-center hidden">
         <img data-character-selector-target="image"
             class="character-image h-full object-contain"
             alt="キャラクター画像">

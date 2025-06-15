@@ -1,9 +1,9 @@
-<div class="px-10">
-  <div class="flex justify-end mb-2">
-    <%= link_to "シェアする", new_post_path, class: "btn btn-primary btn-sm" %>
+<div class="md:mx-4">
+  <div class="mb-4">
+    <%= link_to "新しいおすすめ動画をシェアする", new_post_path, class: "btn bg-gray-500 w-full text-white hover:opacity-80" %>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
     <% @posts.each_with_index do |post, index| %>
       <%= render 'shared/posts', post: post, index: index %>
     <% end %>

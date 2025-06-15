@@ -29,7 +29,7 @@
   .star-input-item {
     position: relative;
     cursor: pointer;
-    font-size: 48px;
+    font-size: 36px;
     margin-right: 0.2em;
     color: #ccc;
   }
@@ -74,4 +74,3 @@
     font-weight: bold;
     margin-left: 8px;
   }
-

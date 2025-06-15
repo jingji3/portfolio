@@ -3,14 +3,14 @@
 
     <%# おすすめ動画 %>
     <%= link_to posts_path,
-        class: "flex flex-col items-center justify-center p-3 rounded-lg hover:bg-base-content/10 transition-colors #{request.path == posts_path ? 'text-primary bg-base-content/5' : 'text-base-content/70'}",
+        class: "flex flex-col items-center justify-center p-3 rounded-lg hover:bg-base-content/10",
         data: { action: "click->loading#show" } do %>
       <i class="fab fa-youtube text-xl"></i>
     <% end %>
 
     <%# 編成評価 %>
     <%= link_to teams_path,
-        class: "flex flex-col items-center justify-center p-3 rounded-lg hover:bg-base-content/10 transition-colors #{request.path == teams_path ? 'text-primary bg-base-content/5' : 'text-base-content/70'}",
+        class: "flex flex-col items-center justify-center p-3 rounded-lg hover:bg-base-content/10",
         data: { action: "click->loading#show" } do %>
       <i class="fas fa-users text-xl"></i>
     <% end %>
@@ -44,7 +44,7 @@
 
     <%# マイページ %>
     <%= link_to mypage_path(tab: 'posts'),
-        class: "flex flex-col items-center justify-center p-3 rounded-lg hover:bg-base-content/10 transition-colors #{request.path == mypage_path(tab: 'posts') ? 'text-primary bg-base-content/5' : 'text-base-content/70'}",
+        class: "flex flex-col items-center justify-center p-3 rounded-lg hover:bg-base-content/10",
         data: { action: "click->loading#show" } do %>
       <i class="fas fa-home text-xl"></i>
     <% end %>

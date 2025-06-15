@@ -31,7 +31,7 @@ class PostsController < ApplicationController
       @posts = @posts.joins(:tags).where(tags: { name: params[:tag].downcase })
     end
 
-    @posts = @posts.distinct.page(params[:page]).per(9)
+    @posts = @posts.distinct.page(params[:page]).per(12)
 
     # YouTube情報の取得
     @youtube_info = {}

@@ -2,37 +2,28 @@ Rails.application.routes.draw do
   # letter_openerのセットアップ用
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 
-  # admin用
-  namespace :admin do
-    get '/', to: 'dashboard#index'
-    resources :users do
-      member do
-        post :activate
-        post :deactivate
-      end
-    end
-
-    resources :characters do
-      member do
-        post :compress
-      end
-    end
-
-    root to: 'dashboard#index'
-  end
-
+  # health check
   get 'up' => 'rails/health#show', as: :rails_health_check
+
+  # トップページ
   root 'top#index'
+
+  # OAuthログインのルーティング
+  post 'oauth/:provider', to: 'oauths#oauth', as: :auth_at_provider
+  get 'oauth/callback/:provider', to: 'oauths#callback', as: :oauth_callback
+
+  # ログイン、ログアウト
+  get 'login', to: 'user_sessions#new'
+  post 'login', to: 'user_sessions#create'
+  delete 'logout', to: 'user_sessions#destroy'
+  # resources :user_sessions, only: %i[new create destroy], path: 'login', path_names: { new: 'new', create: 'create', destroy: 'logout' }
 
   # ユーザー登録
   resources :users, only: %i[new create]
 
-  # OAuthログインのプロセル
-  post 'oauth/:provider', to: 'oauths#oauth', as: :auth_at_provider
-  get 'oauth/callback/:provider', to: 'oauths#callback', as: :oauth_callback
-
   # マイページ
   get 'mypage', to: 'mypage#index', as: :mypage
+  # resource :mypage, only: %i[index], path: 'mypage', controller: 'mypage'
 
   # プロフィール編集
   resource :profile, only: %i[show edit update]
@@ -82,8 +73,22 @@ Rails.application.routes.draw do
   get 'privacy', to: 'static_pages#privacy_policy', as: :privacy_policy
   get 'terms', to: 'static_pages#terms_of_use', as: :terms_of_use
 
-  # ログイン、ログアウト
-  get 'login', to: 'user_sessions#new'
-  post 'login', to: 'user_sessions#create'
-  delete 'logout', to: 'user_sessions#destroy'
+  # admin用
+  namespace :admin do
+    get '/', to: 'dashboard#index'
+    resources :users do
+      member do
+        post :activate
+        post :deactivate
+      end
+    end
+
+    resources :characters do
+      member do
+        post :compress
+      end
+    end
+
+    root to: 'dashboard#index'
+  end
 end
