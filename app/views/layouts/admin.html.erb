@@ -24,20 +24,20 @@
         <!-- 通常のレイアウト -->
         <div class="flex w-full">
           <!-- サイドバー -->
-          <aside class="hidden lg:block w-52 min-h-screen bg-base-200 transition-all duration-300 fixed left-0 z-30">
+          <aside class="hidden md:block w-52 min-h-screen bg-base-200 transition-all duration-300 fixed left-0 z-30">
             <%= render 'shared/sidebar' %>
           </aside>
 
           <!-- メインコンテンツエリア -->
-          <div class="flex-1 lg:ml-52 w-full">
+          <div class="flex-1 md:ml-52 w-full">
             <%# メインコンテンツ %>
-            <main class="p-4 lg:p-6 overflow-x-hidden">
+            <main class="p-4 md:p-6 overflow-x-hidden">
               <%= render 'shared/flash_message' %>
               <%= yield %>
             </main>
 
             <%# スマホ用固定ボトムナビゲーション %>
-            <div class="lg:hidden">
+            <div class="md:hidden">
               <%= render 'shared/bottom_navigation' %>
             </div>
           </div>

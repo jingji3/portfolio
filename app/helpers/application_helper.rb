@@ -24,6 +24,6 @@ module ApplicationHelper
   end
 
   def main_content_margin_class
-    sidebar_collapsed? ? 'lg:ml-16' : 'lg:ml-52'
+    sidebar_collapsed? ? 'md:ml-16' : 'md:ml-52'
   end
 end

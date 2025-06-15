@@ -1,9 +1,9 @@
-<div class="navbar bg-base-200 shadow-sm">
+<div class="navbar bg-gradient-to-b from-base-300 to-transparent" data-controller="sidebar">
   <div class="flex-1 flex">
     <%# サイドバーページでのみハンバーガーメニューを表示（デスクトップのみ） %>
     <% unless ['top'].include?(controller_name) %>
       <%# デスクトップ用：サイドバー縮小/展開 %>
-      <button class="btn btn-ghost btn-circle hidden lg:flex"
+      <button class="btn btn-ghost btn-circle hidden md:flex"
               data-action="click->sidebar#toggle">
         <i class="fas fa-bars text-lg"></i>
       </button>

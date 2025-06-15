@@ -1,6 +1,6 @@
-<div class="px-10">
-  <div class="flex justify-end mb-2">
-    <%= link_to "新規編成評価", new_team_rating_path, class: "btn btn-primary btn-sm" %>
+<div class="md:mx-4">
+  <div class="mb-4">
+    <%= link_to "新しい編成評価をシェアする", new_team_rating_path, class: "btn bg-gray-500 w-full text-white hover:opacity-80" %>
   </div>
   <% @team_ratings.each_with_index do |team_rating, index| %>
     <%= link_to team_path(team_rating.team), data: { turbo_frame: "_top" } do %>

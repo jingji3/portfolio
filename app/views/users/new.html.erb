@@ -1,6 +1,6 @@
-<div class="container mx-auto px-4 mt-8">
+<div class="container mx-auto px-4">
   <div class="max-w-sm mx-auto">
-    <h1 class="text-3xl font-bold mb-6"><%= t('.title') %></h1>
+    <h1 class="text-2xl md:text-3xl font-bold mb-6"><%= t('.title') %></h1>
     <%= form_with model: @user do |f| %>
       <%= render 'shared/error_message', object: @user %>
       <div class="form-control w-full mb-4">
@@ -19,10 +19,10 @@
         <%= f.label :password_confirmation, class: "label" %>
         <%= f.password_field :password_confirmation, class: "input input-bordered w-full" %>
       </div>
-      <%= f.submit t('helpers.submit.create'), class: "btn btn-primary w-full" %>
+      <%= f.submit t('helpers.submit.create'), class: "btn bg-gray-500 w-full text-white hover:opacity-80 w-full" %>
     <% end %>
     <div class="text-center mt-4 mb-8">
-      <%= link_to t('.to_login_page'), login_path, class: "link link-hover text-primary" %>
+      <%= link_to t('.to_login_page'), login_path, class: "link link-hover text-blue-600" %>
     </div>
   </div>
 </div>

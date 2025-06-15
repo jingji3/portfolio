@@ -12,6 +12,7 @@ ja:
         password: パスワード
         password_confirmation: パスワード確認
         avatar: アバター
+        receive_request_notifications: リクエスト通知設定
       character:
         name: キャラクター名
         name_kana: キャラクター名(かな)

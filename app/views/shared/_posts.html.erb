@@ -2,7 +2,7 @@
      data-aos="fade-up"
      data-aos-delay="<%= defined?(index) ? index * 100 + 500 : 0 %>">
 
-  <!-- サムネイル部分（チャンネル情報をオーバーレイ表示） -->
+  <%# サムネイル部分（チャンネル情報をオーバーレイ表示） %>
   <%= link_to post_path(post), data: { turbo_frame: "_top" } do %>
     <div class="relative rounded-t-md overflow-hidden">
       <div class="w-full h-0 pb-[56.25%] relative">
@@ -11,7 +11,7 @@
           <% if youtube_id %>
             <img src="https://img.youtube.com/vi/<%= youtube_id %>/mqdefault.jpg" alt="<%= post.title %>" class="absolute inset-0 w-full h-full object-cover">
 
-            <!-- チャンネル情報をサムネイルの右下に表示 -->
+            <%# チャンネル情報をサムネイルの右下に表示 %>
             <% if @youtube_info[post.id].present? %>
               <% video_data = @youtube_info[post.id][:video_data] %>
               <% channel_data = @youtube_info[post.id][:channel_data] %>
@@ -19,7 +19,7 @@
               <% if video_data&.items&.any? && channel_data&.items&.any? %>
                 <% channel = channel_data.items.first %>
 
-                <!-- チャンネル情報オーバーレイ -->
+                <%# チャンネル情報オーバーレイ %>
                 <a href="https://www.youtube.com/channel/<%= channel.id %>" target="_blank" class="flex-shrink-0">
                   <div class="absolute bottom-0.5 right-0.5 flex gap-1 items-center bg-black bg-opacity-70 rounded-full pl-1 pr-2 py-1">
                     <div class="bg-gray-500 bg-opacity-90 rounded-full text-xs text-white p-0.5">投稿者</div>
@@ -50,11 +50,9 @@
     </div>
   <% end %>
 
-  <!-- カード本文 -->
+  <%# カード本文 %>
   <div class="p-2">
-    <!-- タイトルと編集・削除ボタン -->
     <div class="flex justify-between items-start">
-      <!-- タイトルをリンクにする -->
       <div class="flex flex-row">
         <div class="flex-shrink-0 mr-2">
           <% if post.user.respond_to?(:avatar) && post.user.avatar.attached? %>
@@ -69,7 +67,7 @@
           <h2 class="card-title text-base line-clamp-1">
             <%= link_to post.title, post_path(post), class: "hover:underline", data: { turbo_frame: "_top" } %>
           </h2>
-          <!-- 投稿者情報と日時 -->
+          <%# 投稿者情報と日時 %>
           <div class="text-xs line-clamp-1">
             <span><%= post.user.user_name %></span>
             <span>・</span>
@@ -78,7 +76,7 @@
         </div>
       </div>
 
-      <!-- 編集・削除ボタン -->
+      <%# 編集・削除ボタン %>
       <% if current_user && current_user.id == post.user_id %>
         <div class="flex gap-1">
           <%= link_to edit_post_path(post),
@@ -97,12 +95,12 @@
       <% end %>
     </div>
 
-    <!-- 本文抜粋 -->
+    <%# 本文抜粋 %>
     <div class="text-sm mt-1 text-gray-500 line-clamp-2 min-h-10">
       <%= post.body %>
     </div>
 
-    <!-- タグ表示を追加 -->
+    <%# タグ表示を追加 %>
     <div class="flex flex-wrap gap-1 mt-2 min-h-4 line-clamp-1">
       <% if post.tags.any? %>
         <% post.tags.each do |tag| %>
@@ -112,7 +110,7 @@
       <% end %>
     </div>
 
-    <!-- いいねボタン・お気に入りボタン -->
+    <%# いいねボタン・お気に入りボタン %>
     <div class="flex space-x-5 justify-center">
       <div>
         <%= render "posts/like_btn", post: post, variant: :small %>

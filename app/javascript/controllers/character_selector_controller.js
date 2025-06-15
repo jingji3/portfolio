@@ -16,6 +16,7 @@ export default class extends Controller {
   initializeSelect() {
     new TomSelect(this.selectTarget, {
       create: false,
+      maxOptions: null,
       language: {
         noresults: "該当なし"
       },
@@ -30,10 +31,32 @@ export default class extends Controller {
     const characterId = event.target.value
     if (!characterId) {
       this.containerTarget.classList.add("hidden")
-      return
+    } else {
+      this.loadCharacterImage(characterId)
     }
 
-    this.loadCharacterImage(characterId)
+    this.updateAllSelects()
+  }
+
+  // 他の選択欄でキャラ選択を絞るメソッド
+  updateAllSelects() {
+    // 全ての選択欄の値を取得
+    const allSelects = document.querySelectorAll('[data-character-selector-target="select"]')
+    const selectedValues = Array.from(allSelects)
+      .map(select => select.value)
+      .filter(value => value !== '')
+
+    // 各選択欄を処理
+    allSelects.forEach(select => {
+      if (select.tomselect) {
+        // 選択済みのオプションを削除
+        selectedValues.forEach(selectedValue => {
+          if (selectedValue !== select.value) {
+            select.tomselect.removeOption(selectedValue)
+          }
+        })
+      }
+    })
   }
 
   loadCharacterImage(characterId) {

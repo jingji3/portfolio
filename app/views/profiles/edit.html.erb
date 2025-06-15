@@ -54,20 +54,20 @@
           <% end %>
           <label class="label cursor-pointer justify-start">
             <%= f.check_box :receive_request_notifications,
-                            class: "checkbox border border-rounded checkbox-accent mx-2" %>
-            <span class="label-text">動画リクエストの通知を受け取る</span>
+                            class: "checkbox border border-rounded checkbox-default mx-2" %>
+            <span class="label-text">動画リクエストの通知を受取る</span>
           </label>
           <div class="label">
-            <span class="text-sm text-gray-500">
-              動画リクエストが作成された際に通知を受け取ります
+            <span class="text-xs md:text-sm text-gray-500">
+              動画リクエストがあった際に通知を受け取ります。
             </span>
           </div>
         </div>
 
         <!-- 送信ボタン -->
-        <div class="mt-6 flex justify-end space-x-4">
-          <%= link_to t('defaults.cancel', default: 'キャンセル'), profile_path, class: "btn btn-ghost" %>
-          <%= f.submit t('defaults.update', default: '更新する'), class: "btn btn-primary" %>
+        <div class="mt-6 flex space-x-4">
+          <%= f.submit t('defaults.update', default: '更新する'), class: "btn w-32 bg-gray-500 text-white hover:opacity-80" %>
+          <%= link_to t('defaults.cancel', default: 'キャンセル'), profile_path, class: "btn btn-soft w-32 hover:opacity-80" %>
         </div>
       <% end %>
     </div>

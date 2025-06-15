@@ -1,42 +1,36 @@
-<div class="flex-1 p-4 mx-40">
-  <%= link_to "戻る", teams_path, class: "btn btn-xs btn-outline" %>
-  
+<div class="flex-1 p-4 max-w-sm md:max-w-3xl mx-auto">
+  <%= link_to "戻る", teams_path, class: "btn btn-xs btn-outline mb-2" %>
+
   <div class="overflow-hidden">
-    <div class="p-4">
-      <h1 class="text-3xl font-bold">編成評価詳細</h1>
-    </div>
+    <h1 class="text-2xl md:text-3xl font-bold">編成評価詳細</h1>
 
     <%# 編成の詳細 %>
-    <div class="p-4">
-      <div class="">
-        <div>
-          <h2 class="text-xl font-bold mb-3">メンバー</h2>
-          <div class="grid grid-cols-4 gap-2">
-            <% @characters.each do |character| %>
-              <div class="relative">
-                <%= image_tag character.display_image(:large), class: "w-full shadow-lg"%>
-              </div>
-            <% end %>
+    <div class="mt-4">
+      <h2 class="text-xl font-bold mb-3">メンバー</h2>
+      <div class="grid grid-cols-4 gap-2">
+        <% @characters.each do |character| %>
+          <div class="relative">
+            <%= image_tag character.display_image(:large), class: "w-full shadow-lg"%>
           </div>
-        </div>
-        
-        <div>
-          <h2 class="text-xl font-bold my-3">平均評価</h2>
-          <div class="flex items-end mb-3">
-            <span class="text-3xl text-yellow-400 mx-1">★</span>
-            <span class="text-3xl font-bold mx-1"><%= @average %></span>
-            <span class="text-lg text-gray-500 mx-1">/ 5.0</span>
-            <div class="text-lg text-gray-500 ml-3">
-              <p>(評価: <%= @ratings.count %>件)</p>
-            </div>
-          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div>
+      <h2 class="text-xl font-bold my-3">平均評価</h2>
+      <div class="flex items-end mb-3">
+        <span class="text-3xl text-yellow-400 mx-1">★</span>
+        <span class="text-3xl font-bold mx-1"><%= @average %></span>
+        <span class="text-lg text-gray-500 mx-1">/ 5.0</span>
+        <div class="text-lg text-gray-500 ml-3">
+          <p>(評価: <%= @ratings.count %>件)</p>
         </div>
       </div>
     </div>
   </div>
 
   <%# 編成評価一覧 %>
-  <div class="p-4">
+  <div class="py-4">
     <h2 class="text-xl font-bold mb-4">評価一覧 (<%= @ratings.count %>件)</h2>
 
     <%# 編成評価一覧を表示 %>
@@ -46,7 +40,7 @@
       </div>
     <% else %>
 
-      <%# 編成の評価をしていない場合は評価欄を出現 %> 
+      <%# 編成の評価をしていない場合は評価欄を出現 %>
       <% if user_signed_in? && @user_rating.nil? && @new_rating %>
         <div class="flex justify-between bg-base-200 rounded-lg shadow-lg overflow-hidden mb-6 p-2">
           <div class="flex items-center gap-2">
@@ -62,9 +56,9 @@
       <% elsif user_signed_in? && @user_rating %>
         <div class="bg-base-200 rounded-lg shadow-lg overflow-hidden mb-4">
           <div class="p-4">
-            <div class="flex justify-between items-start">
+            <div class="md:flex md:justify-between md:items-start">
               <div class="flex items-start">
-                <div class="flex-shrink-0 mr-3"> 
+                <div class="flex-shrink-0 mr-3">
                   <% if current_user.respond_to?(:avatar) && current_user.avatar.attached? %>
                     <%= image_tag url_for(current_user.avatar), class: "w-8 h-8 rounded-full object-cover", alt: current_user.user_name %>
                   <% else %>
@@ -93,14 +87,14 @@
                   </div>
                 </div>
               </div>
-              
+
               <div class="flex items-center">
                 <span class="text-xl text-yellow-400 mr-1">★</span>
                 <span class="text-xl font-bold"><%= @user_rating.rating %></span>
                 <span class="text-sm text-gray-500 ml-1">/5.0</span>
               </div>
             </div>
-            
+
             <div class="mt-3">
               <div id="user_rating_<%= @user_rating.id %>" class="p-2 bg-base-300 bg-opacity-40 rounded">
                 <%= simple_format @user_rating.body %>
@@ -108,44 +102,46 @@
             </div>
           </div>
         </div>
-      <% end %>          
-          
-      <div class="p-2 flex-grow overflow-hidden">
+      <% end %>
+
+      <div class="py-2 flex-grow overflow-hidden">
+        <h2 class="font-bold mb-2">みんなの評価</h2>
         <% @ratings.each do |rating| %>
           <% next if rating == @user_rating %>
-          <div class="flex mb-2">
-            <div class="flex-shrink-0"> <!-- アバター部分の幅を固定 -->
-              <% if rating.user.respond_to?(:avatar) && rating.user.avatar.attached? %>
-                <%= image_tag url_for(rating.user.avatar), class: "w-8 h-8 rounded-full object-cover", alt: rating.user.user_name %>
-              <% else %>
-                <div class="w-8 h-8 bg-gray-600 text-primary-content rounded-full flex items-center justify-center">
-                  <span class="text-sm font-bold"><%= rating.user.user_name[0].upcase %></span>
-                </div>
-              <% end %>
-            </div>
-            
-            <div class="ml-3 flex-grow">
-              <div class="flex justify-between items-start w-full">
-                <div class="flex items-end gap-3">
-                  <div class="font-medium"><%= rating.user.user_name %></div>
-                  <div class="text-sm text-gray-500">
-                    <%= date_with_version(rating.created_at) %>
+          <div class="md:flex mb-1 justify-between">
+            <div class="flex gap-2">
+              <div class="flex-shrink-0"> <!-- アバター部分の幅を固定 -->
+                <% if rating.user.respond_to?(:avatar) && rating.user.avatar.attached? %>
+                  <%= image_tag url_for(rating.user.avatar), class: "w-8 h-8 rounded-full object-cover", alt: rating.user.user_name %>
+                <% else %>
+                  <div class="w-8 h-8 bg-gray-600 text-primary-content rounded-full flex items-center justify-center">
+                    <span class="text-sm font-bold"><%= rating.user.user_name[0].upcase %></span>
+                  </div>
+                <% end %>
+              </div>
+
+              <div class="flex-grow">
+                <div class="md:flex md:justify-between md:items-start w-full">
+                  <div class="flex items-end gap-3">
+                    <div class="font-medium"><%= rating.user.user_name %></div>
+                    <div class="text-sm text-gray-500">
+                      <%= date_with_version(rating.created_at) %>
+                    </div>
                   </div>
                 </div>
-                
-                <div class="flex items-center"> <!-- 星評価部分 -->
-                  <span class="text-xl text-yellow-400 mr-1">★</span>
-                  <span class="text-xl font-bold"><%= rating.rating %></span>
-                  <span class="text-sm text-gray-400 ml-1">/5.0</span>
-                </div>
-              </div>
-              
-              <div class="mt-1"> <!-- コメント本文 -->
-                <%= simple_format(rating.body) %>
               </div>
             </div>
+
+            <div class="flex items-center">
+              <span class="md:text-xl text-yellow-400 mr-1">★</span>
+              <span class="md:text-xl font-bold"><%= rating.rating %></span>
+              <span class="text-xs md:text-sm text-gray-400 ml-1">/5.0</span>
+            </div>
           </div>
-          
+          <div class="md:ml-10 text-sm md:text-base">
+            <%= simple_format(rating.body) %>
+          </div>
+
           <% unless rating == @ratings.where.not(id: @user_rating&.id).last %>
             <hr class="border-gray-500 my-2">
           <% end %>

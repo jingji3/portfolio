@@ -1,5 +1,6 @@
 /* 選択欄の基本スタイル */
 .ts-wrapper, .ts-control {
-  width: 150px !important;
+  width: 120px !important;
   height: 32px !important;
 }
+

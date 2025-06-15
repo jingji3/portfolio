@@ -1,9 +1,9 @@
-<div class="navbar bg-base-300 shadow-sm" data-controller="sidebar">
+<div class="navbar bg-gradient-to-b from-base-300 to-transparent" data-controller="sidebar">
   <div class="flex-1 flex">
     <%# サイドバーページでのみハンバーガーメニューを表示（デスクトップのみ） %>
     <% unless ['top'].include?(controller_name) %>
       <%# デスクトップ用：サイドバー縮小/展開 %>
-      <button class="btn btn-ghost btn-circle hidden lg:flex"
+      <button class="btn btn-ghost btn-circle hidden md:flex"
               data-action="click->sidebar#toggle">
         <i class="fas fa-bars text-lg"></i>
       </button>
@@ -16,38 +16,39 @@
     <%# テーマ切り替え %>
     <%= render 'shared/theme_toggle' %>
 
-    <%# 通知アイコン %>
-    <div class="relative">
-      <%= link_to mypage_path(tab: 'notifications'), class: 'btn btn-ghost btn-circle' do %>
-        <div class="relative">
-          <i class="fas fa-bell text-lg"></i>
-          <% unread_count = current_user.notifications.unread.count %>
-          <% if unread_count > 0 %>
-            <div class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-              <%= unread_count > 99 ? '99+' : unread_count %>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-
     <%# ユーザー情報 %>
     <div class="dropdown dropdown-end">
       <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
-        <div class="w-10 rounded-full">
+        <div class="w-10 h-10 rounded-full">
           <% if current_user&.avatar&.attached? %>
             <%= image_tag current_user.avatar, alt: "User avatar" %>
           <% else %>
-            <div class="w-10 h-10 bg-gray-600 text-primary-content rounded-full flex items-center justify-center">
+            <div class="bg-gray-600 text-primary-content flex items-center justify-center">
               <span class="text-lg font-bold"><%= current_user.user_name[0].upcase %></span>
             </div>
           <% end %>
         </div>
+        <% unread_count = current_user.notifications.unread.count %>
+          <% if unread_count > 0 %>
+            <div class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+              <%= unread_count > 99 ? '99+' : unread_count %>
+            </div>
+          <% end %>
       </div>
       <ul
         tabindex="0"
         class="menu menu-md dropdown-content bg-base-100 rounded-box z-1 w-40 mt-3 p-2 shadow">
         <li><%= link_to 'マイページ', mypage_path(tab: 'posts') %></li>
+        <li class="flex">
+          <%= link_to mypage_path(tab: 'notifications') do %>
+            <p>通知</p>
+            <% if unread_count > 0 %>
+              <div class="bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                <%= unread_count > 99 ? '99+' : unread_count %>
+              </div>
+            <% end %>
+          <% end %>
+        </li>
         <li><%= link_to t('header.setting'), profile_path %></li>
         <li><%= link_to t('header.logout'), logout_path, data: { turbo_method: :delete } %></li>
       </ul>

@@ -23,7 +23,7 @@
                 (<%= time_ago_in_words(comment.updated_at) %>前に編集)
               </a>
             <% end %>
-          </div> 
+          </div>
           <!-- 編集、削除ボタン表示 -->
           <div>
             <% if current_user.own?(comment) %>

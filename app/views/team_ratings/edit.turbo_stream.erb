@@ -1,10 +1,10 @@
 <%= turbo_stream.replace "user_rating_#{@team_rating.id}" do %>
-  <div id="user_rating_<%= @team_rating.id %>" class="card p-4 bg-base-300">
+  <div id="user_rating_<%= @team_rating.id %>" class="card">
 
     <%= form_with model: @team_rating, data: { turbo: true } do |f| %>
       <div data-controller="star-rating" class="mb-4">
         <div class="flex items-center justify-center">
-          <!-- 星をクリックするための入力エリア -->
+          <%# 星をクリックするための入力エリア %>
           <div class="star-input ml-2">
             <% (1..5).each do |i| %>
               <div class="star-input-item" data-value="<%= i %>" data-action="click->star-rating#selectRating">
@@ -13,26 +13,25 @@
               </div>
             <% end %>
           </div>
-          
+
           <!-- 数値表示 -->
           <span class="rating-value" data-star-rating-target="display">
             <%= @team_rating.rating ? @team_rating.rating.to_f : '0.0' %>
           </span>
         </div>
-        
+
         <%= f.hidden_field :rating, data: { star_rating_target: "input" }, value: @team_rating.rating %>
-      </div> 
-      <!-- コメント欄 -->
+      </div>
+      <%#% コメント欄 %>
       <div class="mb-4">
         <%= f.text_area :body, class: 'input input-bordered w-full h-auto text-lg', rows: 3 %>
       </div>
 
-      <!-- ボタン管理 -->
+      <%# ボタン %>
       <div class="flex justify-center gap-4">
-        <%= f.submit '評価を更新', class: 'btn btn-primary' %>
-        <%= link_to 'キャンセル', team_rating_path(@team_rating),
-              class: 'btn btn-secondary',
-              data: { turbo_frame: "user_rating_#{@team_rating.id}" } %>
+        <%= f.submit '評価を更新', class: 'btn w-32 bg-gray-500 text-white hover:opacity-80' %>
+        <%= link_to 'キャンセル', team_path(@team.id),
+              class: 'btn btn-soft w-32 hover:opacity-80' %>
       </div>
     <% end %>
   </div>

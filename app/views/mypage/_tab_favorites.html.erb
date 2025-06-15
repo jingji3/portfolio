@@ -1,5 +1,5 @@
-<div class="px-10">
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+<div class="md:mx-4">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
     <% @favorite_posts.each_with_index do |post, index| %>
       <%= render 'shared/posts', post: post, index: index %>
     <% end %>

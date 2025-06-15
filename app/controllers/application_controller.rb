@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :require_login
   add_flash_types :success, :danger
+  skip_before_action :require_login, only: [:sidebar_mini, :sidebar_full]
 
   # サイドバー切り替え用のアクション
   def sidebar_mini

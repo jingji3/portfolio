@@ -1,6 +1,6 @@
-<div class="container mx-auto px-4 mt-8">
+<div class="container mx-auto px-4">
   <div class="max-w-sm mx-auto">
-    <h1 class="text-3xl font-bold mb-6"><%= t('.title') %></h1>
+    <h1 class="text-2xl md:text-3xl font-bold mb-6"><%= t('.title') %></h1>
     <%= form_with url: login_path do |f| %>
       <div class="form-control w-full mb-4">
         <%= f.label :email, class: "label" %>
@@ -11,7 +11,7 @@
         <%= f.password_field :password, class: "input input-bordered w-full" %>
       </div>
       <div class="mt-8">
-        <%= f.submit t('.login'), class: "btn btn-primary w-full" %>
+        <%= f.submit t('.login'), class: "btn bg-gray-500 w-full text-white hover:opacity-80 w-full" %>
       </div>
     <% end %>
     <div class="mt-8">
@@ -22,8 +22,8 @@
     </div>
 
     <div class="text-center mt-4 mb-8 flex flex-col">
-      <%= link_to t('.to_register_page'), new_user_path, class: "link link-hover text-primary m-1" %>
-      <%= link_to t('.password_forget'), new_password_reset_path, class: "link link-hover text-primary m-1" %>
+      <%= link_to t('.to_register_page'), new_user_path, class: "link link-hover text-blue-600 m-1" %>
+      <%= link_to t('.password_forget'), new_password_reset_path, class: "link link-hover text-blue-600 m-1" %>
     </div>
   </div>
 </div>

@@ -1,46 +1,37 @@
-<div class="space-y-4">
-  <div class="flex justify-between items-center">
-    <h2 class="text-xl font-semibold">通知一覧</h2>
-  </div>
-
+<div class="md:mx-4">
   <% if @notifications.any? %>
     <div>
       <% @notifications.each_with_index do |notification, index| %>
         <%= link_to notification.event.url, class: "block no-underline hover:no-underline" do %>
-          <div class="p-2 hover:bg-base-200 transition-colors cursor-pointer border-b border-gray-500" data-aos="fade-up" data-aos-delay="<%= index * 100 %>">
+          <div class="p-2 hover:bg-base-200 transition-colors cursor-pointer border-b border-gray-500"
+               data-aos="fade-up" data-aos-delay="<%= index * 100 %>">
             <div class="flex justify-between items-start">
               <div class="flex-1">
-                <div class="flex gap-2 items-center">
-                  <h3 class="font-semibold text-base mb-1">
-                    <%= notification.event.title %>
-                  </h3>
-
-                  <span class="text-xs text-gray-500">
-                    <%= time_ago_in_words(notification.created_at) %>前
-                  </span>
-
-                  <%# キャラクター画像 %>
-                  <% if notification.event.params[:character_ids].present? %>
-                    <% character_ids = notification.event.params[:character_ids] %>
-                    <% characters = Character.where(id: character_ids).select(:id, :name, :character_img) %>
-                    <div class="flex space-x-1">
-                      <% characters.each_with_index do |character, index| %>
-                        <% if character.character_img.present? %>
-                          <%= image_tag character.character_img,
-                                      alt: character.name,
-                                      class: "w-8 h-auto object-cover",
-                                      title: character.name,
-                                      data: { aos: "fade", aos_delay: 1000 + index * 100 } %>
-                        <% end %>
-                      <% end %>
-                    </div>
-                  <% end %>
+                <div class="flex gap-1 items-start mb-2">
+                  <h3 class="font-semibold text-base md:text-xl"><%= notification.event.title %></h3>
+                  <span class="text-xs text-gray-500 w-20"><%= time_ago_in_words(notification.created_at) %>前</span>
                 </div>
+                <%# キャラクター画像 %>
+                <% if notification.event.params[:character_ids].present? %>
+                  <% character_ids = notification.event.params[:character_ids] %>
+                  <% characters = Character.where(id: character_ids).select(:id, :name, :character_img) %>
+                  <div class="flex space-x-1">
+                    <% characters.each_with_index do |character, index| %>
+                      <% if character.character_img.present? %>
+                        <%= image_tag character.character_img,
+                                    alt: character.name,
+                                    class: "w-12 h-auto object-cover",
+                                    title: character.name,
+                                    data: { aos: "fade", aos_delay: 1000 + index * 100 } %>
+                      <% end %>
+                    <% end %>
+                  </div>
+                <% end %>
                 <p class="text-sm mb-2 whitespace-pre-line">
                   <%= notification.event.message %>
                 </p>
               </div>
-              <div class="ml-4">
+              <div class="ml-1">
                 <i class="fas fa-chevron-right text-gray-400 text-sm"></i>
               </div>
             </div>
