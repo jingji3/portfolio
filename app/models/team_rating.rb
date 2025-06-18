@@ -10,5 +10,5 @@ class TeamRating < ApplicationRecord
                        step: 0.5
                      }
   # すでに評価済みの編成の場合エラーを表示
-  validates :user_id, uniqueness: { scope: :team_id, message: '既にこの編成を評価済みです' }
+  validates :user_id, uniqueness: { scope: :team_id }
 end

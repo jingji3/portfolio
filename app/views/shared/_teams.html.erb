@@ -6,18 +6,18 @@
       <span class="text-2xl text-yellow-400 mr-2">★</span>
       <span class="text-2xl font-bold"><%= team.average_rating %></span>
       <div class="text-sm text-gray-500 ml-2">
-        (評価:<%= team.ratings_count %>件)
+        (<%= t('.rating') %>:<%= team.ratings_count %><%= t('.count') %>)
       </div>
     </div>
     <div class="flex items-center gap-2">
       <% if current_user && current_user.team_ratings.exists?(team_id: team.id) %>
         <span class="text-blue-500 text-sm">
-          <i class="fas fa-check-circle mr-1"></i>評価済み
+          <i class="fas fa-check-circle mr-1"></i><%= t('.rating_end') %>
         </span>
       <% else %>
-        <%= link_to "評価する", new_team_rating_path(team_id: team.id), class: "btn btn-sm btn-soft", data: { turbo_frame: "_top" } %>
+        <%= link_to t('.rating_share'), new_team_rating_path(team_id: team.id), class: "btn btn-sm btn-soft", data: { turbo_frame: "_top" } %>
       <% end %>
-      <%= link_to "詳細", team_path(team), class: "btn btn-sm btn-soft", data: { turbo_frame: "_top" } %>
+      <%= link_to t('defaults.show'), team_path(team), class: "btn btn-sm btn-soft", data: { turbo_frame: "_top" } %>
     </div>
   </div>
 

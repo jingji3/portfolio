@@ -1,0 +1,53 @@
+ja:
+  helpers:
+    submit:
+      create: 登録
+      submit: 保存
+      update: 更新
+      destroy: 削除
+      post:
+        create: シェア
+        update: 更新
+      request:
+        create: リクエスト
+      team_rating:
+        create: 評価
+        update: 更新
+
+    label:
+      email: メールアドレス
+      password: パスワード
+  defaults:
+    create: 作成
+    post: 投稿
+    share: シェア
+    search: 検索
+    search_word: 検索ワード
+    edit: 編集
+    update: 更新
+    show: 詳細
+    cancel: キャンセル
+    return: 戻る
+    delete: 削除
+    delete_confirm: 削除してもよろしいですか？
+    password_reset: パスワードリセット
+    unspecified: 指定なし
+
+    flash_message:
+      created: "%{item}を作成しました"
+      not_created: "%{item}を作成出来ませんでした"
+      updated: "%{item}を更新しました"
+      not_updated: "%{item}を更新出来ませんでした"
+      deleted: "%{item}を削除しました"
+      shared: "%{item}をシェアしました"
+      not_shared: "%{item}をシェア出来ませんでした"
+      require_login: ログインしてください
+      not_authorized: 権限がありません
+      request_sent: リクエストを送信しました
+
+      characters:
+        not_found: キャラクターが見つかりません
+        not_found_with_name: キャラクター「%{name}」が見つかりません
+      team_ratings:
+        select_four_characters: 4人編成のキャラクターを選択してください
+        already_team_rated: 同じ編成の評価は既に投稿済みです

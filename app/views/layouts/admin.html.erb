@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>管理画面</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -21,16 +22,14 @@
 
       <%# メイン部分 %>
       <div class="flex flex-grow">
-        <!-- 通常のレイアウト -->
         <div class="flex w-full">
-          <!-- サイドバー -->
+          <%# サイドバー %>
           <aside class="hidden md:block w-52 min-h-screen bg-base-200 transition-all duration-300 fixed left-0 z-30">
             <%= render 'shared/sidebar' %>
           </aside>
 
-          <!-- メインコンテンツエリア -->
+          <%# メインコンテンツ %>
           <div class="flex-1 md:ml-52 w-full">
-            <%# メインコンテンツ %>
             <main class="p-4 md:p-6 overflow-x-hidden">
               <%= render 'shared/flash_message' %>
               <%= yield %>

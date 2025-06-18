@@ -12,7 +12,7 @@ class RequestsController < ApplicationController
     if @request.save
       create_character_associations
       send_request_created_notification(@request) # 通知送信を追加
-      redirect_to posts_path, notice: 'リクエストが正常に送信されました。'
+      redirect_to posts_path, notice: t('defaults.flash_message.created', item: Request.model_name.human)
     else
       @characters = Character.all.order(:name)
       render :new, status: :unprocessable_entity
@@ -49,7 +49,5 @@ class RequestsController < ApplicationController
       character_names: character_names,
       character_ids: character_ids,
     ).deliver(notification_recipients)
-
-    Rails.logger.info "新規リクエスト通知を#{notification_recipients.count}人のユーザーに送信しました"
   end
 end

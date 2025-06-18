@@ -27,13 +27,13 @@
         <li>
           <%= link_to new_post_path, data: { action: "click->loading#show" } do %>
             <i class="fas fa-external-link-alt"></i>
-            動画シェア
+            <%= t('shared.sidebar.video_share') %>
           <% end %>
         </li>
         <li>
           <%= link_to new_team_rating_path, data: { action: "click->loading#show" } do %>
             <i class="fas fa-star"></i>
-            編成評価
+            <%= t('shared.sidebar.team_rating_share') %>
           <% end %>
         </li>
       </ul>
@@ -62,19 +62,19 @@
           <li>
             <%= link_to admin_root_path, data: { action: "click->loading#show" } do %>
               <i class="fas fa-cog"></i>
-              管理者画面
+              <%= t('shared.sidebar.admin_dashboard') %>
             <% end %>
           </li>
           <li>
             <%= link_to admin_users_path, data: { action: "click->loading#show" } do %>
               <i class="fas fa-users-cog"></i>
-              ユーザー管理
+              <%= t('shared.sidebar.admin_users') %>
             <% end %>
           </li>
           <li>
             <%= link_to admin_characters_path, data: { action: "click->loading#show" } do %>
               <i class="fas fa-user-friends"></i>
-              キャラクター管理
+              <%= t('shared.sidebar.admin_characters') %>
             <% end %>
           </li>
         </ul>

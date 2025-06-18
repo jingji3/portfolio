@@ -1,7 +1,14 @@
 <div class="md:mx-4">
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-    <% @favorite_posts.each_with_index do |post, index| %>
-      <%= render 'shared/posts', post: post, index: index %>
-    <% end %>
+  <% if @favorite_posts.any? %>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      <% @favorite_posts.each_with_index do |post, index| %>
+        <%= render 'shared/posts', post: post, index: index %>
+      <% end %>
   </div>
+  <% else %>
+    <div class="text-center py-12">
+      <i class="fas fa-star text-2xl text-gray-300 mb-4"></i>
+      <p class="text-gray-500 text-lg"><%= t('.no_favorite_video') %></p>
+    </div>
+<% end %>
 </div>

@@ -1,18 +1,19 @@
 <div class="flex-1 p-4 md:mx-4">
   <div class="flex justify-between items-center">
-    <h1 class="text-2xl md:text-3xl font-bold">編成評価一覧</h1>
+    <h1 class="text-2xl md:text-3xl font-bold"><%= t('teams.index.title') %></h1>
     <div>
-      <%= link_to '編成評価をシェア', new_team_rating_path, class: "btn bg-gray-500 text-white hover:opacity-80" %>
+      <%= link_to t('defaults.share'), new_team_rating_path, class: "btn bg-gray-500 text-white hover:opacity-80" %>
     </div>
   </div>
 
   <%# 検索フォーム部分 %>
   <%= render "shared/character_search_form", characters: @characters %>
 
+  <%# 編成一覧部分 %>
   <%= turbo_frame_tag "teams-page-#{@teams.current_page}" do %>
   <% if @teams.empty? %>
     <div class="bg-base-200 bg-opacity-20 p-6 rounded-lg text-center ">
-      <p class="text-lg">まだチーム評価がありません。</p>
+      <p class="text-lg"><%= t('teams.index.no_teams') %></p>
     </div>
   <% else %>
 

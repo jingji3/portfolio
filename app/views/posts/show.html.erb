@@ -1,5 +1,5 @@
 <div class="flex-1 p-4 md:mx-4">
-  <%= link_to "戻る", posts_path, class: "btn btn-xs btn-outline" %>
+  <%= link_to t('defaults.return'), posts_path, class: "btn btn-xs btn-outline mb-2" %>
 
   <div class="overflow-hidden">
     <div class="lg:grid lg:grid-cols-3 lg:gap-4">
@@ -15,19 +15,19 @@
                 class="absolute top-0 left-0 w-full h-full rounded-lg"
                 src="https://www.youtube.com/embed/<%= youtube_id %>"
                 frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allow="accelerometer; autoplay; encrypted-media; picture-in-picture"
                 allowfullscreen>
               </iframe>
             </div>
           <% else %>
             <div class="bg-gray-200 flex items-center justify-center h-64 rounded-md">
-              <span class="text-gray-500">YouTube URLがありません</span>
+              <span class="text-gray-500"><%= t('.no_youtube') %></span>
             </div>
           <% end %>
         <% end %>
 
         <%# 投稿者チャンネル情報 %>
-        <div class="inline-flex bg-base-300 rounded-full py-1 px-4 mt-2 font-semibold">▼ 投稿者チャンネル情報 ▼</div>
+        <div class="inline-flex bg-base-300 rounded-full py-1 px-4 mt-2 font-semibold"><%= t('.creator_link') %></div>
         <% if @video_data&.items&.any? && @channel_data&.items&.any? %>
           <% video = @video_data.items.first %>
           <% channel = @channel_data.items.first %>
@@ -52,11 +52,11 @@
                   <% subscriber_count = channel.statistics.subscriber_count.to_i %>
                   <span class="text-xs text-gray-500">
                     <% if subscriber_count < 10000 %>
-                      チャンネル登録者 <%= number_with_delimiter(subscriber_count) %>
+                      <%= t('.subscribers') %> <%= number_with_delimiter(subscriber_count) %>
                     <% elsif subscriber_count < 1000000 %>
-                      チャンネル登録者 <%= (subscriber_count / 10000.0).round(1) %>万
+                      <%= t('.subscribers') %> <%= (subscriber_count / 10000.0).round(1) %>万
                     <% else %>
-                      チャンネル登録者 <%= (subscriber_count / 10000).to_i / 100.0 %>万
+                      <%= t('.subscribers') %> <%= (subscriber_count / 10000).to_i / 100.0 %>万
                     <% end %>
                   </span>
                   <% end %>
@@ -65,16 +65,16 @@
               <a href="https://www.youtube.com/channel/<%= channel.id %>?sub_confirmation=1"
                 target="_blank"
                 class="font-bold text-xs md:text-xs bg-gray-500 hover:bg-gray-400 text-white rounded-full py-2 px-2 md:px-4 shadow-lg">
-                チャンネル登録
+                <%= t('.subscribe') %>
               </a>
             </div>
           </div>
         <% end %>
       </div>
 
-      <%# おすすめ者情報 %>
+      <%# シェア情報 %>
       <div class="md:col-span-1 bg-base-200 rounded-xl shadow-lg p-4 mb-2">
-        <h2 class="text-lg font-bold mb-4 rounded-full bg-base-300 p-1 text-center">おすすめ共有情報</h2>
+        <h2 class="text-lg font-bold mb-4 rounded-full bg-base-300 p-1 text-center"><%= t('.share_info') %></h2>
         <div class="flex flex-row justify-between items-center">
           <div class="flex items-center gap-2">
             <h1 class="text-xl font-bold"><%= @post.title %></h1>
@@ -86,7 +86,7 @@
 
               <%= button_to post_path(@post),
                   method: :delete,
-                  form: { data: { turbo_confirm: "この投稿を削除してもよろしいですか？" } },
+                  form: { data: { turbo_confirm: t('defaults.delete_confirm') } },
                   class: "hover:bg-base-200" do %>
                 <i class="fas fa-trash-alt text-xl text-gray-500"></i>
               <% end %>
@@ -94,7 +94,8 @@
           </div>
         </div>
 
-        <div class="flex justify-between gap-2 items-center py-2">
+        <%# 共有者情報 %>
+        <div class="md:flex md:justify-between md:gap-2 md:items-center py-2">
           <div class="flex gap-2 items-center">
             <div class="flex-shrink-0">
               <% if @post.user.respond_to?(:avatar) && @post.user.avatar.attached? %>
@@ -111,7 +112,8 @@
               <span class="text-gray-500"><%= time_ago_in_words(@post.created_at) %>前</span>
             </div>
           </div>
-          <%# いいねボタン %>
+
+          <%# いいね,お気に入りボタン %>
           <div class="rounded-full w-auto flex justify-center bg-base-300 shadow-lg p-2">
             <div class="mx-2">
               <%= render "like_btn", post: @post, variant: :medium %>
@@ -123,8 +125,9 @@
           </div>
         </div>
 
+        <%# キャラクター情報 %>
         <div class="p-2 border-y border-gray-500">
-          <h2 class="text-lg font-semibold mb-2">使用キャラクター</h2>
+          <h2 class="text-lg font-semibold mb-2"><%= t('.characters') %></h2>
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
             <% @post.posts_to_characters.includes(:character).each do |ptc| %>
               <div class="relative flex flex-col items-center">
@@ -146,25 +149,30 @@
           </div>
         </div>
 
+        <%# おすすめポイント %>
         <div class="p-2">
           <div class="md:flex md:items-end gap-1">
-            <div class="text-lg font-semibold"><%= @post.user.user_name %></div>
-            <div class="text-md">さんのおすすめポイント</div>
+            <div class="font-semibold"><%= @post.user.user_name %></div>
+            <div class="text-sm"></div><%= t('.point') %></div>
           </div>
+
+          <%# おすすめ再生時間指定 %>
           <% if @post.youtube_start_time.present? %>
-          <div class="mt-2">
-            <div class="flex gap-1 text-md mx-1 items-center text-gray-500">
-              <p>おすすめ時間:</p>
-              <a href="#" onclick="updateVideoTime('<%= youtube_id %>', <%= @post.youtube_start_time %>); return false;" class="text-lg text-blue-600 hover:text-blue-800">
-                <%= format_time(@post.youtube_start_time) %>
-              </a>
+            <div class="mt-2">
+              <div class="flex gap-1 text-md mx-1 items-center text-gray-500">
+                <p><%= t('.point_start_time') %></p>
+                <a href="#" onclick="updateVideoTime('<%= youtube_id %>', <%= @post.youtube_start_time %>); return false;" class="text-lg text-blue-600 hover:text-blue-800">
+                  <%= format_time(@post.youtube_start_time) %>
+                </a>
+              </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
 
           <div class="text-md bg-base-300 p-2 rounded-xl mt-2">
             <%= simple_format(@post.body) %>
           </div>
+
+          <%# タグ %>
           <% if @post.tags.any? %>
             <div class="post-tags mb-4">
               <div class="flex flex-wrap gap-2">
@@ -181,7 +189,8 @@
       </div>
     </div>
   </div>
-    <!-- コメント機能 -->
+
+    <%# コメント機能 %>
     <div class="py-2 px-6">
       <div>
         <%= render 'comments/form', comment: @comment, post: @post %>
