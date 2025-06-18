@@ -1,60 +1,74 @@
-<%= form_with model: @post, local: true, class: "space-y-6" do |f| %>
-    <%= render 'shared/error_message', object: @post %>
+<%= form_with model: @post, local: true, class: "space-y-4" do |f| %>
+  <%= render 'shared/error_message', object: @post %>
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:mx-4">
+
     <div class="relative">
+
+      <%# タイトル %>
       <div class="form-group">
-        <div class="font-bold text-lg my-2"><%= f.label :title, 'タイトル' %></div>
-        <%= f.text_field :title, class: 'input input-bordered w-full md:text-lg' %>
+        <div class="font-bold text-lg my-2"><%= f.label :title %></div>
+        <%= f.text_field :title,
+            placeholder: t('posts.form.title_placeholder'),
+            class: 'input input-bordered w-full md:text-lg' %>
       </div>
 
+      <%# おすすめポイント %>
       <div class="form-group">
-        <div class="font-bold text-lg my-2"><%= f.label :body, 'おすすめポイント' %></div>
+        <div class="font-bold text-lg my-2"><%= f.label :body %></div>
         <%= f.text_area :body,
-            placeholder: "おすすめポイントを教えてください！",
+            placeholder: t('.body_placeholder'),
             class: 'input input-bordered w-full h-24 md:h-48 md:text-lg',
             rows: 6 %>
       </div>
     </div>
 
     <div class="relative">
+
+      <%# YouTubeURL %>
       <div class="form-group">
-        <div class="font-bold text-lg my-2"><%= f.label :movie_url, '動画URL' %></div>
-        <%= f.text_field :video_url, class: 'input input-bordered w-full', placeholder: 'https://www.youtube.com/watch?v=...' %>
+        <div class="font-bold text-lg my-2"><%= f.label :video_url %></div>
+        <%= f.text_field :video_url,
+            placeholder: t('.video_url_placeholder'),
+            class: 'input input-bordered w-full' %>
       </div>
 
-      <div class="p-4">
+      <div class="p-2 mx-4">
         <% if @post.video_url.present? %>
         <% youtube_id = extract_youtube_id(@post.video_url) %>
           <% if youtube_id %>
             <div class="relative w-full" style="padding-bottom: 56.25%;">
               <iframe
                 src="https://www.youtube.com/embed/<%= youtube_id %>"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen
                 class="absolute top-0 left-0 w-full h-full rounded-lg"></iframe>
             </div>
           <% end %>
         <% end %>
       </div>
+
+      <%# 再生時間指定 %>
       <%= render 'posts/form_start_time' %>
-      <div class="font-bold text-lg my-2"><%= f.label :tag, 'タグ登録' %></div>
+
+      <%# タグ登録 %>
+      <div class="font-bold text-lg my-2"><%= f.label :tag %></div>
         <%= f.text_field :tag_input,
-            placeholder: "#アクション #解説 などでタグ登録できます。",
+            placeholder: t('.tags_placeholder'),
             class: 'input input-bordered w-full' %>
     </div>
   </div>
 
-  <div class="ml-4 mr-4">
-    <h3 class="font-medium text-base-content mt-2 mb-2">
-      キャラクター
+  <div class="md:mx-4">
+
+    <%# キャラクター登録 %>
+    <h3 class="font-bold text-lg my-2">
+      <%= f.label :character %>
     </h3>
     <%= render 'posts/form_character' %>
   </div>
 
   <div class="flex justify-center gap-4">
-    <%= f.submit 'シェア', class: 'btn w-32 bg-gray-500 text-white hover:opacity-80' %>
-    <%= link_to 'キャンセル', posts_path, class: 'btn btn-soft w-32 hover:opacity-80' %>
+    <%= f.submit class: 'btn w-32 bg-gray-500 text-white hover:opacity-80' %>
+    <%= link_to t('defaults.cancel'), posts_path, class: 'btn btn-soft w-32 hover:opacity-80' %>
   </div>
 <% end %>

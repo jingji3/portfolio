@@ -77,8 +77,9 @@ class ProfilesController < ApplicationController
 
       # Userモデルのタイムスタンプを更新（キャッシュ対策）
       @user.touch
+    # エラーハンドリング
     rescue StandardError => e
-      Rails.logger.error "アバター圧縮エラー: #{e.message}"
+      Rails.logger.error "#{e.message}"
       Rails.logger.error e.backtrace.join("\n")
     end
   end

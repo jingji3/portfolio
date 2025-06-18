@@ -74,7 +74,7 @@ class PostsController < ApplicationController
     if @post.save
       create_character_associations
       check_and_complete_matching_requests(@post) # もしリクエストがあるキャラクターの編成だった場合にstatusをcompleteにする
-      redirect_to @post, notice: t('defaults.flash_message.created', item: Post.model_name.human)
+      redirect_to @post, notice: t('defaults.flash_message.shared', item: Post.model_name.human)
     else
       @characters = Character.all.order(:name)
       render :new, status: :unprocessable_entity

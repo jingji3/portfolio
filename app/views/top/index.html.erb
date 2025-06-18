@@ -1,7 +1,7 @@
-<!-- YouTube背景動画セクション（固定） -->
+<%# YouTube背景動画セクション（固定） %>
 <div class="fixed top-0 left-0 w-full h-screen z-0">
 
-  <%# YouTube背景動画 - 直接iframe %>
+  <%# YouTube背景動画 %>
   <div class="absolute inset-0 overflow-hidden">
     <iframe
       id="youtube-top-player"
@@ -16,6 +16,11 @@
   <%# 半透明オーバーレイ %>
   <div class="absolute inset-0 bg-black bg-opacity-70 z-10"></div>
 
+
+</div>
+
+<%# 動画背景用のスペース %>
+<div class="h-screen">
   <%# オーバーレイ %>
   <div class="relative flex flex-col justify-center items-center h-full z-20">
 
@@ -42,21 +47,22 @@
     <div class="mt-20 w-full px-6">
       <div class="flex gap-8">
         <div class="w-1/5 md:text-xl flex justify-center">
-          <%= link_to "Video Search", posts_path, class: 'hover:underline text-white font-semibold text-shadow-glow', data: { action: "click->loading#show" } %>
+          <%= link_to t('.video_search'), posts_path, class: 'hover:underline text-white font-semibold text-shadow-glow', data: { action: "click->loading#show" } %>
         </div>
         <div class="w-1/5 md:text-xl flex justify-center">
-          <%= link_to "Rating Search", teams_path, class: 'hover:underline text-white font-semibold text-shadow-glow', data: { action: "click->loading#show" } %>
+          <%= link_to t('.team_rating_search'), teams_path, class: 'hover:underline text-white font-semibold text-shadow-glow', data: { action: "click->loading#show" } %>
         </div>
         <div class="w-1/5 md:text-xl flex justify-center"></div>
         <div class="w-1/5 md:text-xl flex justify-center">
-          <%= link_to "Video Share", new_post_path, class: 'hover:underline text-white font-semibold text-shadow-glow', data: { action: "click->loading#show" } %>
+          <%= link_to t('.video_share'), new_post_path, class: 'hover:underline text-white font-semibold text-shadow-glow', data: { action: "click->loading#show" } %>
         </div>
         <div class="w-1/5 md:text-xl flex justify-center">
-          <%= link_to "Rating Share", new_team_rating_path, class: 'hover:underline text-white font-semibold text-shadow-glow', data: { action: "click->loading#show" } %>
+          <%= link_to t('.team_rating_share'), new_team_rating_path, class: 'hover:underline text-white font-semibold text-shadow-glow', data: { action: "click->loading#show" } %>
         </div>
       </div>
     </div>
-    <%# スクロール %>
+    
+    <%# スクロールアニメーション %>
     <div class="scroll_down" id="type07">
       <a href="#">
         <div class="arrow"></div>
@@ -66,18 +72,16 @@
       </a>
     </div>
   </div>
+
 </div>
 
-<!-- スペーサー（画面1つ分の高さ） -->
-<div class="h-screen"></div>
-
-<!-- About セクション -->
+<%# 概要セクション %>
 <section class="py-20 relative z-10 bg-base-100">
   <div class="max-w-5xl mx-auto px-6">
 
-    <!-- About -->
+    <%# About %>
     <div class="mb-20" data-aos="fade-up">
-      <h2 class="text-3xl md:text-4xl font-semibold mb-2">About - サイトについて</h2>
+      <h2 class="text-3xl md:text-4xl font-semibold mb-2"><%= t('.about') %></h2>
       <div class="w-1/5 h-px bg-gray-500 mb-10"></div>
       <p class="text-base md:text-lg leading-relaxed">
         原神プレイヤーのための<strong>効率的な情報検索</strong>と<strong>活発なコミュニケーション</strong>を実現するプラットフォームです。<br class="hidden md:block">
@@ -85,11 +89,11 @@
       </p>
     </div>
 
-    <!-- Search -->
+    <%# Search %>
     <div class="mb-20" data-aos="fade-up" data-aos-delay="100">
       <div class="grid md:grid-cols-2 font-semibold gap-8 mb-8">
         <div class="">
-          <h2 class="text-2xl md:text-3xl mb-2">Search - 編成を検索する</h2>
+          <h2 class="text-2xl md:text-3xl mb-2"><%= t('.search') %></h2>
           <div class="w-1/5 h-px bg-gray-500 mb-4"></div>
           <p class="text-lg font-medium mb-6">キャラクターを選択して、最適な編成情報を見つけてみましょう</p>
           <div class="space-y-4 mb-8">
@@ -121,13 +125,13 @@
         </div>
       </div>
 
+      <%# 最新投稿 %>
       <div class="border rounded-lg p-8 mb-8">
         <h2 class="text-2xl md:text-3xl mb-4">NEW</h2>
-
-        <!-- 最新投稿表示 -->
         <div class="grid md:grid-cols-2 gap-8">
-          <!-- 最新動画投稿 1件 -->
-          <div class="">
+
+          <%# 最新動画 1件 %>
+          <div>
             <h4 class="text-base font-medium mb-4 flex items-center">
               <i class="fas fa-video mr-2"></i>最新のおすすめ動画
             </h4>
@@ -144,7 +148,7 @@
             </div>
           </div>
 
-          <!-- 最新チーム更新 3件 -->
+          <%# 最新チーム更新 3件 %>
           <div>
             <h4 class="text-base font-medium mb-4 flex items-center">
               <i class="fas fa-users mr-2"></i>最新のチーム評価
@@ -165,17 +169,18 @@
       </div>
     </div>
 
-    <!-- Share -->
+    <%# Share %>
     <div class="mb-20" data-aos="fade-up" data-aos-delay="200">
       <div class="grid md:grid-cols-2 font-semibold gap-8">
         <div>
+
         </div>
-        <div class="">
-          <h2 class="text-2xl md:text-3xl mb-2">Share - あなたの発見を共有する</h2>
+        <div>
+          <h2 class="text-2xl md:text-3xl mb-2"><%= t('.share') %></h2>
           <div class="w-1/5 h-px bg-gray-500 mb-4"></div>
           <p class="text-lg font-medium mb-8">役立つ動画や編成評価をコミュニティと共有しよう</p>
 
-          <!-- 動画共有 -->
+          <%# 動画共有 %>
           <div class="mb-8">
             <h3 class="text-lg font-medium mb-4">動画共有</h3>
             <div class="space-y-3">
@@ -190,7 +195,7 @@
             </div>
           </div>
 
-          <!-- 編成評価 -->
+          <%# 編成評価 %>
           <div class="mb-8">
             <h3 class="text-lg font-medium mb-4">編成評価</h3>
             <div class="space-y-3">
@@ -205,7 +210,7 @@
             </div>
           </div>
 
-          <!-- ログインボタン -->
+          <%# ログインorリンクボタン %>
           <div class="pt-6 border-t border-gray-200">
             <% if user_signed_in? %>
               <div class="flex flex-col sm:flex-row gap-3 justify-center">
@@ -226,11 +231,11 @@
       </div>
     </div>
 
-    <!-- Request -->
+    <%# Request %>
     <div class="mb-20" data-aos="fade-up" data-aos-delay="300">
       <div class="grid md:grid-cols-2 gap-8">
         <div class="">
-          <h2 class="text-2xl md:text-3xl font-semibold mb-2">Request - 欲しい情報をリクエスト</h2>
+          <h2 class="text-2xl md:text-3xl font-semibold mb-2"><%= t('.request') %></h2>
           <div class="w-1/5 h-px bg-gray-500 mb-4"></div>
           <p class="text-lg font-medium mb-6">探している編成動画が見つからない時は</p>
           <p class="text-sm leading-relaxed">編成を検索して目当ての動画が見つからない場合、コミュニティにリクエストを送信できます。通知設定をオンにしているユーザーがリクエストを受け取り、情報提供してくれるかもしれません。</p>
@@ -241,13 +246,12 @@
       </div>
     </div>
 
-    <!-- Feature -->
+    <%# Feature %>
     <div class="mb-20" data-aos="fade-up" data-aos-delay="400">
-      <h2 class="text-2xl md:text-3xl font-semibold mb-2">Feature - このサイトを作った理由</h2>
+      <h2 class="text-2xl md:text-3xl font-semibold mb-2"><%= t('.feature') %></h2>
       <div class="w-1/5 h-px bg-gray-500 mb-8"></div>
 
       <div class="grid md:grid-cols-3 gap-4">
-        <!-- 開発者の体験 -->
         <div class="p-4 bg-base-300 rounded-lg">
           <h3 class="text-lg font-medium mb-4">体験から生まれたソリューション</h3>
           <p class="text-sm mb-4 leading-relaxed">
@@ -268,7 +272,6 @@
           </p>
         </div>
 
-        <!-- 双方向コミュニケーション -->
         <div class="p-4 bg-base-300 rounded-lg">
           <h3 class="text-lg font-medium mb-4">一方通行から双方向のコミュニケーションへ</h3>
           <p class="text-sm leading-relaxed">
@@ -276,7 +279,6 @@
           </p>
         </div>
 
-        <!-- 推しクリエイター応援 -->
         <div class="p-4 bg-base-300 rounded-lg">
           <h3 class="text-lg font-medium mb-4">推しクリエイターを応援したい</h3>
           <p class="text-sm leading-relaxed">

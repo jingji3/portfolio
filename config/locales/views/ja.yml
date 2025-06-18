@@ -1,34 +1,9 @@
 ja:
-  helpers:
-    submit:
-      create: 登録
-      submit: 保存
-      update: 更新
-    label:
-      email: メールアドレス
-      password: パスワード
-  defaults:
-    create: 作成
-    post: 投稿
-    search_word: 検索ワード
-    edit: 編集
-    show: 詳細
-    delete: 削除
-    delete_confirm: 削除しますか？
-    password_reset: パスワードリセット
-    unspecified: 指定なし
-    flash_message:
-      created: "%{item}を作成しました"
-      not_created: "%{item}を作成出来ませんでした"
-      updated: "%{item}を更新しました"
-      not_updated: "%{item}を更新出来ませんでした"
-      deleted: "%{item}を削除しました"
-      require_login: ログインしてください
-      not_authorized: 権限がありません
   user_sessions:
     new:
       title: ログイン
       login: ログイン
+      google_login: Googleでログイン
       to_register_page: 登録ページへ
       password_forget: パスワードをお忘れの方はこちら
     create:
@@ -36,6 +11,7 @@ ja:
       failure: ログインに失敗しました
     destroy:
       success: ログアウトしました
+
   users:
     new:
       title: ユーザー登録
@@ -43,26 +19,14 @@ ja:
     create:
       success: ユーザー登録が完了しました
       failure: ユーザー登録に失敗しました
-  top:
-    index:
-      video_search: 編成動画検索
-      team_search: 編成一覧検索
-      video_share: おすすめ動画シェア
-      team_rating: 編成評価シェア
-  posts:
-    new:
-      title: 動画タイトル
-      body: おすすめポイント
-      video_url: 動画URL
-    edit:
-      title: 動画タイトル
-      body: おすすめポイント
-      video_url: 動画URL
+
   profiles:
     show:
       title: プロフィール
     edit:
       title: プロフィール編集
+      receive_request_notifications: リクエスト通知を受け取る
+
   password_resets:
     new:
       title: パスワードリセット申請
@@ -73,17 +37,107 @@ ja:
       success: パスワードリセット手順を送信しました。もし届いていない場合は迷惑メールフォルダも合わせてご確認ください。
     update:
       success: パスワードを変更しました
-  header:
-    title: GTS
-    login: login
-    logout: logout
-    bookmark_index: ブックマーク一覧
-    setting: ユーザー設定
-    video_search: 編成動画検索
-    team_search: 編成一覧検索
-    video_share: おすすめ動画シェア
-    team_rating: 編成評価シェア
-  footer:
-    term_of_use: 利用規約
-    privacy_policy: プライバシーポリシー
-    contact: お問い合わせ
+
+  top:
+    index:
+      video_search: Video Search
+      team_rating_search: Rating Search
+      video_share: Video Share
+      team_rating_share: Rating Share
+      about: About - サイトについて
+      search: Search - 編成を検索する
+      share: Share - あなたの発見を共有する
+      request: Request - 欲しい情報をリクエスト
+      feature: Feature - このサイトを作った理由
+
+  posts:
+    index:
+      title: 編成動画検索
+      request: 動画リクエストを送る
+      request_login: ログインして動画リクエストを送る
+      no_posts: おすすめ動画はまだありません
+      no_posts_with_characters: 選択したキャラクターの編成はまだありません
+    show:
+      no_youtube: YouTube URLがありません
+      creator_link: ▼ 動画投稿者チャンネル情報 ▼
+      subscribers: チャンネル登録者
+      subscribe: チャンネル登録
+      share_info: シェア情報
+      characters: 使用キャラクター
+      point: さんのおすすめポイント
+      point_start_time: おすすめ時間：
+    new:
+      title: おすすめ動画シェア
+    edit:
+      title: おすすめ動画情報編集
+    form:
+      title_placeholder: 共有タイトルを記入
+      body_placeholder: 「アクションがすごい」「解説が丁寧」など
+      video_url_placeholder: https://www.youtube.com/watch?v=...
+      tags_placeholder: "#アクション #解説 などでタグ登録できます"
+    form_start_time:
+      start_time: 再生開始時間指定
+      start_time_hours: 時間
+      start_time_minutes: 分
+      start_time_seconds: 秒
+      start_time_memo: 見てほしいポイントの再生時間で設定できます
+    form_character:
+      characters: キャラクター選択
+
+  comments:
+    title: コメント
+    counts: 件
+    return: 返信
+    return_placeholder: 返信を入力
+    edited: 前に編集
+
+  requests:
+    new:
+      title: 動画をリクエスト
+      characters: リクエストする編成
+    create:
+      success: リクエストを送信しました
+      failure: リクエストの送信に失敗しました
+
+  teams:
+    index:
+      title: 編成評価検索
+      no_teams: まだ編成評価がありません
+    show:
+      title: 編成評価詳細
+      characters: 編成メンバー
+      average_rating: 平均評価
+      index_rating: 評価一覧
+      no_rating:: まだ評価がありません
+      share_rating: 評価する
+      user_rating: さんの評価
+      no_user_rating: さんの評価はまだありません
+      others_rating: みんなの評価
+
+  team_ratings:
+    new:
+      title: 編成評価シェア
+      characters: 編成メンバー
+      star_memo: 星の左側をクリックすると0.5刻みの評価ができます
+
+  mypage:
+    index:
+      title: マイページ
+      video_share: おすすめ動画
+      team_rating: 編成評価
+      favorite: お気に入り
+      request_notice: リクエスト通知
+    tab_posts:
+      new_video_share: 新しいおすすめ動画をシェアする
+      no_video_share: シェアしたおすすめ動画はありません
+    tab_team_ratings:
+      new_team_rating_share: 新しい編成評価をシェアする
+      no_team_rating_share: シェアした編成評価はありません
+    tab_favorites:
+      no_favorite_video: お気に入りはありません
+    tab_notifications:
+      no_notifications: 通知はありません
+
+  image_field:
+      view_image: 現在の画像
+      no_image: 画像なし

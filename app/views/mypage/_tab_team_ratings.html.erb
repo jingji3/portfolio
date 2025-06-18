@@ -1,28 +1,36 @@
 <div class="md:mx-4">
-  <div class="mb-4">
-    <%= link_to "新しい編成評価をシェアする", new_team_rating_path, class: "btn bg-gray-500 w-full text-white hover:opacity-80" %>
+  <div class="flex justify-center mb-4">
+    <%= link_to t('.new_team_rating_share'), new_team_rating_path, class: "btn bg-gray-500 w-auto text-white hover:opacity-80" %>
   </div>
-  <% @team_ratings.each_with_index do |team_rating, index| %>
-    <%= link_to team_path(team_rating.team), data: { turbo_frame: "_top" } do %>
-      <div class="grid lg:grid-cols-2 bg-base-200 rounded-lg overflow-hidden shadow-lg hover:translate-y-[-4px] transition-transform duration-300 m-4" data-aos="fade-up" data-aos-delay="<%= index * 100 %>">
-        <div class="p-4 flex flex-col justify-center">
-          <div class="flex items-center mb-2">
-            <span class="text-2xl text-yellow-400 mr-2">★</span>
-            <span class="text-2xl font-bold"><%= team_rating.rating %></span>
-          </div>
-          <div>
-            <%= simple_format(team_rating.body, class: "text-sm") %>
-          </div>
-        </div>
 
-        <div class="p-4 grid grid-cols-4 gap-2 items-center">
-          <% team_rating.team.characters.each_with_index do |character, index| %>
-            <div class="relative" data-aos="fade" data-aos-delay="<%= 1000 + index * 100 %>">
-              <%= image_tag character.display_image, class: "w-full h-auto object-contain max-h-24" %>
+  <% if @team_ratings.any? %>
+    <% @team_ratings.each_with_index do |team_rating, index| %>
+      <%= link_to team_path(team_rating.team), data: { turbo_frame: "_top" } do %>
+        <div class="grid lg:grid-cols-2 bg-base-200 rounded-lg overflow-hidden shadow-lg hover:translate-y-[-4px] transition-transform duration-300 m-4" data-aos="fade-up" data-aos-delay="<%= index * 100 %>">
+          <div class="p-4 flex flex-col justify-center">
+            <div class="flex items-center mb-2">
+              <span class="text-2xl text-yellow-400 mr-2">★</span>
+              <span class="text-2xl font-bold"><%= team_rating.rating %></span>
             </div>
-          <% end %>
+            <div>
+              <%= simple_format(team_rating.body, class: "text-sm") %>
+            </div>
+          </div>
+
+          <div class="p-4 grid grid-cols-4 gap-2 items-center">
+            <% team_rating.team.characters.each_with_index do |character, index| %>
+              <div class="relative" data-aos="fade" data-aos-delay="<%= 1000 + index * 100 %>">
+                <%= image_tag character.display_image, class: "w-full h-auto object-contain max-h-24" %>
+              </div>
+            <% end %>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
+  <% else %>
+    <div class="text-center py-12">
+      <i class="fas fa-users text-2xl text-gray-300 mb-4"></i>
+      <p class="text-gray-500 text-lg"><%= t('.no_video_share') %></p>
+    </div>
   <% end %>
 </div>

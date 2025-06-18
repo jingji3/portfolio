@@ -1,8 +1,8 @@
 <div class="flex-1 p-4 md:mx-4">
   <div class="flex justify-between items-center">
-    <h1 class="text-2xl md:text-3xl font-bold">編成動画検索</h1>
+    <h1 class="text-2xl md:text-3xl font-bold"><%= t('.title') %></h1>
     <div>
-      <%= link_to 'シェアする', new_post_path, class: "btn bg-gray-500 text-white hover:opacity-80" %>
+      <%= link_to t('defaults.share'), new_post_path, class: "btn bg-gray-500 text-white hover:opacity-80" %>
     </div>
   </div>
 
@@ -10,41 +10,41 @@
   <%= render "shared/character_search_form", characters: @characters %>
 
   <%# 投稿一覧部分 %>
-  <div>
-    <div class="flex my-4">
-      <h2 class="text-xl font-bold">おすすめ動画一覧</h2>
-    </div>
-
+  <div class="mt-4">
     <%# 投稿カードのグリッド %>
     <div data-controller="aos-frame">
       <%= turbo_frame_tag "posts-page-#{@posts.current_page}" do %>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        <% if @posts.present? %>
+
+      <% if @posts.present? %>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           <% @posts.each_with_index do |post, index| %>
             <%= render 'shared/posts', post: post, index: index %>
           <% end %>
-        <% elsif @posts.empty? && params[:character1].present? || params[:character2].present? || params[:character3].present? || params[:character4].present? %>
-          <div class="flex justify-center mx-auto text-center p-8" data-aos="fade-in" data-aos-delay="300">
-            <% if user_signed_in? %>
-              <%= link_to "動画リクエストを送信",
-                          new_request_path(
-                            character1: params[:character1],
-                            character2: params[:character2],
-                            character3: params[:character3],
-                            character4: params[:character4]
-                          ),
-                          class: "btn bg-gray-500 text-white hover:opacity-80",
-                          data: { turbo_frame: "_top" } %>
-            <% else %>
-              <%= link_to "ログインしてリクエスト送信", login_path, class: "btn bg-gray-500 text-white hover:opacity-80", data: { turbo_frame: "_top" } %>
-            <% end %>
-          </div>
-        <% else %>
-          <div class="flex justify-center text-center p-8">
-            投稿がまだありません。
-          </div>
-        <% end %>
-      </div>
+        </div>
+      <% elsif @posts.empty? && params[:character1].present? || params[:character2].present? || params[:character3].present? || params[:character4].present? %>
+        <div class="flex flex-col justify-center text-center p-8" data-aos="fade-in" data-aos-delay="300">
+          <% if user_signed_in? %>
+            <p class="text-gray-500 mb-4"><%= t('.no_posts_with_characters') %></p>
+            <%= link_to t('.request'),
+                        new_request_path(
+                          character1: params[:character1],
+                          character2: params[:character2],
+                          character3: params[:character3],
+                          character4: params[:character4]
+                        ),
+                        class: "btn bg-gray-500 mx-auto text-white hover:opacity-80",
+                        data: { turbo_frame: "_top" } %>
+          <% else %>
+            <p class="text-gray-500 mb-4"><%= t('.no_posts_with_characters') %></p>
+            <%= link_to t('.request_login'), login_path, class: "btn bg-gray-500 mx-auto text-white hover:opacity-80", data: { turbo_frame: "_top" } %>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="flex justify-center text-center p-8">
+          <%= t('.no_posts') %>
+        </div>
+      <% end %>
+
       <%= turbo_frame_tag "posts-page-#{@posts.next_page}", loading: :lazy, src: path_to_next_page(@posts) %>
       <% end %>
     </div>

@@ -11,6 +11,7 @@
                   <h3 class="font-semibold text-base md:text-xl"><%= notification.event.title %></h3>
                   <span class="text-xs text-gray-500 w-20"><%= time_ago_in_words(notification.created_at) %>前</span>
                 </div>
+
                 <%# キャラクター画像 %>
                 <% if notification.event.params[:character_ids].present? %>
                   <% character_ids = notification.event.params[:character_ids] %>
@@ -45,8 +46,8 @@
     </div>
   <% else %>
     <div class="text-center py-12">
-      <i class="fas fa-bell-slash text-6xl text-gray-300 mb-4"></i>
-      <p class="text-gray-500 text-lg">通知はありません</p>
+      <i class="fas fa-bell-slash text-2xl text-gray-300 mb-4"></i>
+      <p class="text-gray-500 text-lg"><%= t('.no_notifications') %></p>
     </div>
   <% end %>
 </div>

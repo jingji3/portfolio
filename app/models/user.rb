@@ -25,8 +25,7 @@ class User < ApplicationRecord
                        if: -> { (new_record? || changes[:crypted_password]) && !oauth_login }
   validates :password, format: {
                          with: /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>\-+_=;:'"])[A-Za-z\d!@#$%^&*(),.?":{}|<>\-+_=;:'"]{8,}\z/,
-                         message: 'は8文字以上で、英小文字・英大文字・数字・記号をそれぞれ1つ以上含む必要があります'
-                       },
+                         },
                        if: -> { (new_record? || changes[:crypted_password]) && !oauth_login }
   validates :password, confirmation: true,
                        if: -> { (new_record? || changes[:crypted_password]) && !oauth_login }
@@ -34,11 +33,8 @@ class User < ApplicationRecord
                                     if: -> { (new_record? || changes[:crypted_password]) && !oauth_login }
   validates :user_name, presence: true, length: { maximum: 255 }
   validates :email, presence: true, uniqueness: true
-  validates :avatar, content_type: { in: %w[image/jpeg image/gif image/png image/webp],
-                                     message: 'は有効な画像形式である必要があります' },
-                     size: { less_than: 5.megabytes,
-                             message: 'は5MB未満である必要があります' },
-                             allow_blank: true
+  validates :avatar, content_type: { in: %w[image/jpeg image/gif image/png image/webp] },
+                     size: { less_than: 5.megabytes }, allow_blank: true
   validates :reset_password_token, uniqueness: true, allow_nil: true
 
   enum role: { general: 0, admin: 1 }
@@ -96,8 +92,6 @@ class User < ApplicationRecord
     # 複数のリクエストがあれば、それぞれを完了状態にして通知
     matching_requests.each do |request|
       request.update!(status: :completed)
-      # 完了通知を送信
-      Rails.logger.info("リクエスト完了通知: #{request.id}")
     end
   end
 end

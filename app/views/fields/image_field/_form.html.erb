@@ -1,7 +1,7 @@
 <% if f.object.send(field.attribute).attached? %>
   <div class="mb-4">
     <label class="label">
-      <span class="label-text font-medium">現在の画像</span>
+      <span class="label-text font-medium"><%= t('image_field.view_image') %></span>
     </label>
     <% image_tag f.object.send(field.attribute), class: "w-40 h-40 object-cover rounded-lg mb-2" %>
   </div>

@@ -24,7 +24,7 @@ class TeamRatingsController < ApplicationController
     if character_ids.size != 4
       # セッションにキャラIDを保存して、リダイレクト
       session[:selected_character_ids] = character_ids
-      return redirect_to new_team_rating_path, alert: '4体のキャラクターを選択してください'
+      return redirect_to new_team_rating_path, alert: t('defaults.flash_message.team_ratings.select_four_characters')
     end
 
     # キャラクターIDからチームを検索する
@@ -33,7 +33,7 @@ class TeamRatingsController < ApplicationController
     if team && current_user.team_ratings.exists?(team_id: team.id)
       # セッションにキャラIDを保存して、リダイレクト
       session[:selected_character_ids] = character_ids
-      return redirect_to new_team_rating_path, alert: '同じキャラクター編成に対する評価は既に投稿済みです'
+      return redirect_to new_team_rating_path, alert: t('defaults.flash_message.team_ratings.already_team_rated')
     end
 
     # データベース処理をトランザクションで囲む
@@ -55,7 +55,7 @@ class TeamRatingsController < ApplicationController
       end
 
       session.delete(:selected_character_ids)
-      redirect_to team_path(team), notice: 'チーム評価を投稿しました'
+      redirect_to team_path(team), notice: t('defaults.flash_message.created', item: TeamRating.model_name.human)
     rescue StandardError => e
       # エラーメッセージを表示
       e.message
@@ -63,7 +63,7 @@ class TeamRatingsController < ApplicationController
 
       # セッションにキャラIDを保存して、リダイレクト
       session[:selected_character_ids] = character_ids
-      redirect_to new_team_rating_path, alert: '評価の保存に失敗しました'
+      redirect_to new_team_rating_path, alert: t('defaults.flash_message.not_created', item: TeamRating.model_name.human)
     end
   end
 
@@ -75,7 +75,7 @@ class TeamRatingsController < ApplicationController
     @team = @team_rating.team
 
     if @team_rating.update(team_rating_params)
-      redirect_to team_path(@team), notice: 'チーム評価を更新しました'
+      redirect_to team_path(@team), notice: t('defaults.flash_message.updated', item: TeamRating.model_name.human)
     else
       render :edit, status: :unprocessable_entity
     end
@@ -86,7 +86,7 @@ class TeamRatingsController < ApplicationController
     @team_rating_id = @team_rating.id
     @team_rating.destroy
 
-    redirect_to team_path(@team), notice: 'チーム評価を削除しました'
+    redirect_to team_path(@team), notice: t('defaults.flash_message.deleted', item: TeamRating.model_name.human)
   end
 
   private

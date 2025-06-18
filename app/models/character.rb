@@ -15,7 +15,7 @@ class Character < ApplicationRecord
   enum element: { Pyro: 0, Hydro: 1, Cryo: 2, Electro: 3, Anemo: 4, Geo: 5, Dendro: 6 }
   enum version_half: { First: 0, Second: 1 }
 
-  validate :image_type
+  validates :character_img, content_type: { in: %w[image/jpeg image/png image/webp] }, allow_blank: true
 
   def display_image(size = :normal)
     return nil unless character_img.attached?
@@ -31,12 +31,6 @@ class Character < ApplicationRecord
   end
 
   private
-
-  def image_type
-    return unless character_img.attached? && !character_img.content_type.in?(%w[image/jpeg image/png])
-
-    errors.add(:image, 'はJPEGまたはPNG形式である必要があります')
-  end
 
   # Ransackで検索可能な関連を定義
   def self.ransackable_attributes(_auth_object = nil)

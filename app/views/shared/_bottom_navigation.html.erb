@@ -6,7 +6,7 @@
         class: "flex flex-col items-center justify-center space-y-1 hover:bg-base-content/10 w-1/5",
         data: { action: "click->loading#show" } do %>
       <i class="fab fa-youtube text-lg"></i>
-      <span class="text-xs">動画</span>
+      <span class="text-xs"><%= t('.video_search') %></span>
     <% end %>
 
     <%# 編成評価 %>
@@ -14,26 +14,26 @@
         class: "flex flex-col items-center justify-center space-y-1 hover:bg-base-content/10 w-1/5",
         data: { action: "click->loading#show" } do %>
       <i class="fas fa-users text-lg"></i>
-      <span class="text-xs">編成</span>
+      <span class="text-xs"><%= t('.team_rating_search') %></span>
     <% end %>
 
     <%# シェア %>
     <div class="dropdown dropdown-top dropdown-end w-1/5">
       <div tabindex="0" role="button" class="flex flex-col items-center justify-center space-y-1 hover:bg-base-content/10 w-full h-full">
         <i class="fas fa-plus-circle text-lg"></i>
-        <span class="text-xs">シェア</span>
+        <span class="text-xs"><%= t('.share') %></span>
       </div>
       <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-48 mb-2">
         <li>
           <%= link_to new_post_path, data: { action: "click->loading#show" } do %>
             <i class="fas fa-external-link-alt"></i>
-            動画シェア
+            <%= t('.video_share') %>
           <% end %>
         </li>
         <li>
           <%= link_to new_team_rating_path, data: { action: "click->loading#show" } do %>
             <i class="fas fa-star"></i>
-            編成評価
+            <%= t('.team_rating_share') %>
           <% end %>
         </li>
       </ul>
@@ -44,7 +44,7 @@
         class: "flex flex-col items-center justify-center space-y-1 hover:bg-base-content/10 w-1/5",
         data: { action: "click->loading#show" } do %>
       <i class="fas fa-home text-lg"></i>
-      <span class="text-xs">MyPage</span>
+      <span class="text-xs"><%= t('.mypage') %></span>
     <% end %>
 
     <%# 管理者 %>
@@ -52,25 +52,25 @@
       <div class="dropdown dropdown-top dropdown-end w-1/5">
         <div tabindex="0" role="button" class="flex flex-col items-center justify-center space-y-1 hover:bg-base-content/10 w-full h-full">
           <i class="fas fa-user-lock text-lg"></i>
-          <span class="text-xs">管理者</span>
+          <span class="text-xs"><%= t('.admin') %></span>
         </div>
         <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-48 mb-2">
           <li>
             <%= link_to admin_root_path, data: { action: "click->loading#show" } do %>
               <i class="fas fa-cog"></i>
-              管理者画面
+              <%= t('.admin_dashboard') %>
             <% end %>
           </li>
           <li>
             <%= link_to admin_users_path, data: { action: "click->loading#show" } do %>
               <i class="fas fa-users-cog"></i>
-              ユーザー管理
+              <%= t('.admin_users') %>
             <% end %>
           </li>
           <li>
             <%= link_to admin_characters_path, data: { action: "click->loading#show" } do %>
               <i class="fas fa-user-friends"></i>
-              キャラクター管理
+              <%= t('.admin_characters') %>
             <% end %>
           </li>
         </ul>

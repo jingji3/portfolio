@@ -18,6 +18,10 @@ module JingjiPortfolio
       config.autoload_paths << Rails.root.join('lib')
     end
 
+    # i18nファイルの読み込みパスを追加
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+
+    # デフォルトのロケールを設定
     config.i18n.default_locale = :ja
 
     config.active_storage.variant_processor = :vips

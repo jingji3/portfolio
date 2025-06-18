@@ -1,0 +1,60 @@
+ja:
+  shared:
+    header:
+      title: GTS
+      login: Login
+      logout: ログアウト
+      profile: プロフィール設定
+      mypage: マイページ
+      request_notice: リクエスト通知
+
+    sidebar:
+      search: -検索-
+      video_search: 編成動画検索
+      team_rating_search: 編成評価検索
+      share: -シェア-
+      video_share: おすすめ編成動画
+      team_rating_share: 編成評価
+      mypage: マイページ
+      admin: -管理者-
+      admin_dashboard: 管理者画面
+      admin_users: ユーザー管理
+      admin_characters: キャラクター管理
+      admin_posts: おすすめ動画管理
+      admin_team_ratings: 編成評価管理
+      term_of_use: 利用規約
+      privacy_policy: プライバシーポリシー
+      contact: お問い合わせ
+
+    bottom_navigation:
+      video_search: 動画
+      team_rating_search: 編成
+      share: シェア
+      video_share: おすすめ動画
+      team_rating_share: 編成評価
+      mypage: マイページ
+      admin: 管理者
+      admin_dashboard: 管理者画面
+      admin_users: ユーザー管理
+      admin_characters: キャラクター管理
+      admin_posts: おすすめ動画管理
+      admin_team_ratings: 編成評価管理
+
+    footer:
+      term_of_use: 利用規約
+      privacy_policy: プライバシーポリシー
+      contact: お問い合わせ
+
+    character_search_form:
+      title: 検索キャラクター
+      select_character: キャラクター検索
+
+    posts:
+      creator: 投稿者
+      no_youtube: YouTube URLがありません
+
+    teams:
+      rating_share: 評価する
+      rating_end: 評価済み
+      rating: 評価
+      count: 件

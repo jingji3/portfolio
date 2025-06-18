@@ -1,6 +1,6 @@
 <%# 検索フォーム部分 %>
 <div class="p-4 md:mx-12">
-  <h2 class="flex justify-center text-xl font-bold mb-2">検索キャラクター</h2>
+  <h2 class="flex justify-center text-xl font-bold mb-2"><%= t('.title') %></h2>
 
   <%# 該当のコントローラを自動で指定 %>
   <%= form_with url: url_for(controller: controller.controller_name, action: :index),
@@ -15,15 +15,17 @@
           <div class="w-full">
             <%= select_tag "character#{i+1}",
                       options_from_collection_for_select(@characters, :id, :name, params["character#{i+1}"]),
-                      include_blank: 'キャラクター選択',
+                      include_blank: t('.select_character'),
                       class: 'select-bordered w-full h-10 character-select',
                       data: {
                         character_selector_target: "select",
                         action: "change->character-selector#change"
                       } %>
           </div>
+
+          <%# キャラクター画像を表示 %>
           <div data-character-selector-target="container"
-                class="character-image-container h-24 flex items-center justify-center hidden">
+                class="character-image-container h-24 flex items-center justify-center hidden mt-2">
             <img data-character-selector-target="image"
                   class="character-image h-full object-contain"
                   alt="キャラクター画像">
@@ -32,7 +34,7 @@
       <% end %>
     </div>
     <div class="flex mt-4">
-      <button type="submit" class="btn btn-sm mx-auto w-48 bg-gray-500 text-white hover:opacity-80">検索</button>
+      <button type="submit" class="btn btn-sm mx-auto w-48 bg-gray-500 text-white hover:opacity-80"><%= t('defaults.search') %></button>
     </div>
   <% end %>
 </div>
