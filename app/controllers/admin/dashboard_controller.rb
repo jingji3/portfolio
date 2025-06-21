@@ -9,19 +9,19 @@ module Admin
 
     def index
       @user_count = User.count
-      @admin_count = User.where(role: 1).count
-      @recent_users = User.order(created_at: :desc).limit(5)
-      @recent_characters = Character.order(created_at: :desc).limit(5)
+      @post_count = Post.count
+      @team_rating_count = TeamRating.count
+      @team_count = Team.count
     end
 
     private
 
     def require_admin
-      redirect_to root_path, alert: "管理者権限が必要です" unless current_user&.admin?
+      redirect_to root_path, alert: t('admin.dashboard.require_admin') unless current_user&.admin?
     end
 
     def require_login
-      redirect_to login_path, alert: "ログインしてください" unless current_user
+      redirect_to login_path, alert: t('admin.dashboard.require_login') unless current_user
     end
   end
 end

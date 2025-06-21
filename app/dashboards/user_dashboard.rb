@@ -11,7 +11,7 @@ class UserDashboard < Administrate::BaseDashboard
     id: Field::Number,
     crypted_password: Field::String,
     email: Field::String,
-    role: Field::Select.with_options(searchable: false, collection: ->(field) { field.resource.class.send(field.attribute.to_s.pluralize).keys }),
+    role: EnumField,
     salt: Field::String,
     user_name: Field::String,
     password: Field::Password,
@@ -90,5 +90,9 @@ class UserDashboard < Administrate::BaseDashboard
   # end
   def self.searchable_attributes
     %i[name email]
+  end
+
+  def display_resource(user)
+    user.user_name
   end
 end

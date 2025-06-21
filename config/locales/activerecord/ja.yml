@@ -10,7 +10,7 @@ ja:
       tag: タグ
       team: 編成
       team_rating: 編成評価
-      requests: リクエスト
+      request: リクエスト
 
     attributes:
       user:
@@ -39,12 +39,21 @@ ja:
         youtube_start_time: 再生開始時間
         tag: タグ登録
         character: 使用キャラクター
+        characters: 使用キャラクター
+        user: 投稿者
 
       comment:
         comment: コメント
+        user: コメント者
+        parent: 親コメント
+        post: おすすめ動画
 
       request:
         message: リクエスト内容
+        user: リクエスト者
+        characters: キャラクター
+        status: 状態
+
 
       tag:
         name: タグ名
@@ -53,14 +62,16 @@ ja:
         body: コメント
         rating: 評価
         character: 編成メンバー
+        user: 投稿者
 
       team:
         name: 編成名
         body: 編成内容
+        characters: メンバー
 
     enums:
       character:
-        element:
+        elements:
           Pyro: 炎
           Hydro: 水
           Cryo: 氷
@@ -68,13 +79,14 @@ ja:
           Anemo: 風
           Geo: 岩
           Dendro: 草
-        version_half:
+        version_halves:
           First: 前半
           Second: 後半
       user:
-        role:
+        roles:
           general: 一般
           admin: 管理者
+
 
     errors:
       models:

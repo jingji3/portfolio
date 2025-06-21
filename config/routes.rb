@@ -89,6 +89,12 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :posts
+    resources :teams
+    resources :team_ratings
+    resources :requests
+    resources :comments
+
     root to: 'dashboard#index'
   end
 end

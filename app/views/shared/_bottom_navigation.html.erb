@@ -54,25 +54,15 @@
           <i class="fas fa-user-lock text-lg"></i>
           <span class="text-xs"><%= t('.admin') %></span>
         </div>
-        <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-48 mb-2">
-          <li>
-            <%= link_to admin_root_path, data: { action: "click->loading#show" } do %>
-              <i class="fas fa-cog"></i>
-              <%= t('.admin_dashboard') %>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to admin_users_path, data: { action: "click->loading#show" } do %>
-              <i class="fas fa-users-cog"></i>
-              <%= t('.admin_users') %>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to admin_characters_path, data: { action: "click->loading#show" } do %>
-              <i class="fas fa-user-friends"></i>
-              <%= t('.admin_characters') %>
-            <% end %>
-          </li>
+        <ul tabindex="0" class="dropdown-content menu text-sm p-2 shadow bg-base-100 rounded-box w-48 mb-2">
+          <li><%= link_to t('.admin_dashboard'), admin_root_path, data: { action: "click->loading#show" } %></li>
+          <li><%= link_to t('.admin_users'), admin_users_path, data: { action: "click->loading#show" } %></li>
+          <li><%= link_to t('.admin_characters'), admin_characters_path, data: { action: "click->loading#show" } %></li>
+          <li><%= link_to t('.admin_posts'), admin_posts_path, data: { action: "click->loading#show" } %></li>
+          <li><%= link_to t('.admin_comments'), admin_comments_path, data: { action: "click->loading#show" } %></li>
+          <li><%= link_to t('.admin_teams'), admin_teams_path, data: { action: "click->loading#show" } %></li>
+          <li><%= link_to t('.admin_team_ratings'), admin_team_ratings_path, data: { action: "click->loading#show" } %></li>
+          <li><%= link_to t('.admin_requests'), admin_requests_path, data: { action: "click->loading#show" } %></li>
         </ul>
       </div>
     <% end %>

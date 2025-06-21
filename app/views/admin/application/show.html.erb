@@ -1,21 +1,3 @@
-<%#
-# Show
-
-This view is the template for the show page.
-It renders the attributes of a resource,
-as well as a link to its edit page.
-
-## Local variables:
-
-- `page`:
-  An instance of [Administrate::Page::Show][1].
-  Contains methods for accessing the resource to be displayed on the page,
-  as well as helpers for describing how each attribute of the resource
-  should be displayed.
-
-[1]: http://www.rubydoc.info/gems/administrate/Administrate/Page/Show
-%>
-
 <% content_for(:title) { t("administrate.actions.show_resource", name: page.page_title) } %>
 
 <header class="container mx-auto px-4 py-8">
@@ -27,16 +9,25 @@ as well as a link to its edit page.
     <%= link_to(
       t("administrate.actions.edit_resource", name: page.page_title),
       [:edit, namespace, page.resource],
-      class: "btn btn-primary",
+      class: "btn bg-gray-500 text-white hover:opacity-80",
     ) if accessible_action?(page.resource, :edit) %>
+
+    <%= link_to(
+      t("administrate.actions.new_resource",
+        name: page.resource_name.to_s.titleize.downcase),
+      [:new, namespace, page.resource_path.to_sym],
+      class: "btn bg-gray-500 text-white hover:opacity-80",
+      ) if valid_action?(:new) && show_action?(:new, new_resource) %>
 
     <%= button_to(
       t("administrate.actions.destroy"),
       [namespace, page.resource],
-      class: "btn btn-error",
+      class: "btn btn-soft hover:opacity-80",
       method: :delete,
       data: { confirm: t("administrate.actions.confirm") }
     ) if accessible_action?(page.resource, :destroy) %>
+
+    <%= link_to t("administrate.actions.back"), url_for(action: :index), class: "btn btn-outline" %>
   </div>
 </header>
 
@@ -48,17 +39,17 @@ as well as a link to its edit page.
           <legend class="text-lg font-medium px-2"><%= t "helpers.label.#{page.resource_name}.#{title}", default: title %></legend>
         <% end %>
 
-        <div class="grid grid-cols-1 gap-6 mb-6">
+        <div class="mb-6">
           <% attributes.each do |attribute| %>
-            <div class="flex flex-row items-start gap-4">
-              <dt class="form-control w-1/4 font-medium">
+            <div class="flex items-center gap-4">
+              <dt class="form-control w-48 font-medium">
                 <%= t(
                   "helpers.label.#{resource_name}.#{attribute.name}",
                   default: page.resource.class.human_attribute_name(attribute.name),
                 ) %>
               </dt>
 
-              <dd class="w-3/4">
+              <dd class="w-auto">
                 <%= render_field attribute, page: page %>
               </dd>
             </div>

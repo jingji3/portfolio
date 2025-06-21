@@ -1,25 +1,7 @@
-<%#
-# Collection
-
-This partial is used on the `index` and `show` pages
-to display a collection of resources in an HTML table.
-
-## Local variables:
-
-- `collection_presenter`:
-  An instance of [Administrate::Page::Collection][1].
-  The table presenter uses `ResourceDashboard::COLLECTION_ATTRIBUTES` to determine
-  the columns displayed in the table
-- `resources`:
-  An ActiveModel::Relation collection of resources to be displayed in the table.
-  By default, the number of resources is limited by pagination
-  or by a hard limit to prevent excessive page load times
-
-[1]: http://www.rubydoc.info/gems/administrate/Administrate/Page/Collection
-%>
-
 <div class="overflow-x-auto bg-base-100 rounded-lg shadow">
+
   <table class="table w-full" aria-labelledby="<%= table_title %>">
+
     <thead>
       <tr class="bg-base-200">
         <% collection_presenter.attribute_types.each do |attr_name, attr_type| %>
@@ -55,8 +37,8 @@ to display a collection of resources in an HTML table.
             >
           <% collection_presenter.attributes_for(resource).each do |attribute| %>
             <td class="px-4 py-3 text-base">
-              <% if accessible_action?(resource, :show) -%>
-                <a href="<%= polymorphic_path([namespace, resource]) -%>"
+              <% if accessible_action?(resource, :show) %>
+                <a href="<%= polymorphic_path([namespace, resource]) %>"
                    tabindex="-1"
                    class="hover:text-primary">
                   <%= render_field attribute %>
@@ -68,23 +50,17 @@ to display a collection of resources in an HTML table.
           <% end %>
 
           <td class="px-4 py-3 text-base text-center">
-            <div class="flex justify-center gap-4">
+            <div class="flex justify-center gap-2">
               <% if accessible_action?(resource, :edit) %>
-                <%= link_to(
-                  "編集",
-                  [:edit, namespace, resource],
-                  class: "btn btn-primary btn-sm"
-                ) %>
-              <% end %>
+                <%= link_to( t('defaults.edit'),
+                    [:edit, namespace, resource],
+                    class: "btn btn-xs bg-gray-500 text-white hover:opacity-80" ) %>
 
-              <% if accessible_action?(resource, :destroy) %>
-                <%= button_to(
-                  "削除",
-                  [namespace, resource],
-                  class: "btn btn-error btn-sm",
-                  method: :delete,
-                  data: { turbo_confirm: t("administrate.actions.confirm") }
-                ) %>
+                <%= button_to( t('defaults.delete'),
+                    [namespace, resource],
+                    class: "btn btn-xs btn-soft hover:opacity-80",
+                    method: :delete,
+                    data: { turbo_confirm: t("administrate.actions.confirm") } ) %>
               <% end %>
             </div>
           </td>

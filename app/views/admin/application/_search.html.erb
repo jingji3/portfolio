@@ -1,36 +1,34 @@
 <%= form_for :q, url: request.path, method: :get, html: { class: "flex space-x-2" } do |f| %>
-  <% if controller_name == "users" %>
-    <%= f.search_field :user_name_or_email_cont,
-                      placeholder: "ユーザーorメール検索…",
-                      value: params.dig(:q, :user_name_or_email_cont),
-                      class: "border border-gray-300 rounded-md px-3 py-2 w-64" %>
+  <div class="flex items-center gap-2 text-xs md:text-base">
+    <%# ユーザー検索用 %>
+    <% if controller_name == "users" %>
+      <%= f.search_field :user_name_or_email_cont,
+                        placeholder: "ユーザーorメール検索…",
+                        value: params.dig(:q, :user_name_or_email_cont),
+                        class: "border border-gray-300 rounded-md p-2" %>
+
+    <%# キャラクター検索用 %>
     <% elsif controller_name == "characters" %>
-    <div>
-      <%= f.search_field :name_or_name_kana_or_name_eng_cont,
-                        placeholder: "キャラクター名検索...",
-                        value: params.dig(:q, :name_or_name_kana_or_name_eng_cont),
-                        class: "border border-gray-300 rounded-md px-3 py-2 w-64" %>
-    </div>
-    <div>
-      <%= f.select :element_eq,
-                  Character.elements.map { |k, v| [
-                    I18n.t("activerecord.enums.character.element.#{k.downcase}", default: k),
-                    v ] },
-                  { include_blank: "元素" },
-                  { class: "border border-gray-300 rounded-md px-3 py-2" } %>
-    </div>
-    <div>
-      <%= f.select :star_eq,
-                  (4..5).map { |i| [i, i] },
-                  { include_blank: "星" },
-                  { class: "border border-gray-300 rounded-md px-3 py-2" } %>
-    </div>
-    <% else %>
-      <%= f.search_field :name_cont,
-                        placeholder: "検索...",
-                        value: params.dig(:q, :name_cont),
-                        class: "border border-gray-300 rounded-md px-3 py-2 w-64" %>
+      <div class="flex gap-2 w-auto">
+        <%= f.search_field :name_or_name_kana_or_name_eng_cont,
+                                placeholder: "キャラクター名検索...",
+                                value: params.dig(:q, :name_or_name_kana_or_name_eng_cont),
+                                class: "border border-gray-300 rounded-md p-2" %>
+
+        <%= f.select :element_eq,
+                    Character.elements.map { |k, v| [
+                      I18n.t("activerecord.enums.character.element.#{k.downcase}", default: k),
+                      v ] },
+                    { include_blank: "元素" },
+                    { class: "border border-gray-300 rounded-md p-2" } %>
+
+        <%= f.select :star_eq,
+                    (4..5).map { |i| [i, i] },
+                    { include_blank: "星" },
+                    { class: "border border-gray-300 rounded-md p-2" } %>
+      </div>
     <% end %>
 
-  <%= f.submit "検索", class: "bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md" %>
+    <%= f.submit t('defaults.search'), class: "btn bg-gray-500 text-white hover:opacity-80" %>
+  </div>
 <% end %>
