@@ -3,8 +3,10 @@ class Request < ApplicationRecord
   has_many :request_to_characters, dependent: :destroy
   has_many :characters, through: :request_to_characters
 
+  has_many :noticed_events, as: :record, dependent: :destroy, class_name: "Noticed::Event"
+  
   validates :user_id, presence: true
-  validates :message, presence: true, length: { maximum: 500 }
+  validates :message, length: { maximum: 500 }, allow_blank: true
 
   enum status: {
     pending: 0,

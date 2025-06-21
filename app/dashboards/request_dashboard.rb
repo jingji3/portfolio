@@ -1,7 +1,6 @@
-require 'administrate/base_dashboard'
-require Rails.root.join('app/fields/image_field')
+require "administrate/base_dashboard"
 
-class CharacterDashboard < Administrate::BaseDashboard
+class RequestDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -10,16 +9,13 @@ class CharacterDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    character_img: ImageField,
-    element: EnumField,
-    name: Field::String,
-    name_eng: Field::String,
-    name_kana: Field::String,
-    star: Field::Number,
-    version: Field::String,
-    version_half: EnumField,
+    characters: CharacterImagesField,
+    message: Field::Text,
+    request_to_characters: Field::HasMany,
+    status: Field::Select.with_options(searchable: false, collection: ->(field) { field.resource.class.send(field.attribute.to_s.pluralize).keys }),
+    user: Field::BelongsTo,
     created_at: Field::Date,
-    updated_at: Field::Date
+    updated_at: Field::Date,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -29,25 +25,20 @@ class CharacterDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
-    character_img
-    name
-    element
-    star
-    version
+    characters
+    message
+    status
+    user
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
-    character_img
-    element
-    name
-    name_eng
-    name_kana
-    star
-    version
-    version_half
+    characters
+    message
+    status
+    user
     created_at
     updated_at
   ].freeze
@@ -56,14 +47,8 @@ class CharacterDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    character_img
-    element
-    name
-    name_eng
-    name_kana
-    star
-    version
-    version_half
+    message
+    status
   ].freeze
 
   # COLLECTION_FILTERS
@@ -76,31 +61,12 @@ class CharacterDashboard < Administrate::BaseDashboard
   #   COLLECTION_FILTERS = {
   #     open: ->(resources) { resources.where(open: true) }
   #   }.freeze
-  COLLECTION_FILTERS = {
-    # キャラクター名（日本語/英語/かな）で検索
-    search: lambda { |value|
-      { name_or_name_kana_or_name_eng_cont: value }
-    },
+  COLLECTION_FILTERS = {}.freeze
 
-    # 元素で検索
-    element_eq: lambda { |value|
-      { element_eq: value }
-    },
-
-    # レアリティで検索
-    star_eq: lambda { |value|
-      { star_eq: value.to_i }
-    }
-  }.freeze
-
-  # Overwrite this method to customize how characters are displayed
+  # Overwrite this method to customize how requests are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(character)
-  #   "Character ##{character.id}"
+  # def display_resource(request)
+  #   "Request ##{request.id}"
   # end
-
-  def display_resource(character)
-    "キャラID:#{character.id}"
-  end
 end

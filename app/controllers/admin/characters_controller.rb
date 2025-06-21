@@ -77,7 +77,7 @@ module Admin
         # キャラクターモデルのタイムスタンプを更新（キャッシュ対策）
         character.touch
       rescue StandardError => e
-        Rails.logger.error "圧縮エラー: #{e.message}"
+        Rails.logger.error "#{e.message}"
         Rails.logger.error e.backtrace.join("\n")
       end
     end

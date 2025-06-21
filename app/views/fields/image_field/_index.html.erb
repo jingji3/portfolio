@@ -1,5 +1,5 @@
 <% if field.resource.send(field.attribute).attached? %>
-  <%= image_tag field.resource.send(field.attribute), class: "w-12 h-12 object-cover rounded-lg" %>
+  <%= image_tag field.resource.send(field.attribute), class: "w-8 h-auto" %>
 <% else %>
   <span class="text-gray-400"><%= t('image_field.no_image') %></span>
 <% end %>

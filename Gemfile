@@ -43,6 +43,7 @@ gem 'rails-i18n', '~> 7.0.10'
 
 # 管理者
 gem 'administrate', '0.20.1'
+gem 'administrate_tailwind_theme'
 
 # 検索機能
 gem 'ransack', '~>4.3.0'

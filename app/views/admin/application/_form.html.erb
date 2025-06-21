@@ -1,42 +1,8 @@
-<%#
-# Form Partial
-
-This partial is rendered on a resource's `new` and `edit` pages,
-and renders all form fields for a resource's editable attributes.
-
-## Local variables:
-
-- `page`:
-  An instance of [Administrate::Page::Form][1].
-  Contains helper methods to display a form,
-  and knows which attributes should be displayed in the resource's form.
-
-[1]: http://www.rubydoc.info/gems/administrate/Administrate/Page/Form
-%>
-
 <%= form_for([namespace, page.resource], html: { class: "card bg-base-100 shadow-xl p-6" }) do |f| %>
-  <% if page.resource.errors.any? %>
-    <div id="error_explanation" class="alert alert-error mb-6">
-      <div>
-        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-        <h2 class="font-semibold">
-          <%= t(
-            "administrate.form.errors",
-            pluralized_errors: pluralize(page.resource.errors.count, t("administrate.form.error")),
-            resource_name: display_resource_name(page.resource_name, singular: true)
-          ) %>
-        </h2>
-      </div>
 
-      <ul class="list-disc list-inside mt-2">
-        <% page.resource.errors.full_messages.each do |message| %>
-          <li class="text-sm"><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <% page.attributes(controller.action_name).each do |title, attributes| -%>
+  <%# エラーメッセージ表示 %>
+  <%= render 'shared/error_message', object: page.resource %>
+  <% page.attributes(controller.action_name).each do |title, attributes| %>
     <fieldset class="<%= "border rounded-lg p-4 border-base-300" if title.present? %>">
       <% if title.present? %>
         <legend class="text-lg font-medium px-2"><%= t "helpers.label.#{f.object_name}.#{title}", default: title %></legend>
@@ -45,25 +11,24 @@ and renders all form fields for a resource's editable attributes.
       <div class="grid grid-cols-2">
         <% attributes.each do |attribute| %>
           <div class="form-control w-full">
-            <!-- ここでフィールドの周りに装飾を追加 -->
-            <div class="border h-full p-2">
+            <div class="h-full p-2">
               <%= render_field attribute, f: f %>
             </div>
 
             <% hint_key = "administrate.field_hints.#{page.resource_name}.#{attribute.name}" %>
-            <% if I18n.exists?(hint_key) -%>
+            <% if I18n.exists?(hint_key) %>
               <label class="label">
-                <span class="label-text-alt text-gray-500"><%= I18n.t(hint_key) %></span>
+                <span class="label-text-al"><%= I18n.t(hint_key) %></span>
               </label>
-            <% end -%>
+            <% end %>
           </div>
         <% end %>
       </div>
     </fieldset>
-  <% end -%>
+  <% end %>
 
   <div class="card-actions justify-end mt-6">
-    <%= f.submit class: "btn btn-primary" %>
-    <%= link_to t("administrate.actions.cancel"), :back, class: "btn btn-outline" %>
+    <%= f.submit class: "btn bg-gray-500 text-white hover:opacity-80" %>
+    <%= link_to t("defaults.cancel"), url_for(action: :index), class: "btn btn-outline" %>
   </div>
 <% end %>

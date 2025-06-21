@@ -22,6 +22,9 @@ ja:
       admin_characters: キャラクター管理
       admin_posts: おすすめ動画管理
       admin_team_ratings: 編成評価管理
+      admin_teams: 編成管理
+      admin_comments: コメント管理
+      admin_requests: リクエスト管理
       term_of_use: 利用規約
       privacy_policy: プライバシーポリシー
       contact: お問い合わせ
@@ -39,6 +42,17 @@ ja:
       admin_characters: キャラクター管理
       admin_posts: おすすめ動画管理
       admin_team_ratings: 編成評価管理
+      admin_dashboard: 管理者画面
+      admin_users: ユーザー管理
+      admin_characters: キャラクター管理
+      admin_posts: おすすめ動画管理
+      admin_team_ratings: 編成評価管理
+      admin_teams: 編成管理
+      admin_comments: コメント管理
+      admin_requests: リクエスト管理
+      term_of_use: 利用規約
+      privacy_policy: プライバシーポリシー
+      contact: お問い合わせ
 
     footer:
       term_of_use: 利用規約

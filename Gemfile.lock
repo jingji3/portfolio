@@ -91,6 +91,11 @@ GEM
       kaminari (~> 1.2.2)
       sassc-rails (~> 2.1)
       selectize-rails (~> 0.6)
+    administrate_tailwind_theme (0.0.6)
+      administrate (~> 0.15)
+      iso_country_codes (~> 0.7.8)
+      rails (~> 7.1, >= 7.1.3)
+      tailwindcss-rails (~> 2.0)
     ast (2.4.3)
     aws-eventstream (1.3.2)
     aws-partitions (1.1086.0)
@@ -217,6 +222,7 @@ GEM
       pp (>= 0.6.0)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
+    iso_country_codes (0.7.8)
     jbuilder (2.13.0)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -564,6 +570,16 @@ GEM
     stimulus-rails (1.3.4)
       railties (>= 6.0.0)
     stringio (3.1.6)
+    tailwindcss-rails (2.7.9-aarch64-linux)
+      railties (>= 7.0.0)
+    tailwindcss-rails (2.7.9-arm-linux)
+      railties (>= 7.0.0)
+    tailwindcss-rails (2.7.9-arm64-darwin)
+      railties (>= 7.0.0)
+    tailwindcss-rails (2.7.9-x86_64-darwin)
+      railties (>= 7.0.0)
+    tailwindcss-rails (2.7.9-x86_64-linux)
+      railties (>= 7.0.0)
     temple (0.10.3)
     thor (1.3.2)
     thruster (0.1.12)
@@ -617,6 +633,7 @@ PLATFORMS
 DEPENDENCIES
   active_storage_validations
   administrate (= 0.20.1)
+  administrate_tailwind_theme
   aws-sdk-s3
   bootsnap
   brakeman

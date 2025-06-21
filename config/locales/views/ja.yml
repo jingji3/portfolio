@@ -141,3 +141,14 @@ ja:
   image_field:
       view_image: 現在の画像
       no_image: 画像なし
+
+  admin:
+    dashboard:
+      index:
+        title: 管理者ダッシュボード
+        users_count: ユーザー数
+        posts_count: おすすめ動画数
+        team_ratings_count: 編成評価数
+        teams_count: 編成数
+      require_admin: 管理者権限が必要です
+      require_login: ログインが必要です

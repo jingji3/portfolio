@@ -7,6 +7,7 @@
 @import "./top.css";
 @import "./sidebar.css";
 @import "./scroll.css";
+@import "./administrate_custom.css";
 
 @tailwind base;
 @tailwind components;

@@ -1,0 +1,5 @@
+<div class="flex space-x-1">
+  <% field.character_images.each do |character| %>
+      <%= image_tag character.character_img, class: "w-21 h-24", alt: character.name %>
+  <% end %>
+</div>
