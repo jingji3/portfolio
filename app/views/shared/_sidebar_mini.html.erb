@@ -1,26 +1,23 @@
-<div class="bg-base-200 min-h-screen w-full shadow-inner">
-  <div class="flex flex-col items-center py-4 space-y-2">
+<div class="bg-base-300 min-h-screen w-full shadow-inner">
+  <div class="flex flex-col items-center py-4 space-y-2 mt-10">
 
     <%# おすすめ動画 %>
     <%= link_to posts_path,
-        class: "flex flex-col items-center justify-center p-3 rounded-lg hover:bg-base-content/10",
+        class: "flex flex-col items-center justify-center p-3 rounded-lg hover:bg-base-100",
         data: { action: "click->loading#show" } do %>
       <i class="fab fa-youtube text-xl"></i>
     <% end %>
 
     <%# 編成評価 %>
     <%= link_to teams_path,
-        class: "flex flex-col items-center justify-center p-3 rounded-lg hover:bg-base-content/10",
+        class: "flex flex-col items-center justify-center p-3 rounded-lg hover:bg-base-100",
         data: { action: "click->loading#show" } do %>
       <i class="fas fa-users text-xl"></i>
     <% end %>
 
-    <%# 区切り線 %>
-    <div class="w-8 h-px bg-base-content/20 my-2"></div>
-
     <%# シェア %>
     <div class="dropdown dropdown-right dropdown-middle">
-      <div tabindex="0" role="button" class="flex flex-col items-center justify-center p-3 rounded-lg hover:bg-base-content/10 transition-colors text-base-content/70">
+      <div tabindex="0" role="button" class="flex flex-col items-center justify-center p-3 rounded-lg  hover:bg-base-100">
         <i class="fas fa-plus-circle text-xl"></i>
       </div>
       <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-48 ml-2">
@@ -39,29 +36,29 @@
       </ul>
     </div>
 
-    <%# 区切り線 %>
-    <div class="w-8 h-px bg-base-content/20 my-2"></div>
-
     <%# マイページ %>
     <%= link_to mypage_path(tab: 'posts'),
-        class: "flex flex-col items-center justify-center p-3 rounded-lg hover:bg-base-content/10",
+        class: "flex flex-col items-center justify-center p-3 rounded-lg hover:bg-base-100",
         data: { action: "click->loading#show" } do %>
       <i class="fas fa-home text-xl"></i>
     <% end %>
 
     <%# 管理者 %>
     <% if current_user&.role == 1 || current_user&.admin? %>
-      <%# 区切り線 %>
-      <div class="w-8 h-px bg-base-content/20 my-2"></div>
 
       <div class="dropdown dropdown-right dropdown-middle">
-        <div tabindex="0" role="button" class="flex flex-col items-center justify-center p-3 rounded-lg hover:bg-base-content/10 transition-colors text-base-content/70">
+        <div tabindex="0" role="button" class="flex flex-col items-center justify-center p-3 rounded-lg hover:bg-base-100">
           <i class="fas fa-user-lock text-xl"></i>
         </div>
         <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-48 ml-2">
           <li><%= link_to t('shared.sidebar.admin_dashboard'), admin_root_path, data: { action: "click->loading#show" } %></li>
           <li><%= link_to t('shared.sidebar.admin_users'), admin_users_path, data: { action: "click->loading#show" } %></li>
           <li><%= link_to t('shared.sidebar.admin_characters'), admin_characters_path, data: { action: "click->loading#show" } %></li>
+          <li><%= link_to t('shared.sidebar.admin_posts'), admin_posts_path, data: { action: "click->loading#show" } %></li>
+          <li><%= link_to t('shared.sidebar.admin_comments'), admin_comments_path, data: { action: "click->loading#show" } %></li>
+          <li><%= link_to t('shared.sidebar.admin_teams'), admin_teams_path, data: { action: "click->loading#show" } %></li>
+          <li><%= link_to t('shared.sidebar.admin_team_ratings'), admin_team_ratings_path, data: { action: "click->loading#show" } %></li>
+          <li><%= link_to t('shared.sidebar.admin_requests'), admin_requests_path, data: { action: "click->loading#show" } %></li>
         </ul>
       </div>
     <% end %>

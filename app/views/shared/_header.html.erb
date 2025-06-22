@@ -11,10 +11,10 @@
       </button>
     <% end %>
 
-    <%= link_to t('.title'), '/', class: 'btn btn-ghost text-xl ml-2' %>
+    <%= link_to t('.title'), '/', class: 'btn btn-ghost text-xl ml-2', data: { action: "click->loading#show" } %>
   </div>
 
-  <div class="flex items-center space-x-2">
+  <div class="flex items-center space-x-2 mx-2">
 
     <%# dark/lightテーマ切り替え %>
     <%= render 'shared/theme_toggle' %>
@@ -42,9 +42,9 @@
       <%# ドロップダウンメニュー %>
       <ul tabindex="0"
           class="menu menu-md dropdown-content bg-base-100 rounded-box z-1 w-40 mt-3 p-2 shadow">
-        <li><%= link_to t('.mypage'), mypage_path(tab: 'posts') %></li>
+        <li><%= link_to t('.mypage'), mypage_path(tab: 'posts'), data: { action: "click->loading#show" } %></li>
         <li class="flex">
-          <%= link_to mypage_path(tab: 'notifications') do %>
+          <%= link_to mypage_path(tab: 'notifications'), data: { action: "click->loading#show" } do %>
             <p><%= t('.request_notice') %></p>
             <% if unread_count > 0 %>
               <div class="bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
@@ -53,8 +53,12 @@
             <% end %>
           <% end %>
         </li>
-        <li><%= link_to t('.profile'), profile_path %></li>
+        <li><%= link_to t('.profile'), profile_path, data: { action: "click->loading#show" } %></li>
         <li><%= link_to t('.logout'), logout_path, data: { turbo_method: :delete } %></li>
+        <li class="md:hidden border-spacing-2"></li>
+        <li class="md:hidden"><%= link_to t('.term_of_use'), terms_of_use_static_pages_path, class: 'text-xs', data: { action: "click->loading#show" } %></li>
+        <li class="md:hidden"><%= link_to t('.privacy_policy'), privacy_policy_static_pages_path, class: 'text-xs', data: { action: "click->loading#show" } %></li>
+        <li class="md:hidden"><%= link_to t('.contact'), contact_static_pages_path, class: 'text-xs', data: { action: "click->loading#show" } %></li>
       </ul>
     </div>
   </div>

@@ -10,9 +10,6 @@ application.register("aos-frame", AosFrameController)
 import CharacterSelectorController from "./character_selector_controller"
 application.register("character-selector", CharacterSelectorController)
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
-
 import LoadingController from "./loading_controller"
 application.register("loading", LoadingController)
 

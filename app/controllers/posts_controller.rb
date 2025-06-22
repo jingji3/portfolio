@@ -1,13 +1,14 @@
 class PostsController < ApplicationController
+  include CharacterSelect #concernsのキャラクター選択用メソッド
+
   skip_before_action :require_login, only: %i[index show]
   before_action :set_post, only: %i[show edit update destroy]
   before_action :authorize_user, only: %i[edit update destroy]
+  before_action :set_characters_data, only: %i[index new edit create update] #キャラクターデータをセット
 
   include YoutubeHelper
 
   def index
-    @characters = Character.all.order(:name)
-
     # キャラクター検索用のパラメータを処理
     character_ids = []
     (1..4).each do |i|
@@ -15,7 +16,19 @@ class PostsController < ApplicationController
       character_ids << character_id if character_id.present?
     end
 
-    @posts = Post.includes(:user, posts_to_characters: :character).order(created_at: :desc)
+    @posts = Post.includes(:user, posts_to_characters: :character)
+
+    # ポストの表示順を変えるための処理
+    @posts = case params[:sort]
+              when 'likes'
+                @posts.left_joins(:likes) #　joinsでまとめるとlike0のpostが取得されないため、left_joinsを使用
+                      .select('posts.*, COUNT(likes.id) as likes_count')
+                      .group('posts.id')
+                      .order('likes_count DESC, posts.created_at DESC')
+              else
+                @posts.order(created_at: :desc)
+              end
+
 
     # キャラクターIDが指定されている場合は絞り込み
     if character_ids.any?
@@ -59,7 +72,6 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @characters = Character.all.order(:name)
 
     # 通知画面からの遷移時に自動でキャラクターパラメータの作成したURLで開く
     handle_preselected_characters
@@ -100,7 +112,6 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @characters = Character.all.order(:name)
     @post.tag_input = @post.tags.map { |t| "##{t.name}"}.join(' ')
   end
 
@@ -114,7 +125,6 @@ class PostsController < ApplicationController
 
       redirect_to @post, notice: t('defaults.flash_message.updated', item: Post.model_name.human)
     else
-      @characters = Character.all.order(:name)
       render :edit, status: :unprocessable_entity
     end
   end

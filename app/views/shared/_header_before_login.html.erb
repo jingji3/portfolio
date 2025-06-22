@@ -11,15 +11,35 @@
       </button>
     <% end %>
 
-    <%= link_to t('header.title'), '/', class: 'btn btn-ghost text-xl ml-2' %>
+    <%= link_to t('shared.header.title'), '/', class: 'btn btn-ghost text-xl ml-2', data: { action: "click->loading#show" } %>
   </div>
 
-  <div class="flex gap-2">
+  <div class="flex items-center space-x-2 mx-2">
 
     <%# dark/lightテーマ切り替え %>
     <%= render 'shared/theme_toggle' %>
-    <div class="flex-1">
-      <%= link_to t('header.login'), login_path, class: 'btn btn-ghost text-xl' %>
+
+    <%# ユーザー情報 %>
+    <div class="dropdown dropdown-end">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+        <div class="w-10 h-10 rounded-full">
+          <i class="fas fa-sign-in-alt text-xl p-2"></i>
+        </div>
+      </div>
+
+      <%# ドロップダウンメニュー %>
+      <ul tabindex="0"
+          class="menu menu-md dropdown-content bg-base-100 rounded-box z-1 w-40 mt-3 p-2 shadow">
+        <li><%= link_to t('shared.header.login'), login_path, data: { action: "click->loading#show" } %></li>
+        <li><%= link_to t('shared.header.to_register_page'), new_user_path, data: { action: "click->loading#show" } %></li>
+        <li class="md:hidden border-spacing-2"></li>
+        <li class="md:hidden"><%= link_to t('shared.header.term_of_use'), terms_of_use_static_pages_path, class: 'text-xs', data: { action: "click->loading#show" } %></li>
+        <li class="md:hidden"><%= link_to t('shared.header.privacy_policy'), privacy_policy_static_pages_path, class: 'text-xs', data: { action: "click->loading#show" } %></li>
+        <li class="md:hidden"><%= link_to t('shared.header.contact'), contact_static_pages_path, class: 'text-xs', data: { action: "click->loading#show" } %></li>
+      </ul>
     </div>
+    <%= link_to login_path, data: { action: "click->loading#show" } do %>
+
+    <% end %>
   </div>
 </div>

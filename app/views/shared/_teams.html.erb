@@ -1,32 +1,36 @@
-<div class="grid lg:grid-cols-2 bg-base-200 rounded-lg overflow-hidden shadow-lg hover:translate-y-[-4px] transition-transform duration-300"
+<div class="lg:flex lg:justify-between gap-2 items-center bg-base-200 rounded-lg overflow-hidden shadow-lg"
       data-aos="fade-up"
       data-aos-delay="<%= 500 + index * 100 %>">
-  <div class="p-4 flex flex-col justify-center">
-    <div class="flex items-center mb-2">
-      <span class="text-2xl text-yellow-400 mr-2">★</span>
-      <span class="text-2xl font-bold"><%= team.average_rating %></span>
-      <div class="text-sm text-gray-500 ml-2">
+    <div class="p-2 flex lg:flex-col lg:justify-center items-center gap-2">
+      <div class="flex items-center">
+        <span class="text-2xl text-yellow-400 mr-2">★</span>
+        <span class="text-2xl font-bold"><%= team.average_rating %></span>
+      </div>
+      <div class="text-sm text-gray-500 ml-1 line-clamp-1">
         (<%= t('.rating') %>:<%= team.ratings_count %><%= t('.count') %>)
       </div>
+      <div class="flex items-center gap-2">
+        <% if current_user && current_user.team_ratings.exists?(team_id: team.id) %>
+          <span class="text-blue-500 text-sm line-clamp-1">
+            <i class="fas fa-check-circle mr-1"></i><%= t('.rating_end') %>
+          </span>
+        <% else %>
+          <%= link_to t('.rating_share'), new_team_rating_path(team_id: team.id), class: "btn btn-sm btn-soft", data: { turbo_frame: "_top" } %>
+        <% end %>
+      </div>
     </div>
-    <div class="flex items-center gap-2">
-      <% if current_user && current_user.team_ratings.exists?(team_id: team.id) %>
-        <span class="text-blue-500 text-sm">
-          <i class="fas fa-check-circle mr-1"></i><%= t('.rating_end') %>
-        </span>
-      <% else %>
-        <%= link_to t('.rating_share'), new_team_rating_path(team_id: team.id), class: "btn btn-sm btn-soft", data: { turbo_frame: "_top" } %>
-      <% end %>
-      <%= link_to t('defaults.show'), team_path(team), class: "btn btn-sm btn-soft", data: { turbo_frame: "_top" } %>
-    </div>
-  </div>
 
   <%= link_to team_path(team), class: "block", data: { turbo_frame: "_top" } do %>
-    <div class="p-4 grid grid-cols-4 gap-2 items-center">
+    <div class="p-2 grid grid-cols-4 gap-1 items-center">
       <% team.characters.each_with_index do |character, index| %>
         <div class="relative" data-aos="fade" data-aos-delay="<%= 1000 + index * 100 %>">
           <%= image_tag character.display_image, class: "w-full h-auto object-contain max-h-24" %>
         </div>
+      <% end %>
+    </div>
+    <div class="absolute bottom-2 right-2">
+      <% if team.name.present? %>
+        <h2 class="bg-gray-700 bg-opacity-80 rounded-full px-2 text-lg"><%= team.name %></h2>
       <% end %>
     </div>
   <% end %>

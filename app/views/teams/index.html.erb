@@ -9,20 +9,37 @@
   <%# 検索フォーム部分 %>
   <%= render "shared/character_search_form", characters: @characters %>
 
-  <%# 編成一覧部分 %>
-  <%= turbo_frame_tag "teams-page-#{@teams.current_page}" do %>
-  <% if @teams.empty? %>
-    <div class="bg-base-200 bg-opacity-20 p-6 rounded-lg text-center ">
-      <p class="text-lg"><%= t('teams.index.no_teams') %></p>
-    </div>
-  <% else %>
+  <%# ソート切り替えボタン
+      **request.query_parameters.except(:sort, :page) で現在のキャラクター検索とタグ検索条件を引き継ぎながらソート変更できる。
+      **はハッシュ展開、query_parametersは現在のリクエストのパラメータを取得、exceptでページネーションとソート条件を除外している。
+       %>
+  <div class="flex justify-start mb-2">
+    <div class="btn-group">
+      <%= link_to t('.sort_by_rating'),
+          teams_path(sort: nil, **request.query_parameters.except(:sort, :page)),
+          class: "btn btn-sm #{'btn-active' if params[:sort].blank?}" %>
 
-    <div class="md:px-20">
-      <% @teams.each_with_index do |team, index| %>
-        <%= render 'shared/teams', team: team, index: index %>
+      <%= link_to t('.sort_by_new'),
+          teams_path(sort: 'updated_at', **request.query_parameters.except(:sort, :page)),
+          class: "btn btn-sm #{'btn-active' if params[:sort] == 'likes'}" %>
+    </div>
+  </div>
+
+  <%# 編成一覧部分 %>
+    <% if @teams.empty? %>
+      <div class="bg-base-200 bg-opacity-20 p-6 rounded-lg text-center ">
+        <p class="text-lg"><%= t('teams.index.no_teams') %></p>
+      </div>
+    <% else %>
+    <div>
+      <%= turbo_frame_tag "teams-page-#{@teams.current_page}" do %>
+      <div class="grid lg:grid-cols-2 gap-4 mt-4">
+        <% @teams.each_with_index do |team, index| %>
+          <%= render 'shared/teams', team: team, index: index %>
+        <% end %>
+      </div>
+      <%= turbo_frame_tag "teams-page-#{@teams.next_page}", loading: :lazy, src: path_to_next_page(@teams) %>
       <% end %>
     </div>
-  <% end %>
-  <%= turbo_frame_tag "teams-page-#{@teams.next_page}", loading: :lazy, src: path_to_next_page(@teams) %>
-  <% end %>
+    <% end %>
 </div>

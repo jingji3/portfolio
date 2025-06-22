@@ -1,11 +1,13 @@
 class TeamRatingsController < ApplicationController
+  include CharacterSelect #concernsのキャラクター選択用メソッド
+
   before_action :require_login
   before_action :set_team_rating, only: %i[edit update destroy]
   before_action :authorize_user, only: %i[edit update destroy]
+  before_action :set_characters_data, only: %i[new create] #キャラクターデータをセット
 
   def new
     @team_rating = TeamRating.new
-    @characters = Character.all
 
     # team_idが渡された場合、そのチームのキャラクターIDを取得,評価していない編成を評価する時のため
     if params[:team_id].present?
