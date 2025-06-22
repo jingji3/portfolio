@@ -94,7 +94,7 @@ Rails.application.configure do
    config.hosts << "www.gts-s.net" # サブドメイン
 
    # 既存のドメインも一時的に維持
-   config.hosts << "your-old-domain.com"
+   config.hosts << "jingji-portfolio.onrender.com"
 
   # Only use :id for inspections in production.
   # config.active_record.attributes_for_inspect = [ :id ]
