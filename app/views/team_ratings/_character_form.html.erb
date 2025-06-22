@@ -1,18 +1,22 @@
 <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
   <% 4.times do |i| %>
-    <div class="flex flex-col space-y-2" data-controller="character-selector">
-      <div class="flex justify-center items-center space-x-2">
-        <div>
-          <%= select_tag "character_ids[]",
-                      options_from_collection_for_select(@characters, :id, :name, @selected_character_ids[i]),
-                      include_blank: 'キャラクター選択',
-                      class: 'select-bordered character-select',
-                      data: {
-                        character_selector_target: "select",
-                        action: "change->character-selector#change"
-                      } %>
-        </div>
+
+  <%# TomSelectを利用してキャラ選択を実現 %>
+    <div class="flex flex-col space-y-2"
+         data-controller="character-selector"
+         data-character-selector-characters-value="<%= @characters_json %>">
+      <div class="md:flex mx-auto justify-center items-center space-x-2">
+        <%= select_tag "character_ids[]",
+                    options_from_collection_for_select(@characters, :id, :name, @selected_character_ids[i]),
+                    include_blank: 'キャラクター選択',
+                    class: 'select-bordered character-select',
+                    data: {
+                      character_selector_target: "select",
+                      action: "change->character-selector#change"
+                    } %>
       </div>
+
+      <%# キャラクター画像表示部分 %>
       <div data-character-selector-target="container"
           class="character-image-container h-28 flex items-center justify-center hidden">
         <img data-character-selector-target="image"

@@ -1,3 +1,4 @@
+
 /* YouTube風サイドバー縮小時のスタイル */
 .drawer-side aside[data-collapsed="true"] .sidebar-text {
   display: none;

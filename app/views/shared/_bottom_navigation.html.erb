@@ -3,7 +3,7 @@
 
     <%# おすすめ動画 %>
     <%= link_to posts_path,
-        class: "flex flex-col items-center justify-center space-y-1 hover:bg-base-content/10 w-1/5",
+        class: "flex flex-col items-center justify-center space-y-1 hover:bg-base-100 w-1/5",
         data: { action: "click->loading#show" } do %>
       <i class="fab fa-youtube text-lg"></i>
       <span class="text-xs"><%= t('.video_search') %></span>
@@ -11,7 +11,7 @@
 
     <%# 編成評価 %>
     <%= link_to teams_path,
-        class: "flex flex-col items-center justify-center space-y-1 hover:bg-base-content/10 w-1/5",
+        class: "flex flex-col items-center justify-center space-y-1 hover:bg-base-100 w-1/5",
         data: { action: "click->loading#show" } do %>
       <i class="fas fa-users text-lg"></i>
       <span class="text-xs"><%= t('.team_rating_search') %></span>
@@ -19,7 +19,7 @@
 
     <%# シェア %>
     <div class="dropdown dropdown-top dropdown-end w-1/5">
-      <div tabindex="0" role="button" class="flex flex-col items-center justify-center space-y-1 hover:bg-base-content/10 w-full h-full">
+      <div tabindex="0" role="button" class="flex flex-col items-center justify-center space-y-1 hover:bg-base-100 w-full h-full">
         <i class="fas fa-plus-circle text-lg"></i>
         <span class="text-xs"><%= t('.share') %></span>
       </div>
@@ -41,16 +41,17 @@
 
     <%# マイページ %>
     <%= link_to mypage_path(tab: 'posts'),
-        class: "flex flex-col items-center justify-center space-y-1 hover:bg-base-content/10 w-1/5",
+        class: "flex flex-col items-center justify-center space-y-1 hover:bg-base-100 w-1/5",
         data: { action: "click->loading#show" } do %>
       <i class="fas fa-home text-lg"></i>
       <span class="text-xs"><%= t('.mypage') %></span>
     <% end %>
 
+
     <%# 管理者 %>
     <% if current_user&.role == 1 || current_user&.admin? %>
       <div class="dropdown dropdown-top dropdown-end w-1/5">
-        <div tabindex="0" role="button" class="flex flex-col items-center justify-center space-y-1 hover:bg-base-content/10 w-full h-full">
+        <div tabindex="0" role="button" class="flex flex-col items-center justify-center space-y-1 hover:bg-base-100 w-full h-full">
           <i class="fas fa-user-lock text-lg"></i>
           <span class="text-xs"><%= t('.admin') %></span>
         </div>

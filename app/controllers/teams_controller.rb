@@ -1,15 +1,21 @@
 class TeamsController < ApplicationController
+  include CharacterSelect #concernsのキャラクター選択用メソッド
+
   skip_before_action :require_login, only: %i[index show]
+  before_action :set_characters_data, only: %i[index] #キャラクターデータをセット
 
   def index
-    # 表示を評価順に表示させるためにまとめる
-    @teams = Team.joins(:team_ratings)
-                 .select('teams.*, AVG(team_ratings.rating) as average_rating, COUNT(team_ratings.id) as ratings_count')
-                 .group('teams.id')
-                 .order('average_rating DESC')
-                 .includes(:characters)
-
-    @characters = Character.all.order(:name)
+    @teams = case params[:sort]
+              when 'updated_at'
+                @teams = Team.includes(:characters).order(updated_at: :desc)
+              else
+                # 表示を評価順に表示させるためにまとめる
+                @teams = Team.joins(:team_ratings)
+                            .select('teams.*, AVG(team_ratings.rating) as average_rating, COUNT(team_ratings.id) as ratings_count')
+                            .group('teams.id')
+                            .order('average_rating DESC')
+                            .includes(:characters)
+              end
 
     # キャラクター検索用のパラメータを処理
     character_ids = []
@@ -27,7 +33,7 @@ class TeamsController < ApplicationController
                      .having('COUNT(DISTINCT team_to_characters.character_id) = ?', character_ids.size)
     end
 
-    @teams = @teams.distinct.page(params[:page]).per(5)
+    @teams = @teams.distinct.page(params[:page]).per(8)
   end
 
   def show

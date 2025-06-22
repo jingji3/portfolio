@@ -9,6 +9,22 @@
   <%# 検索フォーム部分 %>
   <%= render "shared/character_search_form", characters: @characters %>
 
+  <%# ソート切り替えボタン
+      **request.query_parameters.except(:sort, :page) で現在のキャラクター検索とタグ検索条件を引き継ぎながらソート変更できる。
+      **はハッシュ展開、query_parametersは現在のリクエストのパラメータを取得、exceptでページネーションとソート条件を除外している。
+       %>
+  <div class="flex justify-start mb-2">
+    <div class="btn-group">
+      <%= link_to t('.sort_by_new'),
+          posts_path(sort: nil, **request.query_parameters.except(:sort, :page)),
+          class: "btn btn-sm #{'btn-active' if params[:sort].blank?}" %>
+
+      <%= link_to t('.sort_by_likes'),
+          posts_path(sort: 'likes', **request.query_parameters.except(:sort, :page)),
+          class: "btn btn-sm #{'btn-active' if params[:sort] == 'likes'}" %>
+    </div>
+  </div>
+
   <%# 投稿一覧部分 %>
   <div class="mt-4">
     <%# 投稿カードのグリッド %>
@@ -16,7 +32,7 @@
       <%= turbo_frame_tag "posts-page-#{@posts.current_page}" do %>
 
       <% if @posts.present? %>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-4">
           <% @posts.each_with_index do |post, index| %>
             <%= render 'shared/posts', post: post, index: index %>
           <% end %>

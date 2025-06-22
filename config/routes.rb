@@ -69,11 +69,16 @@ Rails.application.routes.draw do
   get 'sidebar_mini', to: 'application#sidebar_mini'
   get 'sidebar_full', to: 'application#sidebar_full'
 
-  # プライバシポリシー、利用規約
-  get 'privacy', to: 'static_pages#privacy_policy', as: :privacy_policy
-  get 'terms', to: 'static_pages#terms_of_use', as: :terms_of_use
+  # static pages
+  resources :static_pages, only: [] do
+    collection do
+      get :privacy_policy
+      get :terms_of_use
+      get :contact
+    end
+  end
 
-  # admin用
+  # admin page
   namespace :admin do
     get '/', to: 'dashboard#index'
     resources :users do

@@ -57,6 +57,8 @@ ja:
       request_login: ログインして動画リクエストを送る
       no_posts: おすすめ動画はまだありません
       no_posts_with_characters: 選択したキャラクターの編成はまだありません
+      sort_by_new: 新着順
+      sort_by_likes: いいね順
     show:
       no_youtube: YouTube URLがありません
       creator_link: ▼ 動画投稿者チャンネル情報 ▼
@@ -103,6 +105,8 @@ ja:
     index:
       title: 編成評価検索
       no_teams: まだ編成評価がありません
+      sort_by_new: 更新順
+      sort_by_rating: 評価順
     show:
       title: 編成評価詳細
       characters: 編成メンバー

@@ -1,18 +1,18 @@
-<div class="bg-base-200 min-h-screen w-full shadow-inner flex flex-col">
+<div class="bg-base-300 min-h-screen w-full shadow-inner flex flex-col">
   <%# メインナビゲーション部分 %>
-  <div class="flex-1">
+  <div class="flex-1 mt-10">
 
     <%# 検索セクション %>
     <div class="py-4 sidebar-border border-b border-gray-500">
       <h2 class="sidebar-title text-lg font-bold px-4"><%= t('.search') %></h2>
       <ul>
-        <li class="hover:bg-base-300">
+        <li class="hover:bg-base-100">
           <%= link_to posts_path, class: "sidebar-link block px-4 py-1 w-full h-full", data: { action: "click->loading#show" } do %>
             <i class="fab fa-youtube"></i>
             <span class="sidebar-text ml-2"><%= t('.video_search') %></span>
           <% end %>
         </li>
-        <li class="hover:bg-base-300">
+        <li class="hover:bg-base-100">
           <%= link_to teams_path, class: "sidebar-link block px-4 py-1 w-full h-full", data: { action: "click->loading#show" } do %>
            <i class="fas fa-users"></i>
            <span class="sidebar-text ml-2"><%= t('.team_rating_search') %></span>
@@ -25,13 +25,13 @@
     <div class="py-4 sidebar-border border-b border-gray-500">
       <h2 class="sidebar-title text-lg font-bold px-4"><%= t('.share') %></h2>
       <ul>
-        <li class="hover:bg-base-300">
+        <li class="hover:bg-base-100">
           <%= link_to new_post_path, class: "sidebar-link block px-4 py-1 w-full h-full", data: { action: "click->loading#show" } do %>
           <i class="fas fa-external-link-alt"></i>
           <span class="sidebar-text ml-2"><%= t('.video_share') %></span>
           <% end %>
         </li>
-        <li class="hover:bg-base-300">
+        <li class="hover:bg-base-100">
           <%= link_to new_team_rating_path, class: "sidebar-link block px-4 py-1 w-full h-full", data: { action: "click->loading#show" } do %>
           <i class="fas fa-star"></i>
           <span class="sidebar-text ml-2"><%= t('.team_rating_search') %></span>
@@ -42,7 +42,7 @@
 
     <%# マイページセクション %>
     <div class="py-2 sidebar-border border-b border-gray-500">
-        <div class="hover:bg-base-300">
+        <div class="hover:bg-base-100">
           <%= link_to mypage_path(tab: 'posts'), class: "sidebar-link block px-4 py-1 w-full h-full", data: { action: "click->loading#show" } do %>
             <i class="fas fa-home"></i>
             <span class="sidebar-text ml-2"><%= t('.mypage') %></span>
@@ -54,27 +54,25 @@
     <% if current_user&.role == 1 || current_user&.admin? %>
       <div class="py-1 sidebar-border border-b border-gray-500">
         <ul class="text-sm">
-          <li><%= link_to t('.admin_dashboard'), admin_root_path, class: "sidebar-link block px-4 py-1 w-full h-full hover:bg-base-300", data: { action: "click->loading#show" } %></li>
-          <li><%= link_to t('.admin_users'), admin_users_path, class: "sidebar-link block px-4 py-1 w-full h-full", data: { action: "click->loading#show" } %></li>
-          <li><%= link_to t('.admin_characters'), admin_characters_path, class: "sidebar-link block px-4 py-1 w-full h-full", data: { action: "click->loading#show" } %></li>
-          <li><%= link_to t('.admin_posts'), admin_posts_path, class: "sidebar-link block px-4 py-1 w-full h-full", data: { action: "click->loading#show" } %></li>
-          <li><%= link_to t('.admin_comments'), admin_comments_path, class: "sidebar-link block px-4 py-1 w-full h-full", data: { action: "click->loading#show" } %></li>
-          <li><%= link_to t('.admin_teams'), admin_teams_path, class: "sidebar-link block px-4 py-1 w-full h-full", data: { action: "click->loading#show" } %></li>
-          <li><%= link_to t('.admin_team_ratings'), admin_team_ratings_path, class: "sidebar-link block px-4 py-1 w-full h-full", data: { action: "click->loading#show" } %></li>
-          <li><%= link_to t('.admin_requests'), admin_requests_path, class: "sidebar-link block px-4 py-1 w-full h-full", data: { action: "click->loading#show" } %></li>
+          <li><%= link_to t('.admin_dashboard'), admin_root_path, class: "sidebar-link block px-4 py-1 w-full h-full hover:bg-base-100", data: { action: "click->loading#show" } %></li>
+          <li><%= link_to t('.admin_users'), admin_users_path, class: "sidebar-link block px-4 py-1 w-full h-full hover:bg-base-100", data: { action: "click->loading#show" } %></li>
+          <li><%= link_to t('.admin_characters'), admin_characters_path, class: "sidebar-link block px-4 py-1 w-full h-full hover:bg-base-100", data: { action: "click->loading#show" } %></li>
+          <li><%= link_to t('.admin_posts'), admin_posts_path, class: "sidebar-link block px-4 py-1 w-full h-full hover:bg-base-100", data: { action: "click->loading#show" } %></li>
+          <li><%= link_to t('.admin_comments'), admin_comments_path, class: "sidebar-link block px-4 py-1 w-full h-full hover:bg-base-100", data: { action: "click->loading#show" } %></li>
+          <li><%= link_to t('.admin_teams'), admin_teams_path, class: "sidebar-link block px-4 py-1 w-full h-full hover:bg-base-100", data: { action: "click->loading#show" } %></li>
+          <li><%= link_to t('.admin_team_ratings'), admin_team_ratings_path, class: "sidebar-link block px-4 py-1 w-full h-full hover:bg-base-100", data: { action: "click->loading#show" } %></li>
+          <li><%= link_to t('.admin_requests'), admin_requests_path, class: "sidebar-link block px-4 py-1 w-full h-full hover:bg-base-100", data: { action: "click->loading#show" } %></li>
         </ul>
       </div>
     <% end %>
   </div>
 
-  <%# サイドバーフッター部分 %>
+  <%# Static_pagesセクション %>
   <div class="mt-auto py-2 border-t border-gray-500 items-end">
-    <nav class="mb-16">
-      <ul class="text-sm">
-        <li><%= link_to t('.term_of_use'), terms_of_use_path, class: "sidebar-link flex items-center px-2 py-1 rounded hover:bg-base-300 transition-colors", data: { action: "click->loading#show" } %></li>
-        <li><%= link_to t('.privacy_policy'), privacy_policy_path, class: "sidebar-link flex items-center px-2 py-1 rounded hover:bg-base-300 transition-colors", data: { action: "click->loading#show" } %></li>
-        <li><%= link_to t('.contact'), '#', class: "sidebar-link flex items-center px-2 py-1 rounded hover:bg-base-300 transition-colors", data: { action: "click->loading#show" } %></li>
-      </ul>
-    </nav>
+    <ul class="text-sm">
+      <li><%= link_to t('.term_of_use'), terms_of_use_static_pages_path, class: "sidebar-link flex items-center px-2 py-1 rounded hover:bg-base-100", data: { action: "click->loading#show" } %></li>
+      <li><%= link_to t('.privacy_policy'), privacy_policy_static_pages_path, class: "sidebar-link flex items-center px-2 py-1 rounded hover:bg-base-100", data: { action: "click->loading#show" } %></li>
+      <li><%= link_to t('.contact'), contact_static_pages_path, class: "sidebar-link flex items-center px-2 py-1 rounded hover:bg-base-100", data: { action: "click->loading#show" } %></li>
+    </ul>
   </div>
 </div>

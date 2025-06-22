@@ -2,11 +2,15 @@ ja:
   shared:
     header:
       title: GTS
-      login: Login
+      login: ログイン
       logout: ログアウト
+      to_register_page: ユーザー登録
       profile: プロフィール設定
       mypage: マイページ
       request_notice: リクエスト通知
+      term_of_use: 利用規約
+      privacy_policy: プライバシーポリシー
+      contact: お問い合わせ
 
     sidebar:
       search: -検索-
