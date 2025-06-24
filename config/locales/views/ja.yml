@@ -95,7 +95,7 @@ ja:
 
   requests:
     new:
-      title: 動画をリクエスト
+      title: リクエスト
       characters: リクエストする編成
     create:
       success: リクエストを送信しました
@@ -141,6 +141,14 @@ ja:
       no_favorite_video: お気に入りはありません
     tab_notifications:
       no_notifications: 通知はありません
+
+  static_pages:
+    contact:
+      title: お問い合わせ
+    terms_of_use:
+      title: 利用規約
+    privacy_policy:
+      title: プライバシーポリシー
 
   image_field:
       view_image: 現在の画像
