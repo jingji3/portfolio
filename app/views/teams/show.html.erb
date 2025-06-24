@@ -1,3 +1,4 @@
+<% content_for(:title, @team.name.presence || t('.title')) %>
 <div class="flex-1 p-4 max-w-sm md:max-w-3xl mx-auto">
   <%= link_to t('defaults.return'), teams_path, class: "btn btn-xs btn-outline mb-2" %>
 

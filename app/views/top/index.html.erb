@@ -61,7 +61,7 @@
         </div>
       </div>
     </div>
-    
+
     <%# スクロールアニメーション %>
     <div class="scroll_down" id="type07">
       <a href="#">
@@ -120,8 +120,9 @@
             </div>
           </div>
         </div>
-        <div>
-
+        <%# 画像表示 %>
+        <div class="block rounded-xl p-2 bg-base-300 shadow-md dark:shadow-slate-500">
+          <%= image_tag "top-1.webp", alt: "原神編成検索", class: "w-full h-auto rounded-xl" %>
         </div>
       </div>
 
@@ -132,9 +133,14 @@
 
           <%# 最新動画 1件 %>
           <div>
-            <h4 class="text-base font-medium mb-4 flex items-center">
-              <i class="fas fa-video mr-2"></i>最新のおすすめ動画
-            </h4>
+            <div class="flex justify-between items-center mb-4">
+              <h4 class="text-base font-medium flex items-center">
+                <i class="fas fa-video mr-2"></i>最新のおすすめ動画
+              </h4>
+              <%= link_to teams_path, class: "btn btn-sm bg-gray-500 text-white hover:opacity-80" do %>
+                <i class="fab fa-youtube mr-2"></i>おすすめ動画一覧
+              <% end %>
+            </div>
             <div class="md:mx-8">
               <% @posts.limit(1).each_with_index do |post, index| %>
                 <%= render 'shared/posts', post: post, index: index %>
@@ -150,9 +156,14 @@
 
           <%# 最新チーム更新 3件 %>
           <div>
-            <h4 class="text-base font-medium mb-4 flex items-center">
-              <i class="fas fa-users mr-2"></i>最新のチーム評価
-            </h4>
+            <div class="flex justify-between items-center mb-4">
+              <h4 class="text-base font-medium flex items-center">
+                <i class="fas fa-users mr-2"></i>最新のチーム評価
+              </h4>
+              <%= link_to teams_path, class: "btn btn-sm bg-gray-500 text-white hover:opacity-80" do %>
+                <i class="fas fa-users mr-2"></i>編成評価一覧
+              <% end %>
+            </div>
             <div class="space-y-3">
               <% @teams.limit(3).each_with_index do |team, index| %>
                 <%= render 'shared/teams', team: team, index: index %>
@@ -172,8 +183,15 @@
     <%# Share %>
     <div class="mb-20" data-aos="fade-up" data-aos-delay="200">
       <div class="grid md:grid-cols-2 font-semibold gap-8">
-        <div>
 
+        <%# 画像表示 %>
+        <div class="relative w-full h-64 md:h-full">
+          <div class="block rounded-xl p-2 w-3/4 bg-base-300 shadow-md dark:shadow-slate-500">
+            <%= image_tag "top-2.webp", alt: "原神編成検索2", class: "w-full h-auto rounded-xl" %>
+          </div>
+          <div class="absolute bottom-0 right-0 rounded-xl p-2 w-3/4 bg-base-300 shadow-md dark:shadow-slate-500">
+            <%= image_tag "top-3.webp", alt: "原神編成検索3", class: "w-full h-auto rounded-xl" %>
+          </div>
         </div>
         <div>
           <h2 class="text-2xl md:text-3xl mb-2"><%= t('.share') %></h2>
@@ -205,7 +223,7 @@
               </div>
               <div class="flex items-start">
                 <div class="w-1 h-1 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                <span class="text-sm">ただし、甘い評価ばかりでは参考にならないのでご注意を...😅</span>
+                <span class="text-sm">ただし、甘い評価ばかりでは参考にならないのでご注意を...</span>
               </div>
             </div>
           </div>
@@ -240,8 +258,9 @@
           <p class="text-lg font-medium mb-6">探している編成動画が見つからない時は</p>
           <p class="text-sm leading-relaxed">編成を検索して目当ての動画が見つからない場合、コミュニティにリクエストを送信できます。通知設定をオンにしているユーザーがリクエストを受け取り、情報提供してくれるかもしれません。</p>
         </div>
-        <div>
-
+        <%# 画像表示 %>
+        <div class="block mx-auto rounded-xl p-2 bg-base-300 w-3/4 shadow-md dark:shadow-slate-500">
+          <%= image_tag "top-4.webp", alt: "原神編成検索4", class: "w-full h-auto rounded-xl" %>
         </div>
       </div>
     </div>
@@ -253,7 +272,7 @@
 
       <div class="grid md:grid-cols-3 gap-4">
         <div class="p-4 bg-base-300 rounded-lg">
-          <h3 class="text-lg font-medium mb-4">体験から生まれたソリューション</h3>
+          <h3 class="text-lg font-bold mb-4">体験からソリューション提案</h3>
           <p class="text-sm mb-4 leading-relaxed">
             「ふくしゅぽ」という名前で原神の編成動画を投稿の経験を通して、
           </p>
@@ -273,14 +292,14 @@
         </div>
 
         <div class="p-4 bg-base-300 rounded-lg">
-          <h3 class="text-lg font-medium mb-4">一方通行から双方向のコミュニケーションへ</h3>
+          <h3 class="text-lg font-bold mb-4">双方向のコミュニケーションへ</h3>
           <p class="text-sm leading-relaxed">
             最初は自分の動画のみの共有サービスとして構想していましたが、<strong>一方的な情報発信者と受信者の関係ではなく、みんなで意見交換できるツール</strong>があったらもっと良いもになるのではと考え、おすすめ動画の共有・編成の評価・コメントなどの機能を実装しました。
           </p>
         </div>
 
         <div class="p-4 bg-base-300 rounded-lg">
-          <h3 class="text-lg font-medium mb-4">推しクリエイターを応援したい</h3>
+          <h3 class="text-lg font-bold mb-4">推しクリエイターを応援したい</h3>
           <p class="text-sm leading-relaxed">
             私自身「この人の解説がすごい！」「見たことないアクションだ」などと思う動画投稿者の方々が多く、皆さんもそういった"推し"のクリエイターがいるのではないかと思い、おすすめ動画機能で<strong>もっと知られるべき名動画</strong>を発掘・共有できる仕組みも作ってみました。
           </p>

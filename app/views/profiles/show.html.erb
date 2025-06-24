@@ -1,3 +1,4 @@
+<% content_for(:title, t('.title')) %>
 <div class="min-h-screen text-base-content">
   <div class="max-w-sm mx-auto">
     <div class="p-6">
@@ -34,7 +35,7 @@
                 </div>
               <% end %>
             </div>
-            
+
             <%# 通知設定 %>
             <div class="form-control w-full">
               <div class="label mb-2"><%= User.human_attribute_name(:receive_request_notifications) %></div>
