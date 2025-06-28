@@ -13,7 +13,7 @@ class TeamRatingDashboard < Administrate::BaseDashboard
     rating: Field::String.with_options(searchable: false),
     user: Field::BelongsTo,
     created_at: Field::Date,
-    updated_at: Field::Date,
+    updated_at: Field::Date
   }.freeze
 
   # COLLECTION_ATTRIBUTES

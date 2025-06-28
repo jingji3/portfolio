@@ -80,7 +80,7 @@ Rails.application.config.sorcery.configure do |config|
   # i.e. [:twitter, :facebook, :github, :linkedin, :xing, :google, :liveid, :salesforce, :slack, :line].
   # Default: `[]`
   #
-  config.external_providers = [:google]
+  config.external_providers = [ :google ]
 
   # You can change it by your local ca_file. i.e. '/etc/pki/tls/certs/ca-bundle.crt'
   # Path to ca_file. By default use a internal ca-bundle.crt.
@@ -158,10 +158,10 @@ Rails.application.config.sorcery.configure do |config|
   # config.auth0.callback_url = "https://0.0.0.0:3000/oauth/callback?provider=auth0"
   # config.auth0.site = "https://example.auth0.com"
   #
-  config.google.key = ENV['GOOGLE_CLIENT_ID']
-  config.google.secret = ENV['GOOGLE_CLIENT_SECRET']
+  config.google.key = ENV["GOOGLE_CLIENT_ID"]
+  config.google.secret = ENV["GOOGLE_CLIENT_SECRET"]
   config.google.callback_url = Settings.sorcery.google_callback_url
-  config.google.user_info_mapping = { email: 'email', user_name: 'name' }
+  config.google.user_info_mapping = { email: "email", user_name: "name" }
   # config.google.scope = "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
   #
   # For Microsoft Graph, the key will be your App ID, and the secret will be your app password/public key.
@@ -565,5 +565,5 @@ Rails.application.config.sorcery.configure do |config|
 
   # This line must come after the 'user config' block.
   # Define which model authenticates with sorcery.
-  config.user_class = 'User'
+  config.user_class = "User"
 end

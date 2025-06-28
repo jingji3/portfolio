@@ -24,7 +24,7 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 8 },
                        if: -> { (new_record? || changes[:crypted_password]) && !oauth_login }
   validates :password, format: {
-                         with: /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>\-+_=;:'"])[A-Za-z\d!@#$%^&*(),.?":{}|<>\-+_=;:'"]{8,}\z/,
+                         with: /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>\-+_=;:'"])[A-Za-z\d!@#$%^&*(),.?":{}|<>\-+_=;:'"]{8,}\z/
                          },
                        if: -> { (new_record? || changes[:crypted_password]) && !oauth_login }
   validates :password, confirmation: true,
@@ -50,7 +50,7 @@ class User < ApplicationRecord
 
   # admin判断のため
   def admin?
-    role == 'admin'
+    role == "admin"
   end
 
   def own?(object)

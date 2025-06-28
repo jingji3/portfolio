@@ -16,7 +16,7 @@ class TeamDashboard < Administrate::BaseDashboard
     team_to_characters: Field::HasMany,
     users: Field::HasMany,
     created_at: Field::Date,
-    updated_at: Field::Date,
+    updated_at: Field::Date
   }.freeze
 
   # COLLECTION_ATTRIBUTES

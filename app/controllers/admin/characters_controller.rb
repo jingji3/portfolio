@@ -6,7 +6,7 @@ module Admin
       if resource.save
         # 保存成功後に圧縮実行
         compress_character_image(resource) if resource.character_img.attached?
-        redirect_to([namespace, resource], notice: '登録しました')
+        redirect_to([ namespace, resource ], notice: "登録しました")
       else
         render :new, locals: { page: Administrate::Page::Form.new(dashboard, resource) }
       end
@@ -16,7 +16,7 @@ module Admin
       if requested_resource.update(resource_params)
         # 更新成功後に圧縮実行
         compress_character_image(requested_resource) if resource_params[:character_img].present?
-        redirect_to([namespace, requested_resource], notice: '更新しました')
+        redirect_to([ namespace, requested_resource ], notice: "更新しました")
       else
         render :edit, locals: { page: Administrate::Page::Form.new(dashboard, requested_resource) }
       end
@@ -35,7 +35,7 @@ module Admin
       begin
         # バリアント生成（WebP形式に変換）
         variant = character.character_img.variant(
-          resize_to_limit: [700, 800],  # 元サイズを維持しつつ最大サイズを制限
+          resize_to_limit: [ 700, 800 ],  # 元サイズを維持しつつ最大サイズを制限
           format: :webp,                # WebP形式で高圧縮率
           saver: {
             quality: 85,                # 画質85%（十分高品質）
@@ -51,13 +51,13 @@ module Admin
         new_blob = ActiveStorage::Blob.create_and_upload!(
           io: StringIO.new(processed_image),
           filename: new_filename,
-          content_type: 'image/webp'
+          content_type: "image/webp"
         )
 
         # 新しい添付を作成
         new_attachment = ActiveStorage::Attachment.create!(
-          name: 'character_img',
-          record_type: 'Character',
+          name: "character_img",
+          record_type: "Character",
           record_id: character.id,
           blob_id: new_blob.id
         )

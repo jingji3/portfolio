@@ -7,7 +7,7 @@ class RequestToCharacter < ApplicationRecord
   private
 
   def self.ransackable_attributes(auth_object = nil)
-    ["character_id", "request_id"]
+    [ "character_id", "request_id" ]
   end
 
   def self.ransackable_associations(auth_object = nil)

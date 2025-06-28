@@ -16,15 +16,15 @@ class CharactersController < ApplicationController
           character_img: if @character.character_img.attached?
                            url_for(@character.character_img)
                          else
-                           '/images/characters/default.png'
+                           "/images/characters/default.png"
                          end
         }
       end
     end
   rescue ActiveRecord::RecordNotFound
     respond_to do |format|
-      format.html { redirect_to characters_path, alert: t('defaults.characters.not_found') }
-      format.json { render json: { error: t('defaults.characters.not_found_with_name') }, status: :not_found }
+      format.html { redirect_to characters_path, alert: t("defaults.characters.not_found") }
+      format.json { render json: { error: t("defaults.characters.not_found_with_name") }, status: :not_found }
     end
   end
 end

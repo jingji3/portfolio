@@ -16,7 +16,7 @@ class CommentDashboard < Administrate::BaseDashboard
     replies: Field::HasMany,
     user: Field::BelongsTo,
     created_at: Field::Date,
-    updated_at: Field::Date,
+    updated_at: Field::Date
   }.freeze
 
   # COLLECTION_ATTRIBUTES

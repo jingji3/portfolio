@@ -7,7 +7,7 @@ class PostsToCharacter < ApplicationRecord
   private
 
   def self.ransackable_attributes(auth_object = nil)
-    ["character_id", "post_id", "constellation"]
+    [ "character_id", "post_id", "constellation" ]
   end
 
   def self.ransackable_associations(auth_object = nil)

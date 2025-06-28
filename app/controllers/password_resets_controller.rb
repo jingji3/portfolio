@@ -8,7 +8,7 @@ class PasswordResetsController < ApplicationController
 
     @user.deliver_reset_password_instructions! if @user
 
-    redirect_to(login_path, success: t('.success'))
+    redirect_to(login_path, success: t(".success"))
   end
 
   def edit
@@ -29,10 +29,10 @@ class PasswordResetsController < ApplicationController
 
     @user.password_confirmation = params[:user][:password_confirmation]
     if @user.change_password(params[:user][:password])
-      redirect_to(login_path, success: t('.success'))
+      redirect_to(login_path, success: t(".success"))
     else
-      flash.now[:danger] = t('.fail')
-      render action: 'edit', status: :unprocessable_entity
+      flash.now[:danger] = t(".fail")
+      render action: "edit", status: :unprocessable_entity
     end
   end
 end

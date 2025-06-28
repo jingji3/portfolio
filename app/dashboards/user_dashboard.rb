@@ -17,7 +17,7 @@ class UserDashboard < Administrate::BaseDashboard
     password: Field::Password,
     password_confirmation: Field::Password,
     created_at: Field::DateTime.with_options(format: "%Y/%m/%d %H:%M"),
-    updated_at: Field::DateTime.with_options(format: "%Y/%m/%d %H:%M"),
+    updated_at: Field::DateTime.with_options(format: "%Y/%m/%d %H:%M")
   }.freeze
 
   # COLLECTION_ATTRIBUTES

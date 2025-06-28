@@ -12,7 +12,7 @@ class RequestsController < ApplicationController
     if @request.save
       create_character_associations
       send_request_created_notification(@request) # 通知送信を追加
-      redirect_to posts_path, notice: t('defaults.flash_message.created', item: Request.model_name.human)
+      redirect_to posts_path, notice: t("defaults.flash_message.created", item: Request.model_name.human)
     else
       @characters = Character.all.order(:name)
       render :new, status: :unprocessable_entity

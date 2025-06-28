@@ -1,15 +1,38 @@
 name: CI
 
+# ワークフロー実行タイミング
 on:
   push:
-    branches: [ main ]
   pull_request:
     branches: [ main ]
 
+# ジョブの定義
 jobs:
+  # lint用
+  lint:
+    runs-on: ubuntu-latest
+
+    # 実行ステップ
+    steps:
+    # ソースコードのダウンロード
+    - uses: actions/checkout@v4
+
+    # Ruby環境のセットアップ
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.3.3
+        bundler-cache: true
+
+    # RuboCopを実行
+    - name: Run RuboCop
+      run: bundle exec rubocop
+
+  # testコード用
   test:
     runs-on: ubuntu-latest
 
+    # データベースサービス
     services:
       postgres:
         image: postgres:15
@@ -17,6 +40,7 @@ jobs:
           POSTGRES_PASSWORD: password
         ports:
           - 5432:5432
+        # ヘルスチェック（コンテナ起動完了までDBセットアップを待つため）
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -28,21 +52,26 @@ jobs:
         ports:
           - 6379:6379
 
-    env: 
+    # 環境変数
+    env:
       RAILS_ENV: test
       GOOGLE_CALLBACK_URL: http://localhost:3000/oauth/callback/google
 
+    # 実行ステップ
     steps:
-    - uses: actions/checkout@v3
+    # ソースコードのダウンロード
+    - uses: actions/checkout@v4
 
+    # Ruby環境のセットアップ
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: 3.3.3
         bundler-cache: true
 
+    # Node.js環境のセットアップ
     - name: Set up Node
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: '20'
         cache: 'yarn'
@@ -52,10 +81,12 @@ jobs:
         bundle install
         yarn install
 
+    # CSSのコンパイル
     - name: Compile CSS
       run: |
-        yarn build:css 
+        yarn build:css
 
+    # データベースのセットアップ
     - name: Setup database
       env:
         RAILS_ENV: test

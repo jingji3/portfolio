@@ -54,11 +54,11 @@ class Post < ApplicationRecord
   private
 
   def self.ransackable_attributes(auth_object = nil)
-    ["id", "title", "created_at", "updated_at"]
+    [ "id", "title", "created_at", "updated_at" ]
   end
 
   def self.ransackable_associations(auth_object = nil)
-    ["characters", "posts_to_characters"]
+    [ "characters", "posts_to_characters" ]
   end
 
   scope :with_any_characters, ->(character_ids) {
@@ -69,5 +69,4 @@ class Post < ApplicationRecord
       .where(posts_to_characters: { character_id: character_ids })
       .distinct
   }
-
 end

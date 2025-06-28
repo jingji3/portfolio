@@ -5,8 +5,8 @@ class TopController < ApplicationController
   def index
     @posts = Post.order(created_at: :desc).limit(1)
     @teams = Team.joins(:team_ratings)
-                  .select('teams.*, AVG(team_ratings.rating) as average_rating, COUNT(team_ratings.id) as ratings_count')
-                  .group('teams.id')
+                  .select("teams.*, AVG(team_ratings.rating) as average_rating, COUNT(team_ratings.id) as ratings_count")
+                  .group("teams.id")
                   .includes(:characters).order(created_at: :desc).limit(3)
 
     if params[:tag].present?
