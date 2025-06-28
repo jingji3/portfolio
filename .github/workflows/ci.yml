@@ -28,7 +28,7 @@ jobs:
         ports:
           - 6379:6379
 
-    env: 
+    env:
       RAILS_ENV: test
       GOOGLE_CALLBACK_URL: http://localhost:3000/oauth/callback/google
 
@@ -54,7 +54,7 @@ jobs:
 
     - name: Compile CSS
       run: |
-        yarn build:css 
+        yarn build:css
 
     - name: Setup database
       env:

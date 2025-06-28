@@ -1,0 +1,13 @@
+inherit_gem:
+  rubocop-rails-omakase: rubocop.yml
+
+AllCops:
+  TargetRubyVersion: 3.3.3
+  SuggestExtensions: false
+  Exclude:
+    - 'vendor/**/*'
+    - 'bin/**/*'
+    - 'db/schema.rb'      # データベーススキーマは除外
+    - 'node_modules/**/*'
+    - 'tmp/**/*'
+    - 'log/**/*'
