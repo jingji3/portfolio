@@ -1,3 +1,9 @@
 sorcery:
   google_callback_url: "http://localhost:3000/oauth/callback/google"
 
+mailer:
+  sender_email: "test@example.com"
+  delivery_method: :test
+
+default_url_options:
+  host: 'localhost:3000'
