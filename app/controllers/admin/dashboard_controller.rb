@@ -17,11 +17,11 @@ module Admin
     private
 
     def require_admin
-      redirect_to root_path, alert: t('admin.dashboard.require_admin') unless current_user&.admin?
+      redirect_to root_path, alert: t("admin.dashboard.require_admin") unless current_user&.admin?
     end
 
     def require_login
-      redirect_to login_path, alert: t('admin.dashboard.require_login') unless current_user
+      redirect_to login_path, alert: t("admin.dashboard.require_login") unless current_user
     end
   end
 end

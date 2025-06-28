@@ -7,7 +7,7 @@ class ProfilesController < ApplicationController
     if @user.update(user_params)
       # アバターが更新された時に圧縮する
       compress_avatar if params[:user][:avatar].present?
-      redirect_to profile_path, success: t('defaults.flash_message.updated', item: User.model_name.human)
+      redirect_to profile_path, success: t("defaults.flash_message.updated", item: User.model_name.human)
     else
       render :edit, status: :unprocessable_entity
     end
@@ -36,7 +36,7 @@ class ProfilesController < ApplicationController
     begin
       # バリアント生成（WebP形式に変換）
       variant = @user.avatar.variant(
-        resize_to_fill: [150, 150], # アバター用のサイズ
+        resize_to_fill: [ 150, 150 ], # アバター用のサイズ
         format: :webp,               # WebP形式に変換
         saver: {
           quality: 85,               # 85%品質
@@ -52,13 +52,13 @@ class ProfilesController < ApplicationController
       new_blob = ActiveStorage::Blob.create_and_upload!(
         io: StringIO.new(processed_image),
         filename: new_filename,
-        content_type: 'image/webp'
+        content_type: "image/webp"
       )
 
       # 新しい添付を作成
       new_attachment = ActiveStorage::Attachment.create!(
-        name: 'avatar',
-        record_type: 'User',
+        name: "avatar",
+        record_type: "User",
         record_id: @user.id,
         blob_id: new_blob.id
       )

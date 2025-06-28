@@ -1,10 +1,10 @@
 class TeamRatingsController < ApplicationController
-  include CharacterSelect #concernsのキャラクター選択用メソッド
+  include CharacterSelect # concernsのキャラクター選択用メソッド
 
   before_action :require_login
   before_action :set_team_rating, only: %i[edit update destroy]
   before_action :authorize_user, only: %i[edit update destroy]
-  before_action :set_characters_data, only: %i[new create] #キャラクターデータをセット
+  before_action :set_characters_data, only: %i[new create] # キャラクターデータをセット
 
   def new
     @team_rating = TeamRating.new
@@ -26,7 +26,7 @@ class TeamRatingsController < ApplicationController
     if character_ids.size != 4
       # セッションにキャラIDを保存して、リダイレクト
       session[:selected_character_ids] = character_ids
-      return redirect_to new_team_rating_path, alert: t('defaults.flash_message.team_ratings.select_four_characters')
+      return redirect_to new_team_rating_path, alert: t("defaults.flash_message.team_ratings.select_four_characters")
     end
 
     # キャラクターIDからチームを検索する
@@ -35,7 +35,7 @@ class TeamRatingsController < ApplicationController
     if team && current_user.team_ratings.exists?(team_id: team.id)
       # セッションにキャラIDを保存して、リダイレクト
       session[:selected_character_ids] = character_ids
-      return redirect_to new_team_rating_path, alert: t('defaults.flash_message.team_ratings.already_team_rated')
+      return redirect_to new_team_rating_path, alert: t("defaults.flash_message.team_ratings.already_team_rated")
     end
 
     # データベース処理をトランザクションで囲む
@@ -57,15 +57,15 @@ class TeamRatingsController < ApplicationController
       end
 
       session.delete(:selected_character_ids)
-      redirect_to team_path(team), notice: t('defaults.flash_message.created', item: TeamRating.model_name.human)
+      redirect_to team_path(team), notice: t("defaults.flash_message.created", item: TeamRating.model_name.human)
     rescue StandardError => e
       # エラーメッセージを表示
       e.message
-      e.record.errors.full_messages.join(', ') if e.is_a?(ActiveRecord::RecordInvalid) && e.record.errors.any?
+      e.record.errors.full_messages.join(", ") if e.is_a?(ActiveRecord::RecordInvalid) && e.record.errors.any?
 
       # セッションにキャラIDを保存して、リダイレクト
       session[:selected_character_ids] = character_ids
-      redirect_to new_team_rating_path, alert: t('defaults.flash_message.not_created', item: TeamRating.model_name.human)
+      redirect_to new_team_rating_path, alert: t("defaults.flash_message.not_created", item: TeamRating.model_name.human)
     end
   end
 
@@ -77,7 +77,7 @@ class TeamRatingsController < ApplicationController
     @team = @team_rating.team
 
     if @team_rating.update(team_rating_params)
-      redirect_to team_path(@team), notice: t('defaults.flash_message.updated', item: TeamRating.model_name.human)
+      redirect_to team_path(@team), notice: t("defaults.flash_message.updated", item: TeamRating.model_name.human)
     else
       render :edit, status: :unprocessable_entity
     end
@@ -88,7 +88,7 @@ class TeamRatingsController < ApplicationController
     @team_rating_id = @team_rating.id
     @team_rating.destroy
 
-    redirect_to team_path(@team), notice: t('defaults.flash_message.deleted', item: TeamRating.model_name.human)
+    redirect_to team_path(@team), notice: t("defaults.flash_message.deleted", item: TeamRating.model_name.human)
   end
 
   private
@@ -105,6 +105,6 @@ class TeamRatingsController < ApplicationController
   def authorize_user
     return if current_user&.id == @team_rating.user_id
 
-    redirect_to team_rating_path, alert: t('defaults.flash_message.not_authorized')
+    redirect_to team_rating_path, alert: t("defaults.flash_message.not_authorized")
   end
 end

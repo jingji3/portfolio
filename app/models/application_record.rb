@@ -13,7 +13,7 @@ class ApplicationRecord < ActiveRecord::Base
   # selectボックスの選択肢を取得
   def self.enum_options_for_select(enum_name)
     self.send(enum_name.to_s.pluralize).keys.map do |key|
-      [human_enum_name(enum_name, key), key]
+      [ human_enum_name(enum_name, key), key ]
     end
   end
   # User.enum_options_for_select(:role) を実行した場合

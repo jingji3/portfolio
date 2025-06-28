@@ -1,15 +1,15 @@
 class ApplicationController < ActionController::Base
   before_action :require_login
   add_flash_types :success, :danger
-  skip_before_action :require_login, only: [:sidebar_mini, :sidebar_full]
+  skip_before_action :require_login, only: [ :sidebar_mini, :sidebar_full ]
 
   # サイドバー切り替え用のアクション
   def sidebar_mini
-    render partial: 'shared/sidebar_mini', layout: false
+    render partial: "shared/sidebar_mini", layout: false
   end
 
   def sidebar_full
-    render partial: 'shared/sidebar', layout: false
+    render partial: "shared/sidebar", layout: false
   end
 
   private
@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   def require_login
     return if current_user
 
-    flash[:alert] = t('defaults.flash_message.require_login')
+    flash[:alert] = t("defaults.flash_message.require_login")
     redirect_to login_path
   end
 

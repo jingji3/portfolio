@@ -1,10 +1,10 @@
 class PostsController < ApplicationController
-  include CharacterSelect #concernsのキャラクター選択用メソッド
+  include CharacterSelect # concernsのキャラクター選択用メソッド
 
   skip_before_action :require_login, only: %i[index show]
   before_action :set_post, only: %i[show edit update destroy]
   before_action :authorize_user, only: %i[edit update destroy]
-  before_action :set_characters_data, only: %i[index new edit create update] #キャラクターデータをセット
+  before_action :set_characters_data, only: %i[index new edit create update] # キャラクターデータをセット
 
   include YoutubeHelper
 
@@ -20,14 +20,14 @@ class PostsController < ApplicationController
 
     # ポストの表示順を変えるための処理
     @posts = case params[:sort]
-              when 'likes'
-                @posts.left_joins(:likes) #　joinsでまとめるとlike0のpostが取得されないため、left_joinsを使用
-                      .select('posts.*, COUNT(likes.id) as likes_count')
-                      .group('posts.id')
-                      .order('likes_count DESC, posts.created_at DESC')
-              else
+    when "likes"
+                @posts.left_joins(:likes) # 　joinsでまとめるとlike0のpostが取得されないため、left_joinsを使用
+                      .select("posts.*, COUNT(likes.id) as likes_count")
+                      .group("posts.id")
+                      .order("likes_count DESC, posts.created_at DESC")
+    else
                 @posts.order(created_at: :desc)
-              end
+    end
 
 
     # キャラクターIDが指定されている場合は絞り込み
@@ -35,8 +35,8 @@ class PostsController < ApplicationController
       # 全ての選択されたキャラクターを含む投稿のみを取得（AND検索）
       @posts = @posts.joins(:posts_to_characters)
                      .where(posts_to_characters: { character_id: character_ids })
-                     .group('posts.id')
-                     .having('COUNT(DISTINCT posts_to_characters.character_id) = ?', character_ids.size)
+                     .group("posts.id")
+                     .having("COUNT(DISTINCT posts_to_characters.character_id) = ?", character_ids.size)
     end
 
     # タグでの絞り込み
@@ -86,7 +86,7 @@ class PostsController < ApplicationController
     if @post.save
       create_character_associations
       check_and_complete_matching_requests(@post) # もしリクエストがあるキャラクターの編成だった場合にstatusをcompleteにする
-      redirect_to @post, notice: t('defaults.flash_message.shared', item: Post.model_name.human)
+      redirect_to @post, notice: t("defaults.flash_message.shared", item: Post.model_name.human)
     else
       @characters = Character.all.order(:name)
       render :new, status: :unprocessable_entity
@@ -112,7 +112,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post.tag_input = @post.tags.map { |t| "##{t.name}"}.join(' ')
+    @post.tag_input = @post.tags.map { |t| "##{t.name}" }.join(" ")
   end
 
   def update
@@ -123,7 +123,7 @@ class PostsController < ApplicationController
       @post.posts_to_characters.destroy_all # 既存の関連を削除
       create_character_associations # 新しい関連を作成
 
-      redirect_to @post, notice: t('defaults.flash_message.updated', item: Post.model_name.human)
+      redirect_to @post, notice: t("defaults.flash_message.updated", item: Post.model_name.human)
     else
       render :edit, status: :unprocessable_entity
     end
@@ -131,7 +131,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to posts_path, notice: t('defaults.flash_message.deleted', item: Post.model_name.human)
+    redirect_to posts_path, notice: t("defaults.flash_message.deleted", item: Post.model_name.human)
   end
 
 
@@ -148,7 +148,7 @@ class PostsController < ApplicationController
   def authorize_user
     return if current_user&.id == @post.user_id
 
-    redirect_to posts_path, alert: t('defaults.flash_message.not_authorized')
+    redirect_to posts_path, alert: t("defaults.flash_message.not_authorized")
   end
 
   # キャラクターの関連付けを作成するメソッド

@@ -2,13 +2,13 @@ class MypageController < ApplicationController
   include YoutubeHelper
   def index
     @user = current_user
-    @active_tab = params[:tab] || 'posts'
+    @active_tab = params[:tab] || "posts"
 
     # タブごとに必要なデータを取得する
     case @active_tab
 
     # 投稿の一覧
-    when 'posts'
+    when "posts"
       @posts = current_user.posts.includes(:tags).order(created_at: :desc).page(params[:page]).per(9)
 
       # YouTube情報の取得
@@ -35,7 +35,7 @@ class MypageController < ApplicationController
       end
 
     # お気に入り一覧
-    when 'favorites'
+    when "favorites"
       @favorite_posts = current_user.favorite_posts.order(created_at: :desc).page(params[:page]).per(9)
 
       # YouTube情報の取得
@@ -62,11 +62,11 @@ class MypageController < ApplicationController
       end
 
     # 評価一覧
-    when 'team_ratings'
+    when "team_ratings"
       @team_ratings = current_user.team_ratings.order(created_at: :desc).page(params[:page]).per(5)
 
     # 通知一覧
-    when 'notifications'
+    when "notifications"
       # 通知タブを開いたら未読通知を既読にする
       current_user.notifications.unread.each(&:mark_as_read!)
 

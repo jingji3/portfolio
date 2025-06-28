@@ -32,15 +32,15 @@ class OauthsController < ApplicationController
   # OAuthプロバイダーの情報からユーザーを作成するメソッド
   def create_from(provider)
     sorcery_fetch_user_hash(provider) # Googleからユーザー情報を取得
-    @user = User.find_by(email: @user_hash[:user_info]['email']) # すでに同じメールアドレスユーザーが存在しないか確認
+    @user = User.find_by(email: @user_hash[:user_info]["email"]) # すでに同じメールアドレスユーザーが存在しないか確認
 
     unless @user
       # ランダムパスワード生成
       random_password = SecureRandom.hex(10)
 
       @user = User.new(
-        email: @user_hash[:user_info]['email'],
-        user_name: @user_hash[:user_info]['name'],
+        email: @user_hash[:user_info]["email"],
+        user_name: @user_hash[:user_info]["name"],
         password: random_password,
         password_confirmation: random_password,
         oauth_login: true

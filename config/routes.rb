@@ -1,28 +1,28 @@
 Rails.application.routes.draw do
   # letter_openerのセットアップ用
-  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 
   # health check
-  get 'up' => 'rails/health#show', as: :rails_health_check
+  get "up" => "rails/health#show", as: :rails_health_check
 
   # トップページ
-  root 'top#index'
+  root "top#index"
 
   # OAuthログインのルーティング
-  post 'oauth/:provider', to: 'oauths#oauth', as: :auth_at_provider
-  get 'oauth/callback/:provider', to: 'oauths#callback', as: :oauth_callback
+  post "oauth/:provider", to: "oauths#oauth", as: :auth_at_provider
+  get "oauth/callback/:provider", to: "oauths#callback", as: :oauth_callback
 
   # ログイン、ログアウト
-  get 'login', to: 'user_sessions#new'
-  post 'login', to: 'user_sessions#create'
-  delete 'logout', to: 'user_sessions#destroy'
+  get "login", to: "user_sessions#new"
+  post "login", to: "user_sessions#create"
+  delete "logout", to: "user_sessions#destroy"
   # resources :user_sessions, only: %i[new create destroy], path: 'login', path_names: { new: 'new', create: 'create', destroy: 'logout' }
 
   # ユーザー登録
   resources :users, only: %i[new create]
 
   # マイページ
-  get 'mypage', to: 'mypage#index', as: :mypage
+  get "mypage", to: "mypage#index", as: :mypage
   # resource :mypage, only: %i[index], path: 'mypage', controller: 'mypage'
 
   # プロフィール編集
@@ -66,8 +66,8 @@ Rails.application.routes.draw do
   end
 
   # サイドバー切り替え用
-  get 'sidebar_mini', to: 'application#sidebar_mini'
-  get 'sidebar_full', to: 'application#sidebar_full'
+  get "sidebar_mini", to: "application#sidebar_mini"
+  get "sidebar_full", to: "application#sidebar_full"
 
   # static pages
   resources :static_pages, only: [] do
@@ -80,7 +80,7 @@ Rails.application.routes.draw do
 
   # admin page
   namespace :admin do
-    get '/', to: 'dashboard#index'
+    get "/", to: "dashboard#index"
     resources :users do
       member do
         post :activate
@@ -100,6 +100,6 @@ Rails.application.routes.draw do
     resources :requests
     resources :comments
 
-    root to: 'dashboard#index'
+    root to: "dashboard#index"
   end
 end

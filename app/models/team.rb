@@ -20,8 +20,8 @@ class Team < ApplicationRecord
 
     joins(:team_to_characters)
       .where(team_to_characters: { character_id: sorted_ids }) # キャラIDはソートして取得
-      .group('teams.id')
-      .having('COUNT(DISTINCT team_to_characters.character_id) = ?', sorted_ids.size) # 4体のキャラが選択された時という条件を作る
+      .group("teams.id")
+      .having("COUNT(DISTINCT team_to_characters.character_id) = ?", sorted_ids.size) # 4体のキャラが選択された時という条件を作る
       .first # 見つけた時点で終了
   end
 

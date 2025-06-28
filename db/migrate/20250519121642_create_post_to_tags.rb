@@ -8,6 +8,6 @@ class CreatePostToTags < ActiveRecord::Migration[7.1]
     end
 
     # 同じ投稿に対して同じジャンルが複数回関連付けられないようにするためのユニーク制約を追加
-    add_index :post_to_tags, [:post_id, :tag_id], unique: true
+    add_index :post_to_tags, [ :post_id, :tag_id ], unique: true
   end
 end

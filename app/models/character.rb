@@ -22,11 +22,11 @@ class Character < ApplicationRecord
 
     case size
     when :small
-      character_img.variant(resize_to_limit: [70, 80], format: :webp)
+      character_img.variant(resize_to_limit: [ 70, 80 ], format: :webp)
     when :normal
-      character_img.variant(resize_to_limit: [140, 160], format: :webp)
+      character_img.variant(resize_to_limit: [ 140, 160 ], format: :webp)
     when :large
-      character_img.variant(resize_to_limit: [350, 400], format: :webp)
+      character_img.variant(resize_to_limit: [ 350, 400 ], format: :webp)
     end
   end
 

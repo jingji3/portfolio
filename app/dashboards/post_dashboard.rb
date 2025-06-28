@@ -22,7 +22,7 @@ class PostDashboard < Administrate::BaseDashboard
     video_url: Field::String,
     youtube_start_time: Field::Number,
     created_at: Field::Date,
-    updated_at: Field::Date,
+    updated_at: Field::Date
   }.freeze
 
   # COLLECTION_ATTRIBUTES

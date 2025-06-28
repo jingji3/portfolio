@@ -14,7 +14,7 @@ module CharacterSelect
         name: character.name,
         name_kana: character.name_kana,
         name_eng: character.name_eng,
-        searchable_name: "#{character.name} #{character.name_kana} #{character.name_eng}", #キャラクター検索ようにハッシュ化
+        searchable_name: "#{character.name} #{character.name_kana} #{character.name_eng}" # キャラクター検索ようにハッシュ化
       }
     end.to_json
   end

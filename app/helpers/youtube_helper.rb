@@ -31,5 +31,4 @@ module YoutubeHelper
         format("%d:%02d", minutes, secs)
       end
     end
-
 end

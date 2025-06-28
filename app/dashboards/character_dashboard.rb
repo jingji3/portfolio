@@ -1,5 +1,5 @@
-require 'administrate/base_dashboard'
-require Rails.root.join('app/fields/image_field')
+require "administrate/base_dashboard"
+require Rails.root.join("app/fields/image_field")
 
 class CharacterDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES

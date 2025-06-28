@@ -1,7 +1,7 @@
-require_relative 'boot'
+require_relative "boot"
 
-require 'rails/all'
-require 'logger'
+require "rails/all"
+require "logger"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -12,14 +12,14 @@ module JingjiPortfolio
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
-    if Rails.version >= '7.1'
+    if Rails.version >= "7.1"
       config.autoload_lib(ignore: %w[assets tasks])
     else
-      config.autoload_paths << Rails.root.join('lib')
+      config.autoload_paths << Rails.root.join("lib")
     end
 
     # i18nファイルの読み込みパスを追加
-    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+    config.i18n.load_path += Dir[Rails.root.join("config", "locales", "**", "*.{rb,yml}").to_s]
 
     # デフォルトのロケールを設定
     config.i18n.default_locale = :ja
