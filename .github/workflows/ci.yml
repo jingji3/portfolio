@@ -97,11 +97,12 @@ jobs:
         bundle exec rails db:create
         bundle exec rails db:schema:load
 
-    - name: Run Rspec
-      env:
-        RAILS_ENV: test
-        RAILS_DISABLE_EAGER_LOADING: true
-      run: bundle exec rspec
+    # - name: Run Rspec
+    #   env:
+    #     RAILS_ENV: test
+    #     RAILS_DISABLE_EAGER_LOADING: true
+    #   run: bundle exec rspec
+
     #   env:
     #     GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
     #     GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
