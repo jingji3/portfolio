@@ -89,12 +89,9 @@ Rails.application.configure do
   # アセットコンプレッサーを無効化
   config.assets.css_compressor = nil
 
-   # ドメインを許可
-   config.hosts << "gts-s.net" # メインドメイン
-   config.hosts << "www.gts-s.net" # サブドメイン
-
-   # 既存のドメインも一時的に維持
-   config.hosts << "jingji-portfolio.onrender.com"
+  # ドメインを許可
+  config.hosts << "gts-s.net" # メインドメイン
+  config.hosts << "www.gts-s.net" # サブドメイン
 
   # Only use :id for inspections in production.
   # config.active_record.attributes_for_inspect = [ :id ]
