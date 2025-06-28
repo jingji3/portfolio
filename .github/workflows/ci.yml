@@ -98,6 +98,8 @@ jobs:
         bundle exec rails db:schema:load
 
     - name: Run Rspec
+      env:
+        RAILS_ENV: test
       run: bundle exec rspec
     #   env:
     #     GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
