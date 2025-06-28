@@ -99,7 +99,7 @@ jobs:
     - name: Run Rspec
       env:
         RAILS_ENV: test
-        RAILS_DISABLE_EAGER_LOADING: true
+        RAILS_EAGER_LOAD: false
       run: bundle exec rspec
 
     #   env:
