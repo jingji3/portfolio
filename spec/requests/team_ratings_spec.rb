@@ -43,7 +43,7 @@ RSpec.describe "TeamRatings", type: :request do
 
       it "キャラクターが4体未満の場合にリダイレクトされる" do
         post team_ratings_path, params: {
-          character_ids: [characters.first.id],  # 1体のみ
+          character_ids: [ characters.first.id ],  # 1体のみ
           team_rating: { rating: 4.5, body: "test" }
         }
         expect(response).to have_http_status(:redirect)

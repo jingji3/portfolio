@@ -29,7 +29,7 @@ RSpec.describe "Favorites", type: :request do
 
   describe "DELETE /posts/:post_id/favorites" do
     context "ユーザーがログインしている場合" do
-      before { login_as(user)}
+      before { login_as(user) }
 
       context "お気に入りが存在する場合" do
         let!(:favorite) { create(:favorite, user: user, post: test_post) }
