@@ -81,10 +81,10 @@ jobs:
         bundle install
         yarn install
 
-    # CSSのコンパイル
-    - name: Compile CSS
+    # Assetsのコンパイル
+    - name: Compile Assets
       run: |
-        yarn build:css
+        yarn build
 
     # データベースのセットアップ
     - name: Setup database
