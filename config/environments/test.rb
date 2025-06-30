@@ -44,9 +44,6 @@ Rails.application.configure do
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 
-  # アクティブストレージの設定
-  config.active_storage.service = :test
-
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 
@@ -55,4 +52,7 @@ Rails.application.configure do
 
   # Raise error when a before_action's only/except options reference missing actions.
   config.action_controller.raise_on_missing_callback_actions = true
+
+  # アセットコンプレッサーを無効化
+  config.assets.css_compressor = nil
 end

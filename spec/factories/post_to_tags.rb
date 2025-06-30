@@ -1,6 +1,6 @@
 FactoryBot.define do
-  factory :post_to_genre do
-    post { nil }
-    genre { nil }
+  factory :post_to_tag do
+    association :post
+    association :tag
   end
 end

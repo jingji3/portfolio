@@ -1,7 +1,5 @@
 require 'rails_helper'
 
 RSpec.describe "Characters", type: :request do
-  describe "GET /index" do
-    pending "add some examples (or delete) #{__FILE__}"
-  end
+  let(:test_characters) { create(:character) }
 end

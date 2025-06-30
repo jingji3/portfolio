@@ -28,7 +28,7 @@
 
           <%# 編集、削除ボタン表示 %>
           <div>
-            <% if current_user.own?(comment) %>
+            <% if logged_in? && current_user.own?(comment) %>
               <div class="flex space-x-3">
                 <div class="list-inline-item">
                   <%= link_to edit_comment_path(comment), class: "edit-comment-link", data:{ turbo_stream: true } do %>

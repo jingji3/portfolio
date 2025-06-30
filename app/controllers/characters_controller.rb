@@ -21,10 +21,5 @@ class CharactersController < ApplicationController
         }
       end
     end
-  rescue ActiveRecord::RecordNotFound
-    respond_to do |format|
-      format.html { redirect_to characters_path, alert: t("defaults.characters.not_found") }
-      format.json { render json: { error: t("defaults.characters.not_found_with_name") }, status: :not_found }
-    end
   end
 end

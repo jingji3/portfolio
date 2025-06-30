@@ -53,7 +53,7 @@ Rails.application.routes.draw do
   resources :teams, only: %i[index show]
 
   # キャラクター
-  resources :characters
+  resources :characters, only: %i[show]
 
   # リクエスト
   resources :requests, only: %i[new create]
