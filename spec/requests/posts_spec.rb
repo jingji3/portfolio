@@ -40,4 +40,29 @@ RSpec.describe "Posts", type: :request do
       end
     end
   end
+
+  describe "DELETE /posts/:id" do
+    context "ユーザーがログインしている場合" do
+      before { login_as(user) }
+
+      it "ポストを削除できる" do
+        post = create(:post, user: user)
+        delete post_path(post.id)
+
+        expect(response).to have_http_status(:redirect)
+        expect(response).to redirect_to(posts_path)
+        expect(Post.exists?(post.id)).to be_falsey
+      end
+    end
+
+    context "ユーザーがログインしていない場合" do
+      it "ログインページにリダイレクトされる" do
+        post = create(:post)
+        delete post_path(post.id)
+
+        expect(response).to have_http_status(:redirect)
+        expect(response).to redirect_to(login_path)
+      end
+    end
+  end
 end
