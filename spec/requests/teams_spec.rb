@@ -1,9 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe "Teams", type: :request do
-  let(:team) { create(:team) }  # テスト用のチームを作成
+  let(:team) { create(:team) }
 
-  # indexアクションのテスト
   describe "GET /teams" do
     context "基本画面の表示" do
       it "正常にページが表示される" do
@@ -13,7 +12,6 @@ RSpec.describe "Teams", type: :request do
     end
   end
 
-  # showアクションのテスト
   describe "GET /teams/:id" do
     it "正常にページが表示される" do
       get team_path(team.id)
