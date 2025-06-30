@@ -13,6 +13,23 @@
 # it.
 #
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+require 'simplecov'
+
+SimpleCov.start 'rails' do
+  add_filter '/bin/'
+  add_filter '/config/'
+  add_filter '/db/'
+  add_filter '/spec/'
+  add_filter '/vendor/'
+
+  # カバレッジ率の最小値設定（オプション）
+  minimum_coverage 80
+
+  # HTMLレポートの出力先
+  coverage_dir 'coverage'
+end
+
+
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest

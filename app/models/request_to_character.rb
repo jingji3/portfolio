@@ -3,14 +3,4 @@ class RequestToCharacter < ApplicationRecord
   belongs_to :character
 
   validates :request_id, uniqueness: { scope: :character_id }
-
-  private
-
-  def self.ransackable_attributes(auth_object = nil)
-    [ "character_id", "request_id" ]
-  end
-
-  def self.ransackable_associations(auth_object = nil)
-    []
-  end
 end

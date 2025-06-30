@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :genre do
-    name { "MyString" }
+  factory :tag do
+    sequence(:name) { |n| "タグ#{n}" }
   end
 end

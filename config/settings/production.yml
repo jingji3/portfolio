@@ -1,5 +1,5 @@
 sorcery:
-  google_callback_url: "https://jingji-portfolio.onrender.com/oauth/callback/google"
+  google_callback_url: "https://gts-s.net/oauth/callback/google"
 
 mailer:
   sender_email: <%= ENV['MAIL_FROM'] %>
@@ -7,4 +7,4 @@ mailer:
 
 default_url_options:
   protcol: 'https'
-  host: 'jingji-portfolio.onrender.com'
+  host: 'gts-s.net'

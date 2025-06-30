@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :team_ratings, dependent: :destroy
   has_many :rated_teams, through: :team_ratings, source: :team
   has_many :authentications, dependent: :destroy # 複数の認証方法(Google, Xなど)を持たせるため
+  has_many :posts_to_characters, through: :posts # complete_matching_requestsで使用するため
   has_many :requests, dependent: :destroy
   has_many :notifications, as: :recipient, dependent: :destroy, class_name: "Noticed::Notification" # 通知関連（gem noticed）
 
