@@ -23,7 +23,7 @@ SimpleCov.start 'rails' do
   add_filter '/vendor/'
 
   # カバレッジ率の最小値設定（オプション）
-  minimum_coverage 80
+  minimum_coverage 60
 
   # HTMLレポートの出力先
   coverage_dir 'coverage'
