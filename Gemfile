@@ -111,6 +111,7 @@ group :development do
   gem "rack-mini-profiler"
   gem "spring"
   gem "web-console"
+  gem "rails-erd"
 end
 
 group :test do
