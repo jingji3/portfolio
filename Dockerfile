@@ -5,7 +5,13 @@ WORKDIR /jingji_portfolio
 
 # Install base packages
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y curl libjemalloc2 libvips postgresql-client watchman && \
+    apt-get install --no-install-recommends -y \
+    curl \
+    libjemalloc2 \
+    libvips \
+    postgresql-client \
+    watchman \
+    graphviz && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Node.jsの最新バージョンをインストール（v20系）

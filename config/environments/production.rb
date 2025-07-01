@@ -92,6 +92,7 @@ Rails.application.configure do
   # ドメインを許可
   config.hosts << "gts-s.net" # メインドメイン
   config.hosts << "www.gts-s.net" # サブドメイン
+  config.hosts << "jingji-portfolio.onrender.com"
 
   # Only use :id for inspections in production.
   # config.active_record.attributes_for_inspect = [ :id ]
