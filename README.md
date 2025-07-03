@@ -161,7 +161,6 @@ Googleログイン機能を利用する予定
 | ログイン機能    | sorcery, OmniAuth(GoogleOAuth2) |
 | UI             | Tailwind CSS, DaisyUI, font-awesome, AOS |
 
-
 ## 画面遷移図
 Figma：https://www.figma.com/design/LES6SYlGfTkxEY5R1OR3Cm/portfolio?node-id=0-1&t=eCxmWRTdZej8mujb-1
 プロトタイプ（ユーザー画面）：https://www.figma.com/proto/LES6SYlGfTkxEY5R1OR3Cm/portfolio?node-id=0-1&t=fgY8GLt5A9kYHdLg-1
